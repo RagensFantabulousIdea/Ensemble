@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  figure_num: MyString
+  description: MyString
+  order_num: 1
+  landscape: false
+  portrait: false
+  demonstrative: false
+  decorative: false
+  video_needed: false
+  video_only: false
+  frame_num: MyString
+  tag: MyString
+  instructions: MyString
+  photographer: MyString
+
+two:
+  figure_num: MyString
+  description: MyString
+  order_num: 1
+  landscape: false
+  portrait: false
+  demonstrative: false
+  decorative: false
+  video_needed: false
+  video_only: false
+  frame_num: MyString
+  tag: MyString
+  instructions: MyString
+  photographer: MyString
