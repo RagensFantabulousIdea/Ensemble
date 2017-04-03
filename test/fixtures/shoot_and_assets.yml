@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  shoot: one
+  asset: one
+
+two:
+  shoot: two
+  asset: two
