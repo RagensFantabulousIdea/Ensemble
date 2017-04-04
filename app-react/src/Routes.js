@@ -8,7 +8,8 @@ import { Router, Route, browserHistory } from 'react-router'
 // Import your Todos and Completed components here...
 
 import Welcome from './components/Welcome'
-// import Checkout from './Checkout'
+import SignUp from './components/SignUp'
+import Signin from './components/Signin'
 // import Signup from './Signup'
 // import Signin from './Signin'
 
@@ -17,6 +18,10 @@ class Routes extends React.Component {
     render() {
         return <Router history={browserHistory}>
             <Route path="/" component={Welcome} />
+            <Route path="/signup" component={SignUp} />
+            <Route path="/signin" component={Signin} />
+           
+       
         </Router>
     }
 }
