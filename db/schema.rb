@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170403214515) do
+ActiveRecord::Schema.define(version: 20170404010351) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,14 +33,21 @@ ActiveRecord::Schema.define(version: 20170403214515) do
     t.datetime "updated_at",    null: false
   end
 
+  create_table "equipment", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "projects", force: :cascade do |t|
-    t.string   "project_id"
+    t.string   "project_num"
     t.string   "title"
     t.string   "description"
     t.string   "author"
     t.string   "token"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "user_id"
   end
 
   create_table "shoot_and_assets", force: :cascade do |t|
@@ -70,6 +77,7 @@ ActiveRecord::Schema.define(version: 20170403214515) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "projects", "users"
   add_foreign_key "shoot_and_assets", "assets"
   add_foreign_key "shoot_and_assets", "shoots"
 end
