@@ -1,0 +1,2 @@
+class ShootsController < ApplicationController
+end
