@@ -6,16 +6,14 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by(email: params[:session][:email])
     if @user && @user.authenticate(params[:session][:password])
-      session[:user_id] = @user.id
       render json: @user, status: 200
     else
-      render json: "Login failure. Please check credentials and try again."
+      render json: {message: "Login failure. Please check credentials and try again."}
     end
   end
 
   def destroy
-    session[:user_id] = nil
-    redirect_to :root
+    render json: {message:"Logout complete."}, status: 200
   end
 
 end
