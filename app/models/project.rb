@@ -3,5 +3,5 @@ class Project < ApplicationRecord
 
   belongs_to :user
 
-  validates_presence_of :title, :author, required: true
+  validates_presence_of :title, :description, :author, required: true
 end
