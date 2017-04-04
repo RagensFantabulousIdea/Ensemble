@@ -1,6 +1,5 @@
 class ProjectsController < ApplicationController
 
-
   def index
     @user = current_user
     @projects = @user.projects.all
@@ -31,6 +30,5 @@ class ProjectsController < ApplicationController
   def project_params
     params.permit(:title, :description, :author, :project_num)
   end
-
 
 end
