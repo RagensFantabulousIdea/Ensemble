@@ -19,6 +19,10 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def share
+    @user = user
+  end
+
   def update
   end
 
