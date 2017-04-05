@@ -3,15 +3,14 @@ import React, { Component } from 'react';
 class ProjectShoot extends Component {
   render() {
 
-    // $('#myModal').on('shown.bs.modal', function () {
-    // $('#myInput').focus()
-// })
  // ideally, want this to be a modal, like this stuff from Bootstrap, but it doesn't just work, so have to figure that out.
+
+ //users fill out figure information here, it goes to ProjectShootCard. Then ProjectShootCards gets placed in a list on ProjectShoot.
     return (
         <div>
             <div className="panel panel-default container">
                 <div className="panel-heading">
-                    <h3 className="panel-title">Image Planning Card</h3>
+                    <h3 className="panel-title">Figure Planning Card</h3>
                 </div>
             <div className="panel-body">
                 <form>
@@ -22,35 +21,23 @@ class ProjectShoot extends Component {
                                 <input type="text" className="form-control figureNumber" placeholder="Figure 1.1"/>
                             </div>
                         </div>
-
-                        <div className="col-xs-6">
+                    </div>
+                    
+                    <div className="row">
+                        <div className="col-xs-12">
                             <div className="form-group">
-                                <label for="figureFrame">Camera Frame</label>
-                                <input type="text" className="form-control figureFrame" placeholder="DSC05697"/>
-                                <p className="help-block">During the shoot, note the selection frame number or range of frame numbers if not selected.</p>
+                                <label for="figureDescription">Figure Description</label>
+                                <textarea type="text" className="form-control figureDescription"  placeholder="child swinging baseball bat"></textarea>
                             </div>
-                        </div>
-                    </div>
-                    
-                    <div className="row">
-                        <div className="form-group">
-                            <label for="figureDescription">Figure Description</label>
-                            <textarea type="text" className="form-control figureDescription"  placeholder="man doing a squat exercise"> </textarea>
-                        </div>
+                        </div> 
                     </div>
 
                     <div className="row">
-                        <div className="form-group">
-                            <label for="figureInstructions">Instructions for how to create the image.</label>
-                            <textarea type="text" className="form-control figureInstructions"  placeholder="1. Stand with feet hip-width apart, facing home base, body angled towards the pitchers mound . . ."> </textarea>
-                        </div>
-                    </div>
-                    
-                    <div className="row">
-                        <div className="form-group">
-                            <label for="figureSample">Upload Sample</label>
-                            <input type="file" className="figureSample"/>
-                            <p className="help-block">You can upload sample images to guide the models and photographer.</p>
+                        <div className="col-xs-12">
+                            <div className="form-group">
+                                <label for="figureInstructions">Instructions for how to pose the model(s).</label>
+                                <textarea type="text" className="form-control figureInstructions"  placeholder="1. Stand with feet hip-width apart, facing home base, body angled towards the pitchers mound . . ."></textarea>
+                            </div>
                         </div>
                     </div>
 
@@ -58,16 +45,16 @@ class ProjectShoot extends Component {
                         <div className="col-xs-6">
                             <div className="form-group">
                                 <label for="figureEquipment">Equipment</label>
-                                <textarea type="text" className="form-control figureEquipment"  placeholder="* baseball bat"> </textarea>
-                                <p className="help-block">You can make this show as a bulleted list within the project page by adding an * with a space after it at the start of each line within the text box.</p>
+                                <p className="help-block">You can make this show as a bulleted list within the project page by adding an asterisk with a space after it ("* ") at the start of each line within the text box.</p>
+                                <textarea type="text" className="form-control figureEquipment"  placeholder="* baseball bat"></textarea>
                             </div>
                         </div>
 
                         <div className="col-xs-6">
                             <div className="form-group">
                                 <label for="figureModel">Model Information</label>
-                                <textarea type="text" className="form-control figureModel"  placeholder="* boy, 10 years old"> </textarea>
-                                <p className="help-block">You can make this show as a bulleted list within the project page by adding an * with a space after it at the start of each line within the text box.</p>
+                                <p className="help-block">You can make this show as a bulleted list within the project page by adding an asterisk with a space after it ("* ") at the start of each line within the text box.</p>
+                                <textarea type="text" className="form-control figureModel"  placeholder="* boy, 10 years old"></textarea>
                             </div>
                         </div>
                     </div>
@@ -76,8 +63,7 @@ class ProjectShoot extends Component {
                         <div className="col-sm-4">
                             <div className="form-group">
                                 <label for="figureLocation">Location of Shoot</label>
-                                <input type="text" className="form-control figureLocation" placeholder="baseball field, batting box"/>
-                                <p className="help-block">Note the general location as well as specific spot within that location. For example, "gymnasium, center of floor."</p>
+                                <textarea type="text" className="form-control figureLocation" placeholder="Champaign, IL, Kirby Park baseball field, batting box"></textarea>
                             </div>
                         </div>
 
@@ -131,35 +117,31 @@ class ProjectShoot extends Component {
                     </div>
 
                     <div className="row">
-                        <div className="col-xs-6">
-                            <div className="form-group">
-                                <div className="checkbox figureFacts pull-right">
-                                    <label>
-                                        <input type="checkbox"/> Figure has multiple parts?
-                                    </label>
-                                </div>
+                        <div className="col-xs-12">
+                            <div className="checkbox figureFacts">
+                                <label>
+                                    <input type="checkbox"/> Figure has multiple parts? If checked, how many parts in this figure, total, including this one? <input type="text" className="form-control figureParts" placeholder="2"/>
+                                </label>
                             </div>
                         </div>
-                        
-                        <div className="col-xs-6">
-                            <div className="form-group">
-                                <label for="figureParts">If so, how many parts in this figure, total, including this one?</label>
-                                <input type="text" className="form-control figureParts" placeholder="2"/>
-                            </div>
-                        </div>
-                                
                     </div>
 
+                    <br/>
+
+                    <div className="row">
+                         <div className="col-xs-12">
+                            <div className="form-group">
+                                <label for="figureSample">Upload Sample</label>
+                                <p className="help-block">You can upload sample images to guide the models and photographer.</p>
+                                <input type="file" className="figureSample"/>
+                            </div>
+                        </div>
+                    </div>
+                       
                     <div className="row pull-right">
-                        <button type="submit" className="btn btn-success">Save Item</button>
+                        <button type="submit" className="btn btn-success">Save Figure</button>
                     </div>
 
-
-                
-
-                    
-
-                    
                 </form>
             </div>
         </div>
