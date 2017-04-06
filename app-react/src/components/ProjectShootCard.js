@@ -15,81 +15,77 @@ class ProjectShootCard extends Component {
               </div>
               
             <div className="panel-body">
+
               <div className="row">
-                <div className="col-xs-6">
-                  <h4>Description</h4>
-                    <p>Pull the description from the card build.</p>
+                <div className="col-xs-4">
+                  <p>Pull location from backend.</p>
                 </div>
 
-                <div className="col-xs-3">
-                  <h5>Decorative</h5>
-                  <h5>Demonstrative</h5>
+                <div className="col-xs-4">
+                  <p>Pull date from backend.</p>
                 </div>
 
-                <div className="col-xs-3">
-                  <h5>Portrait</h5>
-                  <h5>Landscape</h5>
+                <div className="col-xs-4">
+                  <p>Pull time from backend.</p>
+                </div>
+              
+              </div>
+
+              <div className="row">
+                <div className="col-xs-12">
+                  <p><strong>Description: </strong><span>Pull the description from the card build.</span></p>
                 </div>
               </div>
 
               <div className="row">
                 <div className="col-xs-12">
-                  <h4>Instructions</h4>
-                    <p>Pull the instructions from the card build. It might be a numbered list. But Kalea is handling that. There might be several lines to this, so I am putting it in its own column within the row . . .</p>
+                  <p><strong>Instructions: </strong>Pull the instructions from the card build. There might be several lines to this, so I am putting it in its own column within the row . . .</p>
+                </div>
+              </div>
+              
+              <div className="row">
+                <div className="col-xs-4">
+                  <p><strong>Decorative</strong></p>
+                  <p><strong>Demonstrative</strong></p>  
+                </div>
+
+                <div className="col-xs-4">
+                  <p><strong>Portrait</strong></p>
+                  <p><strong>Landscape</strong></p>
+                </div>
+
+                <div className="col-xs-4">
+                  <p><strong>"Figure has [pull the number] part(s)"</strong></p>
                 </div>
               </div>
 
               <div className="row">
                 <div className="col-xs-6">
-                  <h4>Models</h4>
-                    <p>Pull card build.</p>
+                  <p><strong>Models: </strong>Pull card build.</p>
                 </div>
 
                 <div className="col-xs-6">
-                  <h4>Equipment</h4>
-                    <p>Pull the equipment from the card build. Might look like an unordered list if Kalea gets that working.</p>
-                </div>
-              </div>
-
-              <div className="row">
-                <div className="col-xs-3">
-                  <h4>Location</h4>
-                    <p>Pull card build.</p>
-                </div>
-
-                <div className="col-xs-3">
-                  <h4>Date</h4>
-                    <p>Pull card build.</p>
-                </div>
-
-                <div className="col-xs-3">
-                  <h4>Time</h4>
-                    <p>Pull card build.</p>
-                </div>
-
-                <div className="col-xs-3">
-                  <h4>Multi-Parts</h4>
-                    <p>Figure has BB Parts</p>
+                  <p><strong>Equipment: </strong>Pull the equipment from the card build.</p>
                 </div>
               </div>
 
               <div className="row">
                 <div className="col-xs-12">
-                  <h4>Samples</h4>
+                  <p><strong>Samples</strong></p>
                     <div className="col-xs-3">
-                      <img src="./img/baseballhitter.jpg" alt="sample" width="140px" />
+                      <img className="shootSampleImage" src="./img/baseballhitter.jpg" alt="sample" />
                     </div>
                 
                     <div className="col-xs-3">
-                      <img src="./img/baseballhitter.jpg" alt="sample" width="140px" />
+                      <img className="shootSampleImage"src="./img/baseballhitter.jpg" alt="sample" />
                     </div>
 
                     <div className="col-xs-3">
-                      <img src="./img/baseballhitter.jpg" alt="sample" width="140px" />
+                      <img className="shootSampleImage"src="./img/baseballhitter.jpg" alt="sample" />
                     </div>
 
                     <div className="col-xs-3">
-                      <img src="./img/baseballhitter.jpg" alt="sample" width="140px" />
+                      <img className="shootSampleImage"src="./img/baseballhitter.jpg" alt="sample" />
                     </div>
                 </div>
               </div>

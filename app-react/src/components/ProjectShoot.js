@@ -9,7 +9,7 @@ class ProjectShoot extends Component {
       <div>
         <h1>Photo Shoot</h1>
           <h2>AuthorName TITLE PROJECTNo</h2>
-            <button type="button" className="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Add Image Planning Card</button>
+            <button type="button" className="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Add Photo Shoot Planning Card</button>
             <br/>
             <br/>
             <br/>

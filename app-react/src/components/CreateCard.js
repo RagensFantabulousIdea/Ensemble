@@ -10,7 +10,7 @@ class ProjectShoot extends Component {
         <div>
             <div className="panel panel-default container">
                 <div className="panel-heading">
-                    <h3 className="panel-title">Figure Planning Card</h3>
+                    <h3 className="panel-title">Photo Shoot Planning Card</h3>
                 </div>
             <div className="panel-body">
                 <form>
@@ -36,7 +36,7 @@ class ProjectShoot extends Component {
                         <div className="col-xs-12">
                             <div className="form-group">
                                 <label for="figureInstructions">Instructions for how to pose the model(s).</label>
-                                <textarea type="text" className="form-control figureInstructions"  placeholder="1. Stand with feet hip-width apart, facing home base, body angled towards the pitchers mound . . ."></textarea>
+                                <textarea type="text" className="form-control figureInstructions"  placeholder="Stand with feet hip-width apart, facing home base, body angled towards the pitchers mound . . ."></textarea>
                             </div>
                         </div>
                     </div>
@@ -45,16 +45,14 @@ class ProjectShoot extends Component {
                         <div className="col-xs-6">
                             <div className="form-group">
                                 <label for="figureEquipment">Equipment</label>
-                                <p className="help-block">You can make this show as a bulleted list within the project page by adding an asterisk with a space after it ("* ") at the start of each line within the text box.</p>
-                                <textarea type="text" className="form-control figureEquipment"  placeholder="* baseball bat"></textarea>
+                                <textarea type="text" className="form-control figureEquipment"  placeholder="baseball bat, batting helmet, batting gloves . . ."></textarea>
                             </div>
                         </div>
 
                         <div className="col-xs-6">
                             <div className="form-group">
                                 <label for="figureModel">Model Information</label>
-                                <p className="help-block">You can make this show as a bulleted list within the project page by adding an asterisk with a space after it ("* ") at the start of each line within the text box.</p>
-                                <textarea type="text" className="form-control figureModel"  placeholder="* boy, 10 years old"></textarea>
+                                <textarea type="text" className="form-control figureModel"  placeholder="boy, 10 years old"></textarea>
                             </div>
                         </div>
                     </div>
@@ -120,7 +118,7 @@ class ProjectShoot extends Component {
                         <div className="col-xs-12">
                             <div className="checkbox figureParts">
                                 <label>
-                                    <input type="checkbox"/> Figure has multiple parts? If checked, how many parts in this figure, total, including this one? <input type="text" className="form-control figureParts" placeholder="2"/>
+                                    <input type="checkbox"/>How many parts in this figure, total, including this one?<input type="text" className="form-control figureParts" placeholder="1"/>
                                 </label>
                             </div>
                         </div>
