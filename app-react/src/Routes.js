@@ -12,6 +12,7 @@ import SignIn from './components/SignIn'
 import UserProjects from './components/UserProjects'
 import CreateProject from './components/CreateProject'
 import Invite from './components/Invite'
+import Project from './components/Project'
 
 // Configure routes
 class Routes extends React.Component {
@@ -23,6 +24,8 @@ class Routes extends React.Component {
             <Route path="/userprojects" component={UserProjects} />
             <Route path="/createproject" component={CreateProject} />
             <Route path="/invite" component={Invite} />
+            <Route path="/project" component={Project} />
+            <Route path="/projects/:index/edit" component={CreateProject} />
         </Router>
     }
 }
