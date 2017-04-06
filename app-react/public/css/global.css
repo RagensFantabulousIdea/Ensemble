@@ -1,0 +1,32 @@
+*{
+    box-sizing: border-box;
+}
+#welcome{
+background-color: lightgray;
+
+}
+
+#actionButton {
+  margin-top: 20px;
+}
+.createproject{
+  margin-top: 20px;
+}
+
+#createproject{
+    margin-top: 20px;
+
+}
+#carditems{
+    padding-top: 10px;
+    padding-left: 20px;
+}
+.invitetopmargin{
+    margin-top: 20px;
+}
+.leftcolumn{
+    background-color: lightyellow;
+}
+.rightcolumn{
+    background-color: pink;
+}

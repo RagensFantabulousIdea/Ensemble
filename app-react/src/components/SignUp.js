@@ -10,7 +10,7 @@ class SignUp extends Component {
 
         this.state= {
             firstname: '',
-                lastname: '',
+            lastname: '',
             email: '',
             password: ''
          
@@ -38,7 +38,7 @@ class SignUp extends Component {
             headers: {
                 'Content-Type': 'application/json'
         },
-//left side is always control by backend
+//left side is always controled by backend
         body: JSON.stringify({
             first_name: firstname,
             last_name: lastname,
@@ -73,16 +73,16 @@ return <div>
                 </div>
             <div className="panel-body">
                 <div className="form-group">
-                    <label htmlFor="name">First Name</label>
-                    <input type="text" id="name" className="form-control" value={this.state.firstname} onChange={(e) => this.setState({firstname: e.target.value})}required/>
+                    <label htmlFor="firstname">First Name</label>
+                    <input type="text" id="name" className="form-control" placeholder="John" value={this.state.firstname} onChange={(e) => this.setState({firstname: e.target.value})} required/>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="name">Last Name</label>
-                    <input type="text" id="name" className="form-control" value={this.state.lastname} onChange={(e) => this.setState({lastname: e.target.value})}required/>
+                    <label htmlFor="lastname">Last Name</label>
+                    <input type="text" id="name" className="form-control" placeholder="Smith" value={this.state.lastname} onChange={(e) => this.setState({lastname: e.target.value})}required/>
                 </div>
                 <div className="form-group">
                         <label htmlFor="email">Email</label>
-                        <input type="text" id="email" className="form-control" value={this.state.email} onChange={(e) => this.setState({email: e.target.value})} required />
+                        <input type="text" id="email" className="form-control" placeholder="johnsmith@gmail.com" value={this.state.email} onChange={(e) => this.setState({email: e.target.value})} required />
                 </div>
                 <div className="form-group">
                         <label htmlFor="password">Password</label>
