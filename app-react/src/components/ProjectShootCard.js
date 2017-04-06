@@ -7,7 +7,7 @@ class ProjectShootCard extends Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-xs-6">
+          <div className="col-xs-7">
               
             <div className="panel panel-default">
               <div className="panel-heading">
@@ -16,19 +16,83 @@ class ProjectShootCard extends Component {
               
             <div className="panel-body">
               <div className="row">
-                <div className="col-sm-6">
+                <div className="col-xs-6">
                   <h4>Description</h4>
                     <p>Pull the description from the card build.</p>
                 </div>
 
-                <div className="col-sm-6">
-                  <h4>Instructions</h4>
-                    <p>Pull the instructions from the card build. It might be a numbered list. But Kalea is handling that . . .</p>
+                <div className="col-xs-3">
+                  <h5>Decorative</h5>
+                  <h5>Demonstrative</h5>
                 </div>
 
-
+                <div className="col-xs-3">
+                  <h5>Portrait</h5>
+                  <h5>Landscape</h5>
+                </div>
               </div>
 
+              <div className="row">
+                <div className="col-xs-12">
+                  <h4>Instructions</h4>
+                    <p>Pull the instructions from the card build. It might be a numbered list. But Kalea is handling that. There might be several lines to this, so I am putting it in its own column within the row . . .</p>
+                </div>
+              </div>
+
+              <div className="row">
+                <div className="col-xs-6">
+                  <h4>Models</h4>
+                    <p>Pull card build.</p>
+                </div>
+
+                <div className="col-xs-6">
+                  <h4>Equipment</h4>
+                    <p>Pull the equipment from the card build. Might look like an unordered list if Kalea gets that working.</p>
+                </div>
+              </div>
+
+              <div className="row">
+                <div className="col-xs-3">
+                  <h4>Location</h4>
+                    <p>Pull card build.</p>
+                </div>
+
+                <div className="col-xs-3">
+                  <h4>Date</h4>
+                    <p>Pull card build.</p>
+                </div>
+
+                <div className="col-xs-3">
+                  <h4>Time</h4>
+                    <p>Pull card build.</p>
+                </div>
+
+                <div className="col-xs-3">
+                  <h4>Multi-Parts</h4>
+                    <p>Figure has BB Parts</p>
+                </div>
+              </div>
+
+              <div className="row">
+                <div className="col-xs-12">
+                  <h4>Samples</h4>
+                    <div className="col-xs-3">
+                      <img src="./img/baseballhitter.jpg" alt="sample" width="140px" />
+                    </div>
+                
+                    <div className="col-xs-3">
+                      <img src="./img/baseballhitter.jpg" alt="sample" width="140px" />
+                    </div>
+
+                    <div className="col-xs-3">
+                      <img src="./img/baseballhitter.jpg" alt="sample" width="140px" />
+                    </div>
+
+                    <div className="col-xs-3">
+                      <img src="./img/baseballhitter.jpg" alt="sample" width="140px" />
+                    </div>
+                </div>
+              </div>
             </div>
             
             <div className="panel-footer">
@@ -38,6 +102,8 @@ class ProjectShootCard extends Component {
                 <input type="text" className="form-control figureFrame" placeholder="DSC05697-DSC05700"/>
               </div>
             </div>
+
+            
           </div>
         </div>
         </div>

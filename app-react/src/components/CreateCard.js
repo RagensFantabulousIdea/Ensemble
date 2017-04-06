@@ -84,7 +84,7 @@ class ProjectShoot extends Component {
 
                     <div className="row">
                         <div className="col-sm-3">
-                            <div className="checkbox figureFacts">
+                            <div className="checkbox figureDeco">
                                 <label>
                                     <input type="checkbox"/> Decorative image?
                                 </label>
@@ -92,7 +92,7 @@ class ProjectShoot extends Component {
                         </div>
 
                         <div className="col-sm-3">
-                            <div className="checkbox figureFacts">
+                            <div className="checkbox figureDemo">
                                 <label>
                                     <input type="checkbox"/> Demonstrative image?
                                 </label>
@@ -100,7 +100,7 @@ class ProjectShoot extends Component {
                         </div>
                         
                         <div className="col-sm-3">
-                            <div className="checkbox figureFacts">
+                            <div className="checkbox figurePortrait">
                                 <label>
                                     <input type="checkbox"/> Portrait orientation?
                                 </label>
@@ -108,7 +108,7 @@ class ProjectShoot extends Component {
                         </div>
 
                         <div className="col-sm-3">
-                            <div className="checkbox figureFacts">
+                            <div className="checkbox figureLandscape">
                                 <label>
                                     <input type="checkbox"/> Landscape orientation?
                                 </label>
@@ -118,7 +118,7 @@ class ProjectShoot extends Component {
 
                     <div className="row">
                         <div className="col-xs-12">
-                            <div className="checkbox figureFacts">
+                            <div className="checkbox figureParts">
                                 <label>
                                     <input type="checkbox"/> Figure has multiple parts? If checked, how many parts in this figure, total, including this one? <input type="text" className="form-control figureParts" placeholder="2"/>
                                 </label>
