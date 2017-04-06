@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
 
+  before_action :require_user
+
   def index
     @user = current_user
     @projects = @user.total_projects
