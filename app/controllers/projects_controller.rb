@@ -21,6 +21,16 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def show
+    @token = params[:project_id]
+    @project = Project.find_by(token: @token)
+    if @project
+      render json: @project
+    else
+      render json: ["No project found."]
+    end
+  end
+
   def update
   end
 
