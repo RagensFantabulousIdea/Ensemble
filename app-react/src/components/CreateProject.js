@@ -9,7 +9,7 @@ class createproject extends Component {
             author: '',
             projectNumber: '',
             description: '',
-            getProject: props.getProjects
+            getProject: props.getProject
           }
         }
 
