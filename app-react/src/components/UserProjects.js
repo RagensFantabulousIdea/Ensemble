@@ -11,14 +11,13 @@ class UserProjects extends Component {
             projects: []                              //start with empty state  
             }
             }                                            
-
         //LifeCycles Methods                                             
         componentWillMount(){ 
         this.getProject()                 // put the data into it and change the state
     }
         //API Methods
         getProject(){
-            fetch('/api/v1/')
+            fetch('/api/v1/?')
                 .then (response => response.json())
                 .then(projects => this.setState({projects:projects}))
             }
