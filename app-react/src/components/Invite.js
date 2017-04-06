@@ -43,15 +43,15 @@ render() {
             <div className="panel-body">
                 <div className="form-group">
                     <label htmlFor="firstname">First Name(of the person being invited)</label>
-                    <input type="text"  className="form-control" />
+                    <input type="text"  className="form-control" value={this.state.firstname} onChange={(e) => this.setState({firstname: e.target.value})}/>
                 </div>
             <div className="form-group">
                 <label htmlFor="lastname">last Name(of the person being invited)</label>
-                <input type="text"  className="form-control" />
+                <input type="text"  className="form-control" value={this.state.lastname} onChange={(e) => this.setState({lastname: e.target.value})}/>
                 </div>
             <div className="form-group">
                 <label htmlFor="email">Email</label>
-                <input type="text" id="email" className="form-control"  required />
+                <input type="text" id="email" className="form-control" value={this.state.email} onChange={(e) => this.setState({email: e.target.value})} required />
             </div>
             <button type="button" className="btn btn-success " onClick={() =>this.invitePeople()}>Invite</button>
                     </div>
