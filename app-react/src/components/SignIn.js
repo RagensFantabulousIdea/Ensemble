@@ -58,11 +58,11 @@ class Signin extends Component {
                     <div className="panel-body">
                         <div className="form-group">
                             <label htmlFor="email">email</label>
-                            <input type="text" id="email" className="form-control" laceholder="johnsmith@gmail.com" value={this.state.email} onChange={(e) => this.setState({ email: e.target.value })} required />
+                            <input type="text" id="email" className="form-control" placeholder="johnsmith@gmail.com" value={this.state.email} onChange={(e) => this.setState({ email: e.target.value })} required />
                         </div>
                         <div className="form-group">
                             <label htmlFor="password">Password</label>
-                            <input type="password" id="password" className="form-control" axLength="72" value={this.state.password} onChange={(e) => this.setState({ password: e.target.value })} required />
+                            <input type="password" id="password" className="form-control" maxLength="72" value={this.state.password} onChange={(e) => this.setState({ password: e.target.value })} required />
                         </div>
                     </div>
                     <div className="panel-footer text-center">
