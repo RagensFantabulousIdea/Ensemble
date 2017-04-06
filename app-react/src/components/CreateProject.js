@@ -2,7 +2,49 @@ import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
 // import SignUp from './SignUp'
 class createproject extends Component {
-  render() {
+      constructor(props){
+        super(props)
+            this.state = {
+            title: '',
+            author: '',
+            projectNumber: '',
+            description: '',
+            getProject: props.getProject
+          }
+        }
+
+        addProject(getProject){                    
+        //Post to /api/v1/projects
+        if (this.state.title !== '' && this.state.author !== ''&& this.state.projectNumber !== ''&& this.state.description !== ''){
+        fetch('/api/v1/?', {
+            method: 'Post',
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                title: this.state.title,
+                author: this.state.author,
+                projectNumber: this.state.projectNumber,
+                description: this.state.description,
+            })
+        })
+        .then(response => response.json())
+        .then(response => {
+             //clear the form fields
+            this.setState({
+              title: '',
+              author: '',
+              projectNumber: '',
+              description: '',
+            })
+        //Reload Lists
+        this.state.getProjects(response)
+      })
+       browserHistory.push('/UserProjects')
+        }
+    }
+
+render() {
     return (
         <div id="createproject">
         <div className="text-center">
@@ -40,6 +82,7 @@ class createproject extends Component {
     );
   }
 }
-
 export default createproject;
+
+// <button className="btn btn-default" type="button" onClick={() => this.addProject(this.props.getProjects)}>Add Todo</button>
             
