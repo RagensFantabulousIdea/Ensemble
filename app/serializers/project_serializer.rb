@@ -1,6 +1,7 @@
 class ProjectSerializer < ActiveModel::Serializer
 
-  belongs_to :user
+  belongs_to :owner
+  has_many :members
 
   attributes :id, :token, :description, :title, :author, :project_num
 
