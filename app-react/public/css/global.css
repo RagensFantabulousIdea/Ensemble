@@ -1,0 +1,10 @@
+* {
+    box-sizing: border-box;
+}
+img {
+    width: 100%;
+}
+
+.shootSampleImage {
+    max-width: 140px;
+}
