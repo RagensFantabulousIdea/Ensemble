@@ -17,5 +17,4 @@ class InvitationsController < ApplicationController
     end
   end
 
-
 end
