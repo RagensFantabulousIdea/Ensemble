@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import Messages from './Messages';
 
-class ProjectShootCard extends Component {
+class ProjectShootFullCard extends Component {
   render() {
 
-     //users fill out figure information in CreateCard, it goes here to ProjectShootCard. Then ProjectShootCards gets placed in a list on ProjectShoot.
+//users fill out figure information in ProjectCreateCard, it goes to ProjectShootFullCard AND ProjectShootMiniCard. Then ProjectShootMiniCards get placed in a list on ProjectShootList. Each ProjectShootFullCard has its own page, ProjectIndividualFigureList where all of the information can be seen, comments added, and photos uploaded.
     return (
       <div className="container">
         <div className="row">
@@ -11,7 +12,16 @@ class ProjectShootCard extends Component {
               
             <div className="panel panel-default">
               <div className="panel-heading">
-                <h3 className="panel-title">Figure BB.BB (pull from form)</h3>
+                <div className="row">
+                  <div className="col-xs-6">
+                    <h3 className="panel-title">Figure BB.BB (pull from form)</h3>
+                  </div>
+                
+                <div className="col-xs-6 pull-right">
+                    <p><strong>Figure has [pull the number] part(s) associated with it.</strong></p>
+                  </div>
+                </div>
+                
               </div>
               
             <div className="panel-body">
@@ -42,22 +52,6 @@ class ProjectShootCard extends Component {
                   <p><strong>Instructions: </strong>Pull the instructions from the card build. There might be several lines to this, so I am putting it in its own column within the row . . .</p>
                 </div>
               </div>
-              
-              <div className="row">
-                <div className="col-xs-4">
-                  <p><strong>Decorative</strong></p>
-                  <p><strong>Demonstrative</strong></p>  
-                </div>
-
-                <div className="col-xs-4">
-                  <p><strong>Portrait</strong></p>
-                  <p><strong>Landscape</strong></p>
-                </div>
-
-                <div className="col-xs-4">
-                  <p><strong>"Figure has [pull the number] part(s)"</strong></p>
-                </div>
-              </div>
 
               <div className="row">
                 <div className="col-xs-6">
@@ -70,22 +64,40 @@ class ProjectShootCard extends Component {
               </div>
 
               <div className="row">
+                <div className="col-xs-3">
+                  <p><strong>Decorative</strong></p>
+                </div>
+
+                <div className="col-xs-3">
+                  <p><strong>Demonstrative</strong></p>
+                </div>
+
+                <div className="col-xs-3">
+                  <p><strong>Portrait</strong></p>
+                </div>
+
+                <div className="col-xs-3">
+                  <p><strong>Landscape</strong></p>
+                </div>
+              </div>
+
+              <div className="row">
                 <div className="col-xs-12">
                   <p><strong>Samples</strong></p>
                     <div className="col-xs-3">
-                      <img className="shootSampleImage" src="./img/baseballhitter.jpg" alt="sample" />
+                      <img className="shootSampleImage" src="./img/baseballsample.jpg" alt="sample" />
                     </div>
                 
                     <div className="col-xs-3">
-                      <img className="shootSampleImage"src="./img/baseballhitter.jpg" alt="sample" />
+                      <img className="shootSampleImage"src="./img/baseballsample.jpg" alt="sample" />
                     </div>
 
                     <div className="col-xs-3">
-                      <img className="shootSampleImage"src="./img/baseballhitter.jpg" alt="sample" />
+                      <img className="shootSampleImage"src="./img/baseballsample.jpg" alt="sample" />
                     </div>
 
                     <div className="col-xs-3">
-                      <img className="shootSampleImage"src="./img/baseballhitter.jpg" alt="sample" />
+                      <img className="shootSampleImage"src="./img/baseballsample.jpg" alt="sample" />
                     </div>
                 </div>
               </div>
@@ -99,6 +111,13 @@ class ProjectShootCard extends Component {
               </div>
             </div>
 
+              <div className="panel-body">
+                <div className="form-group">
+                  <label for="figureSelection">Messages</label>
+                  <input type="text" className="form-control figureMessageInput"/>
+                </div>
+                <Messages />
+              </div>
             
           </div>
         </div>
@@ -108,4 +127,4 @@ class ProjectShootCard extends Component {
   }
 }
 
-export default ProjectShootCard;
+export default ProjectShootFullCard;
