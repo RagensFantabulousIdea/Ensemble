@@ -35,6 +35,13 @@ background-color: lightgray;
     background-color: pink;
 }
 
+/*shoot list stuff*/
+
 .shootSampleImage {
     max-width: 140px;
+}
+
+/*ProjectIndividualFigureList*/
+.shootUpload {
+    max-width: 200px;
 }

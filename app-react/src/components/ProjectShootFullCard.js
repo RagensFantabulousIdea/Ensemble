@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Messages from './Messages';
 
 class ProjectShootFullCard extends Component {
   render() {
@@ -85,41 +84,67 @@ class ProjectShootFullCard extends Component {
                 <div className="col-xs-12">
                   <p><strong>Samples</strong></p>
                     <div className="col-xs-3">
-                      <img className="shootSampleImage" src="./img/baseballsample.jpg" alt="sample" />
+                      <img className="shootSampleImage" src="./img/baseballsamplejpg.jpg" alt="sample" />
                     </div>
                 
                     <div className="col-xs-3">
-                      <img className="shootSampleImage"src="./img/baseballsample.jpg" alt="sample" />
+                      <img className="shootSampleImage"src="./img/baseballsamplejpg.jpg" alt="sample" />
                     </div>
 
                     <div className="col-xs-3">
-                      <img className="shootSampleImage"src="./img/baseballsample.jpg" alt="sample" />
+                      <img className="shootSampleImage"src="./img/baseballsamplejpg.jpg" alt="sample" />
                     </div>
 
                     <div className="col-xs-3">
-                      <img className="shootSampleImage"src="./img/baseballsample.jpg" alt="sample" />
+                      <img className="shootSampleImage"src="../img/baseballsamplejpg.jpg" alt="sample" />
                     </div>
                 </div>
               </div>
             </div>
             
             <div className="panel-footer">
-              <div className="form-group">
-                <label for="figureFrame">Camera Frame</label>
+            <h4 className="figureFrame">Camera Frame Number</h4>
                 <p className="help-block">During the shoot, note the selection frame number or range of frame numbers if not selected.</p>
+              <div className="input-group">
                 <input type="text" className="form-control figureFrame" placeholder="DSC05697-DSC05700"/>
+                <span className="input-group-btn">
+                    <button className="btn btn-success" type="button">Save</button>
+                    </span>
               </div>
             </div>
 
-              <div className="panel-body">
-                <div className="form-group">
-                  <label for="figureSelection">Messages</label>
-                  <input type="text" className="form-control figureMessageInput"/>
+              <div className="panel-body messageArea">
+              <h4>Messages</h4>
+                <div className="input-group">
+                  <input type="text" className="form-control"/>
+                    <span className="input-group-btn">
+                    <button className="btn btn-success messagePost" type="button">Post</button>
+                    </span>
                 </div>
-                <Messages />
+                <br/>
+                <div className="row">
+                  <div className="col-xs-12">
+                    <div className="messageRow">
+                       <span className="messageUserName">Whitney Havice</span>  <span className="messageContent">I think we need to make sure that the right shoulder is higher.</span>
+                    </div>
+                    <div className="messageReplyLink">
+                      <a>Reply</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="row">
+                  <div className="col-xs-10 col-xs-offset-2 messageReply">
+                    <span className="messageUserName">Derek Campbell</span> <span className="messageContent">Sounds good to me!</span>    
+                    <div className="messageReplyLink">
+                      <a>Reply</a>
+                    </div>               
+                  </div>
+
+                </div>
               </div>
-            
-          </div>
+ 
+              </div>
         </div>
         </div>
       </div>
