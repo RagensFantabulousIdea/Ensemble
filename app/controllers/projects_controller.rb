@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
 
   def index
     @user = current_user
-    @projects = @user.projects.all
+    @projects = @user.total_projects
       if @projects.empty?
         render json: ["No projects to display. Create one?"], status: 200
       else
@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = current_user.projects.new(project_params)
+    @project = current_user.owned_projects.new(project_params)
     if @project.save
       render json: @project
     else
