@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       #TODO Add UserMailer here
-      render json: @user
+      render json: @user, serializer: UserExpandedSerializer
     else
       render json: @user.errors.full_messages
     end

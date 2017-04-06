@@ -1,4 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
+  #TODO Change Sendgrid mailer address
+  default from: 'staff@ensemble.herokuapp.com'
   layout 'mailer'
 end

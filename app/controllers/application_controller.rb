@@ -5,7 +5,13 @@ class ApplicationController < ActionController::Base
   private
 
   def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    @current_user ||= User.find_by(token: params[:token]) if params[:token]
+  end
+
+  def require_user
+    unless current_user
+      render json: ["You need to be logged in to do this."], status: 401
+    end
   end
 
 
