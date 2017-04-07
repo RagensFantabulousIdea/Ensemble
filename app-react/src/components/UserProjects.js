@@ -7,7 +7,7 @@ class UserProjects extends Component {
     constructor(props){
         super(props)                            // super is required here
         this.getProjects = this.getProjects.bind(this)
-
+        this.returnToSignin = this.returnToSignin.bind(this)
         this.state = {                        // state of the page                     
             projects: []                              //start with empty state  
         }
@@ -25,14 +25,25 @@ class UserProjects extends Component {
             .then(projects => this.setState({projects: projects}))
     }
 
+    returnToSignin() {
+        if (sessionStorage.length == 1) {
+            sessionStorage.clear()
+        } else if (sessionStorage.length == 0) {
+            browserHistory.push('/signin')
+        }
+    }
+
     render() {
         // let projects = this.state.projects.map((project, key) => <Project key={key} index={key} {...project}/>)
 
         return (
             <div className="container-fluid">
                 <div className="text-center">
-                    <button type="button" className="btn btn-primary createproject" onClick={() => browserHistory.push('/projects/new')}>Create Projects</button><hr/>
+                    <button type="button" className="btn btn-primary createproject" onClick={() => browserHistory.push('/projects/new')}>Create Projects</button>
+                    <span id="logout" className="glyphicon glyphicon-off" onClick={this.returnToSignin}></span>
+                    <hr/>
                 </div>
+               
                 <div className="row">
                     <div className="col-sm-6 leftcolumn">
                         <h3><center>My Projects</center></h3>

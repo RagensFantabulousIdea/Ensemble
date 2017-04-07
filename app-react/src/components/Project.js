@@ -6,6 +6,12 @@ class Project extends React.Component{
         return <div className="col-sm-6">
                 <div className="panel panel-info">
                     <div className="panel-heading">
+                          <div className="form-check">
+                            <label className="form-check-label">
+                                <input type="checkbox" className="form-check-input"/>
+                                     &nbsp; Check if project is done
+                                </label>
+                            </div>
                         <h3 className="title">{this.props.title}</h3>
                         </div>
                         <p id="carditems">{this.props.author}</p><hr/>

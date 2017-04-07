@@ -19,7 +19,7 @@ class Signin extends Component {
         var password = this.state.password
         console.log(email, password)
 
-        fetch('http://localhost:3000/api/users', {
+        fetch('/api/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -41,7 +41,7 @@ class Signin extends Component {
 
                 if (response.token) {
                     sessionStorage.setItem('token', response.token);
-                    browserHistory.push('/')
+                    browserHistory.push('/projects')
                 }
                 else {
                     alert('There was an error signing in');
@@ -66,7 +66,7 @@ class Signin extends Component {
                         </div>
                     </div>
                     <div className="panel-footer text-center">
-                        <button id="actionButton" type="button" className="btn btn-lg btn-success">Sign in</button>
+                        <button id="actionButton" type="button" className="btn btn-lg btn-success" onClick={this.signin}>Sign in</button>
                     </div>
                 </div>
             </div>

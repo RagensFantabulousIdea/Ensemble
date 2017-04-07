@@ -33,7 +33,7 @@ class SignUp extends Component {
          else {
 
 
-        fetch('http://localhost:3000/api/users', {
+        fetch('/api/users', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -56,7 +56,8 @@ class SignUp extends Component {
             if (response.token) {
                 (console.log('response token true ' + response.token))
                 sessionStorage.setItem('token', response.token)
-                browserHistory.push('/')
+                // browserHistory.push('/')
+                browserHistory.push('/projects')
            } else {
                 alert('Signup error: ' + response)
             }
