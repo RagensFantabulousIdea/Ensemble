@@ -35,6 +35,7 @@ class Invite extends Component {
         }
     }
 render() {
+    alert('Invite someone to project ' + this.props.params.projectId)
     return (
      <div className="invitetopmargin">
      <div className="col-sm-4 col-sm-offset-4">

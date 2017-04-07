@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :comments
   resources :invitations
   # root 'application#static'
 
@@ -9,10 +8,15 @@ Rails.application.routes.draw do
     resources :shoots
     resources :assets
     resources :projects do
+      resources :comments, only: [:create]
       resources :invitations
     end
     resources :users do
       resources :projects
+    end
+
+    resources :comments, only: [] do
+      resources :comments, only: [:create]
     end
     get '/login' => 'sessions#new', as: :login
     post '/login' => 'sessions#create'

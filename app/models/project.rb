@@ -6,6 +6,9 @@ class Project < ApplicationRecord
   has_many :memberships
   has_many :members, through: :memberships, source: :user
 
+  has_many :comments
+  has_many :left_comments, as: :commentable
+
   validates_presence_of :title, :description, :author, required: true
 
   def team

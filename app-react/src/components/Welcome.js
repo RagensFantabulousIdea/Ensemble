@@ -16,7 +16,7 @@ class Welcome extends Component {
           </div><br/>
 
           <div className="text-center">
-            <button id="actionButton" type="button" className="btn btn-lg btn-success" onClick={() => browserHistory.push('/UserProjects')}>User Projects</button>
+            <button id="actionButton" type="button" className="btn btn-lg btn-success" onClick={() => browserHistory.push('/Projects')}>User Projects</button>
           </div>
       </div>
     );
