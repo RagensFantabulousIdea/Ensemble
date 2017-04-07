@@ -35,13 +35,21 @@ background-color: lightgray;
     background-color: pink;
 }
 
+/*shoot list stuff*/
+
 .shootSampleImage {
     max-width: 140px;
 }
+
 #logout {
   float: right;
   font-size: 30px;
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 20px;
+
+
+/*ProjectIndividualFigureList*/
+.shootUpload {
+    max-width: 200px;
 }

@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
 
-class ProjectShoot extends Component {
+class ProjectCreateCard extends Component {
   render() {
 
  // ideally, want this to be a modal, like this stuff from Bootstrap, but it doesn't just work, so have to figure that out.
 
- //users fill out figure information here, it goes to ProjectShootCard. Then ProjectShootCards gets placed in a list on ProjectShoot.
+//users fill out figure information in ProjectCreateCard, it goes to ProjectShootFullCard AND ProjectShootMiniCard. Then ProjectShootMiniCards get placed in a list on ProjectShootList. Each ProjectShootFullCard has its own page, ProjectIndividualFigureList where all of the information can be seen, comments added, and photos uploaded.
     return (
         <div>
+            <h1 className="panel-title">Photo Shoot Planning Card</h1>
             <div className="panel panel-default container">
                 <div className="panel-heading">
-                    <h3 className="panel-title">Photo Shoot Planning Card</h3>
-                </div>
-            <div className="panel-body">
-                <form>
                     <div className="row">
                         <div className="col-xs-6">
                             <div className="form-group">
@@ -21,8 +18,18 @@ class ProjectShoot extends Component {
                                 <input type="text" className="form-control figureNumber" placeholder="Figure 1.1"/>
                             </div>
                         </div>
+
+                        <div className="col-xs-6">
+                            <div className="form-group">
+                                <label for="figureSelection">Selection Frame Number</label>
+                                <input type="text" className="form-control figureSelection" placeholder="DSC05697"/>
+                            </div>
+                        </div>
                     </div>
                     
+                </div>
+            <div className="panel-body">
+                <form>              
                     <div className="row">
                         <div className="col-xs-12">
                             <div className="form-group">
@@ -84,7 +91,7 @@ class ProjectShoot extends Component {
                         <div className="col-sm-3">
                             <div className="checkbox figureDeco">
                                 <label>
-                                    <input type="checkbox"/> Decorative image?
+                                    <input type="checkbox"/> Decorative photo?
                                 </label>
                             </div>
                         </div>
@@ -92,7 +99,7 @@ class ProjectShoot extends Component {
                         <div className="col-sm-3">
                             <div className="checkbox figureDemo">
                                 <label>
-                                    <input type="checkbox"/> Demonstrative image?
+                                    <input type="checkbox"/> Demonstrative photo?
                                 </label>
                             </div>
                         </div>
@@ -149,4 +156,4 @@ class ProjectShoot extends Component {
   }
 }
 
-export default ProjectShoot;
+export default ProjectCreateCard;

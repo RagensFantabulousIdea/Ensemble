@@ -3,24 +3,23 @@ class CommentsController < ApplicationController
   before_action :require_user
 
   def create
-    if params[:project_id]
-      @object = Project.find(params[:project_id])
-    elsif params[:comment_id]
-      @object = Comment.find(params[:comment_id])
+    @project = current_user.commentable_project.find_by(id: params[:project_id])
+    if params[:comment_id]
+      @object = @project.comments.find(params[:comment_id])
+    else
+      @object = @project
     end
-    @comment = @object.comments.new(comment_params)
-    @comment.user = current_user
+    @comment = Comment.new(
+      commentable: @object,
+      project: @project,
+      user: current_user,
+      body: params[:body]
+    )
     if @comment.save
-      render json: ["Comment added successfully!"]
+      render json: @comment
     else
       render json: ["Comment body required."]
     end
   end
-
-    private
-
-    def comment_params
-      params.require(:comment).permit(:body)
-    end
 
 end
