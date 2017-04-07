@@ -12,8 +12,12 @@ class ProjectShootMiniCard extends Component {
             <div className="panel panel-default">
                 <div className="panel-heading">
                     <div className="row">
-                        <div className="col-xs-12">
+                        <div className="col-xs-6">
                             <h3 className="panel-title">Figure 3.6</h3>
+                        </div>
+
+                        <div className="col-xs-6">
+                            <h3 className="panel-title">Order Number 1</h3>
                         </div>
                     </div>
                 </div>

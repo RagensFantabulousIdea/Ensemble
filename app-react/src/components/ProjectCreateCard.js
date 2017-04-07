@@ -8,15 +8,22 @@ class ProjectCreateCard extends Component {
 //users fill out figure information in ProjectCreateCard, it goes to ProjectShootFullCard AND ProjectShootMiniCard. Then ProjectShootMiniCards get placed in a list on ProjectShootList. Each ProjectShootFullCard has its own page, ProjectIndividualFigureList where all of the information can be seen, comments added, and photos uploaded.
     return (
         <div>
-            <h1 className="panel-title">Photo Shoot Planning Card</h1>
             <div className="panel panel-default container">
                 <div className="panel-heading">
+                <h1 className="panel-title">Photo Shoot Planning Card</h1>
+                <br/>
                     <div className="row">
                         <div className="col-xs-6">
                             <div className="form-group">
                                 <label for="figureNumber">Figure Number</label>
                                 <input type="text" className="form-control figureNumber" placeholder="Figure 1.1"/>
                             </div>
+
+                            <div className="form-group">
+                                <label for="figureParts">How many parts in this figure, total, including this one?</label>
+                                <input type="text" className="form-control figureParts" placeholder="1"/>
+                            </div>
+
                         </div>
 
                         <div className="col-xs-6">
@@ -24,10 +31,16 @@ class ProjectCreateCard extends Component {
                                 <label for="figureSelection">Selection Frame Number</label>
                                 <input type="text" className="form-control figureSelection" placeholder="DSC05697"/>
                             </div>
+
+                            <div className="form-group">
+                                <label for="figureOrder">Order Number (within the shoot)</label>
+                                <input type="text" className="form-control figureSelection" placeholder="1"/>
+                            </div>
                         </div>
                     </div>
-                    
+
                 </div>
+
             <div className="panel-body">
                 <form>              
                     <div className="row">
@@ -116,16 +129,6 @@ class ProjectCreateCard extends Component {
                             <div className="checkbox figureLandscape">
                                 <label>
                                     <input type="checkbox"/> Landscape orientation?
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="row">
-                        <div className="col-xs-12">
-                            <div className="checkbox figureParts">
-                                <label>
-                                    <input type="checkbox"/>How many parts in this figure, total, including this one?<input type="text" className="form-control figureParts" placeholder="1"/>
                                 </label>
                             </div>
                         </div>
