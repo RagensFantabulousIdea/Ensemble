@@ -26,11 +26,11 @@ class Routes extends React.Component {
             <Route path="/sandbox" component={ProjectIndividualFigureList} />
             <Route path="/signup" component={SignUp} />
             <Route path="/signin" component={SignIn} />
-            <Route path="/userprojects" component={UserProjects} />
-            <Route path="/createproject" component={CreateProject} />
-            <Route path="/invite" component={Invite} />
-            <Route path="/project" component={Project} />
-            <Route path="/projects/:index/edit" component={CreateProject} />
+            <Route path="/projects" component={UserProjects} />
+            <Route path="/projects/new" component={CreateProject} />
+            <Route path="/invite/:projectId" component={Invite} />
+            <Route path="/projects/:projectId/view" component={Project} />
+            <Route path="/projects/:projectId/edit" component={CreateProject} />
         </Router>
     }
 }
