@@ -112,7 +112,7 @@ class ProjectShootFullCard extends Component {
               </div>
               </div>
             
-              <div className="panel-footer">
+              <div className="panel-footer Ragen">
                 <div className="row">
                   <div className="col-xs-12">
                     <h4 className="figureSelectedTitle">Camera Frame Number</h4>
