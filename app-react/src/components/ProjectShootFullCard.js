@@ -11,34 +11,44 @@ class ProjectShootFullCard extends Component {
               
             <div className="panel panel-default">
               <div className="panel-heading">
+                
                 <div className="row">
-                  <div className="col-xs-6">
-                    <h3 className="panel-title">Figure BB.BB (pull from form)</h3>
+                  <div className="col-xs-7">
+                    <h3 className="panel-title">Figure BB.BB</h3>
                   </div>
-                
-                <div className="col-xs-6 pull-right">
-                    <p><strong>Figure has [pull the number] part(s) associated with it.</strong></p>
+
+                    <div className="col-xs-5">
+                      <button type="submit" className="btn btn-success pull-right">Edit Card</button>
+                    </div>
+                </div>
+              <br/>
+                <div className="row">
+                  <div className="col-xs-8">
+                    <p>Figure has [2] photo(s) associated with it.</p>
+                  </div>
+
+                  <div className="col-xs-4">
+                    <p className="orderNumberPersisted pull-right"><strong>Order: 1</strong></p>
                   </div>
                 </div>
-                
               </div>
               
-            <div className="panel-body">
-
-              <div className="row">
-                <div className="col-xs-4">
-                  <p>Pull location from backend.</p>
-                </div>
-
-                <div className="col-xs-4">
-                  <p>Pull date from backend.</p>
-                </div>
-
-                <div className="col-xs-4">
-                  <p>Pull time from backend.</p>
-                </div>
               
-              </div>
+              <div className="panel-body">
+                <div className="row">
+                  <div className="col-xs-4">
+                    <p>Pull location from backend.</p>
+                  </div>
+
+                  <div className="col-xs-4">
+                    <p>Pull date from backend.</p>
+                  </div>
+
+                  <div className="col-xs-4">
+                    <p>Pull time from backend.</p>
+                  </div>
+              
+                </div>
 
               <div className="row">
                 <div className="col-xs-12">
@@ -100,18 +110,35 @@ class ProjectShootFullCard extends Component {
                     </div>
                 </div>
               </div>
-            </div>
-            
-            <div className="panel-footer">
-            <h4 className="figureFrame">Camera Frame Number</h4>
-                <p className="help-block">During the shoot, note the selection frame number or range of frame numbers if not selected.</p>
-              <div className="input-group">
-                <input type="text" className="form-control figureFrame" placeholder="DSC05697-DSC05700"/>
-                <span className="input-group-btn">
-                    <button className="btn btn-success" type="button">Save</button>
-                    </span>
               </div>
-            </div>
+            
+              <div className="panel-footer">
+                <div className="row">
+                  <div className="col-xs-12">
+                    <h4 className="figureSelectedTitle">Camera Frame Number</h4>
+                      <p className="help-block">During the shoot, note the range of frame numbers for all of the shots taken for this photo.</p>
+                        <div className="input-group">
+                          <input type="text" className="form-control figureSelectedBox" placeholder="DSC05697-DSC05700"/>
+                            <span className="input-group-btn">
+                              <button className="btn btn-success" type="button">Save</button>
+                            </span>
+                        </div>
+                  </div>
+                </div>
+
+                <div className="row">
+                  <div className="col-xs-12">
+                    <h4 className="figureFrame">Selection Number</h4>
+                      <p className="help-block">Note the frame number for the photo that is selected for this figure.</p>
+                        <div className="input-group">
+                          <input type="text" className="form-control figureFrame" placeholder="DSC05697-DSC05700"/>
+                            <span className="input-group-btn">
+                              <button className="btn btn-success" type="button">Save</button>
+                            </span>
+                        </div>
+                  </div>
+                </div>
+              </div>
 
               <div className="panel-body messageArea">
               <h4>Messages</h4>
@@ -134,7 +161,18 @@ class ProjectShootFullCard extends Component {
                 </div>
 
                 <div className="row">
-                  <div className="col-xs-10 col-xs-offset-2 messageReply">
+                  <div className="col-xs-11 col-xs-offset-1 messageReplyTextBox">
+                    <div className="input-group">
+                      <input type="text" className="form-control"/>
+                      <span className="input-group-btn">
+                        <button className="btn btn-success messagePost" type="button">Post</button>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="row">
+                  <div className="col-xs-11 col-xs-offset-1 messageReply">
                     <span className="messageUserName">Derek Campbell</span> <span className="messageContent">Sounds good to me!</span>    
                     <div className="messageReplyLink">
                       <a>Reply</a>
@@ -144,8 +182,8 @@ class ProjectShootFullCard extends Component {
                 </div>
               </div>
  
-              </div>
-        </div>
+            </div>
+          </div>
         </div>
       </div>
     );

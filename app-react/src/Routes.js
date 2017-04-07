@@ -14,6 +14,7 @@ import CreateProject from './components/CreateProject'
 import Invite from './components/Invite'
 import ProjectShootList from './components/ProjectShootList'
 import ProjectShootFullCard from './components/ProjectShootFullCard'
+import ProjectShootMiniCard from './components/ProjectShootMiniCard'
 import Project from './components/Project'
 import ProjectCreateCard from './components/ProjectCreateCard'
 import ProjectIndividualFigureList from './components/ProjectIndividualFigureList'
@@ -23,7 +24,7 @@ class Routes extends React.Component {
     render() {
         return <Router history={browserHistory}>
             <Route path="/" component={Welcome} />
-            <Route path="/sandbox" component={ProjectIndividualFigureList} />
+            <Route path="/sandbox" component={ProjectShootFullCard} />
             <Route path="/signup" component={SignUp} />
             <Route path="/signin" component={SignIn} />
             <Route path="/userprojects" component={UserProjects} />
