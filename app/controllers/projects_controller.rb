@@ -22,10 +22,12 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @token = params[:project_id]
-    @project = Project.find_by(token: @token)
+    @p_id = params[:id]
+    @project = Project.find_by(id: @p_id)
     if @project
       render json: @project
+      # Left in in case ams.rb gets deleted, and belongs_to :project gets added back.
+      #, include: ['owner','members','left_comments.comments', 'left_comments.comments.comments']
     else
       render json: ["No project found."]
     end
