@@ -1,0 +1,17 @@
+<% @project = Project.find_by(token: @token) %>
+<% @user = User.find_by(email: @email) %>
+<h1>Project <%= @project.project_num %></h1>
+
+<p>
+  Congratulations, <%= @user.first_name %>!
+</p>
+<!-- #TODO change URL listed below in production environment -->
+<p>
+  You have been invited to participate in Project <%= @project_num %>. You can view this project <%= link_to "here", user_project_url(@user, @project.id) %>.
+</p>
+
+<p>We wish you the utmost in productivity!</p>
+
+<p>The Staff</p>
+<p>Ensemble</p>
+<p>Digital Assets Management for Photo Shoots</p>

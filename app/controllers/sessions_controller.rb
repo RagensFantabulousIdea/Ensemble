@@ -13,8 +13,5 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    render json: ["Logout complete."], status: 200
   end
-
 end
-
