@@ -19,7 +19,7 @@ class Signin extends Component {
         var password = this.state.password
         console.log(email, password)
 
-        fetch('http://localhost:3000/api/users', {
+        fetch('/api/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -41,7 +41,7 @@ class Signin extends Component {
 
                 if (response.token) {
                     sessionStorage.setItem('token', response.token);
-                    browserHistory.push('/')
+                    browserHistory.push('/projects')
                 }
                 else {
                     alert('There was an error signing in');
@@ -58,15 +58,15 @@ class Signin extends Component {
                     <div className="panel-body">
                         <div className="form-group">
                             <label htmlFor="email">email</label>
-                            <input type="text" id="email" className="form-control" laceholder="johnsmith@gmail.com" value={this.state.email} onChange={(e) => this.setState({ email: e.target.value })} required />
+                            <input type="text" id="email" className="form-control" placeholder="johnsmith@gmail.com" value={this.state.email} onChange={(e) => this.setState({ email: e.target.value })} required />
                         </div>
                         <div className="form-group">
                             <label htmlFor="password">Password</label>
-                            <input type="password" id="password" className="form-control" axLength="72" value={this.state.password} onChange={(e) => this.setState({ password: e.target.value })} required />
+                            <input type="password" id="password" className="form-control" maxLength="72" value={this.state.password} onChange={(e) => this.setState({ password: e.target.value })} required />
                         </div>
                     </div>
                     <div className="panel-footer text-center">
-                        <button id="actionButton" type="button" className="btn btn-lg btn-success">Sign in</button>
+                        <button id="actionButton" type="button" className="btn btn-lg btn-success" onClick={this.signin}>Sign in</button>
                     </div>
                 </div>
             </div>
