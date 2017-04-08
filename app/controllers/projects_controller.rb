@@ -22,11 +22,15 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    @project = current_user.owned_projects.find_by(id: params[:id])
-    if @project.update!(project_params)
-      render json: @project
+    @project = Project.find_by(id: params[:id])
+    if @project.owner == current_user
+      if @project.update!(project_params)
+        render json: @project
+      else
+        render json: @project.errors.full_messages, status: 400
+      end
     else
-      render json: @project.errors.full_messages, status: 400
+      render json: ["You must be the project owner in order to update a project."], status: 401
     end
   end
 
@@ -38,7 +42,7 @@ class ProjectsController < ApplicationController
       # Left in in case ams.rb gets deleted, and belongs_to :project gets added back. Will limit comments to two levels deep.
       #, include: ['owner','members','left_comments.comments', 'left_comments.comments.comments']
     else
-      render json: ["No project found."]
+      render json: ["No project found."], status: 404
     end
   end
 
