@@ -21,19 +21,25 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def update
+    @project = current_user.owned_projects.find_by(id: params[:id])
+    if @project.update!(project_params)
+      render json: @project
+    else
+      render json: @project.errors.full_messages, status: 400
+    end
+  end
+
   def show
     @p_id = params[:id]
     @project = Project.find_by(id: @p_id)
     if @project
       render json: @project
-      # Left in in case ams.rb gets deleted, and belongs_to :project gets added back.
+      # Left in in case ams.rb gets deleted, and belongs_to :project gets added back. Will limit comments to two levels deep.
       #, include: ['owner','members','left_comments.comments', 'left_comments.comments.comments']
     else
       render json: ["No project found."]
     end
-  end
-
-  def update
   end
 
   def destroy
