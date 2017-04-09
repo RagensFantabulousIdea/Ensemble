@@ -4,6 +4,6 @@ class ProjectSerializer < ActiveModel::Serializer
   has_many :members
   has_many :left_comments
 
-  attributes :id, :token, :description, :title, :author, :project_num
+  attributes :id, :token, :title, :description, :author, :project_num
 
 end
