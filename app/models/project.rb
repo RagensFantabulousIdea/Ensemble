@@ -7,7 +7,7 @@ class Project < ApplicationRecord
   has_many :members, through: :memberships, source: :user
 
   has_many :comments
-  has_many :left_comments, as: :commentable
+  has_many :left_comments, as: :commentable, class_name: 'Comment'
 
   validates_presence_of :title, :description, :author, required: true
 
