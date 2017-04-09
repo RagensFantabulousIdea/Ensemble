@@ -1,10 +1,6 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 
 15.times do
   #Create Users
@@ -43,30 +39,31 @@ end
 
   #Create Top level comments
   @project = Project.all.each do |project_comments|
+  @user = [project_comments.owner, project_comments.members.sample].sample
     2.times do
       @comment = Comment.create!(
-      commentable: project_comments,
-      project: project_comments,
-      user: @user,
-      body: Faker::StarWars.quote
-      )
-
-      #Create nested comments
-      @user = project_comments.members.sample
-      @left_comment = @comment.comments.create!(
-        commentable: @comment,
+        commentable: project_comments,
         project: project_comments,
         user: @user,
-        body: Faker::HarryPotter.quote
+        body: Faker::StarWars.quote
       )
 
-        #Create a deeply nested comment
-          @user = project_comments.members.sample
-          @deep_comment = @left_comment.comments.create!(
-          commentable: @comment,
-          project: project_comments,
-          user: @user,
-          body: Faker::LeagueOfLegends.quote
-          )
+    #Create nested comments
+    @user = [project_comments.owner, project_comments.members.sample].sample
+    @left_comment = @comment.comments.create!(
+      commentable: @comment,
+      project: project_comments,
+      user: @user,
+      body: Faker::HarryPotter.quote
+    )
+
+    #Create a deeply nested comment
+      @user = [project_comments.owner, project_comments.members.sample].sample
+      @deep_comment = @left_comment.comments.create!(
+      commentable: @comment,
+      project: project_comments,
+      user: @user,
+      body: Faker::LeagueOfLegends.quote
+      )
     end
   end
