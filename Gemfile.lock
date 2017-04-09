@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/stympy/faker.git
+  revision: 573699dcfb3e8416397411e6fdb2b7f1ceeb8caf
+  specs:
+    faker (1.8.0)
+      i18n (~> 0.5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -254,6 +261,7 @@ DEPENDENCIES
   cancancan
   carrierwave
   cloudinary
+  faker!
   figaro
   jbuilder (~> 2.5)
   jquery-rails
