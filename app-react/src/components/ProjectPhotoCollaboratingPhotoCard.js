@@ -36,7 +36,7 @@ class ProjectPhotoCollaboratingPhotoCard extends Component {
                         </div>
 
                         <div className="col-xs-4">
-                            <a className="couldSelect"><span className="glyphicon glyphicon-check" aria-hidden="true"></span></a>
+                            <a className="couldSelect"><span className="glyphicon glyphicon-check pull-right" aria-hidden="true"></span></a>
                         </div>
 
                     </div>
