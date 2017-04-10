@@ -17,7 +17,7 @@ class ProjectShootMiniCard extends Component {
                         </div>
 
                         <div className="col-xs-6">
-                            <h3 className="panel-title">Order Number 1</h3>
+                            <h3 className="panel-title pull-right">Order: 1</h3>
                         </div>
                     </div>
                 </div>
@@ -25,7 +25,7 @@ class ProjectShootMiniCard extends Component {
                 <div className="panel-body">
                     <div className="row">
                         <div className="col-xs-12">
-                            <p><strong>Description: </strong><span>Boy swinging a baseball bat, wearing batting helmet and gloves.</span></p>
+                            <p><span>Boy swinging a baseball bat, wearing batting helmet and gloves.</span></p>
                         </div>
                     </div>
                 </div>
@@ -37,7 +37,7 @@ class ProjectShootMiniCard extends Component {
                         </div>
 
                         <div className="col-xs-6">
-                            <p>2-5 PM</p>
+                            <p className="pull-right">2-5 PM</p>
                         </div>
                     </div>
                 </div>

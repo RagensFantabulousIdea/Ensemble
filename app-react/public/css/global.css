@@ -1,55 +1,207 @@
 * {
     box-sizing: border-box;
 }
+
 img {
     width: 100%;
 }
 
-#welcome{
-background-color: lightgray;
-
+/*start Welcome styles*/
+.welcome {
+    background-image: url("../img/marigold1731186_1920.jpg");
+    background-size: cover;
+    padding-bottom: 100vw;
+    padding-top: 30px; 
+    text-align: center;
 }
 
-#actionButton {
-  margin-top: 20px;
+.appName {
+    font-family: 'Bree Serif', serif;
+    font-size: 60px;
+    color: black;
 }
+
+.appTagLine {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.signInButtonWelcome {
+    margin-top: 40px; 
+    background-color: transparent;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    border: 2px solid black;
+    font-weight: bold;
+}
+
+.signUpButtonWelcome {
+    margin-top: 10px;
+    background-color: transparent;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    border: 2px solid black;
+    font-weight: bold;
+}
+
+.body {
+    background-color: #0D1613;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-top: 50px; 
+    padding-left: 40px;
+    padding-right: 40px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: #B16503;
+}
+
+.centralData {
+    padding-bottom: 30px;
+}
+
+.collaborating {
+    padding-bottom: 30px;
+}
+
+.makingSelections {
+    padding-bottom: 30px;
+}
+
+
+/*#actionButton {
+    margin-top: 20px;
+}*/
+
 .createproject{
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
 #createproject{
     margin-top: 20px;
-
 }
+
 #carditems{
     padding-top: 10px;
     padding-left: 20px;
 }
+
 .invitetopmargin{
     margin-top: 20px;
 }
+
 .leftcolumn{
     background-color: lightyellow;
 }
+
 .rightcolumn{
     background-color: pink;
 }
 
-/*shoot list stuff*/
+#logout {
+    float: right;
+    font-size: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
 
+/*Project Create Card*/
 .shootSampleImage {
     max-width: 140px;
 }
 
-#logout {
-  float: right;
-  font-size: 30px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: 20px;
+/*tablet*/
+@media all and (min-width: 768px) {
 
+    .welcome {
+        padding-bottom: 10vw;
+    }
+    .appName {
+        font-size: 120px;
+        color: white;
+        text-shadow: 1px 2px 2px black;
+    }
 
-/*ProjectIndividualFigureList*/
-.shootUpload {
-    max-width: 200px;
+    .appTagLine {
+        font-family: 'Raleway', sans-serif;
+        font-weight: 400;
+        font-size: 40px;
+        color: white;
+        text-shadow: 1px 2px 2px black;
+    }
+
+    .signInButtonWelcome {
+        margin-top: 60px; 
+        height: 100px;
+        width: 100px;
+        border: 3px solid black;
+        font-size: 20px; 
+    }
+
+.signUpButtonWelcome {
+        margin-top: 40px;
+        height: 100px;
+        width: 100px;
+        border: 3px solid black;
+        font-size: 20px; 
+    }
+}
+
+/*laptop*/
+@media all and (min-width: 1024px) {
+    .welcome {
+        padding-bottom: 9vw;
+    }
+}
+
+/*desktop*/
+
+@media all and (min-width: 1200px) {
+    .welcome {
+        text-align: right;
+        padding-right: 30px;
+        padding-bottom: 18vw;
+    }
+
+    .appName {
+        font-size: 120px;
+        color: white;
+        text-shadow: 1px 2px 2px black;
+    }
+
+    .appTagLine {
+        font-family: 'Raleway', sans-serif;
+        font-weight: 400;
+        font-size: 40px;
+        color: #B16503;
+        text-shadow: 1px 2px 2px black;
+    }
+
+    .welcomeButtons {
+        text-align: right;
+        padding-right: 200px; 
+    }
+
+    .signInButtonWelcome {
+        margin-top: 60px; 
+        height: 100px;
+        width: 100px;
+        border: 3px solid #B16503;
+        color: #B16503;
+        font-size: 20px; 
+    }
+
+    .signUpButtonWelcome {
+        margin-top: 40px;
+        height: 100px;
+        width: 100px;
+        border: 3px solid #B16503;
+        color: #B16503;
+        font-size: 20px; 
+    }
 }
