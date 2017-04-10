@@ -8,6 +8,14 @@ class ProjectCreateCard extends Component {
 //users fill out figure information in ProjectCreateCard, it goes to ProjectShootFullCard AND ProjectShootMiniCard. Then ProjectShootMiniCards get placed in a list on ProjectShootList. Each ProjectShootFullCard has its own page, ProjectIndividualFigureList where all of the information can be seen, comments added, and photos uploaded.
     return (
         <div>
+            <nav aria-label="...">
+                <ul className="pager">
+                    <li className="previous"><a href="#"><span aria-hidden="true">&larr;</span> Last Figure</a></li>
+                    <li className="backToProjectList"><a href="#">Return to Main Project List</a></li>
+                    <li className="next"><a href="#">Next Figure <span aria-hidden="true">&rarr;</span></a></li>
+                </ul>
+            </nav>
+
             <div className="panel panel-default container">
                 <div className="panel-heading">
                 <h1 className="panel-title">Photo Shoot Planning Card</h1>
@@ -146,8 +154,14 @@ class ProjectCreateCard extends Component {
                         </div>
                     </div>
                        
-                    <div className="row pull-right">
-                        <button type="submit" className="btn btn-success">Save Figure</button>
+                    <div className="row">
+                        <div className="col-xs-6">
+                            <button type="submit" className="btn btn-danger">Delete Figure</button>
+                        </div>
+
+                        <div className="col-xs-6">
+                            <button type="submit" className="btn btn-success pull-right">Save Figure</button>
+                        </div>
                     </div>
 
                 </form>

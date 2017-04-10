@@ -5,9 +5,6 @@ class ProjectShootFullCard extends Component {
 
 //users fill out figure information in ProjectCreateCard, it goes to ProjectShootFullCard AND ProjectShootMiniCard. Then ProjectShootMiniCards get placed in a list on ProjectShootList. Each ProjectShootFullCard has its own page, ProjectIndividualFigureList where all of the information can be seen, comments added, and photos uploaded.
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-xs-7">
               
             <div className="panel panel-default">
               <div className="panel-heading">
@@ -73,21 +70,16 @@ class ProjectShootFullCard extends Component {
               </div>
 
               <div className="row">
-                <div className="col-xs-3">
+                <div className="col-xs-6">
                   <p><strong>Decorative</strong></p>
-                </div>
-
-                <div className="col-xs-3">
                   <p><strong>Demonstrative</strong></p>
                 </div>
 
-                <div className="col-xs-3">
+                <div className="col-xs-6">
                   <p><strong>Portrait</strong></p>
-                </div>
-
-                <div className="col-xs-3">
                   <p><strong>Landscape</strong></p>
                 </div>
+
               </div>
 
               <div className="row">
@@ -170,6 +162,7 @@ class ProjectShootFullCard extends Component {
                     </div>
                   </div>
                 </div>
+                
 
                 <div className="row">
                   <div className="col-xs-11 col-xs-offset-1 messageReply">
@@ -180,12 +173,23 @@ class ProjectShootFullCard extends Component {
                   </div>
 
                 </div>
+                
+                <div className="row">
+                  <div className="col-xs-11 col-xs-offset-1 messageReplyTextBox">
+                    <div className="input-group">
+                      <input type="text" className="form-control"/>
+                      <span className="input-group-btn">
+                        <button className="btn btn-success messagePost" type="button">Post</button>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                
               </div>
  
             </div>
-          </div>
-        </div>
-      </div>
+
     );
   }
 }

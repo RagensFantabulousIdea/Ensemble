@@ -17,14 +17,15 @@ import ProjectShootFullCard from './components/ProjectShootFullCard'
 import ProjectShootMiniCard from './components/ProjectShootMiniCard'
 import Project from './components/Project'
 import ProjectCreateCard from './components/ProjectCreateCard'
-import ProjectIndividualFigureList from './components/ProjectIndividualFigureList'
+import ProjectPhotoCollaborating from './components/ProjectPhotoCollaborating'
+import ProjectPhotoCollaboratingPhotoCard from './components/ProjectPhotoCollaboratingPhotoCard'
 
 // Configure routes
 class Routes extends React.Component {
     render() {
         return <Router history={browserHistory}>
             <Route path="/" component={Welcome} />
-            <Route path="/sandbox" component={ProjectShootFullCard} />
+            <Route path="/sandbox" component={ProjectShootList} />
             <Route path="/signup" component={SignUp} />
             <Route path="/signin" component={SignIn} />
             <Route path="/projects" component={UserProjects} />
