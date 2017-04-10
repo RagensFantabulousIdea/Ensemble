@@ -17,6 +17,7 @@ import ProjectShootFullCard from './components/ProjectShootFullCard'
 import Project from './components/Project'
 import ProjectCreateCard from './components/ProjectCreateCard'
 import ProjectIndividualFigureList from './components/ProjectIndividualFigureList'
+import completedProjects from './components/completedProjects'
 
 // Configure routes
 class Routes extends React.Component {
@@ -31,6 +32,7 @@ class Routes extends React.Component {
             <Route path="/invite/:projectId" component={Invite} />
             <Route path="/projects/:projectId/view" component={Project} />
             <Route path="/projects/:projectId/edit" component={CreateProject} />
+            <Route path="/completedprojects/:projectId" component={completedProjects} />
         </Router>
     }
 }
