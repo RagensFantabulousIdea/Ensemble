@@ -17,11 +17,16 @@ import ProjectShootFullCard from './components/ProjectShootFullCard'
 import ProjectShootMiniCard from './components/ProjectShootMiniCard'
 import Project from './components/Project'
 import ProjectCreateCard from './components/ProjectCreateCard'
+
+import ProjectIndividualFigureList from './components/ProjectIndividualFigureList'
+import completedProjects from './components/completedProjects'
+
 import ProjectPhotoCollaborating from './components/ProjectPhotoCollaborating'
 import ProjectPhotoCollaboratingPhotoCard from './components/ProjectPhotoCollaboratingPhotoCard'
 import ProjectAllPhotosList from './components/ProjectAllPhotosList'
 import ProjectExtraPhotosList from './components/ProjectExtraPhotosList'
 import ProjectExtraPhotosCard from './components/ProjectExtraPhotosCard'
+
 
 // Configure routes
 class Routes extends React.Component {
@@ -36,6 +41,7 @@ class Routes extends React.Component {
             <Route path="/invite/:projectId" component={Invite} />
             <Route path="/projects/:projectId/view" component={Project} />
             <Route path="/projects/:projectId/edit" component={CreateProject} />
+            <Route path="/completedprojects/:projectId" component={completedProjects} />
         </Router>
     }
 }
