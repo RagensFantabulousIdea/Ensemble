@@ -12,6 +12,19 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+
+  end
+
+  def destroy
+    current_user.active = false
+      if current_user.update
+      render json: [@user, "Account successfully disabled."], status: 401
+      end
+    #Resets a user's token so savvy users can't use their old token to login
+    current_user.regenerate_token
+  end
+
   private
 
   def user_params
