@@ -5,14 +5,15 @@ import Project from './Project'
 class UserProjects extends Component {
 
     constructor(props){
-        super(props)                            // super is required here
+        super(props)                                // super is required here
         this.getProjects = this.getProjects.bind(this)
         this.returnToSignin = this.returnToSignin.bind(this)
-        this.state = {                        // state of the page                     
+        // this.deleteProject = this.deleteProject.bind(this) 
+        this.toggleProjectComplete = this.toggleProjectComplete.bind(this)
+        this.state = {                                // state of the page                     
             projects: []                              //start with empty state  
         }
     }     
-
     //LifeCycles Methods                                             
     componentWillMount(){ 
         //this.getProjects()                 // put the data into it and change the state
@@ -24,7 +25,7 @@ class UserProjects extends Component {
             .then (response => response.json())
             .then(projects => this.setState({projects: projects}))
     }
-
+    // functionality for signout
     returnToSignin() {
         if (sessionStorage.length == 1) {
             sessionStorage.clear()
@@ -32,14 +33,26 @@ class UserProjects extends Component {
             browserHistory.push('/signin')
         }
     }
+    // deleteProject(index) {
+    //     fetch('/api/v1/?')
+    //         .then (response => response.json())
+    //         .then(projects => this.setState({projects: projects}))
+    //         projects.splice(index, 1)
+    // }
+
+        // functionality for checkbox
+    toggleProjectComplete(ProjectId, isComplete) {
+        //  fetch('/api/v1/?' + ProjectId + '/' + (isComplete ? 'complete' : 'incomplete'))
+        // .then(this.getProjects)
+        }
 
     render() {
-        // let projects = this.state.projects.map((project, key) => <Project key={key} index={key} {...project}/>)
-
+        // let projects = this.state.projects.map((project, key) => <Project key={key} index={key} {...project} deleteProject={this.deleteProject} toggleProjectComplete={this.toggleProjectComplete}/>)
         return (
             <div className="container-fluid">
                 <div className="text-center">
-                    <button type="button" className="btn btn-primary createproject" onClick={() => browserHistory.push('/projects/new')}>Create Projects</button>
+                    <button type="button" className="btn btn-primary createproject" onClick={() => browserHistory.push('/projects/new')}>Create Projects</button><br/><hr/>
+                     <button type="button" className="btn btn-success" onClick={() => browserHistory.push('/completedProjects/' + this.props.id)}>completed</button>
                     <span id="logout" className="glyphicon glyphicon-off" onClick={this.returnToSignin}></span>
                     <hr/>
                 </div>
@@ -66,3 +79,21 @@ class UserProjects extends Component {
 }
 
 export default UserProjects;
+
+
+// function handleClickOnCheckbox(e) {
+//     // Only do something if a user clicks on a checkbox input tag
+//     if (e.target.type === 'checkbox') {
+//           toggleTodoComplete(e.target.getAttribute(''), e.target.checked)
+//           //or you can use e.target.dataset('')
+//     }
+// }
+
+// function toggleTodoComplete(todoId, isComplete) {
+//     if (isComplete) {
+//         fetch('/api/v1/todos/' + todoId +  '/complete')
+//     }
+//     else {
+//         fetch('/api/v1/todos/' + todoId +  '/incomplete')
+//     }
+// }

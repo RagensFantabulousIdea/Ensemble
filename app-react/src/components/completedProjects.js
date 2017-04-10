@@ -21,8 +21,7 @@ class Project extends React.Component{
                 </div>
                 <div className="panel-footer">
                     <button type="button" className="btn btn-primary col-sm-offset-1" onClick={() => browserHistory.push('/projects/' + this.props.id + '/edit')}>Edit </button>
-                    <button type="button" className="btn btn-danger col-sm-offset-1" onClick={() => this.props.deleteProject(this.props.index)}>Delete </button>
-                    <button type="button" className="btn btn-success col-sm-offset-1" onClick={() => browserHistory.push('/invite/' + this.props.id)}>Invite</button>
+                    <button type="button" className="btn btn-success col-sm-offset-5" onClick={() => browserHistory.push('/invite/' + this.props.id)}>Invite</button>
                 </div>
             </div>
         </div>

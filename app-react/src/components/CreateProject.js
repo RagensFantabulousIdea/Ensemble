@@ -24,7 +24,7 @@ class createproject extends Component {
             body: JSON.stringify({
                 title: this.state.title,
                 author: this.state.author,
-                projectNumber: this.state.projectNumber,
+                project_num: this.state.projectNumber,
                 description: this.state.description,
             })
         })
