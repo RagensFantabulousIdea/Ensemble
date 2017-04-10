@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class ProjectPhotoCollaboratingPhotoCard extends Component {
+class ProjectExtraPhotosCard extends Component {
   render() {
 
 //users fill out figure information in ProjectCreateCard, it goes to ProjectShootFullCard AND ProjectShootMiniCard. Then ProjectShootMiniCards get placed in a list on ProjectShootList. Each ProjectShootFullCard has its own page, ProjectIndividualFigureList where all of the information can be seen, comments added, and photos uploaded.
@@ -15,7 +15,7 @@ class ProjectPhotoCollaboratingPhotoCard extends Component {
             <div className="panel panel-default">
             
                 <div className="panel-body">
-                    <img src="./img/baseballhitter.jpg" alt="shoot result"/>
+                    <img src="./img/diving-79616_1920.jpg" alt="shoot result"/>
                 </div>
 
                 <div className="panel-footer">
@@ -48,4 +48,4 @@ class ProjectPhotoCollaboratingPhotoCard extends Component {
   }
 }
 
-export default ProjectPhotoCollaboratingPhotoCard;
+export default ProjectExtraPhotosCard;

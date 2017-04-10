@@ -19,13 +19,16 @@ import Project from './components/Project'
 import ProjectCreateCard from './components/ProjectCreateCard'
 import ProjectPhotoCollaborating from './components/ProjectPhotoCollaborating'
 import ProjectPhotoCollaboratingPhotoCard from './components/ProjectPhotoCollaboratingPhotoCard'
+import ProjectAllPhotosList from './components/ProjectAllPhotosList'
+import ProjectExtraPhotosList from './components/ProjectExtraPhotosList'
+import ProjectExtraPhotosCard from './components/ProjectExtraPhotosCard'
 
 // Configure routes
 class Routes extends React.Component {
     render() {
         return <Router history={browserHistory}>
             <Route path="/" component={Welcome} />
-            <Route path="/sandbox" component={ProjectShootList} />
+            <Route path="/sandbox" component={ProjectExtraPhotosList} />
             <Route path="/signup" component={SignUp} />
             <Route path="/signin" component={SignIn} />
             <Route path="/projects" component={UserProjects} />
