@@ -72,7 +72,7 @@ img {
     padding-bottom: 30px;
 }
 
-
+/*Start styles Manpreet had made*/
 /*#actionButton {
     margin-top: 20px;
 }*/
@@ -110,14 +110,18 @@ img {
     margin-top: 20px;
 }
 
+/*end Manpreet's styles*/
+
 /*Project Create Card*/
 .shootSampleImage {
     max-width: 140px;
 }
 
+/*start media queries*/
+
 /*tablet*/
 @media all and (min-width: 768px) {
-
+    /*welcome page tablet*/
     .welcome {
         padding-bottom: 10vw;
     }
@@ -143,7 +147,7 @@ img {
         font-size: 20px; 
     }
 
-.signUpButtonWelcome {
+    .signUpButtonWelcome {
         margin-top: 40px;
         height: 100px;
         width: 100px;
@@ -154,6 +158,7 @@ img {
 
 /*laptop*/
 @media all and (min-width: 1024px) {
+    /*welcome page laptop*/
     .welcome {
         padding-bottom: 9vw;
     }
@@ -162,6 +167,7 @@ img {
 /*desktop*/
 
 @media all and (min-width: 1200px) {
+    /*welcome page desktop*/
     .welcome {
         text-align: right;
         padding-right: 30px;

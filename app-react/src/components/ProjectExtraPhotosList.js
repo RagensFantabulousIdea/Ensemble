@@ -11,21 +11,18 @@ class ProjectExtraPhotosList extends Component {
 
             <h1>Extra Photos</h1>
 
-            <p>Sometimes photo shoots produce opportunties for extra photos. It's nice to be able to see the good ones. And, sometimes, an extra photo might find a home in a new figure. You can talk about that here and assign photos to an existing or new figure's page.' </p>
+            <p>Sometimes photo shoots produce opportunties for extra photos. It's nice to be able to see the good ones. Sometimes, an extra photo might find a home in an existing or new figure within the project. You can chat about that here and assign photos to an existing or new figure. </p>
         
             <div className="container">
                 <div className="row">
-                    <div className="col-xs-7">
-                        <h2>Messages</h2>
-                    </div>
 
-                    <div className="col-xs-5">
+                    <div className="col-xs-7">
                         <h2>Photo Shoot Uploads</h2>
 
                             <div className="row">
                                 <div className="col-xs-12">
                                     <div className="form-group">
-                                        <label for="figureSample">Upload Images for This Figure</label>
+                                        <label for="figureSample">Upload Extra Images</label>
                                         <input type="file" className="figureResults"/>
                                     </div>
                                 </div>
@@ -46,6 +43,11 @@ class ProjectExtraPhotosList extends Component {
                                 <ProjectExtraPhotosCard />
                             </div>
                     </div>
+
+                    <div className="col-xs-5">
+                        <h2>Messages</h2>
+                    </div>
+                    
                 </div>
             </div>
         </div>
