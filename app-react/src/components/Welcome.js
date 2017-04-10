@@ -3,6 +3,7 @@ import { browserHistory } from 'react-router';
 // import SignUp from './SignUp'
 // import Signin from './Signin'
 
+// need to add footer
 class Welcome extends Component {
   render() {
     return (
