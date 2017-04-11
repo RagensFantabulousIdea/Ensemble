@@ -18,11 +18,11 @@ import ProjectShootMiniCard from './components/ProjectShootMiniCard'
 import Project from './components/Project'
 import ProjectCreateCard from './components/ProjectCreateCard'
 
-import ProjectIndividualFigureList from './components/ProjectIndividualFigureList'
+// import ProjectIndividualFigureList from './components/ProjectIndividualFigureList'
 import completedProjects from './components/completedProjects'
 
-import ProjectPhotoCollaborating from './components/ProjectPhotoCollaborating'
-import ProjectPhotoCollaboratingPhotoCard from './components/ProjectPhotoCollaboratingPhotoCard'
+// import ProjectPhotoCollaborating from './components/ProjectPhotoCollaborating'
+// import ProjectPhotoCollaboratingPhotoCard from './components/ProjectPhotoCollaboratingPhotoCard'
 
 
 // Configure routes

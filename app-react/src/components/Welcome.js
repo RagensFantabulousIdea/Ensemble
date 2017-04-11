@@ -34,7 +34,11 @@ class Welcome extends Component {
               <p className="makingSelections">Upload multiple images at a time, note accepted photos with one-click, and record the final selections in one location.</p>
             </div>
           </div>
+
       
+             <div className="text-center">
+          <button id="actionButton" type="button" className="btn btn-lg btn-success" onClick={() => browserHistory.push('/Projects')}>User Projects</button>
+        </div>
 
 
 
@@ -43,8 +47,5 @@ class Welcome extends Component {
   }
 }
 
-        // <div className="text-center">
-        //   <button id="actionButton" type="button" className="btn btn-lg btn-success" onClick={() => browserHistory.push('/Projects')}>User Projects</button>
-        // </div>
-
+       
 export default Welcome;

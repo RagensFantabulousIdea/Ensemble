@@ -8,20 +8,20 @@ class UserProjects extends Component {
         super(props)                                // super is required here
         this.getProjects = this.getProjects.bind(this)
         this.returnToSignin = this.returnToSignin.bind(this)
-        // this.deleteProject = this.deleteProject.bind(this) 
-        this.toggleProjectComplete = this.toggleProjectComplete.bind(this)
+        this.deleteProject = this.deleteProject.bind(this) 
+        // this.toggleProjectComplete = this.toggleProjectComplete.bind(this)
         this.state = {                                // state of the page                     
             projects: []                              //start with empty state  
         }
     }     
     //LifeCycles Methods                                             
     componentWillMount(){ 
-        //this.getProjects()                 // put the data into it and change the state
+        this.getProjects()                 // put the data into it and change the state
     }
 
     //API Methods
     getProjects(){
-        fetch('/api/v1/?')
+        fetch('/api/projects?token=' + sessionStorage.getItem('token'))
             .then (response => response.json())
             .then(projects => this.setState({projects: projects}))
     }
@@ -33,21 +33,24 @@ class UserProjects extends Component {
             browserHistory.push('/signin')
         }
     }
-    // deleteProject(index) {
-    //     fetch('/api/v1/?')
-    //         .then (response => response.json())
-    //         .then(projects => this.setState({projects: projects}))
-    //         projects.splice(index, 1)
-    // }
+    deleteProject(id) {
+        fetch('/api/projects/' + id + '?token='+ sessionStorage.getItem('token'), {method: 'DELETE'})
+            .then(response => {
+                this.getProjects()
+            })
+    }
 
-        // functionality for checkbox
-    toggleProjectComplete(ProjectId, isComplete) {
-        //  fetch('/api/v1/?' + ProjectId + '/' + (isComplete ? 'complete' : 'incomplete'))
-        // .then(this.getProjects)
-        }
+    //     // functionality for checkbox
+    // toggleProjectComplete(ProjectId, isComplete) {
+    //     //  fetch('/api/v1/?' + ProjectId + '/' + (isComplete ? 'complete' : 'incomplete'))
+    //     // .then(this.getProjects)
+    //     }
 
     render() {
-        // let projects = this.state.projects.map((project, key) => <Project key={key} index={key} {...project} deleteProject={this.deleteProject} toggleProjectComplete={this.toggleProjectComplete}/>)
+        console.log(this.state.projects)
+        let projects = this.state.projects.map((project, key) => <Project key={key} index={key} {...project} deleteProject={this.deleteProject}/>)
+       
+        
         return (
             <div className="container-fluid">
                 <div className="text-center">
@@ -61,8 +64,7 @@ class UserProjects extends Component {
                     <div className="col-sm-6 leftcolumn">
                         <h3><center>My Projects</center></h3>
                         <div className="row">
-                            <Project id={1} title="Test Project 1" author="Manpreet" projectNumber="127837482378" description="This is just a test project, so ignore it." />
-                            <Project id={2} title="Test Project 2" author="Collin" projectNumber="39439jds" description="This is just a test project, so ignore it." />
+                            {projects}
                         </div>
                     </div>
                     <div className="col-sm-6 rightcolumn">
@@ -81,19 +83,7 @@ class UserProjects extends Component {
 export default UserProjects;
 
 
-// function handleClickOnCheckbox(e) {
-//     // Only do something if a user clicks on a checkbox input tag
-//     if (e.target.type === 'checkbox') {
-//           toggleTodoComplete(e.target.getAttribute(''), e.target.checked)
-//           //or you can use e.target.dataset('')
-//     }
-// }
+// <Project id={1} title="Test Project 1" author="Manpreet" projectNumber="127837482378" description="This is just a test project, so ignore it." />
+//                             <Project id={2} title="Test Project 2" author="Collin" projectNumber="39439jds" description="This is just a test project, so ignore it." />
 
-// function toggleTodoComplete(todoId, isComplete) {
-//     if (isComplete) {
-//         fetch('/api/v1/todos/' + todoId +  '/complete')
-//     }
-//     else {
-//         fetch('/api/v1/todos/' + todoId +  '/incomplete')
-//     }
-// }
+ // let projects = this.state.projects.map((project, key) => <Project key={key} index={key} {...project} deleteProject={this.deleteProject} toggleProjectComplete={this.toggleProjectComplete}/>)
