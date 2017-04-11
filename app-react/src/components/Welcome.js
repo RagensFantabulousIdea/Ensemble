@@ -32,7 +32,7 @@ class Welcome extends Component {
             </div>
             
             <div className="col-sm-6 col-md-4">
-              <p className="makingSelections">Upload multiple images at a time, note accepted photos with one-click, and record the final selections in one location.</p>
+              <p className="makingSelections">Upload multiple jpeg images at a time, note accepted photos with one-click, and record the final selections in one location.</p>
             </div>
           </div>
 

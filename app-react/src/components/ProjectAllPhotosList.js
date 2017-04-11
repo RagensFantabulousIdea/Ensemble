@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import NavBar from './NavBar';
+import FooterArea from './FooterArea';
 import ProjectAllPhotosListPhotoCard from './ProjectAllPhotosListPhotoCard';
 
 class ProjectAllPhotosList extends Component {
@@ -8,11 +10,9 @@ class ProjectAllPhotosList extends Component {
 
 // need to figure out how to pull approved image to use as the heading background.
     return (
-        <div>
-
+        <div className="projectAllPhotosList">
+            <NavBar />
             <h1>All Project Photos</h1>
-
-            <p className="instructions">See all of the photos uploaded to all of the figures and on the Extra Photos page.</p>
         
             <div className="container">
                 <div className="row">
@@ -32,9 +32,9 @@ class ProjectAllPhotosList extends Component {
                     <ProjectAllPhotosListPhotoCard />
                     <ProjectAllPhotosListPhotoCard />
                     <ProjectAllPhotosListPhotoCard />
-
                 </div>
             </div>
+            <FooterArea />
         </div>
     );
   }

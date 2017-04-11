@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
+import NavBar from './NavBar';
+import FooterArea from './FooterArea';
 import ProjectExtraPhotosCard from './ProjectExtraPhotosCard';
-import CommentsTitleBox from './CommentsTitleBox';
-import CommentsTopLevel from './CommentsTopLevel';
-import CommentsNested from './CommentsNested';
-import CommentsDeeplyNested from './CommentsDeeplyNested';
+import CommentsBox from './CommentsBox';
 
 class ProjectExtraPhotosList extends Component {
   render() {
@@ -12,7 +11,7 @@ class ProjectExtraPhotosList extends Component {
 
     return (
         <div>
-
+            <NavBar />
             <h1>Extra Photos</h1>
 
             <p>Sometimes photo shoots produce opportunties for extra photos. It's nice to be able to see the good ones. Sometimes, an extra photo might find a home in an existing or new figure within the project. You can chat about that here and assign photos to an existing or new figure. </p>
@@ -50,12 +49,7 @@ class ProjectExtraPhotosList extends Component {
                         <div className="row">
                             <div className="panel panel-default">
                                 <div className="panel-body messageArea">
-                                    <CommentsTitleBox />
-                                    <CommentsTopLevel />
-                                    <CommentsNested />
-                                    <CommentsDeeplyNested />
-                                    <CommentsNested />
-                                    <CommentsTopLevel />
+                                    <CommentsBox />
                                 </div>
                             </div>
                         </div>
@@ -63,6 +57,7 @@ class ProjectExtraPhotosList extends Component {
 
                 </div>
             </div>
+            <FooterArea />
         </div>
     );
   }
