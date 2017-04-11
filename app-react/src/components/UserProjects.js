@@ -18,7 +18,6 @@ class UserProjects extends Component {
     componentWillMount(){ 
         this.getProjects()                 // put the data into it and change the state
     }
-
     //API Methods
     getProjects(){
         fetch('/api/projects?token=' + sessionStorage.getItem('token'))
