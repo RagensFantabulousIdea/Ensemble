@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
 
   before_action :require_user
-  before_action :find_project, only: [:update, :show, :destroy]
+  before_action :find_project, except: [:index, :create]
 
   def index
     @user = current_user
@@ -9,7 +9,18 @@ class ProjectsController < ApplicationController
       if @projects.empty?
         render json: ["No projects to display. Create one?"], status: 200
       else
-        render json: @projects
+        if params[:complete]
+          @projects = projects_complete
+          render json: @projects
+        elsif params[:inactive]
+          @projects = projects_inactive
+          render json: @projects
+        elsif params[:delayed]
+          @projects = projects_delayed
+          render json: @projects
+        else
+          render json: @projects
+        end
       end
   end
 
@@ -49,18 +60,30 @@ class ProjectsController < ApplicationController
     if @project.save
       render json: ["Project deleted successfully."]
     else
-      render json: @project.errors.full_messages
+      render json: @project.errors.full_messages, status: 400
     end
   end
 
   private
+
+  def projects_complete
+    @user.owned_projects.where(complete: true) + @user.invited_projects.where(complete: true)
+  end
+
+  def projects_delayed
+    @user.owned_projects.where(inactive: true) + @user.invited_projects.where(inactive: true)
+  end
+
+  def projects_inactive
+    @user.owned_projects.where(delayed: true) + @user.invited_projects.where(delayed: true)
+  end
 
   def find_project
     @project = Project.find(params[:id])
   end
 
   def project_params
-    params.permit(:title, :description, :author, :project_num)
+    params.permit(:title, :description, :author, :project_num, :complete, :delayed, :inactive)
   end
 
 end
