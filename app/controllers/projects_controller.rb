@@ -49,7 +49,7 @@ class ProjectsController < ApplicationController
     if @project.save
       render json: ["Project deleted successfully."]
     else
-      render json: @project.errors.full_messages
+      render json: @project.errors.full_messages, status: 400
     end
   end
 
