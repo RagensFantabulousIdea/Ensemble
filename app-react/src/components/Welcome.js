@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
 // import SignUp from './SignUp'
 // import Signin from './Signin'
+import FooterArea from './FooterArea'
 
 // need to add footer
 class Welcome extends Component {
@@ -34,9 +35,8 @@ class Welcome extends Component {
               <p className="makingSelections">Upload multiple images at a time, note accepted photos with one-click, and record the final selections in one location.</p>
             </div>
           </div>
-      
 
-
+        <FooterArea />
 
       </div>
     );
