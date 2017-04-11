@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
 
   before_action :require_user
+  before_action :find_project, only: [:update, :show, :destroy]
 
   def index
     @user = current_user
@@ -22,7 +23,6 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    @project = Project.find_by(id: params[:id])
     if @project.owner == current_user
       if @project.update!(project_params)
         render json: @project
@@ -35,8 +35,6 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @p_id = params[:id]
-    @project = Project.find_by(id: @p_id)
     if @project
       render json: @project
       # Left in in case ams.rb gets deleted, and belongs_to :project gets added back. Will limit comments to two levels deep.
@@ -47,9 +45,19 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
+    @project.destroy if @current_user == @project.owner
+    if @project.save
+      render json: ["Project deleted successfully."]
+    else
+      render json: @project.errors.full_messages
+    end
   end
 
   private
+
+  def find_project
+    @project = Project.find(params[:id])
+  end
 
   def project_params
     params.permit(:title, :description, :author, :project_num)
