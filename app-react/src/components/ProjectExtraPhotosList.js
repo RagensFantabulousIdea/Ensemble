@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import ProjectExtraPhotosCard from './ProjectExtraPhotosCard';
+import CommentsTitleBox from './CommentsTitleBox';
+import CommentsTopLevel from './CommentsTopLevel';
+import CommentsNested from './CommentsNested';
+import CommentsDeeplyNested from './CommentsDeeplyNested';
 
 class ProjectExtraPhotosList extends Component {
   render() {
@@ -17,8 +21,6 @@ class ProjectExtraPhotosList extends Component {
                 <div className="row">
 
                     <div className="col-xs-7">
-                        <h2>Photo Shoot Uploads</h2>
-
                             <div className="row">
                                 <div className="col-xs-12">
                                     <div className="form-group">
@@ -45,9 +47,20 @@ class ProjectExtraPhotosList extends Component {
                     </div>
 
                     <div className="col-xs-5">
-                        <h2>Messages</h2>
+                        <div className="row">
+                            <div className="panel panel-default">
+                                <div className="panel-body messageArea">
+                                    <CommentsTitleBox />
+                                    <CommentsTopLevel />
+                                    <CommentsNested />
+                                    <CommentsDeeplyNested />
+                                    <CommentsNested />
+                                    <CommentsTopLevel />
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>

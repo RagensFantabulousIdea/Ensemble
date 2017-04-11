@@ -23,6 +23,7 @@ import ProjectPhotoCollaboratingPhotoCard from './components/ProjectPhotoCollabo
 import ProjectAllPhotosList from './components/ProjectAllPhotosList'
 import ProjectExtraPhotosList from './components/ProjectExtraPhotosList'
 import ProjectExtraPhotosCard from './components/ProjectExtraPhotosCard'
+import FullSizedImageView from './components/FullSizedImageView'
 
 
 // Configure routes
@@ -30,7 +31,7 @@ class Routes extends React.Component {
     render() {
         return <Router history={browserHistory}>
             <Route path="/" component={Welcome} />
-            <Route path="/sandbox" component={ProjectPhotoCollaborating} />
+            <Route path="/sandbox" component={FullSizedImageView} />
             <Route path="/signup" component={SignUp} />
             <Route path="/signin" component={SignIn} />
             <Route path="/projects" component={UserProjects} />

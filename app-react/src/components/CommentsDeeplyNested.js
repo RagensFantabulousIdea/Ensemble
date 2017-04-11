@@ -20,14 +20,29 @@ class CommentsDeeplyNested
             </div>
 
             <div className="row commentsNestedRowMessage">
-                <div className="col-xs-10 col-xs-offset-2 messageReplyText">
-                    <span className="messageUserName">Whitney Havice</span> <span className="messageContent">Thanks, we'll plan on that, then.</span>    
-                    <div className="messageDeeplyNestedReplyLink">
-                        <a>Reply</a><br/>
-                    </div>               
+                <div className="col-xs-10 col-xs-offset-2">
+                    <ul className="media-list">
+                            <li className="media">
+                                <div className="media-left">
+                                    <span className="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                </div>
+                                <div className="media-body">
+                                <h4 className="media-heading messageUserName">Whitney Havice</h4>
+                                    <div className="row">
+                                        <div className="col-xs-10 messageText">
+                                            <span className="messageContent">Thanks, we'll plan on that, then.</span>
+                                            <br/>
+                                            <a className="messageTopReplyLink">Reply</a><br/>
+                                        </div>
+                                        <div className="col-xs-2 messageEditIcon">
+                                            <span className="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-
         </div>
     );
   }

@@ -5,7 +5,7 @@ class CommentsTitleBox extends Component {
   render() {
 
     return (
-      <div>
+      <div className="row">
         <div className="col-xs-12 commentsTopLevelCol">
         <h4>Messages</h4>
           <div className="input-group">
