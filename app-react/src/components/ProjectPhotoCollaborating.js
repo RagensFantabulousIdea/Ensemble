@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
+import NavBar from './NavBar';
+import NavAdditionalPager from './NavAdditionalPager';
+import FooterArea from './FooterArea';
 import ProjectShootFullCard from './ProjectShootFullCard';
 import ProjectPhotoCollaboratingPhotoCard from './ProjectPhotoCollaboratingPhotoCard';
-import CommentsTitleBox from './CommentsTitleBox';
-import CommentsTopLevel from './CommentsTopLevel';
-import CommentsNested from './CommentsNested';
-import CommentsDeeplyNested from './CommentsDeeplyNested';
+import CommentsBox from './CommentsBox';
 
 class ProjectPhotoCollaborating extends Component {
   render() {
@@ -13,44 +13,34 @@ class ProjectPhotoCollaborating extends Component {
 
 // need to figure out how to pull approved image to use as the heading background.
     return (
-        <div>
-            <nav aria-label="...">
-                <ul className="pager">
-                    <li className="previous"><a href="#"><span aria-hidden="true">&larr;</span> Last Figure</a></li>
-                    <li className="backToProjectList"><a href="#">Return to Main Project List</a></li>
-                    <li className="next"><a href="#">Next Figure <span aria-hidden="true">&rarr;</span></a></li>
-                </ul>
-            </nav>
+        <div className="projectPhotoCollaborating">
+            <NavBar />
+            <NavAdditionalPager />
 
             <h1>Photo Collaborating</h1>
         
             <div className="container">
                 <div className="row">
                     <div className="col-sm-7">
-                        <h2>Photo Details and Messages</h2>
+                        <h3>Photo Details and Messages</h3>
                             <ProjectShootFullCard />
 
                             <div className="panel panel-default">
                                 <div className="panel-body messageArea">
-                                        <CommentsTitleBox />
-                                        <CommentsTopLevel />
-                                        <CommentsNested />
-                                        <CommentsDeeplyNested />
-                                        <CommentsNested />
-                                        <CommentsTopLevel />
+                                    <CommentsBox />
                                 </div>
                             </div>
-
-
                     </div>
 
                     <div className="col-sm-5">
-                        <h2>Photo Shoot Uploads</h2>
+                        <h3>Photo Shoot Uploads</h3>
 
                             <div className="row">
                                 <div className="col-xs-12">
                                     <div className="form-group">
-                                        <label for="figureSample">Upload Images for This Figure</label>
+                                        <label className="figureSamples" for="figureSample">Upload Images for This Figure</label>
+                                        <label className="photoFrameInstructions" for="photoFrame">Enter the Frame Number for Each Photo Uploaded</label>
+                                        <input type="text" className="form-control photoFrame" />
                                         <input type="file" className="figureResults"/>
                                     </div>
                                 </div>
@@ -72,6 +62,7 @@ class ProjectPhotoCollaborating extends Component {
                     </div>
                 </div>
             </div>
+            <FooterArea />
         </div>
     );
   }

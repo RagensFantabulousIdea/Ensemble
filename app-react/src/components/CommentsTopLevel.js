@@ -18,14 +18,12 @@ class CommentsTopLevel
                             <div className="media-body">
                             <h4 className="media-heading messageUserName">Whitney Havice</h4>
                                 <div className="row">
-                                    <div className="col-xs-10 messageText">
+                                    <div className="col-xs-12 messageText">
                                         <span className="messageContent">I think we need to make sure that the right shoulder is higher. The sample is good except for this one problem. If this guy tried to swing, he'd break his arm!</span>
                                         <br/>
-                                        <a className="messageTopReplyLink">Reply</a><br/>
+                                        <a className="messageTopEditLink">Edit</a> | <a className="messageTopDeleteLink">Delete</a> | <a className="messageTopReplyLink">Reply</a><br/>
                                     </div>
-                                    <div className="col-xs-2 messageEditIcon">
-                                        <span className="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                                    </div>
+
                                 </div>
                             </div>
                         </li>
@@ -38,3 +36,7 @@ class CommentsTopLevel
 }
 
 export default CommentsTopLevel;
+
+                                    // <div className="col-xs-2 messageEditIcon">
+                                    //     <span className="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                    // </div>

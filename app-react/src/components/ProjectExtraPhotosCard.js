@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-
+import NavBar from './NavBar';
+import NavAdditionalPager from './NavAdditionalPager';
+import FooterArea from './FooterArea';
 class ProjectExtraPhotosCard extends Component {
   render() {
 
