@@ -71,7 +71,7 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.permit(:title, :description, :author, :project_num)
+    params.permit(:title, :description, :author, :project_num, :complete, :delayed, :inactive)
   end
 
 end
