@@ -10,13 +10,13 @@ class ProjectsController < ApplicationController
         render json: ["No projects to display. Create one?"], status: 200
       else
         if params[:complete]
-          @projects = @user.owned_projects.where(complete: true) + @user.invited_projects.where(complete: true)
+          @projects = projects_complete
           render json: @projects
         elsif params[:inactive]
-          @projects = @user.owned_projects.where(inactive: true) + @user.invited_projects.where(inactive: true)
+          @projects = projects_inactive
           render json: @projects
         elsif params[:delayed]
-          @projects = @user.owned_projects.where(delayed: true) + @user.invited_projects.where(delayed: true)
+          @projects = projects_delayed
           render json: @projects
         else
           render json: @projects
@@ -65,6 +65,18 @@ class ProjectsController < ApplicationController
   end
 
   private
+
+  def projects_complete
+    @user.owned_projects.where(complete: true) + @user.invited_projects.where(complete: true)
+  end
+
+  def projects_delayed
+    @user.owned_projects.where(inactive: true) + @user.invited_projects.where(inactive: true)
+  end
+
+  def projects_inactive
+    @user.owned_projects.where(delayed: true) + @user.invited_projects.where(delayed: true)
+  end
 
   def find_project
     @project = Project.find(params[:id])
