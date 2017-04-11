@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
 
   before_action :require_user
-  before_action :find_project, only: [:update, :show, :destroy]
+  before_action :find_project, except: [:index, :create]
 
   def index
     @user = current_user
@@ -9,7 +9,18 @@ class ProjectsController < ApplicationController
       if @projects.empty?
         render json: ["No projects to display. Create one?"], status: 200
       else
-        render json: @projects
+        if params[:complete]
+          @projects = @user.owned_projects.where(complete: true) + @user.invited_projects.where(complete: true)
+          render json: @projects
+        elsif params[:inactive]
+          @projects = @user.owned_projects.where(inactive: true) + @user.invited_projects.where(inactive: true)
+          render json: @projects
+        elsif params[:delayed]
+          @projects = @user.owned_projects.where(delayed: true) + @user.invited_projects.where(delayed: true)
+          render json: @projects
+        else
+          render json: @projects
+        end
       end
   end
 
