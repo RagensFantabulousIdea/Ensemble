@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import ProjectShootFullCard from './ProjectShootFullCard';
 import ProjectPhotoCollaboratingPhotoCard from './ProjectPhotoCollaboratingPhotoCard';
+import CommentsTitleBox from './CommentsTitleBox';
+import CommentsTopLevel from './CommentsTopLevel';
+import CommentsNested from './CommentsNested';
+import CommentsDeeplyNested from './CommentsDeeplyNested';
 
 class ProjectPhotoCollaborating extends Component {
   render() {
@@ -22,12 +26,25 @@ class ProjectPhotoCollaborating extends Component {
         
             <div className="container">
                 <div className="row">
-                    <div className="col-xs-7">
+                    <div className="col-sm-7">
                         <h2>Photo Details and Messages</h2>
                             <ProjectShootFullCard />
+
+                            <div className="panel panel-default">
+                                <div className="panel-body messageArea">
+                                        <CommentsTitleBox />
+                                        <CommentsTopLevel />
+                                        <CommentsNested />
+                                        <CommentsDeeplyNested />
+                                        <CommentsNested />
+                                        <CommentsTopLevel />
+                                </div>
+                            </div>
+
+
                     </div>
 
-                    <div className="col-xs-5">
+                    <div className="col-sm-5">
                         <h2>Photo Shoot Uploads</h2>
 
                             <div className="row">

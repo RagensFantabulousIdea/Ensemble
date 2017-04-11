@@ -131,62 +131,6 @@ class ProjectShootFullCard extends Component {
                   </div>
                 </div>
               </div>
-
-              <div className="panel-body messageArea">
-              <h4>Messages</h4>
-                <div className="input-group">
-                  <input type="text" className="form-control"/>
-                    <span className="input-group-btn">
-                    <button className="btn btn-success messagePost" type="button">Post</button>
-                    </span>
-                </div>
-                <br/>
-                <div className="row">
-                  <div className="col-xs-12">
-                    <div className="messageRow">
-                       <span className="messageUserName">Whitney Havice</span>  <span className="messageContent">I think we need to make sure that the right shoulder is higher.</span>
-                    </div>
-                    <div className="messageReplyLink">
-                      <a>Reply</a>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="row">
-                  <div className="col-xs-11 col-xs-offset-1 messageReplyTextBox">
-                    <div className="input-group">
-                      <input type="text" className="form-control"/>
-                      <span className="input-group-btn">
-                        <button className="btn btn-success messagePost" type="button">Post</button>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                
-
-                <div className="row">
-                  <div className="col-xs-11 col-xs-offset-1 messageReply">
-                    <span className="messageUserName">Derek Campbell</span> <span className="messageContent">Sounds good to me!</span>    
-                    <div className="messageReplyLink">
-                      <a>Reply</a>
-                    </div>               
-                  </div>
-
-                </div>
-                
-                <div className="row">
-                  <div className="col-xs-11 col-xs-offset-1 messageReplyTextBox">
-                    <div className="input-group">
-                      <input type="text" className="form-control"/>
-                      <span className="input-group-btn">
-                        <button className="btn btn-success messagePost" type="button">Post</button>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                
-              </div>
  
             </div>
 
