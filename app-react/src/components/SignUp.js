@@ -56,6 +56,7 @@ class SignUp extends Component {
             if (response.token) {
                 (console.log('response token true ' + response.token))
                 sessionStorage.setItem('token', response.token)
+                sessionStorage.setItem('userId', response.id)
                 // browserHistory.push('/')
                 browserHistory.push('/projects')
            } else {

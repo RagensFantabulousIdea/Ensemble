@@ -160,6 +160,10 @@ a.nav-item {
     padding-left: 20px;
 }
 
+.projectCard {
+    min-height: 500px;
+}
+
 .invitetopmargin{
     margin-top: 20px;
 }
