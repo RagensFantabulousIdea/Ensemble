@@ -13,12 +13,10 @@ import UserProjects from './components/UserProjects'
 import CreateProject from './components/CreateProject'
 import Invite from './components/Invite'
 import Project from './components/Project'
-import CompletedProjects from './components/CompletedProjects'
 import ProjectShootList from './components/ProjectShootList'
 import ProjectCreateCard from './components/ProjectCreateCard'
 import ProjectShootFullCard from './components/ProjectShootFullCard'
 import ProjectShootMiniCard from './components/ProjectShootMiniCard'
-import ProjectCreateCard from './components/ProjectCreateCard'
 import ProjectPhotoCollaboratingPhotoCard from './components/ProjectPhotoCollaboratingPhotoCard'
 import ProjectPhotoCollaborating from './components/ProjectPhotoCollaborating'
 import ProjectAllPhotosList from './components/ProjectAllPhotosList'
@@ -45,11 +43,7 @@ class Routes extends React.Component {
             <Route path="/invite/:projectId" component={Invite} />
             <Route path="/projects/:projectId/view" component={Project} />
             <Route path="/projects/:projectId/edit" component={CreateProject} />
-<<<<<<< HEAD
-            <Route path="/completedprojects/:projectId" component={CompletedProjects} />
-=======
             <Route path="/edit/:projectId" component={Edit} />
->>>>>>> 020129fd55a0e4211059579055d2f2b6aba01a82
         </Router>
     }
 }
