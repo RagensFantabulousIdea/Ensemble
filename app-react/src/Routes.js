@@ -44,6 +44,7 @@ class Routes extends React.Component {
             <Route path="/projects/:projectId/view" component={Project} />
             <Route path="/projects/:projectId/edit" component={CreateProject} />
             <Route path="/edit/:projectId" component={Edit} />
+            <Route path="/shoot/:projectId" component={ProjectShootList} />
         </Router>
     }
 }

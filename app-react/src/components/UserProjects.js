@@ -34,9 +34,8 @@ class UserProjects extends Component {
     }
     // functionality for signout
     returnToSignin() {
-        if (sessionStorage.length == 1) {
+        if (sessionStorage.length > 0) {
             sessionStorage.clear()
-        } else if (sessionStorage.length == 0) {
             browserHistory.push('/signin')
         }
     }
@@ -47,12 +46,6 @@ class UserProjects extends Component {
                 this.getProjects()
             })
     }
-
-    //     // functionality for checkbox
-    // toggleProjectComplete(ProjectId, isComplete) {
-    //     //  fetch('/api/v1/?' + ProjectId + '/' + (isComplete ? 'complete' : 'incomplete'))
-    //     // .then(this.getProjects)
-    //     }
 
     render() {
         let projects = this.state.projects.map((project, key) => <Project key={Date.now() + key} index={key} {...project} getProjects={this.getProjects} deleteProject={this.deleteProject}/>)
