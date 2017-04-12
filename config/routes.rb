@@ -5,14 +5,16 @@ Rails.application.routes.draw do
   scope :api do
     # resources :equipment
     # resources :shoots
-    # resources :assets
-    resources :projects do
+    resources :projects, except: [:new, :edit] do
+      resources :assets, except: [:new, :edit] do
+        resources :photos, except: [:new, :edit]
+      end
       resources :comments, only: [:create]
       resources :invitations, only: [:create]
     end
 
-    resources :users do
-      resources :projects
+    resources :users, except: [:new, :edit] do
+      resources :projects, except: [:new, :edit]
     end
 
     resources :comments, only: [] do

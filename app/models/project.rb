@@ -6,6 +6,10 @@ class Project < ApplicationRecord
   has_many :memberships, dependent: :delete_all
   has_many :members, through: :memberships, source: :user, dependent: :delete_all
 
+  has_many :assets
+
+  has_many :photos
+
   has_many :comments, dependent: :destroy
   has_many :left_comments, as: :commentable, class_name: 'Comment', dependent: :destroy
 
