@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import ProjectShootMiniCard from './ProjectShootMiniCard';
+import NavBar from './NavBar';
+import FooterArea from './FooterArea';
 
 class ProjectShootList extends Component {
   render() {
@@ -8,18 +10,26 @@ class ProjectShootList extends Component {
 
 // set up if/else method to only show the art describing the process when there aren't any mini cards present on this page. 
     return (
-      <div>
+      <div className="projectShootListPage">
+        <NavBar />
         <h1>Photo Shoot List</h1>
-          <h2>PullAuthorName PullTitle</h2>
-          <p>Pull description.</p>
 
-          <img src="./img/shootManagerProcess.jpg" alt="click Add Photo Planning Card, add details, click on mini cards to go to a figure's Photo Collaborating page, upload results and message on each figure's Photo Collaborating page, make selections!" />
-
-            <button type="button" className="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Add Photo Shoot Planning Card</button>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
+          <div className="container">
+            <div className="row">
+              <div className="col-sm-12">
+                <h2 className="projectInfoShootListPage"><span className="projectName">Pull Author Name</span>, <span className="projectTitle">Pull Title Could Be Long</span></h2>
+              </div>
+            </div>
+            <div className="row descriptionAddButtonRow">
+              <div className="col-sm-6">
+                <p className="projectDescription">Pull description. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur laboriosam minus quo ea, quae fugit repudiandae iure quibusdam molestias numquam rem incidunt nihil hic. Ducimus saepe magni, iusto voluptatum ex!</p>
+              </div>
+              
+              <div className="col-sm-6">
+                <button type="button" className="btn addButton pull-right">Add Photo Shoot Planning Card</button>
+              </div>
+            </div>
+          </div>
             
             <div className="container">
               <div className="row">
@@ -33,7 +43,11 @@ class ProjectShootList extends Component {
               </div>
             </div>
 
-            <footer>Art used with permission from Microsoft.</footer>
+            
+            <div className="footerArea">
+            <FooterArea />
+              Art used with permission from Microsoft.
+            </div>
 
       </div>
 
