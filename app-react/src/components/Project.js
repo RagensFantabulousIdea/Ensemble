@@ -4,13 +4,11 @@ import { browserHistory } from 'react-router'
 class Project extends React.Component{
     constructor(props) {
         super(props)
-        this.state={
-                completed: false
-        }
-    }
+        this.toggleCompleted = this.toggleCompleted.bind(this)
 
-    componentDidMount(){
-        console.log(this.props.id)
+        this.state = {
+            complete: props.complete
+        }
     }
 
 //     function handleClickOnCheckbox(e) {
@@ -30,39 +28,55 @@ class Project extends React.Component{
 //     }
 // }
     toggleCompleted() {
-        if (this.state.completed === false) {
-            this.setState({completed: true})
-            console.log('yay')
+        if (this.state.complete === false) {
             var token = sessionStorage.getItem('token');
-            fetch('/api/projects/' + this.props.id + '?token=' + token, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json'
-            },
 
-            body: JSON.stringify({
-                complete: this.state.completed
+            // tell back-end that it's completed
+            fetch('/api/projects/' + this.props.id + '?token=' + token, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+
+                body: JSON.stringify({
+                    complete: true
+                })
             })
-        })
-             // tell back-end that it's completed
-             browserHistory.push('/completedProjects')
+            .then(response => {
+                this.props.getProjects()
+            })
         }
         else {
-            this.setState({completed: false})
-            // fetch('/api/projects/' + this.props.id + '/incomplete') // tell back-end that it's incompleted
-            // .then(this.props.getProjects)
+            var token = sessionStorage.getItem('token');
+
+            // tell back-end that it's completed
+            fetch('/api/projects/' + this.props.id + '?token=' + token, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+
+                body: JSON.stringify({
+                    complete: false
+                })
+            })
+            .then(response => {
+                this.props.getProjects()
+            })
         }
     }
 
     render(){
-        return <div className="col-sm-6">
+        return <div className="col-sm-6 projectCard">
                 <div className="panel panel-info">
                     <div className="panel-heading">
                           <div className="form-check">
-                            <label className="form-check-label">
-                                <input type="checkbox" className="form-check-input" checked={this.state.completed} onClick={() => this.toggleCompleted()}/>
-                                     &nbsp; Check if project is done
-                                </label>
+                                {this.props.owner.id == sessionStorage.getItem('userId') ?
+                                <label className="form-check-label">
+                                    <input type="checkbox" className="form-check-input" checked={this.state.complete} onChange={this.toggleCompleted}/>
+                                        &nbsp; Check if project is done
+                                </label> : ''}
+                                {this.props.owner.id == sessionStorage.getItem('userId') ? <span className="pull-right label label-warning">You Are The Owner</span> : <span className="pull-right label label-danger">Collaboration</span>}
                             </div>
                             <h3 className="title">{this.props.title}</h3>
                         </div>
@@ -77,6 +91,7 @@ class Project extends React.Component{
                     <button type="button" className="btn btn-primary col-sm-offset-1" onClick={() => browserHistory.push('/edit/' + this.props.id)}>Edit </button>
                     <button type="button" className="btn btn-danger col-sm-offset-1" onClick={() => this.props.deleteProject(this.props.id)}>Delete </button>
                     <button type="button" className="btn btn-success col-sm-offset-1" onClick={() => browserHistory.push('/invite/' + this.props.id)}>Invite</button>
+                    
                 </div>
             </div>
         </div>
@@ -84,8 +99,6 @@ class Project extends React.Component{
 }
 
 export default Project;
-
-// {this.state.completed ? 'true' : 'false'}
 
 // <div className="checkbox">
 //                         <label className={this.props.completed === 'yes' ? 'done' : ''}>

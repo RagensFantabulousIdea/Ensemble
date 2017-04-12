@@ -14,7 +14,7 @@ class ProjectsController < ApplicationController
       @projects = current_user.total_projects
     end
     if @projects.empty?
-      render json: ["No projects to display. Create one?"]
+      render json: []
     else
       render json: @projects
     end

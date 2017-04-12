@@ -17,7 +17,7 @@ import ProjectShootFullCard from './components/ProjectShootFullCard'
 import ProjectShootMiniCard from './components/ProjectShootMiniCard'
 import Project from './components/Project'
 import ProjectCreateCard from './components/ProjectCreateCard'
-import completedProjects from './components/completedProjects'
+import CompletedProjects from './components/CompletedProjects'
 import ProjectPhotoCollaborating from './components/ProjectPhotoCollaborating'
 import ProjectPhotoCollaboratingPhotoCard from './components/ProjectPhotoCollaboratingPhotoCard'
 import ProjectAllPhotosList from './components/ProjectAllPhotosList'
@@ -39,13 +39,12 @@ class Routes extends React.Component {
             <Route path="/signup" component={SignUp} />
             <Route path="/signin" component={SignIn} />
             <Route path="/projects" component={UserProjects} />
+            <Route path="/projects/complete" component={UserProjects} />
             <Route path="/projects/new" component={CreateProject} />
             <Route path="/invite/:projectId" component={Invite} />
             <Route path="/projects/:projectId/view" component={Project} />
             <Route path="/projects/:projectId/edit" component={CreateProject} />
-            <Route path="/completedprojects/:projectId" component={completedProjects} />
             <Route path="/edit/:projectId" component={Edit} />
-            <Route path="/completedprojects" component={completedProjects} />
         </Router>
     }
 }
