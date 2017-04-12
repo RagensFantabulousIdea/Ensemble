@@ -14,16 +14,16 @@ class ProjectExtraPhotosCard extends Component {
     return (
         <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 
-            <div className="panel panel-default">
+            <div className="panel">
             
-                <div className="panel-body">
+                <div className="panel-body imagePanel">
                     <img src="./img/diving-79616_1920.jpg" alt="shoot result"/>
                 </div>
 
                 <div className="panel-footer">
                     <div className="row">
                         <div className="col-xs-12 text-is-centered">
-                            <p>useJStoPlaceFrameNumber</p>
+                            <p className="text-center">useJStoPlaceFrameNumber</p>
                         </div>
 
                     </div>
@@ -54,7 +54,7 @@ class ProjectExtraPhotosCard extends Component {
                         </div>
 
                         <div className="col-xs-4">
-                            <a className="couldSelect"><span className="glyphicon glyphicon-check" aria-hidden="true"></span></a>
+                            <a className="couldSelect pull-right"><span className="glyphicon glyphicon-check" aria-hidden="true"></span></a>
                         </div>
 
                     </div>

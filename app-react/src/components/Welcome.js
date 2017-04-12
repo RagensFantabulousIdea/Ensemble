@@ -11,7 +11,7 @@ class Welcome extends Component {
       <div>
         <div className="welcome">
           <header>
-            <span className="appName">Ensemble</span> <br/>
+            <span className="appName">LensFlare</span> <br/>
             <span className="appTagLine">Photo Shoot Management</span>
           </header>
 
@@ -32,7 +32,7 @@ class Welcome extends Component {
             </div>
             
             <div className="col-sm-6 col-md-4">
-              <p className="makingSelections">Upload multiple jpeg images at a time, note accepted photos with one-click, and record the final selections in one location.</p>
+              <p className="makingSelections">Upload jpeg images, note accepted photos with one-click, and record the final selections in one location.</p>
             </div>
           </div>
 
