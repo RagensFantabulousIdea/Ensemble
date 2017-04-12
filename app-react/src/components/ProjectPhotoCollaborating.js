@@ -38,7 +38,7 @@ class ProjectPhotoCollaborating extends Component {
                             <div className="row">
                                 <div className="col-xs-12">
                                     <div className="form-group">
-                                        <label className="figureSamples" for="figureSample">Upload Images for This Figure</label>
+                                        <label className="figureOptions" for="figureSample">Upload Images for This Figure</label>
                                         <label className="photoFrameInstructions" for="photoFrame">Enter the Frame Number for Each Photo Uploaded</label>
                                         <input type="text" className="form-control photoFrame" />
                                         <input type="file" className="figureResults"/>

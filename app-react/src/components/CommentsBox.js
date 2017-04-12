@@ -14,7 +14,7 @@ class CommentsBox extends Component {
             <div className="input-group">
               <input type="text" className="form-control"/>
                 <span className="input-group-btn">
-                  <button className="btn btn-success messagePost" type="button">Post</button>
+                  <button className="btn messagePost" type="button">Post</button>
                 </span>
             </div>
             <br/>

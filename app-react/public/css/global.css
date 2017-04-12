@@ -8,7 +8,7 @@ img {
 
 /*start Welcome styles*/
 .welcome {
-    background-image: url("../img/marigold1731186_1920.jpg");
+    background-image: url("../img/sunset-2218149_1920.jpg");
     background-size: cover;
     padding-bottom: 100vw;
     padding-top: 30px; 
@@ -16,9 +16,11 @@ img {
 }
 
 .appName {
-    font-family: 'Bree Serif', serif;
+    /*font-family: 'Bree Serif', serif;*/
+    font-family: 'Rancho', cursive;
     font-size: 60px;
-    color: black;
+    /*color: black;*/
+    color: white;
 }
 
 .appTagLine {
@@ -281,7 +283,7 @@ h3 {
    color: #D9D9D9;
 }
 
-.figureSamples {
+.figureOptions {
     color: #D9D9D9;
     font-family: 'Raleway', sans-serif;
     font-weight: normal;
@@ -289,6 +291,12 @@ h3 {
 
 .photoFrameInstructions {
     color: #D9D9D9;
+    font-weight: normal;
+}
+
+.figureResults {
+    font-family: 'Raleway', sans-serif;
+    font-weight: normal;
 }
 
 /*project photo collaborating photo card*/
@@ -306,6 +314,40 @@ h3 {
     background-color: #2D2D2D;
 }
 
+/*project extra photos list*/
+.projectExtraPhotosList {
+    background-color: #2D2D2D;
+}
+
+.instructions {
+    color: #D9D9D9;
+    font-family: 'Raleway', sans-serif;
+}
+
+.figureResults {
+    font-family: 'Raleway', sans-serif;
+    font-weight: normal;
+}
+
+.moveToFigure {
+    text-align: center;
+}
+
+.moveToNewFigure {
+    text-align: center;
+}
+
+/*comment box*/
+.messagePost {
+    background-color: #5EABE2;
+    font-family: 'Raleway', sans-serif;
+    color: white;
+}
+
+.messagePost:hover {
+    background-color: #90C4EB;
+    color: black;
+}
 
 /*footer*/
 .footerArea {
@@ -331,7 +373,8 @@ h3 {
         padding-bottom: 10vw;
     }
     .appName {
-        font-size: 120px;
+        /*font-size: 120px;*/
+        font-size: 160px;
         color: white;
         text-shadow: 1px 2px 2px black;
     }
@@ -361,8 +404,8 @@ h3 {
     }
 
     nav {
-        padding-top: 40px;
-        padding-bottom: 40px;
+        padding-top: 50px;
+        padding-bottom: 50px;
     }
 
     .headerArea {
@@ -395,7 +438,8 @@ h3 {
     }
 
     .appName {
-        font-size: 120px;
+        /*font-size: 120px;*/
+        font-size: 160px;
         color: white;
         text-shadow: 1px 2px 2px black;
     }
