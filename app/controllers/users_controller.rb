@@ -8,11 +8,11 @@ class UsersController < ApplicationController
       find_project
       create_user
       save_user
+      @user.invited_projects << @project
     else
       create_user
       save_user
     end
-    @user.invited_projects << @project
   end
 
   def update
