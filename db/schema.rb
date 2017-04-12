@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170411025401) do
+ActiveRecord::Schema.define(version: 20170411220632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,8 +29,16 @@ ActiveRecord::Schema.define(version: 20170411025401) do
     t.string   "tag"
     t.string   "instructions"
     t.string   "photographer"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "frame_range"
+    t.integer  "parts"
+    t.text     "equipment"
+    t.text     "model"
+    t.text     "location_of_shoot"
+    t.string   "date_of_shoot"
+    t.string   "time_of_shoot"
+    t.string   "image"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -63,6 +71,16 @@ ActiveRecord::Schema.define(version: 20170411025401) do
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_memberships_on_project_id", using: :btree
     t.index ["user_id"], name: "index_memberships_on_user_id", using: :btree
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.string   "image"
+    t.string   "frame_num"
+    t.boolean  "liked",      default: false
+    t.boolean  "disliked",   default: false
+    t.boolean  "selected",   default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "projects", force: :cascade do |t|
