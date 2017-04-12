@@ -11,22 +11,6 @@ class Project extends React.Component{
         }
     }
 
-//     function handleClickOnCheckbox(e) {
-//     // Only do something if a user clicks on a checkbox input tag
-//     if (e.target.type === 'checkbox') {
-//           toggleTodoComplete(e.target.getAttribute(''), e.target.checked)
-//           //or you can use e.target.dataset('')
-//     }
-// }
-
-// function toggleTodoComplete(todoId, isComplete) {
-//     if (isComplete) {
-//         fetch('/api/v1/todos/' + todoId +  '/complete')
-//     }
-//     else {
-//         fetch('/api/v1/todos/' + todoId +  '/incomplete')
-//     }
-// }
     toggleCompleted() {
         if (this.state.complete === false) {
             var token = sessionStorage.getItem('token');
