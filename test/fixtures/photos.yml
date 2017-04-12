@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  image: MyString
+  frame_num: MyString
+  liked: false
+  disliked: false
+  selected: false
+
+two:
+  image: MyString
+  frame_num: MyString
+  liked: false
+  disliked: false
+  selected: false
