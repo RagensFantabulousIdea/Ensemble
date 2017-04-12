@@ -6,7 +6,7 @@ class ProjectShootFullCard extends Component {
 //users fill out figure information in ProjectCreateCard, it goes to ProjectShootFullCard AND ProjectShootMiniCard. Then ProjectShootMiniCards get placed in a list on ProjectShootList. Each ProjectShootFullCard has its own page, ProjectIndividualFigureList where all of the information can be seen, comments added, and photos uploaded.
     return (
               
-            <div className="panel panel-default">
+            <div className="panel">
               <div className="panel-heading">
                 
                 <div className="row">
@@ -15,7 +15,7 @@ class ProjectShootFullCard extends Component {
                   </div>
 
                     <div className="col-xs-5">
-                      <button type="submit" className="btn btn-success pull-right">Edit Card</button>
+                      <button type="submit" className="btn editCardButton pull-right">Edit Card</button>
                     </div>
                 </div>
               <br/>
@@ -69,6 +69,10 @@ class ProjectShootFullCard extends Component {
                 </div>
               </div>
 
+              <div clasName="row">
+                <p><strong>Photographer: </strong>Pull the photographer from the card build.</p>
+              </div>
+
               <div className="row">
                 <div className="col-xs-6">
                   <p><strong>Decorative</strong></p>
@@ -104,7 +108,7 @@ class ProjectShootFullCard extends Component {
               </div>
               </div>
             
-              <div className="panel-footer Ragen">
+              <div className="panel-footer">
                 <div className="row">
                   <div className="col-xs-12">
                     <h4 className="figureSelectedTitle">Camera Frame Number</h4>
@@ -123,7 +127,7 @@ class ProjectShootFullCard extends Component {
                     <h4 className="figureFrame">Selection Number</h4>
                       <p className="help-block">Note the frame number for the photo that is selected for this figure.</p>
                         <div className="input-group">
-                          <input type="text" className="form-control figureFrame" placeholder="DSC05697-DSC05700"/>
+                          <input type="text" className="form-control figureFrame" placeholder="DSC05700"/>
                             <span className="input-group-btn">
                               <button className="btn btn-success" type="button">Save</button>
                             </span>

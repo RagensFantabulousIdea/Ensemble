@@ -4,24 +4,21 @@ class ProjectsController < ApplicationController
   before_action :find_project, except: [:index, :create]
 
   def index
-    @user = current_user
-    @projects = @user.total_projects
-      if @projects.empty?
-        render json: [], status: 200
-      else
-        if params[:complete]
-          @projects = projects_complete
-          render json: @projects
-        elsif params[:inactive]
-          @projects = projects_inactive
-          render json: @projects
-        elsif params[:delayed]
-          @projects = projects_delayed
-          render json: @projects
-        else
-          render json: @projects
-        end
-      end
+
+    if params[:complete]
+      @projects = projects_complete
+    elsif params[:inactive]
+      @projects = projects_inactive
+    elsif params[:delayed]
+      @projects = projects_delayed
+    else
+      @projects = current_user.total_projects
+    end
+    if @projects.empty?
+      render json: []
+    else
+      render json: @projects
+    end
   end
 
   def create
@@ -71,15 +68,15 @@ class ProjectsController < ApplicationController
   end
 
   def projects_complete
-    @user.owned_projects.where(complete: true) + @user.invited_projects.where(complete: true)
+    current_user.owned_projects.where(complete: params[:complete]) + current_user.invited_projects.where(complete: params[:complete])
   end
 
   def projects_delayed
-    @user.owned_projects.where(inactive: true) + @user.invited_projects.where(inactive: true)
+    current_user.owned_projects.where(delayed: params[:delayed]) + current_user.invited_projects.where(delayed: params[:delayed])
   end
 
   def projects_inactive
-    @user.owned_projects.where(delayed: true) + @user.invited_projects.where(delayed: true)
+    current_user.owned_projects.where(inactive: params[:inactive]) + current_user.invited_projects.where(inactive: params[:inactive])
   end
 
   def project_params

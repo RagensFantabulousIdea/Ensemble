@@ -8,23 +8,27 @@ img {
 
 /*start Welcome styles*/
 .welcome {
-    background-image: url("../img/marigold1731186_1920.jpg");
+    background-image: url("../img/sunset-2218149_1920.jpg");
     background-size: cover;
-    padding-bottom: 100vw;
+    background-position: 25% 20%;
+    padding-bottom: 73vw;
     padding-top: 30px; 
     text-align: center;
 }
 
 .appName {
-    font-family: 'Bree Serif', serif;
+    /*font-family: 'Bree Serif', serif;*/
+    font-family: 'Rancho', cursive;
     font-size: 60px;
-    color: black;
+    /*color: black;*/
+    color: white;
 }
 
 .appTagLine {
     font-family: 'Raleway', sans-serif;
     font-weight: 900;
     font-size: 20px;
+    color: white;
 }
 
 .signInButtonWelcome {
@@ -33,7 +37,8 @@ img {
     height: 70px;
     width: 70px;
     border-radius: 50%;
-    border: 2px solid black;
+    border: 2px solid white;
+    color: white;
     font-weight: bold;
 }
 
@@ -43,7 +48,8 @@ img {
     height: 70px;
     width: 70px;
     border-radius: 50%;
-    border: 2px solid black;
+    border: 2px solid white;
+    color: white;
     font-weight: bold;
 }
 
@@ -72,6 +78,70 @@ img {
     padding-bottom: 30px;
 }
 
+/*Nav*/
+.headerArea {
+    background-image: url("../img/fruit-1302126_1920.jpg");
+    background-size: cover;
+    background-position: 0% 0%;
+    /*background-position: 0% 25%;*/
+}
+
+nav  {
+    background: none !important;
+    padding-top: 30px; 
+    padding-bottom: 30px;
+    text-align: right;
+}
+a.nav-item {
+    /*color: #545454;*/
+    color: white;
+    background-color: black;
+    /*text-shadow: 1px 2px 2px black;*/
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px; 
+    margin-right: 60px; 
+}
+
+.homeNav {
+    padding-left: 10px;
+}
+
+.projectNav {
+    padding-left: 20px;
+}
+
+.allPhotosNav {
+    padding-right: 30px;
+}
+
+.pager {
+    padding-left: 10px;
+    padding-right: 10px; 
+    margin-top: 10px;
+    margin-bottom: 10px; 
+}
+
+.navAdditional {
+    padding-top: 5px;
+    padding-bottom: 0px; 
+}
+
+.previous a {
+    color: #2D2D2D;
+    font-family: 'Raleway', sans-serif;
+}
+
+.backToProjectList a {
+    color: #2D2D2D;
+    font-family: 'Raleway', sans-serif;
+}
+
+.next a {
+    color: #2D2D2D;
+    font-family: 'Raleway', sans-serif;
+}
+
+
 /*Start styles Manpreet had made*/
 /*#actionButton {
     margin-top: 20px;
@@ -88,6 +158,10 @@ img {
 #carditems{
     padding-top: 10px;
     padding-left: 20px;
+}
+
+.projectCard {
+    min-height: 500px;
 }
 
 .invitetopmargin{
@@ -112,73 +186,216 @@ img {
 
 /*end Manpreet's styles*/
 
-/*Project Figure Create Card*/
+/*Photo Shoot List*/
+.projectShootListPage {
+    background-color: #2D2D2D;
+}
+
+h1 {
+    font-family: 'Rancho', cursive;
+    font-size: 75px;
+    padding-bottom: 20px;
+    color: #D9D9D9;
+    padding-left: 20px;
+}
+
+.projectInfoShootListPage {
+    font-family: 'Raleway', sans-serif;
+    color: #D9D9D9;
+    padding-left: 20px;
+}
+
+.projectDescription {
+    font-family: 'Raleway', sans-serif;
+    color: #D9D9D9;
+    padding-left: 20px;
+}
+
+.descriptionAddButtonRow {
+    padding-bottom: 30px;
+}
+
+.addButton {
+    /*background-color: #FEFEFE;*/
+    /*background-color: #E6E6E6;*/
+    background-color: #5EABE2;
+    font-family: 'Raleway', sans-serif;
+}
+
+/*project shoot mini cards*/
+
+.panel {
+    font-family: 'Raleway', sans-serif;
+}
+.panel-heading {
+    background-color: #D9D9D9;
+}
+
+.panel {
+    border-radius: 0px;
+}
+
+.panel-footer {
+    background-color: #D9D9D9;
+}
+
+.miniCardFooter {
+    padding-bottom: 0px;
+    padding-top: 5px;
+}
+
+.miniCard:hover {
+    color: #9E9E9D; 
+}
+
+.miniCard {
+    color: #4B4B4B;
+}
+
+.commentIndicator {
+    color: #5EABE2;
+}
+
+/*Project Create Card*/
+.projectCreateCard {
+    background-color: #2D2D2D;
+}
+
+.deleteFigure {
+    font-family: 'Raleway', sans-serif;
+}
+
+.saveFigure {
+    font-family: 'Raleway', sans-serif;
+}
+
+/*Project Shoot Full Card*/
+.editCardButton {
+    background-color: #5EABE2;
+    font-family: 'Raleway', sans-serif;
+}
+
 .shootSampleImage {
     max-width: 140px;
 }
 
-/*.container {
-    margin-left: 20px;
-    margin-right: 20px !important;
-}*/
-
-/*full card modal*/
-.overlay-background {
-    background-color: rgba(0,0,0,0.5);
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    width: 100vw;
-    height: 100vh; 
-    overflow: hidden;
-    overflow-y: auto;
-    opacity: 1;
-    transition: opacity 0.3s ease;
-    /*overflow hidden hides anything that flows right out of the box*/
-    /*if you put overflow-y on the container, the whole page scrolls. if you put it on the overlay box itself, it will scroll within the overlay. */
+.btn-success {
+    font-family: 'Raleway', sans-serif;
 }
 
-.overlay-background.hidden {
-    opacity: 0;
+/*project photo collaborating*/
+.projectPhotoCollaborating {
+    background-color: #2D2D2D;
 }
 
-.overlay {
-    box-shadow: 5px 5px 10px rgba(0,0,0,0.25);
-    background-color: white;
-    width: 50vw;
-    min-width: 300px; 
-    /*height: 50vh;*/
-    margin: 0 auto;
-    margin-top: 5vh; 
-    margin-bottom: 5vh; 
-    border-radius: 5px; 
-    padding: 20px 30px;
-    /*overflow-y: auto;*/
-    /*in modal, have to define height, even though he doesn't usually like setting height.*/
-    /*overflow will allow scrolling within the modal*/
+h3 {
+   font-family: 'Raleway', sans-serif;
+   color: #D9D9D9;
 }
-/*end modal stuff from w8 d2 notes*/
+
+.figureOptions {
+    color: #D9D9D9;
+    font-family: 'Raleway', sans-serif;
+    font-weight: normal;
+}
+
+.photoFrameInstructions {
+    color: #D9D9D9;
+    font-family: 'Raleway', sans-serif;
+    font-weight: normal;
+}
+
+.figureResults {
+    font-family: 'Raleway', sans-serif;
+    font-weight: normal;
+    color: #D9D9D9;
+}
+
+/*project photo collaborating photo card*/
+.imagePanel {
+    padding: 0px;
+}
+
+.doNotSelect {
+    display: block;
+    text-align: center;
+}
+
+/*project all photos list */
+.projectAllPhotosList {
+    background-color: #2D2D2D;
+}
+
+/*project extra photos list*/
+.projectExtraPhotosList {
+    background-color: #2D2D2D;
+}
+
+.instructions {
+    color: #D9D9D9;
+    font-family: 'Raleway', sans-serif;
+}
+
+.figureResults {
+    font-family: 'Raleway', sans-serif;
+    font-weight: normal;
+}
+
+.moveToFigure {
+    text-align: center;
+}
+
+.moveToNewFigure {
+    text-align: center;
+}
+
+/*comment box*/
+.messagePost {
+    background-color: #5EABE2;
+    font-family: 'Raleway', sans-serif;
+    color: white;
+}
+
+.messagePost:hover {
+    background-color: #90C4EB;
+    color: black;
+}
 
 /*footer*/
 .footerArea {
     background-color: black;
     text-align: center;
-    color: white;
+    color: #8D8C88;
+    font-size: 10px;
     padding-top: 20px;
-    padding-bottom: 20px; 
+    padding-bottom: 20px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.footerArea a {
+    color: #8D8C88;
 }
 
 
 /*start media queries*/
+/*med cell*/
+@media all and (min-width: 375px) {
+    /*welcome page laptop*/
+    .welcome {
+    background-position: 25% 20%;
+    padding-bottom: 89vw;
+    }
+}
 
 /*tablet*/
 @media all and (min-width: 768px) {
     /*welcome page tablet*/
     .welcome {
-        padding-bottom: 10vw;
+        padding-bottom: 12vw;
     }
     .appName {
-        font-size: 120px;
+        /*font-size: 120px;*/
+        font-size: 160px;
         color: white;
         text-shadow: 1px 2px 2px black;
     }
@@ -195,7 +412,7 @@ img {
         margin-top: 60px; 
         height: 100px;
         width: 100px;
-        border: 3px solid black;
+        border: 3px solid white;
         font-size: 20px; 
     }
 
@@ -203,8 +420,24 @@ img {
         margin-top: 40px;
         height: 100px;
         width: 100px;
-        border: 3px solid black;
+        border: 3px solid white;
         font-size: 20px; 
+    }
+
+    nav {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .headerArea {
+        background-position: 0% 25%;
+    }
+
+    .pager {
+    padding-left: 50px;
+    padding-right: 50px; 
+    margin-top: 10px;
+    margin-bottom: 20px; 
     }
 }
 
@@ -212,12 +445,11 @@ img {
 @media all and (min-width: 1024px) {
     /*welcome page laptop*/
     .welcome {
-        padding-bottom: 9vw;
+        padding-bottom: 14vw;
     }
 }
 
 /*desktop*/
-
 @media all and (min-width: 1200px) {
     /*welcome page desktop*/
     .welcome {
@@ -227,7 +459,8 @@ img {
     }
 
     .appName {
-        font-size: 120px;
+        /*font-size: 120px;*/
+        font-size: 160px;
         color: white;
         text-shadow: 1px 2px 2px black;
     }
@@ -236,7 +469,8 @@ img {
         font-family: 'Raleway', sans-serif;
         font-weight: 400;
         font-size: 40px;
-        color: #B16503;
+        /*color: #B16503;*/
+        color: white;
         text-shadow: 1px 2px 2px black;
     }
 
@@ -249,8 +483,10 @@ img {
         margin-top: 60px; 
         height: 100px;
         width: 100px;
-        border: 3px solid #B16503;
-        color: #B16503;
+        /*border: 3px solid #B16503;*/
+        border: 3px solid white;
+        /*color: #B16503;*/
+        color: white;
         font-size: 20px; 
     }
 
@@ -258,8 +494,49 @@ img {
         margin-top: 40px;
         height: 100px;
         width: 100px;
-        border: 3px solid #B16503;
-        color: #B16503;
+       /*border: 3px solid #B16503;*/
+        border: 3px solid white;
+        /*color: #B16503;*/
+        color: white;
         font-size: 20px; 
     }
 }
+
+
+
+/*modal info from class example*/
+/*.overlay-background {
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    width: 100vw;
+    height: 100vh; 
+    overflow: hidden;
+    overflow-y: auto;
+    opacity: 1;
+    transition: opacity 0.3s ease;*/
+    /*overflow hidden hides anything that flows right out of the box*/
+    /*if you put overflow-y on the container, the whole page scrolls. if you put it on the overlay box itself, it will scroll within the overlay. */
+/*}*/
+
+/*.overlay-background.hidden {
+    opacity: 0;
+}*/
+
+/*.overlay {
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.25);
+    background-color: white;
+    width: 50vw;
+    min-width: 300px; */
+    /*height: 50vh;*/
+    /*margin: 0 auto;
+    margin-top: 5vh; 
+    margin-bottom: 5vh; 
+    border-radius: 5px; 
+    padding: 20px 30px;*/
+    /*overflow-y: auto;*/
+    /*in modal, have to define height, even though he doesn't usually like setting height.*/
+    /*overflow will allow scrolling within the modal*/
+/*}*/
+/*end modal stuff from w8 d2 notes*/

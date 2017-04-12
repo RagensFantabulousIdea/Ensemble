@@ -4,9 +4,9 @@
 
 15.times do
   #Create Users
-  first_name = Faker::Name.first_name
-  last_name = Faker::Name.last_name
-  username = Faker::Internet.user_name("#{@first_name} #{@last_name}", %w(. _ -))
+  first_name = Faker::Name.unique.first_name
+  last_name = Faker::Name.unique.last_name
+  username = Faker::Internet.user_name("#{first_name} #{last_name}", %w(. _ -))
   user = User.create!(
     first_name: first_name,
     last_name: last_name,

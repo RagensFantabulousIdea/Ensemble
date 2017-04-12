@@ -4,30 +4,39 @@ import { browserHistory } from 'react-router';
 class createproject extends Component {
     constructor(props) {
         super(props)
-        this.addProject = this.addProject.bind(this)
+        this.editProject = this.editProject.bind(this)
         this.state = {
             title: '',
             author: '',
             projectNumber: '',
             description: '',
             token: '',
-            getProjects: props.getProjects
+            // getProjects: this.props.getProjects
+            projects: null
         }
     }
 
-    addProject(title, author, projectNumber, description) {
-        console.log(this.props.params.projectId)
+    componentWillMount(){
+        fetch('/api/projects/' + this.props.params.projectId + '?token=' + sessionStorage.getItem('token'))
+            .then (response => response.json())
+            .then(projects => this.setState({
+                projects: projects,
+                author: projects.author,
+                title: projects.title,
+                projectNumber: projects.project_num,
+                description: projects.description
+            }))
+            .then (whatever => console.log(this.state.projects))
+    }
 
+    editProject(title, author, projectNumber, description,id) {
+        // console.log(this.props.params.projectId)
         //Post to /api/projects
-        if (
-            this.state.title !== '' &&
-            this.state.author !== '' &&
-            this.state.projectNumber !== '' &&
-            this.state.description !== ''
-        ) {
+        
+        {
             var token = sessionStorage.getItem('token');
-            fetch('/api/projects', {
-                method: 'Post',
+            fetch('/api/projects/' + this.props.params.projectId + '?token='+ sessionStorage.getItem('token'), {
+                method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -48,15 +57,12 @@ class createproject extends Component {
                         projectNumber: '',
                         description: '',
                     })
-                    
-             
-                
                     browserHistory.push('/projects')
                 })
                     
         }
+          
     }
-
     render() {
         console.log(this.props.params.projectId)
         return (
@@ -67,24 +73,23 @@ class createproject extends Component {
                             <form>
                                 <div className="form-group">
                                     <label htmlFor="title">Title</label>
-                                    <input type="text" className="form-control" required onChange={(e) => this.setState({title: e.target.value})} />
+                                    <input type="text" className="form-control" value={this.state.title} onChange={(e) => this.setState({title: e.target.value})} />
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="author">Author</label>
-                                    <input type="text" className="form-control" required 
+                                    <input type="text" className="form-control" value={this.state.author}
                                     onChange={(e) => this.setState({author: e.target.value})}/>
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="projectnumber">Project Number</label>
-                                    <input type="text" className="form-control" 
+                                    <input type="text" className="form-control" value={this.state.projectNumber}
                                     onChange={(e) => this.setState({projectNumber: e.target.value})}/>
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="description">Description of project</label>
-                                    <textarea className="form-control" placeholder="body" rows="10" required 
-                                    onChange={(e) => this.setState({description: e.target.value})}/>
+                                    <textarea className="form-control" placeholder="body" rows="10" value={this.state.description} onChange={(e) => this.setState({description: e.target.value})}/>
                                 </div>
-                                <button type="button" className="btn btn-success " onClick={this.addProject}>Save</button>
+                                <button type="button" className="btn btn-success " onClick={this.editProject}>Edit</button>
                             </form>
                         </div>
                     </div>
