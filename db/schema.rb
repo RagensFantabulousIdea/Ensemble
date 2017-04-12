@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170411220632) do
+ActiveRecord::Schema.define(version: 20170412165137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,10 +23,7 @@ ActiveRecord::Schema.define(version: 20170411220632) do
     t.boolean  "portrait"
     t.boolean  "demonstrative"
     t.boolean  "decorative"
-    t.boolean  "video_needed"
-    t.boolean  "video_only"
     t.string   "frame_num"
-    t.string   "tag"
     t.string   "instructions"
     t.string   "photographer"
     t.datetime "created_at",        null: false
@@ -39,6 +36,8 @@ ActiveRecord::Schema.define(version: 20170411220632) do
     t.string   "date_of_shoot"
     t.string   "time_of_shoot"
     t.string   "image"
+    t.integer  "project_id"
+    t.index ["project_id"], name: "index_assets_on_project_id", using: :btree
   end
 
   create_table "comments", force: :cascade do |t|
@@ -81,6 +80,8 @@ ActiveRecord::Schema.define(version: 20170411220632) do
     t.boolean  "selected",   default: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "asset_id"
+    t.index ["asset_id"], name: "index_photos_on_asset_id", using: :btree
   end
 
   create_table "projects", force: :cascade do |t|
@@ -125,9 +126,11 @@ ActiveRecord::Schema.define(version: 20170411220632) do
     t.boolean  "active",          default: true
   end
 
+  add_foreign_key "assets", "projects"
   add_foreign_key "comments", "users"
   add_foreign_key "memberships", "projects"
   add_foreign_key "memberships", "users"
+  add_foreign_key "photos", "assets"
   add_foreign_key "projects", "users"
   add_foreign_key "shoot_and_assets", "assets"
   add_foreign_key "shoot_and_assets", "shoots"
