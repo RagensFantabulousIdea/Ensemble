@@ -10,7 +10,8 @@ img {
 .welcome {
     background-image: url("../img/sunset-2218149_1920.jpg");
     background-size: cover;
-    padding-bottom: 100vw;
+    background-position: 25% 20%;
+    padding-bottom: 73vw;
     padding-top: 30px; 
     text-align: center;
 }
@@ -27,6 +28,7 @@ img {
     font-family: 'Raleway', sans-serif;
     font-weight: 900;
     font-size: 20px;
+    color: white;
 }
 
 .signInButtonWelcome {
@@ -35,7 +37,8 @@ img {
     height: 70px;
     width: 70px;
     border-radius: 50%;
-    border: 2px solid black;
+    border: 2px solid white;
+    color: white;
     font-weight: bold;
 }
 
@@ -45,7 +48,8 @@ img {
     height: 70px;
     width: 70px;
     border-radius: 50%;
-    border: 2px solid black;
+    border: 2px solid white;
+    color: white;
     font-weight: bold;
 }
 
@@ -188,7 +192,9 @@ a.nav-item {
 }
 
 h1 {
-    font-family: 'Bree Serif', serif;
+    font-family: 'Rancho', cursive;
+    font-size: 75px;
+    padding-bottom: 20px;
     color: #D9D9D9;
     padding-left: 20px;
 }
@@ -295,12 +301,14 @@ h3 {
 
 .photoFrameInstructions {
     color: #D9D9D9;
+    font-family: 'Raleway', sans-serif;
     font-weight: normal;
 }
 
 .figureResults {
     font-family: 'Raleway', sans-serif;
     font-weight: normal;
+    color: #D9D9D9;
 }
 
 /*project photo collaborating photo card*/
@@ -370,11 +378,20 @@ h3 {
 
 
 /*start media queries*/
+/*med cell*/
+@media all and (min-width: 375px) {
+    /*welcome page laptop*/
+    .welcome {
+    background-position: 25% 20%;
+    padding-bottom: 89vw;
+    }
+}
+
 /*tablet*/
 @media all and (min-width: 768px) {
     /*welcome page tablet*/
     .welcome {
-        padding-bottom: 10vw;
+        padding-bottom: 12vw;
     }
     .appName {
         /*font-size: 120px;*/
@@ -395,7 +412,7 @@ h3 {
         margin-top: 60px; 
         height: 100px;
         width: 100px;
-        border: 3px solid black;
+        border: 3px solid white;
         font-size: 20px; 
     }
 
@@ -403,7 +420,7 @@ h3 {
         margin-top: 40px;
         height: 100px;
         width: 100px;
-        border: 3px solid black;
+        border: 3px solid white;
         font-size: 20px; 
     }
 
@@ -428,7 +445,7 @@ h3 {
 @media all and (min-width: 1024px) {
     /*welcome page laptop*/
     .welcome {
-        padding-bottom: 9vw;
+        padding-bottom: 14vw;
     }
 }
 
@@ -452,7 +469,8 @@ h3 {
         font-family: 'Raleway', sans-serif;
         font-weight: 400;
         font-size: 40px;
-        color: #B16503;
+        /*color: #B16503;*/
+        color: white;
         text-shadow: 1px 2px 2px black;
     }
 
@@ -465,8 +483,10 @@ h3 {
         margin-top: 60px; 
         height: 100px;
         width: 100px;
-        border: 3px solid #B16503;
-        color: #B16503;
+        /*border: 3px solid #B16503;*/
+        border: 3px solid white;
+        /*color: #B16503;*/
+        color: white;
         font-size: 20px; 
     }
 
@@ -474,8 +494,10 @@ h3 {
         margin-top: 40px;
         height: 100px;
         width: 100px;
-        border: 3px solid #B16503;
-        color: #B16503;
+       /*border: 3px solid #B16503;*/
+        border: 3px solid white;
+        /*color: #B16503;*/
+        color: white;
         font-size: 20px; 
     }
 }
