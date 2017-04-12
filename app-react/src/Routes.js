@@ -34,7 +34,7 @@ class Routes extends React.Component {
     render() {
         return <Router history={browserHistory}>
             <Route path="/" component={Welcome} />
-            <Route path="/sandbox" component={ProjectCreateCard} />
+            <Route path="/sandbox" component={ProjectExtraPhotosList} />
             <Route path="/signup" component={SignUp} />
             <Route path="/signin" component={SignIn} />
             <Route path="/projects" component={UserProjects} />

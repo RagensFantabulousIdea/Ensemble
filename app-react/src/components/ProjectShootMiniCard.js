@@ -19,7 +19,7 @@ class ProjectShootMiniCard extends Component {
                     <div className="panel">
                         <div className="panel-heading imagePanel">
                             <span className="commentIndicator glyphicon glyphicon-comment pull-right" aria-hidden="true"></span> <br/>
-                            <img src="./img/colors-2162411_1920.jpg" alt="selection" />
+                            <img src="../img/colors-2162411_1920.jpg" alt="selection" />
                         </div>
                         
                         <div className="panel-heading miniCardHeading">

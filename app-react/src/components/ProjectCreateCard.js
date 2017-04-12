@@ -3,10 +3,71 @@ import NavBar from './NavBar';
 import NavAdditionalPager from './NavAdditionalPager';
 import FooterArea from './FooterArea';
 
+import { browserHistory } from 'react-router';
+
+//users fill out figure information in ProjectCreateCard, it goes to ProjectShootFullCard AND ProjectShootMiniCard. Then ProjectShootMiniCards get placed in a list on ProjectShootList. Each ProjectShootFullCard has its own page, ProjectIndividualFigureList where all of the information can be seen, comments added, and photos uploaded.
+
+// class createproject extends Component {
+//     constructor(props) {
+//         super(props)
+//         this.addProject = this.addProject.bind(this)
+//         this.state = {
+//             title: '',
+//             author: '',
+//             projectNumber: '',
+//             description: '',
+//             token: '',
+//             getProjects: props.getProjects
+//         }
+//     }
+
+//     addProject(title, author, projectNumber, description) {
+//         console.log(this.props.params.projectId)
+
+//         //Post to /api/projects
+//         if (
+//             this.state.title !== '' &&
+//             this.state.author !== '' &&
+//             this.state.projectNumber !== '' &&
+//             this.state.description !== ''
+//         ) {
+//             var token = sessionStorage.getItem('token');
+//             fetch('/api/projects', {
+//                 method: 'Post',
+//                 headers: {
+//                     'Content-Type': 'application/json'
+//                 },
+//                 body: JSON.stringify({
+//                     title: this.state.title,
+//                     author: this.state.author,
+//                     project_num: this.state.projectNumber,
+//                     description: this.state.description,
+//                     token: token,
+//                 })
+//             })
+//                 .then(response => response.json())
+//                 .then(response => {
+//                     //  clear the form fields
+//                     this.setState({
+//                         title: '',
+//                         author: '',
+//                         projectNumber: '',
+//                         description: '',
+//                     })
+                    
+             
+                
+//                     browserHistory.push('/projects')
+//                 })
+                    
+//         }
+//     }
+
+
 class ProjectCreateCard extends Component {
   render() {
 
-//users fill out figure information in ProjectCreateCard, it goes to ProjectShootFullCard AND ProjectShootMiniCard. Then ProjectShootMiniCards get placed in a list on ProjectShootList. Each ProjectShootFullCard has its own page, ProjectIndividualFigureList where all of the information can be seen, comments added, and photos uploaded.
+
     return (
         <div className="projectCreateCard">
             <NavBar />
