@@ -12,6 +12,23 @@ class Project extends React.Component{
     componentDidMount(){
         console.log(this.props.id)
     }
+
+//     function handleClickOnCheckbox(e) {
+//     // Only do something if a user clicks on a checkbox input tag
+//     if (e.target.type === 'checkbox') {
+//           toggleTodoComplete(e.target.getAttribute(''), e.target.checked)
+//           //or you can use e.target.dataset('')
+//     }
+// }
+
+// function toggleTodoComplete(todoId, isComplete) {
+//     if (isComplete) {
+//         fetch('/api/v1/todos/' + todoId +  '/complete')
+//     }
+//     else {
+//         fetch('/api/v1/todos/' + todoId +  '/incomplete')
+//     }
+// }
     toggleCompleted() {
         if (this.state.completed === false) {
             this.setState({completed: true})
@@ -25,14 +42,10 @@ class Project extends React.Component{
 
             body: JSON.stringify({
                 complete: this.state.completed
-                // complete:
-                // email: email,
-                // password: password
             })
         })
-        // .then(whatever => console.log('yay'))
              // tell back-end that it's completed
-            //  browserHistory.push('/completedProjects')
+             browserHistory.push('/completedProjects')
         }
         else {
             this.setState({completed: false})
