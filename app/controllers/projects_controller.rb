@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
     @user = current_user
     @projects = @user.total_projects
       if @projects.empty?
-        render json: ["No projects to display. Create one?"], status: 200
+        render json: [], status: 200
       else
         if params[:complete]
           @projects = projects_complete
@@ -66,6 +66,10 @@ class ProjectsController < ApplicationController
 
   private
 
+  def find_project
+      @project = Project.find(params[:id])
+  end
+
   def projects_complete
     @user.owned_projects.where(complete: true) + @user.invited_projects.where(complete: true)
   end
@@ -76,10 +80,6 @@ class ProjectsController < ApplicationController
 
   def projects_inactive
     @user.owned_projects.where(delayed: true) + @user.invited_projects.where(delayed: true)
-  end
-
-  def find_project
-    @project = Project.find(params[:id])
   end
 
   def project_params
