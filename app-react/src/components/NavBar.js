@@ -11,18 +11,11 @@ class NavBar
         <div className="headerArea">
             <header>
                 <nav>
-                    <div className="nav navbar-nav navbar-left">
-                        <a className="nav-item projectNav" onClick={() => browserHistory.push('/projects')}>
-                            Project
-                        </a>
-                        <a className="nav-item extraPhotosNav" onClick={() => browserHistory.push('/projects')}>
-                            Extra Photos
-                        </a>
-                        <a className="nav-item allPhotosNav" onClick={() => browserHistory.push('/projects')}>
-                            All Photos
-                        </a>
-                    </div>
                     <div className="nav navbar-nav navbar-right">
+                        <a className="nav-item projectNav" onClick={() => browserHistory.push('/projects')}>
+                            Project Shoot List
+                        </a>
+
                         <a className="nav-item homeNav" onClick={() => browserHistory.push('/projects')}>
                             Home
                         </a>
@@ -41,3 +34,16 @@ class NavBar
 }
 
 export default NavBar;
+
+
+// <div className="nav navbar-nav navbar-left">
+//                         <a className="nav-item projectNav" onClick={() => browserHistory.push('/projects')}>
+//                             Project
+//                         </a>
+//                         <a className="nav-item extraPhotosNav" onClick={() => browserHistory.push('/projects')}>
+//                             Extra Photos
+//                         </a>
+//                         <a className="nav-item allPhotosNav" onClick={() => browserHistory.push('/projects')}>
+//                             All Photos
+//                         </a>
+//                     </div>

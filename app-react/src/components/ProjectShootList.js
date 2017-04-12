@@ -12,7 +12,7 @@ class ProjectShootList extends Component {
     return (
       <div className="projectShootListPage">
         <NavBar />
-        <h1>Photo Shoot List</h1>
+        <h1>Project Shoot List</h1>
 
           <div className="container">
             <div className="row">
@@ -43,12 +43,7 @@ class ProjectShootList extends Component {
               </div>
             </div>
 
-            
-            <div className="footerArea">
-            <FooterArea />
-              Art used with permission from Microsoft.
-            </div>
-
+          <FooterArea />
       </div>
 
     );

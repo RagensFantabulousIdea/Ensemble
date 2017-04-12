@@ -17,11 +17,21 @@ class ProjectExtraPhotosList extends Component {
             <div className="container">
                 <div className="row">
                     <div className="col-xs-12">
-                        <p className="instructions">Sometimes photo shoots produce opportunties for extra photos and it's nice to be able to see the good ones. Sometimes, an extra photo might find a home in an existing or new figure within the project. You can chat about that here and assign photos to an existing or new figure. </p> <br/>
+                        <p className="instructions">Sometimes photo shoots produce opportunties for extra photos and it's nice to be able to see the good ones. Sometimes, an extra photo might find a home in an existing or new figure within the project. You can chat about that here and assign photos to an existing or new figure. </p> <br/> <br/>
                     </div>
                 </div>
 
                 <div className="row">
+                    <div className="col-xs-5">
+                        <div className="row">
+                            <div className="panel panel-default">
+                                <div className="panel-body messageArea">
+                                    <CommentsBox />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div className="col-xs-7">
                             <div className="row">
                                 <div className="col-xs-12">
@@ -50,15 +60,7 @@ class ProjectExtraPhotosList extends Component {
                             </div>
                     </div>
 
-                    <div className="col-xs-5">
-                        <div className="row">
-                            <div className="panel panel-default">
-                                <div className="panel-body messageArea">
-                                    <CommentsBox />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
 
                 </div>
             </div>
