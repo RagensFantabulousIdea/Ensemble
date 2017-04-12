@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { browserHistory } from 'react-router'
+import { browserHistory } from 'react-router';
 
 class NavBar
  extends Component {
@@ -12,7 +12,7 @@ class NavBar
             <header>
                 <nav>
                     <div className="nav navbar-nav navbar-right">
-                        <a className="nav-item projectNav" onClick={() => browserHistory.push('/projects')}>
+                        <a className="nav-item projectNav" onClick={() => browserHistory.push('/shoot/:projectId')}>
                             Project Shoot List
                         </a>
 

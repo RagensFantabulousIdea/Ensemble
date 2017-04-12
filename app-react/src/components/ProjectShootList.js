@@ -3,6 +3,8 @@ import ProjectShootMiniCard from './ProjectShootMiniCard';
 import NavBar from './NavBar';
 import FooterArea from './FooterArea';
 
+import { browserHistory } from 'react-router';
+
 class ProjectShootList extends Component {
   render() {
 
@@ -26,7 +28,7 @@ class ProjectShootList extends Component {
               </div>
               
               <div className="col-sm-6">
-                <button type="button" className="btn addButton pull-right">Add Photo Shoot Planning Card</button>
+                <button type="button" className="btn addButton pull-right" onClick={() => browserHistory.push('/shoot/:projectId/createcard')}>Add Photo Shoot Planning Card</button>
               </div>
             </div>
           </div>
