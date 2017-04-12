@@ -6,8 +6,6 @@ import FooterArea from './FooterArea';
 class ProjectCreateCard extends Component {
   render() {
 
- // ideally, want this to be a modal, like this stuff from Bootstrap, but it doesn't just work, so have to figure that out.
-
 //users fill out figure information in ProjectCreateCard, it goes to ProjectShootFullCard AND ProjectShootMiniCard. Then ProjectShootMiniCards get placed in a list on ProjectShootList. Each ProjectShootFullCard has its own page, ProjectIndividualFigureList where all of the information can be seen, comments added, and photos uploaded.
     return (
         <div className="projectCreateCard">
