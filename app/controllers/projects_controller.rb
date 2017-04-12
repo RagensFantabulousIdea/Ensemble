@@ -4,6 +4,7 @@ class ProjectsController < ApplicationController
   before_action :find_project, except: [:index, :create]
 
   def index
+
     if params[:complete]
       @projects = projects_complete
     elsif params[:inactive]
@@ -62,6 +63,10 @@ class ProjectsController < ApplicationController
 
   private
 
+  def find_project
+      @project = Project.find(params[:id])
+  end
+
   def projects_complete
     current_user.owned_projects.where(complete: params[:complete]) + current_user.invited_projects.where(complete: params[:complete])
   end
@@ -72,10 +77,6 @@ class ProjectsController < ApplicationController
 
   def projects_inactive
     current_user.owned_projects.where(inactive: params[:inactive]) + current_user.invited_projects.where(inactive: params[:inactive])
-  end
-
-  def find_project
-    @project = Project.find(params[:id])
   end
 
   def project_params
