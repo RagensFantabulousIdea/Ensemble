@@ -1,10 +1,10 @@
 class AssetSerializer < ActiveModel::Serializer
 
+  belongs_to :project
+
   has_many :photos
   has_one :selected_photo
 
-  attributes :id, :figure_num, :description, :order_num, :landscape, :portrait, 
-  :demonstrative, :decorative, :video_needed, :video_only, :frame_num,
-  :tag, :instructions, :photographer
+  attributes :id, :figure_num, :description, :order_num, :landscape, :portrait, :demonstrative, :decorative, :frame_num, :instructions, :photographer
 
 end
