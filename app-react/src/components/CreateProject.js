@@ -27,7 +27,7 @@ class createproject extends Component {
         ) {
             var token = sessionStorage.getItem('token');
             fetch('/api/projects', {
-                method: 'Post',
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
