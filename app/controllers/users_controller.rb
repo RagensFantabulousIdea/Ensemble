@@ -43,7 +43,7 @@ class UsersController < ApplicationController
   def find_project
     @project = Project.find_by(token: params[:token])
     unless @project
-    render json: ["Project not found."], status: 404
+    render json: ["Project not found."], status: 404 and return
     end
   end
 
