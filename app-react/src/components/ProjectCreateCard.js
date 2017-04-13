@@ -7,65 +7,111 @@ import { browserHistory } from 'react-router';
 
 //users fill out figure information in ProjectCreateCard, it goes to ProjectShootFullCard AND ProjectShootMiniCard. Then ProjectShootMiniCards get placed in a list on ProjectShootList. Each ProjectShootFullCard has its own page, ProjectIndividualFigureList where all of the information can be seen, comments added, and photos uploaded.
 
-// class createproject extends Component {
-//     constructor(props) {
-//         super(props)
-//         this.addProject = this.addProject.bind(this)
-//         this.state = {
-//             title: '',
-//             author: '',
-//             projectNumber: '',
-//             description: '',
-//             token: '',
-//             getProjects: props.getProjects
-//         }
-//     }
-
-//     addProject(title, author, projectNumber, description) {
-//         console.log(this.props.params.projectId)
-
-//         //Post to /api/projects
-//         if (
-//             this.state.title !== '' &&
-//             this.state.author !== '' &&
-//             this.state.projectNumber !== '' &&
-//             this.state.description !== ''
-//         ) {
-//             var token = sessionStorage.getItem('token');
-//             fetch('/api/projects', {
-//                 method: 'Post',
-//                 headers: {
-//                     'Content-Type': 'application/json'
-//                 },
-//                 body: JSON.stringify({
-//                     title: this.state.title,
-//                     author: this.state.author,
-//                     project_num: this.state.projectNumber,
-//                     description: this.state.description,
-//                     token: token,
-//                 })
-//             })
-//                 .then(response => response.json())
-//                 .then(response => {
-//                     //  clear the form fields
-//                     this.setState({
-//                         title: '',
-//                         author: '',
-//                         projectNumber: '',
-//                         description: '',
-//                     })
-                    
-             
-                
-//                     browserHistory.push('/projects')
-//                 })
-                    
-//         }
-//     }
-
+// where it says "addPhoto", it used to say "addProject".
 
 class ProjectCreateCard extends Component {
-  render() {
+    constructor(props) {
+        super(props)
+        this.addPhoto = this.addPhoto.bind(this)
+        this.state = {
+            figureNumber: '',
+            figureParts: '',
+            selectionFrame: '',
+            orderNumber: '',
+            figureDescription: '',
+            figureInstructions: '',
+            figureEquipment: '',
+            figureModel: '',
+            photographer: '',
+            shootLocation: '',
+            shootDate: '',
+            shootTime: '',
+            photoDecorative: '',
+            photoDemonstrative: '',
+            orientationPortrait: '',
+            orientationLandscape: '',
+            token: '',
+            getProjects: props.getProjects
+        }
+    }
+
+    addPhoto(figureNumber, figureParts, selectionFrame, orderNumber, figureDescription, figureInstructions, figureEquipment, figureModel, photographer, shootLocation, shootDate, shootTime, photoDecorative, photoDemonstrative, orientationPortrait, orientationLandscape) {
+        console.log(this.props.params.projectId)
+
+        //Post to /api/projects
+        if (
+            this.state.figureNumber !== '' &&
+            this.state.figureParts !== '' &&
+            this.state.selectionFrame !== '' &&
+            this.state.orderNumber !== '' &&
+            this.state.figureDescription !== '' &&
+            this.state.figureInstructions !== '' &&
+            this.state.figureEquipment !== '' &&
+            this.state.figureModel !== '' &&
+            this.state.photographer !== '' &&
+            this.state.shootLocation !== '' &&
+            this.state.shootDate !== '' &&
+            this.state.shootTime !== '' &&
+            this.state.photoDecorative !== '' &&
+            this.state.photoDemonstrative !== '' &&
+            this.state.orientationPortrait !== '' &&
+            this.state.orientationLandscape !== ''
+        ) {
+            var token = sessionStorage.getItem('token');
+            fetch('/api/projects', {
+                method: 'Post',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+// need to get the backend stuff from QQKalea. Example: title: this.state.title
+                    needtoget: this.state.figureNumber,
+                    needtoget: this.state.figureParts,
+                    needtoget: this.state.selectionFrame,
+                    needtoget: this.state.orderNumber,
+                    needtoget: this.state.figureDescription,
+                    needtoget: this.state.figureInstructions,
+                    needtoget: this.state.figureEquipment,
+                    needtoget: this.state.figureModel,
+                    needtoget: this.state.photographer,
+                    needtoget: this.state.shootLocation,
+                    needtoget: this.state.shootDate,
+                    needtoget: this.state.shootTime,
+                    needtoget: this.state.photoDecorative,
+                    needtoget: this.state.photoDemonstrative,
+                    needtoget: this.state.orientationPortrait,
+                    needtoget: this.state.orientationLandscape,
+                    token: token,
+                })
+            })
+                .then(response => response.json())
+                .then(response => {
+                    //  clear the form fields
+                    this.setState({
+                        figureNumber: '',
+                        figureParts: '',
+                        selectionFrame: '',
+                        orderNumber: '',
+                        figureDescription: '',
+                        figureInstructions: '',
+                        figureEquipment: '',
+                        figureModel: '',
+                        photographer: '',
+                        shootLocation: '',
+                        shootDate: '',
+                        shootTime: '',
+                        photoDecorative: '',
+                        photoDemonstrative: '',
+                        orientationPortrait: '',
+                        orientationLandscape: '',
+                    })
+
+                    browserHistory.push('/projects')
+                })
+        }
+    }
+
+    render() {
 
 
     return (
