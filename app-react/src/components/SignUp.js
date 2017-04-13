@@ -12,7 +12,8 @@ class SignUp extends Component {
             firstname: '',
             lastname: '',
             email: '',
-            password: ''
+            password: '',
+            token: ''
          
         }
     }
@@ -22,6 +23,7 @@ class SignUp extends Component {
         var lastname = this.state.lastname
         var email = this.state.email
         var password = this.state.password
+        var token = this .state.token
 
         console.log(firstname,lastname, email, password)
 
@@ -43,7 +45,8 @@ class SignUp extends Component {
             first_name: firstname,
             last_name: lastname,
             email: email,
-            password: password
+            password: password,
+            token: token
         })
     })
         .then(function(response) {
