@@ -10,7 +10,6 @@ class Project extends React.Component{
             complete: props.complete
         }
     }
-
     toggleCompleted() {
         if (this.state.complete === false) {
             var token = sessionStorage.getItem('token');
