@@ -10,6 +10,18 @@ class AssetsController < ApplicationController
     render json: @assets
   end
 
+  def show
+    if editor
+      if @asset
+        render json: @project
+      else
+        render json: @project.errors.full_messages
+      end
+    else
+      forbidden
+    end
+  end
+
   def create
     if editor
       @asset = @project.assets.new(asset_params)

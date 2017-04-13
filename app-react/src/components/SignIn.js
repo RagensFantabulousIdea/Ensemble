@@ -41,6 +41,7 @@ class Signin extends Component {
 
                 if (response.token) {
                     sessionStorage.setItem('token', response.token);
+                    sessionStorage.setItem('userId', response.id);
                     browserHistory.push('/projects')
                 }
                 else {

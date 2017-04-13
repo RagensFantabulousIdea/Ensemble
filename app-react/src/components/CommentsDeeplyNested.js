@@ -29,13 +29,10 @@ class CommentsDeeplyNested
                                 <div className="media-body">
                                 <h4 className="media-heading messageUserName">Whitney Havice</h4>
                                     <div className="row">
-                                        <div className="col-xs-10 messageText">
+                                        <div className="col-xs-12 messageText">
                                             <span className="messageContent">Thanks, we'll plan on that, then.</span>
                                             <br/>
-                                            <a className="messageTopReplyLink">Reply</a><br/>
-                                        </div>
-                                        <div className="col-xs-2 messageEditIcon">
-                                            <span className="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                            <a className="messageTopEditLink">Edit</a> | <a className="messageTopDeleteLink">Delete</a> | <a className="messageTopReplyLink">Reply</a><br/>
                                         </div>
                                     </div>
                                 </div>

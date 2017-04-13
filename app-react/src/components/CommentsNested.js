@@ -29,13 +29,10 @@ class CommentsNested
                             <div className="media-body">
                             <h4 className="media-heading messageUserName">Derek Campbell</h4>
                                 <div className="row">
-                                    <div className="col-xs-10 messageText">
+                                    <div className="col-xs-12 messageText">
                                         <span className="messageContent">Sounds good to me!</span>
                                         <br/>
-                                        <a className="messageTopReplyLink">Reply</a><br/>
-                                    </div>
-                                    <div className="col-xs-2 messageEditIcon">
-                                        <span className="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                        <a className="messageNestedEditLink">Edit</a> | <a className="messageNestedDeleteLink">Delete</a> | <a className="messageNestedReplyLink">Reply</a><br/>
                                     </div>
                                 </div>
                             </div>

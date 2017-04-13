@@ -8,44 +8,53 @@ class ProjectShootMiniCard extends Component {
 // need to figure out how to pull approved image to use as the heading background.
 
 //only show the commentIndicator span if there are new messages on that figure.
+
     return (
-        <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <div>
+            <a className="miniCard">
+                <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                    <div className="panel">
+                        <div className="panel-heading imagePanel">
+                            <span className="commentIndicator glyphicon glyphicon-comment pull-right" aria-hidden="true"></span> <br/>
+                            
+                            {this.props.selectionFrame == this.props.selectionFrame ? <img src={this.props.selectionFrame} alt="selection" /> : ''}
+                        </div>
+                        
+                        <div className="panel-heading miniCardHeading">
+                            <div className="row">
+                                <div className="col-xs-6">
+                                    <h3 className="panel-title">{this.props.figureNumber}</h3>
+                                </div>
 
-            <div className="panel panel-default">
-                <div className="panel-heading">
-                    <span className="commentIndicator glyphicon glyphicon-comment pull-right" aria-hidden="true"></span> <br/>
-                    <div className="row">
-                        <div className="col-xs-6">
-                            <h3 className="panel-title">Figure 3.6</h3>
+                                <div className="col-xs-6">
+                                    <h3 className="panel-title pull-right">Order: {this.props.orderNumber}</h3>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div className="panel-body">
+                            <div className="row">
+                                <div className="col-xs-12">
+                                    <p><span>{this.props.figureDescription}</span></p>
+                                </div>
+                            </div>
                         </div>
 
-                        <div className="col-xs-6">
-                            <h3 className="panel-title pull-right">Order: 1</h3>
+                        <div className="panel-footer miniCardFooter">
+                            <div className="row">
+                                <div className="col-xs-6">
+                                    <p>{this.props.shootDate}</p>
+                                </div>
+
+                                <div className="col-xs-6">
+                                    <p className="pull-right">{this.props.shootTime}</p>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
                 </div>
-            
-                <div className="panel-body">
-                    <div className="row">
-                        <div className="col-xs-12">
-                            <p><span>Boy swinging a baseball bat, wearing batting helmet and gloves.</span></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="panel-footer">
-                    <div className="row">
-                        <div className="col-xs-6">
-                            <p>May 1, 2017</p>
-                        </div>
-
-                        <div className="col-xs-6">
-                            <p className="pull-right">2-5 PM</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            </a>
         </div>
     );
   }

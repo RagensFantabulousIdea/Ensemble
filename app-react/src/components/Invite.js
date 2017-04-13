@@ -8,34 +8,54 @@ class Invite extends Component {
     constructor(props){
         super(props)
             this.state = {
-            firstname: '',
-            lastname: '',
+            // firstname: '',
+            // lastname: '',
             email: '',
+            projects: ''
           }
         }
 
+        componentWillMount(){
+        fetch('/api/projects/' + this.props.params.projectId + '?token=' + sessionStorage.getItem('token'))
+            .then (response => response.json())
+            .then(projects => this.setState({
+                projects: projects
+            }))
+            .then (whatever => console.log(this.state.projects))
+    }
+
+         sentinvite(){
+             console.log('boo')
+        alert("Invitation sent")
+        browserHistory.push('/projects')
+    }
+    
         invitePeople(){                    
         //Post to /api/v1/projects
         if (this.state.firstname !== '' && this.state.lastname !== ''&& this.state.email !== '')
         {
-        fetch('/api/v1/?', {
+           
+        fetch('/api/projects/' + this.state.projects.token + '/invitations', {
             method: 'Post',
             headers:{
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                firstname: this.state.firstname,
-                lastname: this.state.lastname,
+                // firstname: this.state.firstname,
+                // lastname: this.state.lastname,
                 email: this.state.email
             })
         })
         .then(function(response) {
                 return response.json();
             })
-        }
+        .then(() =>this.sentinvite())
+
     }
+}    
+
 render() {
-    alert('Invite someone to project ' + this.props.params.projectId)
+    // alert('Invite someone to project ' + this.props.params.projectId)
     return (
      <div className="invitetopmargin">
      <div className="col-sm-4 col-sm-offset-4">

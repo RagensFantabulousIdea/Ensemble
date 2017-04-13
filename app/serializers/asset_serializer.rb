@@ -1,7 +1,5 @@
 class AssetSerializer < ActiveModel::Serializer
 
-  belongs_to :project
-
   has_many :photos
   has_one :selected_photo
 

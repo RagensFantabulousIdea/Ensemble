@@ -6,7 +6,7 @@ class FooterArea
 
     return (
         <div className="footerArea">
-            &copy; Ragen E. Sanner, Manpreet Mondair, and Kalea Wolff.
+            LensFlare &copy; 2017 Ragen E. Sanner, Manpreet Mondair, and Kalea Wolff. | Bootstrap &copy; 2011-2016 Twitter, Inc. | <a href="http://glyphicons.com/">glyphicons.com</a>
         </div>
     );
   }
