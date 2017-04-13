@@ -6,9 +6,11 @@ class UsersController < ApplicationController
   def create
     if params[:token]
       find_project
-      create_user
-      save_user
-      @user.invited_projects << @project
+      if @project
+        create_user
+        save_user
+        @user.invited_projects << @project
+      end
     else
       create_user
       save_user
