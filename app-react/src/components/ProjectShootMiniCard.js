@@ -3,21 +3,17 @@ import React, { Component } from 'react';
 class ProjectShootMiniCard extends Component {
   render() {
 
-//users fill out figure information in ProjectCreateCard, it goes to ProjectShootFullCard AND ProjectShootMiniCard. Then ProjectShootMiniCards get placed in a list on ProjectShootList. Each ProjectShootFullCard has its own page, ProjectIndividualFigureList where all of the information can be seen, comments added, and photos uploaded.
-
-// need to figure out how to pull approved image to use as the heading background.
-
 //only show the commentIndicator span if there are new messages on that figure.
 
     return (
         <div>
-            <a className="miniCard">
+            <a className="miniCard" onClick={() => browserHistory.push('/shoot/' + this.props.params.projectId + '/assets' + this.props.params.id + '/collaborate')>
                 <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                     <div className="panel">
                         <div className="panel-heading imagePanel">
                             <span className="commentIndicator glyphicon glyphicon-comment pull-right" aria-hidden="true"></span> <br/>
                             
-                            {this.props.selectionFrame == this.props.selectionFrame ? <img src={this.props.selectionFrame} alt="selection" /> : ''}
+                            {this.props.selectionFrame === this.props.selectionFrame ? <img src={this.props.selectionFrame} alt="selection" /> : ''}
                         </div>
                         
                         <div className="panel-heading miniCardHeading">

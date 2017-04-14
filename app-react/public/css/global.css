@@ -222,6 +222,11 @@ h1 {
     font-family: 'Raleway', sans-serif;
 }
 
+/*QQRAGEN: come back to this and add padding! */
+.cardAddInstruction {
+    padding-bottom: 50px;
+}
+
 /*project shoot mini cards*/
 
 .panel {
