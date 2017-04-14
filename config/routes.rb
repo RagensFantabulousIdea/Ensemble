@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :memberships, only: [:destroy]
       resources :assets, except: [:new, :edit] do
         resources :photos, except: [:new, :edit]
+        post '/photos/:id/selected' => 'photos#selected'
       end
       resources :comments, only: [:create]
       resources :invitations, only: [:create]
