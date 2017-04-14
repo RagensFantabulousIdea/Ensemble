@@ -1,0 +1,44 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '--save',
+1 verbose cli   'query-string' ]
+2 info using npm@3.10.10
+3 info using node@v6.9.4
+4 verbose config Skipping project config: /Users/Punjab/.npmrc. (matches userconfig)
+5 silly loadCurrentTree Starting
+6 silly install loadCurrentTree
+7 silly install readLocalPackageData
+8 silly rollbackFailedOptional Starting
+9 silly rollbackFailedOptional Finishing
+10 silly runTopLevelLifecycles Finishing
+11 silly install printInstalled
+12 verbose stack Error: Failed to parse json
+12 verbose stack No data, empty input at 1:1
+12 verbose stack
+12 verbose stack ^
+12 verbose stack     at parseError (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:390:11)
+12 verbose stack     at parseJson (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:79:23)
+12 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:48:5
+12 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:78:16
+12 verbose stack     at tryToString (fs.js:455:3)
+12 verbose stack     at FSReqWrap.readFileAfterClose [as oncomplete] (fs.js:442:12)
+13 verbose cwd /Users/Punjab/Documents/TheIronYard/w10/final-project/Iron-Yard-Final-Project
+14 error Darwin 15.6.0
+15 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "--save" "query-string"
+16 error node v6.9.4
+17 error npm  v3.10.10
+18 error file /Users/Punjab/package.json
+19 error code EJSONPARSE
+20 error Failed to parse json
+20 error No data, empty input at 1:1
+20 error
+20 error ^
+21 error File: /Users/Punjab/package.json
+22 error Failed to parse package.json data.
+22 error package.json must be actual JSON, not just JavaScript.
+22 error
+22 error This is not a bug in npm.
+22 error Tell the package author to fix their package.json file. JSON.parse
+23 verbose exit [ 1, true ]

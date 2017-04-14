@@ -60,8 +60,8 @@ class Project extends React.Component{
                                         &nbsp; Check if project is done
                                 </label> : ''}
                                 {this.props.owner.id == sessionStorage.getItem('userId') ? <span className="pull-right label label-warning">You Are The Owner</span> : <span className="pull-right label label-danger">Collaboration</span>}
-                            </div>
-                            <h3 className="title">{this.props.title}</h3>
+                        </div>
+                        <h3 className="title">{this.props.title}</h3>
                         </div>
                             <p id="carditems">{this.props.author}</p><hr/>
                             <div>
