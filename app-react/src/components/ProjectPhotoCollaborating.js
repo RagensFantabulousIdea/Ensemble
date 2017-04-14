@@ -6,12 +6,99 @@ import ProjectShootFullCard from './ProjectShootFullCard';
 import ProjectPhotoCollaboratingPhotoCard from './ProjectPhotoCollaboratingPhotoCard';
 import CommentsBox from './CommentsBox';
 
+// import { browserHistory } from 'react-router';
+
+// original list from projectcreatecard
+
+    // figure_num: this.state.figureNumber,
+  // parts: this.state.figureParts,
+  // frame_num: this.state.selectionFrame,
+  // order_num: this.state.orderNumber,
+  // asset_description: this.state.figureDescription,
+  // instructions: this.state.figureInstructions,
+  // equipment: this.state.figureEquipment,
+  // model: this.state.figureModel,
+  // photographer: this.state.photographer,
+  // location_of_shoot: this.state.shootLocation,
+  // date_of_shoot: this.state.shootDate,
+  // time_of_shoot: this.state.shootTime,
+  // decorative: this.state.photoDecorative,
+  // demonstrative: this.state.photoDemonstrative,
+  // portrait: this.state.orientationPortrait,
+  // landscape: this.state.orientationLandscape,
+  // asset: this.state.asset, //not sure this is right. in todos, it was todo: this.state.description
+  // token: token
+  
+  // new ones on project shoot full card
+  // frame_range: frame_range,
+  // frame_num: this.state.selectionFrame
+
+  //new one on this page?
+//   something to do with frame of uploaded photo?
+
+  //plus photos . . .
+  //plus ability to mark photos yes, no, trash
+  //plus messages . . .
+
 class ProjectPhotoCollaborating extends Component {
+
+     constructor(props){
+        super(props) // super is required here
+            this.getAsset = this.getAsset.bind(this)
+            // this.getPhotos = this.getPhotos.bind(this)
+   
+        this.state = { // state of the page
+            // figureNumber: '',
+            // figureParts: '',
+            // selectionFrame: '',
+            // orderNumber: '',
+            // figureDescription: '',
+            // figureInstructions: '',
+            // figureEquipment: '',
+            // figureModel: '',
+            // photographer: '',
+            // shootLocation: '',
+            // shootDate: '',
+            // shootTime: '',
+            // photoDecorative: '',
+            // photoDemonstrative: '',
+            // orientationPortrait: '',
+            // orientationLandscape: '',
+            // frame_range: '',
+            // token: '',
+            // assets: [] //start with empty state
+        }
+      }
+
+    //LifeCycles Methods
+    // '/api/projects/' + this.props.params.projectId + '/assets?token=' + sessionStorage.getItem('token')
+    componentWillMount() {
+        this.getAsset()
+        //   this.getPhotos()
+    }
+
+    getAsset() {
+        fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '?token=' + sessionStorage.getItem('token'))
+        .then(response => response.json())
+        .then(response => this.setState({...response}))
+    }
+
+
+// getAssets method is in ProjectShootList file?
+//post? patch? might nto be fetch?
+    //     getPhotos(){
+    //     fetch('/api/projects/' + this.props.params.projectId + this.props.params.assetId + '/photos?token=' + sessionStorage.getItem('token'))
+    //         .then(response => response.json())
+    //         .then(response => {
+    //             this.setState({photos: response})
+    //         })
+    // }
   render() {
+    //   console.log(this.state.assets)
+    //   let assets = this.state.assets.map((asset, key) => <ProjectShootFullCard key={Date.now() + key} index={key} {...asset} getAssets={this.getAssets} projectId={this.props.params.projectId}/>)
 
-//users fill out figure information in ProjectCreateCard, it goes to ProjectShootFullCard AND ProjectShootMiniCard. Then ProjectShootMiniCards get placed in a list on ProjectShootList. Each ProjectShootFullCard has its own page, ProjectIndividualFigureList where all of the information can be seen, comments added, and photos uploaded.
+    //   let photos = this.state.photos.map((photo, key) => <ProjectPhotoCollaboratingPhotoCard key={Date.now() + key} index={key} {...photos} getPhotos={this.getPhotos} projectId={this.props.params.projectId}/>)
 
-// need to figure out how to pull approved image to use as the heading background.
     return (
         <div className="projectPhotoCollaborating">
             <NavBar />
@@ -23,7 +110,7 @@ class ProjectPhotoCollaborating extends Component {
                 <div className="row">
                     <div className="col-sm-7">
                         <h3>Photo Details and Messages</h3>
-                            <ProjectShootFullCard />
+                            <ProjectShootFullCard {...this.state} />
 
                             <div className="panel panel-default">
                                 <div className="panel-body messageArea">
@@ -38,26 +125,16 @@ class ProjectPhotoCollaborating extends Component {
                             <div className="row">
                                 <div className="col-xs-12">
                                     <div className="form-group">
-                                        <label className="figureOptions" for="figureSample">Upload Images for This Figure</label>
-                                        <label className="photoFrameInstructions" for="photoFrame">Enter the Frame Number for Each Photo Uploaded</label>
-                                        <input type="text" className="form-control photoFrame" /> <br/>
+                                        <label className="figureOptions" htmlFor="figureSample">Upload Images for This Figure</label>
+                                        <label className="photoFrameInstructions" htmlFor="photoFrame">Enter the Frame Number for Each Photo Uploaded</label>
+                                        <input type="text" className="form-control photoFrame" onChange={(e) => this.setState({NEEDNAMEHERE: e.target.value})}/> <br/>
                                         <input type="file" className="figureResults"/>
                                     </div>
                                 </div>
                             </div>
 
                             <div className="row">
-                                <ProjectPhotoCollaboratingPhotoCard />
-                                <ProjectPhotoCollaboratingPhotoCard />  
-                                <ProjectPhotoCollaboratingPhotoCard />
-                                <ProjectPhotoCollaboratingPhotoCard />
-                                <ProjectPhotoCollaboratingPhotoCard />
-                                <ProjectPhotoCollaboratingPhotoCard />
-                                <ProjectPhotoCollaboratingPhotoCard />
-                                <ProjectPhotoCollaboratingPhotoCard />
-                                <ProjectPhotoCollaboratingPhotoCard />
-                                <ProjectPhotoCollaboratingPhotoCard />
-                                <ProjectPhotoCollaboratingPhotoCard />
+                              {/* {photos} */}
                             </div>
                     </div>
                 </div>

@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170412165137) do
+ActiveRecord::Schema.define(version: 20170413220109) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "assets", force: :cascade do |t|
     t.string   "figure_num"
-    t.string   "description"
+    t.string   "asset_description"
     t.integer  "order_num"
     t.boolean  "landscape"
     t.boolean  "portrait"
