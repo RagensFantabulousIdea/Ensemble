@@ -28,7 +28,7 @@ class ProjectShootMiniCard extends Component {
                         <div className="panel-heading imagePanel">
                             <span className="commentIndicator glyphicon glyphicon-comment pull-right" aria-hidden="true"></span> <br/>
                             
-                            {this.props.frame_selected ? <img src={this.props.frame_selected} alt="selection" /> : ''}
+                            {this.props.selected_photo.image.url ? <img src={this.props.selected_photo.image.url} alt="selection" /> : ''}
                         </div>
                         
                         <div className="panel-heading miniCardHeading">
