@@ -54,14 +54,14 @@ class Project extends React.Component{
                 <div className="panel panel-info">
                     <div className="panel-heading">
                           <div className="form-check">
-                                {this.props.owner.id == sessionStorage.getItem('userId') ?
+                                {this.props.owner.id === sessionStorage.getItem('userId') ?
                                 <label className="form-check-label">
                                     <input type="checkbox" className="form-check-input" checked={this.state.complete} onChange={this.toggleCompleted}/>
                                         &nbsp; Check if project is done
                                 </label> : ''}
-                                {this.props.owner.id == sessionStorage.getItem('userId') ? <span className="pull-right label label-warning">You Are The Owner</span> : <span className="pull-right label label-danger">Collaboration</span>}
-                        </div>
-                        <h3 className="title">{this.props.title}</h3>
+                                {this.props.owner.id === sessionStorage.getItem('userId') ? <span className="pull-right label label-warning">You Are The Owner</span> : <span className="pull-right label label-danger">Collaboration</span>}
+                            </div>
+                            <h3 className="title">{this.props.title}</h3>
                         </div>
                             <p id="carditems">{this.props.author}</p><hr/>
                             <div>

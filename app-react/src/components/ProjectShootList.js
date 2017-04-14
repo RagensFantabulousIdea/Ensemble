@@ -5,12 +5,56 @@ import FooterArea from './FooterArea';
 
 import { browserHistory } from 'react-router';
 
+// where it says "assets" it used to say "projects"; where it says "asset" it used to say "project"
+//where it says "getFigures" it used to say "getProjects"
+
 class ProjectShootList extends Component {
+
+ constructor(props){
+   super(props) // super is required here
+        // this.getFigures = this.getFigures.bind(this)
+        
+        this.state = { // state of the page
+          title: '',
+          author: '',
+          projectNumber: '',
+          description: '',
+          selectionFrame: '',
+          figureNumber: '',
+          orderNumber: '',
+          figureDescription: '',
+          shootDate: '',
+          shootTime: '',
+          token: '',
+          assets: [] //start with empty state
+        }
+      }
+
+    //LifeCycles Methods
+    componentWillMount() {
+      fetch('/api/projects/' + this.props.params.projectId + '/assets?token=' + sessionStorage.getItem('token'))
+            .then (response => response.json())
+            .then(assets => this.setState({
+                assets: assets,
+                author: assets.author,
+                title: assets.title,
+                projectNumber: assets.project_num,
+                description: assets.description,
+                frame_num: assets.selectionFrame,
+                figure_num: assets.figureNumber,
+                order_num: assets.orderNumber,
+                asset_description: assets.figureDescription,
+                date_of_shoot: assets.shootDate,
+                time_of_shoot: assets.shootTime
+            }))
+    }
+
   render() {
+    let assets = this.state.assets.map((asset, key) => <ProjectShootMiniCard key={Date.now() + key} index={key} {...asset}/>)
+      if (assets.length === 0) {
+        assets = <h4 className="text-center cardAddInstruction">Please click the "Add Photo Shoot Planning Card to get started.</h4>
+      }
 
-//users fill out figure information in ProjectCreateCard, it goes to ProjectShootFullCard AND ProjectShootMiniCard. Then ProjectShootMiniCards get placed in a list on ProjectShootList. Each ProjectShootFullCard has its own page, ProjectIndividualFigureList where all of the information can be seen, comments added, and photos uploaded.
-
-// set up if/else method to only show the art describing the process when there aren't any mini cards present on this page. 
     return (
       <div className="projectShootListPage">
         <NavBar />
@@ -19,35 +63,28 @@ class ProjectShootList extends Component {
           <div className="container">
             <div className="row">
               <div className="col-sm-12">
-                <h2 className="projectInfoShootListPage"><span className="projectName">Pull Author Name</span>, <span className="projectTitle">Pull Title Could Be Long</span></h2>
+                <h2 className="projectInfoShootListPage"><span className="projectNumber">{this.props.project_num} </span><span className="projectName">{this.props.author}</span><br/><span className="projectTitle">{this.props.title}</span></h2>
               </div>
             </div>
             <div className="row descriptionAddButtonRow">
               <div className="col-sm-6">
-                <p className="projectDescription">Pull description. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur laboriosam minus quo ea, quae fugit repudiandae iure quibusdam molestias numquam rem incidunt nihil hic. Ducimus saepe magni, iusto voluptatum ex!</p>
+                <p className="projectDescription">{this.props.figureDescription}</p>
               </div>
               
               <div className="col-sm-6">
-                <button type="button" className="btn addButton pull-right" onClick={() => browserHistory.push('/shoot/:projectId/createcard')}>Add Photo Shoot Planning Card</button>
+                <button type="button" className="btn addButton pull-right" onClick={() => browserHistory.push('/shoot/' + this.props.params.projectId + '/createcard')}>Add Photo Shoot Planning Card</button>
               </div>
             </div>
           </div>
             
             <div className="container">
               <div className="row">
-                  <ProjectShootMiniCard />
-                  <ProjectShootMiniCard />
-                  <ProjectShootMiniCard />
-                  <ProjectShootMiniCard />
-                  <ProjectShootMiniCard />
-                  <ProjectShootMiniCard />
-                  <ProjectShootMiniCard />
+                  {assets}
               </div>
             </div>
 
           <FooterArea />
       </div>
-
     );
   }
 }

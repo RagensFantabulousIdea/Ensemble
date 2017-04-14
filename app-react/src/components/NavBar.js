@@ -12,7 +12,7 @@ class NavBar
             <header>
                 <nav>
                     <div className="nav navbar-nav navbar-right">
-                        <a className="nav-item projectNav" onClick={() => browserHistory.push('/shoot/:projectId')}>
+                        <a className="nav-item projectNav" onClick={() => browserHistory.push('/shoot/' + this.props.params.projectId)}>
                             Project Shoot List
                         </a>
 

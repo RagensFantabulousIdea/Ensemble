@@ -15,14 +15,14 @@ import Invite from './components/Invite'
 import Project from './components/Project'
 import ProjectShootList from './components/ProjectShootList'
 import ProjectCreateCard from './components/ProjectCreateCard'
-import ProjectShootFullCard from './components/ProjectShootFullCard'
-import ProjectShootMiniCard from './components/ProjectShootMiniCard'
-import ProjectPhotoCollaboratingPhotoCard from './components/ProjectPhotoCollaboratingPhotoCard'
+// import ProjectShootFullCard from './components/ProjectShootFullCard'
+// import ProjectShootMiniCard from './components/ProjectShootMiniCard'
+// import ProjectPhotoCollaboratingPhotoCard from './components/ProjectPhotoCollaboratingPhotoCard'
 import ProjectPhotoCollaborating from './components/ProjectPhotoCollaborating'
 import ProjectAllPhotosList from './components/ProjectAllPhotosList'
-import ProjectExtraPhotosList from './components/ProjectExtraPhotosList'
-import ProjectExtraPhotosCard from './components/ProjectExtraPhotosCard'
-import FullSizedImageView from './components/FullSizedImageView'
+// import ProjectExtraPhotosList from './components/ProjectExtraPhotosList'
+// import ProjectExtraPhotosCard from './components/ProjectExtraPhotosCard'
+// import FullSizedImageView from './components/FullSizedImageView'
 //Manpreet added a new component edit.js
 import Edit from './components/Edit'
 // import completedProjects from './components/completedProjects'
@@ -34,8 +34,8 @@ class Routes extends React.Component {
     render() {
         return <Router history={browserHistory}>
             <Route path="/" component={Welcome} />
-            <Route path="/sandbox" component={ProjectExtraPhotosList} />
-            <Route path="/signup(?:token)" component={SignUp} />
+            <Route path="/sandbox" component={ProjectAllPhotosList} />
+            <Route path="/signup" component={SignUp} />
             <Route path="/signin" component={SignIn} />
             <Route path="/projects" component={UserProjects} />
             <Route path="/projects/complete" component={UserProjects} />
@@ -46,9 +46,12 @@ class Routes extends React.Component {
             <Route path="/edit/:projectId" component={Edit} />
             <Route path="/shoot/:projectId" component={ProjectShootList} />
             <Route path="/shoot/:projectId/createcard" component={ProjectCreateCard} />
+            <Route path="/shoot/:projectId/assets/:id/collaborate" component={ProjectPhotoCollaborating} />
 
         </Router>
     }
 }
 
 export default Routes
+
+//  <Route path="/signup(?:token)" component={SignUp} />
