@@ -3,11 +3,9 @@ import React, { Component } from 'react';
 class ProjectPhotoCollaboratingPhotoCard extends Component {
   render() {
 
-//users fill out figure information in ProjectCreateCard, it goes to ProjectShootFullCard AND ProjectShootMiniCard. Then ProjectShootMiniCards get placed in a list on ProjectShootList. Each ProjectShootFullCard has its own page, ProjectIndividualFigureList where all of the information can be seen, comments added, and photos uploaded.
+// need to figure out how to make it so you can click on the TN image in the card and see the large size of the photo.
 
-// need to figure out how to make it so you can click on the image in the card and see the large size of the photo.
-
-//need to figure out how to make selection buttons work.
+//need to figure out how to make like/don't like/delete buttons work.
 
 // suggested JS for the tooltips on the glyphicons
 // $(function () {
