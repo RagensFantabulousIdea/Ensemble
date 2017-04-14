@@ -13,9 +13,9 @@ class AssetsController < ApplicationController
   def show
     if editor
       if @asset
-        render json: @project
+        render json: @asset
       else
-        render json: @project.errors.full_messages
+        render json: @asset.errors.full_messages
       end
     else
       forbidden

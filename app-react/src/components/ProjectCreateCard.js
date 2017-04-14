@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import NavBar from './NavBar';
-import NavAdditionalPager from './NavAdditionalPager';
+// import NavAdditionalPager from './NavAdditionalPager';
 import FooterArea from './FooterArea';
 
 import { browserHistory } from 'react-router';
@@ -221,11 +221,11 @@ class ProjectCreateCard extends Component {
     //     }
     // }
 
-    addPhoto(figureNumber, figureParts, selectionFrame, orderNumber, figureDescription, figureInstructions, figureEquipment, figureModel, photographer, shootLocation, shootDate, shootTime, photoDecorative, photoDemonstrative, orientationPortrait, orientationLandscape) {
+    addPhoto() {
 
         //Post to /api/projects
         var token = sessionStorage.getItem('token');
-        fetch('/api/projects/' + this.props.params.projectId + '/assets?token=' + sessionStorage.getItem('token'), {
+        fetch('/api/projects/' + this.props.params.projectId + '/assets', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -247,34 +247,33 @@ class ProjectCreateCard extends Component {
                 demonstrative: this.state.photoDemonstrative,
                 portrait: this.state.orientationPortrait,
                 landscape: this.state.orientationLandscape,
-                asset: this.state.asset, //not sure this is right. in todos, it was todo: this.state.description
                 token: token
             })
         })
             .then(response => response.json())
             .then(asset => { //originally, this was .then(response => {})
                 //  clear the form fields
-                this.setState({
-                    figureNumber: '',
-                    figureParts: '',
-                    selectionFrame: '',
-                    orderNumber: '',
-                    figureDescription: '',
-                    figureInstructions: '',
-                    figureEquipment: '',
-                    figureModel: '',
-                    photographer: '',
-                    shootLocation: '',
-                    shootDate: '',
-                    shootTime: '',
-                    photoDecorative: '',
-                    photoDemonstrative: '',
-                    orientationPortrait: '',
-                    orientationLandscape: ''
-                })
+                // this.setState({
+                //     figureNumber: '',
+                //     figureParts: '',
+                //     selectionFrame: '',
+                //     orderNumber: '',
+                //     figureDescription: '',
+                //     figureInstructions: '',
+                //     figureEquipment: '',
+                //     figureModel: '',
+                //     photographer: '',
+                //     shootLocation: '',
+                //     shootDate: '',
+                //     shootTime: '',
+                //     photoDecorative: '',
+                //     photoDemonstrative: '',
+                //     orientationPortrait: '',
+                //     orientationLandscape: ''
+                // })
 
-                browserHistory.push('/shoot/' + this.props.params.projectId + '/createcard')
-                // browserHistory.push('/shoot/' + this.props.params.projectId) 
+                // browserHistory.push('/shoot/' + this.props.params.projectId + '/createcard')
+                browserHistory.push('/shoot/' + this.props.params.projectId) 
                 //works, but negates desired function of being able to navigate forwards and backwards through figures.
                 // this.props.history.push('/shoot/' + this.props.params.projectId + '/createcard')
             })
@@ -437,17 +436,16 @@ class ProjectCreateCard extends Component {
                     <div className="panel-footer">
                         <div className="row">
                             <div className="col-xs-6">
-                                <button type="submit" className="btn btn-danger deleteFigure" onClick={() => this.deletePhoto(this.props.id)}>Delete Figure</button>
+                                <button type="button" className="btn btn-danger deleteFigure" onClick={() => this.deletePhoto(this.props.id)}>Delete Figure</button>
                             </div>
 
                             <div className="col-xs-6">
-                                <button type="submit" className="btn btn-success pull-right saveFigure" onClick={this.addPhoto}>Save Figure</button>
+                                <button type="button" className="btn btn-success pull-right saveFigure" onClick={this.addPhoto}>Save Figure</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <NavAdditionalPager />
             <FooterArea />
         </div>
     );
