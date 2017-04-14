@@ -35,7 +35,7 @@ class Routes extends React.Component {
         return <Router history={browserHistory}>
             <Route path="/" component={Welcome} />
             <Route path="/sandbox" component={ProjectAllPhotosList} />
-            <Route path="/signup" component={SignUp} />
+            <Route path="/signup(/:token)" component={SignUp} />
             <Route path="/signin" component={SignIn} />
             <Route path="/projects" component={UserProjects} />
             <Route path="/projects/complete" component={UserProjects} />

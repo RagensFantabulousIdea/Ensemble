@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { browserHistory } from 'react-router';
 
 class ProjectShootMiniCard extends Component {
   render() {
@@ -7,7 +8,7 @@ class ProjectShootMiniCard extends Component {
 
     return (
         <div>
-            <a className="miniCard" onClick={() => browserHistory.push('/shoot/' + this.props.params.projectId + '/assets' + this.props.params.id + '/collaborate')>
+            <a className="miniCard" onClick={() => browserHistory.push('/shoot/' + this.props.params.projectId + '/assets' + this.props.params.id + '/collaborate')}>
                 <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                     <div className="panel">
                         <div className="panel-heading imagePanel">

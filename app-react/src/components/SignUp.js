@@ -13,7 +13,9 @@ class SignUp extends Component {
             lastname: '',
             email: '',
             password: '',
-            token: ''
+            token: '',
+            modal: "none",
+            xmark: "none"
          
         }
     }
@@ -46,7 +48,7 @@ class SignUp extends Component {
             last_name: lastname,
             email: email,
             password: password,
-            token: token
+            token: this.props.params.token
         })
     })
         .then(function(response) {
@@ -70,12 +72,16 @@ class SignUp extends Component {
 }
 
 render() {
-return <div>
-    <div className="container">
+return <div style= {{display: this.props.modalSu}}>
+    <div className="container modal-opac">
         <div className="panel panel-default">
             <div className="panel-heading">
                 <h5 className="panel-title text-center">Sign Up</h5>
+                <i className="fa fa-times-circle-o fa-2x signup-close" aria-hidden="true" onClick={() => this.setState({xmark: 'none'})} ></i>
+             
+                    
                 </div>
+                 
             <div className="panel-body">
                 <div className="form-group">
                     <label htmlFor="firstname">First Name</label>
@@ -105,3 +111,5 @@ return <div>
 }
 
 export default SignUp;
+
+    // <i className="fa fa-times-circle-o fa-2x" aria-hidden="true" onClick={() => this.setState({modal: 'none'})} ></i>

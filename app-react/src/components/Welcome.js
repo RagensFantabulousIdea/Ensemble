@@ -3,10 +3,23 @@ import { browserHistory } from 'react-router';
 // import SignUp from './SignUp'
 // import Signin from './Signin'
 import FooterArea from './FooterArea'
+import Signup from './SignUp'
+import SignIn from './SignIn'
+
 
 // need to add footer
 class Welcome extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      modalSi: "none",
+      modalSu: "none",
+   
+    }
+  }
+
   render() {
+    // let SignUp = this.state.SignUp.map((SignUp, key) => <SignUp {...SignUp} key={key} showModal={this.showModal}/>)
     return (
       <div>
         <div className="welcome">
@@ -16,12 +29,11 @@ class Welcome extends Component {
           </header>
 
           <div className="welcomeButtons text-center">
-            <button type="button" className="btn signInButtonWelcome" onClick={() => browserHistory.push('/Signin')}>Sign In</button> <br/>
-            <button type="button" className="btn signUpButtonWelcome" onClick={() => browserHistory.push('/SignUp')}>Sign Up</button>
+            <button type="button" className="btn signInButtonWelcome" onClick={() => this.setState({modalSi: 'block'})} >Sign In</button> <br/>
+            <button type="button" className="btn signUpButtonWelcome" onClick={() => this.setState({modalSu: 'block'})}>Sign Up</button>
           </div>
         </div>
-
-        
+          
           <div className="row body">
             <div className="col-sm-6 col-md-4">
               <p className="centralData">Enter all of your photo shoot data into one location, including: photo descriptions, sample images, date and time of shoot, and more!</p>
@@ -44,6 +56,9 @@ class Welcome extends Component {
 
         <FooterArea />
 
+        <Signup modalSu={this.state.modalSu}  className="modal"/>
+        <SignIn modalSi={this.state.modalSi}  className="modal"/>
+
       </div>
     );
   }
@@ -51,3 +66,6 @@ class Welcome extends Component {
 
        
 export default Welcome;
+
+
+// onClick={() => browserHistory.push('/Signin')}
