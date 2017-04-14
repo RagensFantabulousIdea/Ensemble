@@ -13,42 +13,34 @@ class ProjectShootFullCard extends Component {
 
 // QQCollin: there were a couple of new fields on here for fields I wanted them to fill out at the shoot. But . . . where does this addFrameNumbers thingie get called since there's no one big save button like there was for the ProjectCreateCard file? no one will see this card on its own, it gets used on the PhotoShootCollaborating.js file. 
     addFrameNumbers(frame_range, selectionFrame) {
-        //Post to /api/projects
-        if (
-            this.state.frame_range !== '',
-            this.state.selectionFrame !== ''
-        ) {
-            var token = sessionStorage.getItem('token');
-            fetch('/api/projects', {
-                method: 'Post',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    frame_range: frame_range,
-                    frame_num: this.state.selectionFrame,
-                    token: token
-                })
-            })
-                .then(response => response.json())
-                .then(response => {
-                    //  clear the form fields
-                    this.setState({
-                        frame_range: '',
-                        selectionFrame: ''
-                    })
-                })
-        }
+      //Post to /api/projects
+          var token = sessionStorage.getItem('token');
+          fetch('/api/projects', {
+              method: 'Post',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                  frame_range: frame_range,
+                  frame_num: this.state.selectionFrame,
+                  token: token
+              })
+          })
+              .then(response => response.json())
+              .then(response => {
+                  //  clear the form fields
+                  this.setState({
+                      frame_range: '',
+                      selectionFrame: ''
+                  })
+              })
     }
 
 
   render() {
 
-//users fill out figure information in ProjectCreateCard, it goes to ProjectShootFullCard AND ProjectShootMiniCard. Then ProjectShootMiniCards get placed in a list on ProjectShootList. Each ProjectShootFullCard has its own page, ProjectIndividualFigureList where all of the information can be seen, comments added, and photos uploaded.
-
 //need to add quotes to user input for selected frame number??
     return (
-              
             <div className="panel">
               <div className="panel-heading">
                 
@@ -72,7 +64,6 @@ class ProjectShootFullCard extends Component {
                   </div>
                 </div>
               </div>
-              
               
               <div className="panel-body">
                 <div className="row">
@@ -118,13 +109,13 @@ class ProjectShootFullCard extends Component {
 
               <div className="row">
                 <div className="col-xs-6">
-                  {this.props.photoDecorative == this.props.photoDecorative ?  <p className="photoDecorative">Decorative</p> : ''}
-                  {this.props.photoDemonstrative == this.props.photoDemonstrative ?  <p className="photoDemonstrative">Demonstrative</p> : ''}
+                  {this.props.photoDecorative === this.props.photoDecorative ?  <p className="photoDecorative">Decorative</p> : ''}
+                  {this.props.photoDemonstrative === this.props.photoDemonstrative ?  <p className="photoDemonstrative">Demonstrative</p> : ''}
                 </div>
 
                 <div className="col-xs-6">
-                {this.props.photoDecorative == this.props.photoDecorative ?  <p className="orientationPortrait">Portrait</p> : ''}
-                {this.props.photoDecorative == this.props.photoDecorative ?  <p className="orientationLandscape">Landscape</p> : ''}
+                {this.props.photoDecorative === this.props.photoDecorative ?  <p className="orientationPortrait">Portrait</p> : ''}
+                {this.props.photoDecorative === this.props.photoDecorative ?  <p className="orientationLandscape">Landscape</p> : ''}
                 </div>
 
               </div>

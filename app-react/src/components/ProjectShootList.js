@@ -12,36 +12,47 @@ class ProjectShootList extends Component {
 
  constructor(props){
    super(props) // super is required here
-        this.getFigures = this.getFigures.bind(this)
+        // this.getFigures = this.getFigures.bind(this)
         
         this.state = { // state of the page
+          title: '',
+          author: '',
+          projectNumber: '',
+          description: '',
+          selectionFrame: '',
+          figureNumber: '',
+          orderNumber: '',
+          figureDescription: '',
+          shootDate: '',
+          shootTime: '',
+          token: '',
           assets: [] //start with empty state
         }
       }
 
     //LifeCycles Methods
     componentWillMount() {
-      this.getFigures() // put the data into it and change the state
+      fetch('/api/projects/' + this.props.params.projectId + '/assets?token=' + sessionStorage.getItem('token'))
+            .then (response => response.json())
+            .then(assets => this.setState({
+                assets: assets,
+                author: assets.author,
+                title: assets.title,
+                projectNumber: assets.project_num,
+                description: assets.description,
+                frame_num: assets.selectionFrame,
+                figure_num: assets.figureNumber,
+                order_num: assets.orderNumber,
+                asset_description: assets.figureDescription,
+                date_of_shoot: assets.shootDate,
+                time_of_shoot: assets.shootTime
+            }))
     }
-    
-    componentWillReceiveProps() {
-      this.getFigures()
-    }
-
-  //API Methods
-  //QQRAGEN, KALEA, MANPREET, COLLIN: WHAT GOES IN THIS FETCH?
-    getFigures(){
-      fetch('/api/projects?complete=' + (location.href.includes('/complete') ? 'true' : 'false') + '&token=' + sessionStorage.getItem('token'))
-        .then(response => response.json())
-        .then(projects => {
-          this.setState({assets: assets})
-        })
-      }
 
   render() {
     let assets = this.state.assets.map((asset, key) => <ProjectShootMiniCard key={Date.now() + key} index={key} {...asset}/>)
       if (assets.length === 0) {
-        assets = <h4 className="text-center">Please click the "Add Photo Shoot Planning Card to get started.</h4>
+        assets = <h4 className="text-center cardAddInstruction">Please click the "Add Photo Shoot Planning Card to get started.</h4>
       }
 
     return (
@@ -57,11 +68,11 @@ class ProjectShootList extends Component {
             </div>
             <div className="row descriptionAddButtonRow">
               <div className="col-sm-6">
-                <p className="projectDescription">Pull description. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur laboriosam minus quo ea, quae fugit repudiandae iure quibusdam molestias numquam rem incidunt nihil hic. Ducimus saepe magni, iusto voluptatum ex!</p>
+                <p className="projectDescription">{this.props.figureDescription}</p>
               </div>
               
               <div className="col-sm-6">
-                <button type="button" className="btn addButton pull-right" onClick={() => browserHistory.push('/shoot/:projectId/createcard')}>Add Photo Shoot Planning Card</button>
+                <button type="button" className="btn addButton pull-right" onClick={() => browserHistory.push('/shoot/' + this.props.params.projectId + '/createcard')}>Add Photo Shoot Planning Card</button>
               </div>
             </div>
           </div>

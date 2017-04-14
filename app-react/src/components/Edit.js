@@ -33,7 +33,6 @@ class createproject extends Component {
         // console.log(this.props.params.projectId)
         //Post to /api/projects
         
-        {
             var token = sessionStorage.getItem('token');
             fetch('/api/projects/' + this.props.params.projectId + '?token='+ sessionStorage.getItem('token'), {
                 method: 'PATCH',
@@ -59,8 +58,6 @@ class createproject extends Component {
                     })
                     browserHistory.push('/projects')
                 })
-                    
-        }
           
     }
     render() {
