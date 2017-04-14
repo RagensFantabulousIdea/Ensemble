@@ -79,7 +79,7 @@ class AssetsController < ApplicationController
   end
 
   def find_asset
-    @asset = Asset.find(params[:id])
+    @asset = @project.assets.find(params[:id])
   end
 
 end
