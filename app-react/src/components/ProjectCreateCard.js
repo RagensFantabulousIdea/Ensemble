@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import NavBar from './NavBar';
-// import NavAdditionalPager from './NavAdditionalPager';
 import FooterArea from './FooterArea';
 
 import { browserHistory } from 'react-router';
-
-//users fill out figure information in ProjectCreateCard, it goes to ProjectShootFullCard AND ProjectShootMiniCard. Then ProjectShootMiniCards get placed in a list on ProjectShootList. Each ProjectShootFullCard has its own page, ProjectIndividualFigureList where all of the information can be seen, comments added, and photos uploaded.
 
 //Need to add quotes around user input for photo selected box?
 
@@ -16,16 +13,8 @@ import { browserHistory } from 'react-router';
 class ProjectCreateCard extends Component {
     constructor(props) {
         super(props)
-        // this.togglePhotoDecorative = this.togglePhotoDecorative.bind(this)
-        // this.togglePhotoDemonstrative = this.togglePhotoDemonstrative.bind(this)
-        // this.toggleOrientationPortrait = this.toggleOrientationPortrait.bind(this)
-        // this.toggleOrientationLandscape = this.toggleOrientationLandscape.bind(this)
-        // this.getDecorative = this.getDecorative.bind(this)
-        // this.getDemonstrative = this.getDemonstrative.bind(this)
-        // this.getOrientationPortrait = this.getOrientationPortrait.bind(this)
-        // this.getOrientationLandscape = this.getOrientationLandscape.bind(this)
-        this.addPhoto = this.addPhoto.bind(this)
-        // this.deletePhoto = this.deletePhoto.bind(this)
+        this.saveAsset = this.saveAsset.bind(this)
+
         this.state = {
             figureNumber: '',
             figureParts: '',
@@ -42,186 +31,11 @@ class ProjectCreateCard extends Component {
             photoDecorative: '',
             photoDemonstrative: '',
             orientationPortrait: '',
-            orientationLandscape: '',
-            asset: '', //not sure this should be here
-            token: ''
-            // getDecorative: props.getDecorative,
-            // getDemonstrative: props.getDemonstrative,
-            // getOrientationPortrait: props.getOrientationPortrait,
-            // getOrientationLandscape: props.getOrientationLandscape,
-            // complete: props.complete
+            orientationLandscape: ''
         }
     }
 
-    // togglePhotoDecorative() {
-    //     if (this.state.complete === false) {
-    //         var token = sessionStorage.getItem('token');
-
-    //         // tell back-end that it's decorative
-    //         fetch('/api/projects/' + this.props.id + '?token=' + token, {
-    //             method: 'PATCH',
-    //             headers: {
-    //                 'Content-Type': 'application/json'
-    //             },
-
-    //             body: JSON.stringify({
-    //                 decorative: true
-    //             })
-    //         })
-    //         .then(response => {
-    //             this.props.getDecorative()
-    //         })
-    //     }
-    //     else {
-    //         var token = sessionStorage.getItem('token');
-
-    //         // tell back-end that it's decorative
-    //         fetch('/api/projects/' + this.props.id + '?token=' + token, {
-    //             method: 'PATCH',
-    //             headers: {
-    //                 'Content-Type': 'application/json'
-    //             },
-
-    //             body: JSON.stringify({
-    //                 decorative: false
-    //             })
-    //         })
-    //         .then(response => {
-    //             this.props.getDecorative()
-    //         })
-    //     }
-    // }
-
-//QQCOllIN: how to do this? want to save the info to the backend and then show or hide words in the card if it's checked or not.
-        //API Methods
-    // getDecorative(){
-    //     fetch('/api/projects/:id/assets' + this.props.params.projectId + '?token=' + sessionStorage.getItem('token'))
-    //         .then(response => response.json())
-    //         .then(projects => {
-    //             this.setState({decorative: photoDecorative})
-    //         })
-    // }
-    
-                    // demonstrative: this.state.photoDemonstrative,
-                    // portrait: this.state.orientationPortrait,
-                    // landscape: this.state.orientationLandscape,
-
-// togglePhotoDemonstrative() {
-//         if (this.state.complete === false) {
-//             var token = sessionStorage.getItem('token');
-
-//             // tell back-end that it's demonstrative.
-//             fetch('/api/projects/' + this.props.id + '?token=' + token, {
-//                 method: 'PATCH',
-//                 headers: {
-//                     'Content-Type': 'application/json'
-//                 },
-
-//                 body: JSON.stringify({
-//                     demonstrative: true
-//                 })
-//             })
-//             .then(response => {
-//                 this.props.getDemonstrative()
-//             })
-//         }
-//         else {
-//             var token = sessionStorage.getItem('token');
-
-            // tell back-end that it's demonstrative.
-//             fetch('/api/projects/' + this.props.id + '?token=' + token, {
-//                 method: 'PATCH',
-//                 headers: {
-//                     'Content-Type': 'application/json'
-//                 },
-
-//                 body: JSON.stringify({
-//                     demonstrative: false
-//                 })
-//             })
-//             .then(response => {
-//                 this.props.getDemonstrative()
-//             })
-//         }
-//     }
-// toggleOrientationPortrait() {
-        // if (this.state.complete === false) {
-        //     var token = sessionStorage.getItem('token');
-
-            // tell back-end that it's portrait.
-//             fetch('/api/projects/' + this.props.id + '?token=' + token, {
-//                 method: 'PATCH',
-//                 headers: {
-//                     'Content-Type': 'application/json'
-//                 },
-
-//                 body: JSON.stringify({
-//                     portrait: true
-//                 })
-//             })
-//             .then(response => {
-//                 this.props.getOrientationPortrait()
-//             })
-//         }
-//         else {
-//             var token = sessionStorage.getItem('token');
-
-//             // tell back-end that it's portrait.
-//             fetch('/api/projects/' + this.props.id + '?token=' + token, {
-//                 method: 'PATCH',
-//                 headers: {
-//                     'Content-Type': 'application/json'
-//                 },
-
-//                 body: JSON.stringify({
-//                     portrait: false
-//                 })
-//             })
-//             .then(response => {
-//                 this.props.getOrientationPortrait()
-//             })
-//         }
-//     }
-// toggleOrientationLandscape() {
-//         if (this.state.complete === false) {
-//             var token = sessionStorage.getItem('token');
-
-            // tell back-end that it's landscape.
-    //         fetch('/api/projects/' + this.props.id + '?token=' + token, {
-    //             method: 'PATCH',
-    //             headers: {
-    //                 'Content-Type': 'application/json'
-    //             },
-
-    //             body: JSON.stringify({
-    //                 landscape: true
-    //             })
-    //         })
-    //         .then(response => {
-    //             this.props.getOrientationLandscape()
-    //         })
-    //     }
-    //     else {
-    //         var token = sessionStorage.getItem('token');
-
-    //         // tell back-end that it's landscape.
-    //         fetch('/api/projects/' + this.props.id + '?token=' + token, {
-    //             method: 'PATCH',
-    //             headers: {
-    //                 'Content-Type': 'application/json'
-    //             },
-
-    //             body: JSON.stringify({
-    //                 landscape: false
-    //             })
-    //         })
-    //         .then(response => {
-    //             this.props.getOrientationLandscape()
-    //         })
-    //     }
-    // }
-
-    addPhoto() {
+    saveAsset() {
 
         //Post to /api/projects
         var token = sessionStorage.getItem('token');
@@ -250,33 +64,11 @@ class ProjectCreateCard extends Component {
                 token: token
             })
         })
-            .then(response => response.json())
-            .then(asset => { //originally, this was .then(response => {})
-                //  clear the form fields
-                // this.setState({
-                //     figureNumber: '',
-                //     figureParts: '',
-                //     selectionFrame: '',
-                //     orderNumber: '',
-                //     figureDescription: '',
-                //     figureInstructions: '',
-                //     figureEquipment: '',
-                //     figureModel: '',
-                //     photographer: '',
-                //     shootLocation: '',
-                //     shootDate: '',
-                //     shootTime: '',
-                //     photoDecorative: '',
-                //     photoDemonstrative: '',
-                //     orientationPortrait: '',
-                //     orientationLandscape: ''
-                // })
-
-                // browserHistory.push('/shoot/' + this.props.params.projectId + '/createcard')
-                browserHistory.push('/shoot/' + this.props.params.projectId) 
-                //works, but negates desired function of being able to navigate forwards and backwards through figures.
-                // this.props.history.push('/shoot/' + this.props.params.projectId + '/createcard')
-            })
+        
+        .then(response => response.json())
+        .then(asset => {
+            browserHistory.push('/shoot/' + this.props.params.projectId)
+        })
     }
 
     render() {
@@ -390,7 +182,7 @@ class ProjectCreateCard extends Component {
                                 <div className="col-sm-3">
                                     <div className="checkbox figureDeco">
                                         <label>
-                                            <input type="checkbox"/> Decorative photo?
+                                            <input type="checkbox" onChange={(e) => this.setState({photoDecorative: e.target.checked})} /> Decorative photo?
                                         </label>
                                     </div>
                                 </div>
@@ -398,7 +190,7 @@ class ProjectCreateCard extends Component {
                                 <div className="col-sm-3">
                                     <div className="checkbox figureDemo">
                                         <label>
-                                            <input type="checkbox" /> Demonstrative photo?
+                                            <input type="checkbox" onChange={(e) => this.setState({photoDemonstrative: e.target.checked})} /> Demonstrative photo?
                                         </label>
                                     </div>
                                 </div>
@@ -406,7 +198,7 @@ class ProjectCreateCard extends Component {
                                 <div className="col-sm-3">
                                     <div className="checkbox figurePortrait">
                                         <label>
-                                            <input type="checkbox" /> Portrait orientation?
+                                            <input type="checkbox" onChange={(e) => this.setState({orientationPortrait: e.target.checked})} /> Portrait orientation?
                                         </label>
                                     </div>
                                 </div>
@@ -414,7 +206,7 @@ class ProjectCreateCard extends Component {
                                 <div className="col-sm-3">
                                     <div className="checkbox figureLandscape">
                                         <label>
-                                            <input type="checkbox" /> Landscape orientation?
+                                            <input type="checkbox" onChange={(e) => this.setState({orientationLandscape: e.target.checked})} /> Landscape orientation?
                                         </label>
                                     </div>
                                 </div>
@@ -435,12 +227,12 @@ class ProjectCreateCard extends Component {
                     </div>
                     <div className="panel-footer">
                         <div className="row">
-                            <div className="col-xs-6">
+                            {/*<div className="col-xs-6">
                                 <button type="button" className="btn btn-danger deleteFigure" onClick={() => this.deletePhoto(this.props.id)}>Delete Figure</button>
-                            </div>
+                            </div>*/}
 
-                            <div className="col-xs-6">
-                                <button type="button" className="btn btn-success pull-right saveFigure" onClick={this.addPhoto}>Save Figure</button>
+                            <div className="col-xs-12">
+                                <button type="button" className="btn btn-success pull-right saveFigure" onClick={this.saveAsset}>Save Figure</button>
                             </div>
                         </div>
                     </div>

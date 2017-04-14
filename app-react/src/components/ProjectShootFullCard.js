@@ -2,49 +2,48 @@ import React, { Component } from 'react';
 
 import { browserHistory } from 'react-router';
 
-import ProjectPhotoCollaborating from './ProjectPhotoCollaborating';
-
 class ProjectShootFullCard extends Component {
-
-// original list from projectcreatecard
-
-    // figure_num: this.state.figureNumber,
-  // parts: this.state.figureParts,
-  // frame_num: this.state.uploadedFrame,
-  // order_num: this.state.orderNumber,
-  // asset_description: this.state.figureDescription,
-  // instructions: this.state.figureInstructions,
-  // equipment: this.state.figureEquipment,
-  // model: this.state.figureModel,
-  // photographer: this.state.photographer,
-  // location_of_shoot: this.state.shootLocation,
-  // date_of_shoot: this.state.shootDate,
-  // time_of_shoot: this.state.shootTime,
-  // decorative: this.state.photoDecorative,
-  // demonstrative: this.state.photoDemonstrative,
-  // portrait: this.state.orientationPortrait,
-  // landscape: this.state.orientationLandscape,
-  // asset: this.state.asset, //not sure this is right. in todos, it was todo: this.state.description
-  // token: token
-  
-  // new ones on project shoot full card
-  // frame_range: frame_range,
-  // frame_selected: this.state.selectionFrame
-
-  //new one on this page?
-//   something to do with frame of uploaded photo?
-
-  //plus photos . . .
-  //plus ability to mark photos yes, no, trash
-  //plus messages . . .
-
   constructor(props) {
     super(props)
+    this.updateFrameRange = this.updateFrameRange.bind(this)
+    this.updateFrameSelected = this.updateFrameSelected.bind(this)
+
         this.state = {
             frame_range: '',
-            selectionFrame: '',
-            token: '',
+            frame_selected: ''
         }
+    }
+
+    componentWillReceiveProps(props) {
+      this.setState({
+        frame_range: props.frame_range || '',
+        frame_selected: props.frame_num || ''
+      })
+    }
+
+    updateFrameRange() {
+      fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          frame_range: this.state.frame_range,
+          token: sessionStorage.getItem('token')
+        })
+      })
+    }
+
+    updateFrameSelected() {
+      fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/photos/' + this.state.frame_selected + '/selected', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          token: sessionStorage.getItem('token')
+        })
+      })
     }
 
 // QQCollin: there were a couple of new fields (and maybe a third?) on here for fields I wanted them to fill out at the shoot. But . . . where does this addFrameNumbers thingie get called since there's no one big save button like there was for the ProjectCreateCard file? no one will see this card on its own, it gets used on the PhotoShootCollaborating.js file.
@@ -77,7 +76,6 @@ class ProjectShootFullCard extends Component {
 
 
   render() {
-    console.log(this.props)
 //need to add quotes to user input for selected frame number??
     return (
             <div className="panel">
@@ -89,7 +87,7 @@ class ProjectShootFullCard extends Component {
                   </div>
 
                     <div className="col-xs-5">
-                      <button type="button" className="btn editCardButton pull-right" onClick={() => browserHistory.push('/shoot/' + this.props.params.projectId + 'assets' + this.props.params.assetId + '/createcard')}>Edit Card</button>
+                      <button type="button" className="btn editCardButton pull-right" onClick={() => browserHistory.push('/shoot/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/editcard')}>Edit Card</button>
                     </div>
                 </div>
               <br/>
@@ -150,13 +148,13 @@ class ProjectShootFullCard extends Component {
 
               <div className="row">
                 <div className="col-xs-6">
-                  {this.props.decorative === this.props.decorative ?  <p className="photoDecorative">Decorative</p> : ''}
-                  {this.props.demonstrative === this.props.demonstrative ?  <p className="photoDemonstrative">Demonstrative</p> : ''}
+                  {this.props.decorative ?  <p className="photoDecorative">Decorative</p> : ''}
+                  {this.props.demonstrative ?  <p className="photoDemonstrative">Demonstrative</p> : ''}
                 </div>
 
                 <div className="col-xs-6">
-                {this.props.portrait === this.props.portrait ?  <p className="orientationPortrait">Portrait</p> : ''}
-                {this.props.landscape === this.props.landscape ?  <p className="orientationLandscape">Landscape</p> : ''}
+                {this.props.portrait ?  <p className="orientationPortrait">Portrait</p> : ''}
+                {this.props.landscape ?  <p className="orientationLandscape">Landscape</p> : ''}
                 </div>
 
               </div>
@@ -165,19 +163,19 @@ class ProjectShootFullCard extends Component {
                 <div className="col-xs-12">
                   <p><strong>Samples</strong></p>
                     <div className="col-xs-3">
-                      <img className="shootSampleImage" src="./img/baseballsamplejpg.jpg" alt="sample" />
+                      <img className="shootSampleImage" src="/img/baseballsamplejpg.jpg" alt="sample" />
                     </div>
                 
                     <div className="col-xs-3">
-                      <img className="shootSampleImage"src="./img/baseballsamplejpg.jpg" alt="sample" />
+                      <img className="shootSampleImage"src="/img/baseballsamplejpg.jpg" alt="sample" />
                     </div>
 
                     <div className="col-xs-3">
-                      <img className="shootSampleImage"src="./img/baseballsamplejpg.jpg" alt="sample" />
+                      <img className="shootSampleImage"src="/img/baseballsamplejpg.jpg" alt="sample" />
                     </div>
 
                     <div className="col-xs-3">
-                      <img className="shootSampleImage"src="../img/baseballsamplejpg.jpg" alt="sample" />
+                      <img className="shootSampleImage"src="/img/baseballsamplejpg.jpg" alt="sample" />
                     </div>
                 </div>
               </div>
@@ -189,9 +187,9 @@ class ProjectShootFullCard extends Component {
                     <h4 className="figureSelectedTitle">Camera Frame Numbers</h4>
                       <p className="help-block">During the shoot, note the range of frame numbers for all of the shots taken for this photo.</p>
                         <div className="input-group">
-                          <input type="text" className="form-control figureFrame" placeholder="DSC05697-DSC05700" onChange={(e) => this.setState({frame_range: e.target.value})}/>
+                          <input type="text" className="form-control figureFrame" placeholder="DSC05697-DSC05700" value={this.state.frame_range} onChange={(e) => this.setState({frame_range: e.target.value})}/>
                             <span className="input-group-btn">
-                              <button className="btn btn-success" type="button">Save</button>
+                              <button className="btn btn-success" type="button" onClick={this.updateFrameRange}>Save</button>
                             </span>
                         </div>
                   </div>
@@ -202,10 +200,10 @@ class ProjectShootFullCard extends Component {
                     <h4 className="figureFrame">Selection Number</h4>
                       <p className="help-block">Note the frame number for the photo that is selected for this figure, exactly as it appears with the thumbnail image.</p>
                         <div className="input-group">
-                          <input type="text" className="form-control figureSelectedBox" placeholder="DSC05700" onChange={(e) => this.setState({frame_selected: e.target.value})}/>
+                          <input type="text" className="form-control figureSelectedBox" placeholder="DSC05700" value={this.state.frame_selected} onChange={(e) => this.setState({frame_selected: e.target.value})}/>
                           {/* api/projects/id/assets/id/photos/id/selection */}
                             <span className="input-group-btn">
-                              <button className="btn btn-success" type="button">Save</button>
+                              <button className="btn btn-success" type="button" onClick={this.updateFrameSelected}>Save</button>
                             </span>
                         </div>
                   </div>

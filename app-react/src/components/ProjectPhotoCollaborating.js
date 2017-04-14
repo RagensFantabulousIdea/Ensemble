@@ -101,8 +101,8 @@ class ProjectPhotoCollaborating extends Component {
 
     return (
         <div className="projectPhotoCollaborating">
-            <NavBar />
-            <NavAdditionalPager />
+            <NavBar {...this.props} />
+            <NavAdditionalPager  {...this.props} />
 
             <h1>Photo Collaborating</h1>
         
@@ -110,7 +110,7 @@ class ProjectPhotoCollaborating extends Component {
                 <div className="row">
                     <div className="col-sm-7">
                         <h3>Photo Details and Messages</h3>
-                            <ProjectShootFullCard {...this.state} />
+                            <ProjectShootFullCard {...this.props} {...this.state} />
 
                             <div className="panel panel-default">
                                 <div className="panel-body messageArea">
