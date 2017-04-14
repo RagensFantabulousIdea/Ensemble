@@ -6,6 +6,6 @@ class ProjectSerializer < ActiveModel::Serializer
   has_many :assets
 
   attributes :id, :token, :title, :description, :author, :project_num, :complete,
-  :delayed, :inactive
+  :delayed, :inactive, :memberships
 
 end

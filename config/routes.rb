@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     # resources :equipment
     # resources :shoots
     resources :projects, except: [:new, :edit] do
+      resources :memberships, only: [:destroy]
       resources :assets, except: [:new, :edit] do
         resources :photos, except: [:new, :edit]
       end
