@@ -12,7 +12,7 @@ class ProjectShootList extends Component {
 
  constructor(props){
    super(props) // super is required here
-        // this.getFigures = this.getFigures.bind(this)
+        this.getAssets = this.getAssets.bind(this)
         
         this.state = { // state of the page
           title: '',
@@ -32,25 +32,27 @@ class ProjectShootList extends Component {
 
     //LifeCycles Methods
     componentWillMount() {
-      fetch('/api/projects/' + this.props.params.projectId + '/assets?token=' + sessionStorage.getItem('token'))
+      this.getAssets()
+      fetch('/api/projects/' + this.props.params.projectId + '?token=' + sessionStorage.getItem('token'))
             .then (response => response.json())
-            .then(assets => this.setState({
-                assets: assets,
-                author: assets.author,
-                title: assets.title,
-                projectNumber: assets.project_num,
-                description: assets.description,
-                frame_num: assets.selectionFrame,
-                figure_num: assets.figureNumber,
-                order_num: assets.orderNumber,
-                asset_description: assets.figureDescription,
-                date_of_shoot: assets.shootDate,
-                time_of_shoot: assets.shootTime
+            .then(response => this.setState({
+                author: response.author,
+                title: response.title,
+                projectNumber: response.project_num,
+                description: response.description
             }))
     }
 
+        getAssets(){
+        fetch('/api/projects/' + this.props.params.projectId + '/assets?token=' + sessionStorage.getItem('token'))
+            .then(response => response.json())
+            .then(response => {
+                this.setState({assets: response})
+            })
+    }
+
   render() {
-    let assets = this.state.assets.map((asset, key) => <ProjectShootMiniCard key={Date.now() + key} index={key} {...asset}/>)
+    let assets = this.state.assets.map((asset, key) => <ProjectShootMiniCard key={Date.now() + key} index={key} {...asset} getAssets={this.getAssets} projectId={this.props.params.projectId}/>)
       if (assets.length === 0) {
         assets = <h4 className="text-center cardAddInstruction">Please click the "Add Photo Shoot Planning Card to get started.</h4>
       }
@@ -63,12 +65,12 @@ class ProjectShootList extends Component {
           <div className="container">
             <div className="row">
               <div className="col-sm-12">
-                <h2 className="projectInfoShootListPage"><span className="projectNumber">{this.props.project_num} </span><span className="projectName">{this.props.author}</span><br/><span className="projectTitle">{this.props.title}</span></h2>
+                <h2 className="projectInfoShootListPage"><span className="projectNumber">{this.state.projectNumber} </span><span className="projectName">{this.state.author}</span><br/><span className="projectTitle">{this.state.title}</span></h2>
               </div>
             </div>
             <div className="row descriptionAddButtonRow">
               <div className="col-sm-6">
-                <p className="projectDescription">{this.props.figureDescription}</p>
+                <p className="projectDescription">{this.state.description}</p>
               </div>
               
               <div className="col-sm-6">

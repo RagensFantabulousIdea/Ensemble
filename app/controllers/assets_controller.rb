@@ -13,9 +13,9 @@ class AssetsController < ApplicationController
   def show
     if editor
       if @asset
-        render json: @project
+        render json: @asset
       else
-        render json: @project.errors.full_messages
+        render json: @asset.errors.full_messages
       end
     else
       forbidden
@@ -79,7 +79,7 @@ class AssetsController < ApplicationController
   end
 
   def find_asset
-    @asset = Asset.find(params[:id])
+    @asset = @project.assets.find(params[:id])
   end
 
 end

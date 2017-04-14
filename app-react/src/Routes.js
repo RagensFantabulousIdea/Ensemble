@@ -46,7 +46,8 @@ class Routes extends React.Component {
             <Route path="/edit/:projectId" component={Edit} />
             <Route path="/shoot/:projectId" component={ProjectShootList} />
             <Route path="/shoot/:projectId/createcard" component={ProjectCreateCard} />
-            <Route path="/shoot/:projectId/assets/:id/collaborate" component={ProjectPhotoCollaborating} />
+            <Route path="/shoot/:projectId/assets/:assetId/editcard" component={ProjectCreateCard} />
+            <Route path="/shoot/:projectId/assets/:assetId/collaborate" component={ProjectPhotoCollaborating} />
 
         </Router>
     }

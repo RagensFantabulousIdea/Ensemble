@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import CommentsTopLevel from './CommentsTopLevel';
-import CommentsNested from './CommentsNested';
-import CommentsDeeplyNested from './CommentsDeeplyNested';
 
 class CommentsBox extends Component {
   render() {
@@ -20,9 +18,6 @@ class CommentsBox extends Component {
             <br/>
           </div>
         </div>
-        <CommentsTopLevel />
-        <CommentsNested />
-        <CommentsDeeplyNested />
         <CommentsTopLevel />
       </div>
       
