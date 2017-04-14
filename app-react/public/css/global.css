@@ -545,3 +545,17 @@ h3 {
     /*overflow will allow scrolling within the modal*/
 /*}*/
 /*end modal stuff from w8 d2 notes*/
+
+
+/*signup*/
+
+.modal-opac {
+    background-color: rgba(0,0,0,0.3);   
+    position: fixed;
+    bottom: 50px;
+}
+
+ .signup-close {
+     cursor: pointer;
+     cursor: hand;
+ }
