@@ -31,7 +31,6 @@ class ProjectShootList extends Component {
       }
 
     //LifeCycles Methods
-    // '/api/projects/' + this.props.params.projectId + '/assets?token=' + sessionStorage.getItem('token')
     componentWillMount() {
       this.getAssets()
       fetch('/api/projects/' + this.props.params.projectId + '?token=' + sessionStorage.getItem('token'))

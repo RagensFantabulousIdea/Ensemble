@@ -22,7 +22,7 @@ class ProjectShootFullCard extends Component {
     }
 
     updateFrameRange() {
-      fetch('/api/shoot/' + this.props.params.projectId + '/assets/' + this.props.params.assetId, {
+      fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
@@ -35,7 +35,7 @@ class ProjectShootFullCard extends Component {
     }
 
     updateFrameSelected() {
-      fetch('/api/shoot/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/photos/' + this.state.frame_selected + '/selected', {
+      fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/photos/' + this.state.frame_selected + '/selected', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -148,13 +148,13 @@ class ProjectShootFullCard extends Component {
 
               <div className="row">
                 <div className="col-xs-6">
-                  {this.props.decorative === this.props.decorative ?  <p className="photoDecorative">Decorative</p> : ''}
-                  {this.props.demonstrative === this.props.demonstrative ?  <p className="photoDemonstrative">Demonstrative</p> : ''}
+                  {this.props.decorative ?  <p className="photoDecorative">Decorative</p> : ''}
+                  {this.props.demonstrative ?  <p className="photoDemonstrative">Demonstrative</p> : ''}
                 </div>
 
                 <div className="col-xs-6">
-                {this.props.portrait === this.props.portrait ?  <p className="orientationPortrait">Portrait</p> : ''}
-                {this.props.landscape === this.props.landscape ?  <p className="orientationLandscape">Landscape</p> : ''}
+                {this.props.portrait ?  <p className="orientationPortrait">Portrait</p> : ''}
+                {this.props.landscape ?  <p className="orientationLandscape">Landscape</p> : ''}
                 </div>
 
               </div>
