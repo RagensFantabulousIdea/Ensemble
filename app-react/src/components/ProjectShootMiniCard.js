@@ -42,18 +42,17 @@ class ProjectShootMiniCard extends Component {
                         </div>
                     </div>
 
-                        <div className="panel-footer miniCardFooter">
-                            <div className="row">
-                                <div className="col-xs-6">
-                                    <p>{this.props.date_of_shoot}</p>
-                                </div>
+                    <div className="panel-footer miniCardFooter">
+                        <div className="row">
+                            <div className="col-xs-6">
+                                <p>{this.props.date_of_shoot}</p>
+                            </div>
 
-                                <div className="col-xs-6">
-                                    <p className="pull-right">{this.props.time_of_shoot}</p>
-                                </div>
+                            <div className="col-xs-6">
+                                <p className="pull-right">{this.props.time_of_shoot}</p>
                             </div>
                         </div>
-
+                    </div>
                 </div>
             </div>
             </Link>

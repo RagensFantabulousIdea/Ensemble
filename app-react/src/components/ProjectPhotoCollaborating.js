@@ -6,72 +6,19 @@ import ProjectShootFullCard from './ProjectShootFullCard';
 import ProjectPhotoCollaboratingPhotoCard from './ProjectPhotoCollaboratingPhotoCard';
 import CommentsBox from './CommentsBox';
 
-// import { browserHistory } from 'react-router';
-
-// original list from projectcreatecard
-
-    // figure_num: this.state.figureNumber,
-  // parts: this.state.figureParts,
-  // frame_num: this.state.selectionFrame,
-  // order_num: this.state.orderNumber,
-  // asset_description: this.state.figureDescription,
-  // instructions: this.state.figureInstructions,
-  // equipment: this.state.figureEquipment,
-  // model: this.state.figureModel,
-  // photographer: this.state.photographer,
-  // location_of_shoot: this.state.shootLocation,
-  // date_of_shoot: this.state.shootDate,
-  // time_of_shoot: this.state.shootTime,
-  // decorative: this.state.photoDecorative,
-  // demonstrative: this.state.photoDemonstrative,
-  // portrait: this.state.orientationPortrait,
-  // landscape: this.state.orientationLandscape,
-  // asset: this.state.asset, //not sure this is right. in todos, it was todo: this.state.description
-  // token: token
-  
-  // new ones on project shoot full card
-  // frame_range: frame_range,
-  // frame_num: this.state.selectionFrame
-
-  //new one on this page?
-//   something to do with frame of uploaded photo?
-
-  //plus photos . . .
-  //plus ability to mark photos yes, no, trash
-  //plus messages . . .
-
 class ProjectPhotoCollaborating extends Component {
 
      constructor(props){
-        super(props) // super is required here
+        super(props)
             this.getAsset = this.getAsset.bind(this)
             // this.getPhotos = this.getPhotos.bind(this)
    
         this.state = { // state of the page
-            // figureNumber: '',
-            // figureParts: '',
-            // selectionFrame: '',
-            // orderNumber: '',
-            // figureDescription: '',
-            // figureInstructions: '',
-            // figureEquipment: '',
-            // figureModel: '',
-            // photographer: '',
-            // shootLocation: '',
-            // shootDate: '',
-            // shootTime: '',
-            // photoDecorative: '',
-            // photoDemonstrative: '',
-            // orientationPortrait: '',
-            // orientationLandscape: '',
-            // frame_range: '',
-            // token: '',
-            // assets: [] //start with empty state
+            //something for photos??
         }
       }
 
     //LifeCycles Methods
-    // '/api/projects/' + this.props.params.projectId + '/assets?token=' + sessionStorage.getItem('token')
     componentWillMount() {
         this.getAsset()
         //   this.getPhotos()
@@ -83,9 +30,7 @@ class ProjectPhotoCollaborating extends Component {
         .then(response => this.setState({...response}))
     }
 
-
-// getAssets method is in ProjectShootList file?
-//post? patch? might nto be fetch?
+//post for photos??
     //     getPhotos(){
     //     fetch('/api/projects/' + this.props.params.projectId + this.props.params.assetId + '/photos?token=' + sessionStorage.getItem('token'))
     //         .then(response => response.json())
@@ -93,6 +38,7 @@ class ProjectPhotoCollaborating extends Component {
     //             this.setState({photos: response})
     //         })
     // }
+  
   render() {
     //   console.log(this.state.assets)
     //   let assets = this.state.assets.map((asset, key) => <ProjectShootFullCard key={Date.now() + key} index={key} {...asset} getAssets={this.getAssets} projectId={this.props.params.projectId}/>)
