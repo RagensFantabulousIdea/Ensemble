@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   # root 'application#static'
+  
   scope :api do
     # resources :equipment
     # resources :shoots
