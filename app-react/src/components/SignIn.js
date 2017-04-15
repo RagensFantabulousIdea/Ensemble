@@ -53,10 +53,11 @@ class Signin extends Component {
     }
 
     render() {
-        return <div>
-            <div className="container">
+        return <div style= {{display: this.props.modalSi}}>
+            <div className="container modal-opac">
                 <div className="panel panel-default">
                     <div className="panel-body">
+                        <i className="fa fa-times-circle-o fa-2x signup-close" aria-hidden="true" onClick={() => this.setState({modalSi: 'none'})} ></i>
                         <div className="form-group">
                             <label htmlFor="email">email</label>
                             <input type="text" id="email" className="form-control" placeholder="johnsmith@gmail.com" value={this.state.email} onChange={(e) => this.setState({ email: e.target.value })} required />
