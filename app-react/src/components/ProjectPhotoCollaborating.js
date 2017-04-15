@@ -5,6 +5,7 @@ import FooterArea from './FooterArea';
 import ProjectShootFullCard from './ProjectShootFullCard';
 import ProjectPhotoCollaboratingPhotoCard from './ProjectPhotoCollaboratingPhotoCard';
 import CommentsBox from './CommentsBox';
+import PhotoUploader from './PhotoUploader';
 
 class ProjectPhotoCollaborating extends Component {
 
@@ -67,21 +68,13 @@ class ProjectPhotoCollaborating extends Component {
 
                     <div className="col-sm-5">
                         <h3>Photo Shoot Uploads</h3>
+                        <div className="row">
+                            <PhotoUploader {...this.props} />
+                        </div>
 
-                            <div className="row">
-                                <div className="col-xs-12">
-                                    <div className="form-group">
-                                        <label className="figureOptions" htmlFor="figureSample">Upload Images for This Figure</label>
-                                        <label className="photoFrameInstructions" htmlFor="photoFrame">Enter the Frame Number for Each Photo Uploaded</label>
-                                        <input type="text" className="form-control photoFrame" onChange={(e) => this.setState({NEEDNAMEHERE: e.target.value})}/> <br/>
-                                        <input type="file" className="figureResults"/>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="row">
-                              {/* {photos} */}
-                            </div>
+                        <div className="row">
+                            {/* {photos} */}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -92,3 +85,10 @@ class ProjectPhotoCollaborating extends Component {
 }
 
 export default ProjectPhotoCollaborating;
+
+// <div className="form-group">
+//     <label className="figureOptions" htmlFor="figureSample">Upload Images for This Figure</label>
+//     <label className="photoFrameInstructions" htmlFor="photoFrame">Enter the Frame Number for Each Photo Uploaded</label>
+//     <input type="text" className="form-control photoFrame" onChange={(e) => this.setState({NEEDNAMEHERE: e.target.value})}/> <br/>
+//     <input type="file" className="figureResults"/>
+// </div>
