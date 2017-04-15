@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { browserHistory } from 'react-router';
+// import { browserHistory } from 'react-router';
 // import SignUp from './SignUp'
 // import Signin from './Signin'
 import FooterArea from './FooterArea'

@@ -12,17 +12,19 @@ class ProjectPhotoCollaborating extends Component {
      constructor(props){
         super(props)
             this.getAsset = this.getAsset.bind(this)
-            // this.getPhotos = this.getPhotos.bind(this)
+            this.getImages = this.getImages.bind(this)
    
         this.state = { // state of the page
-            //something for photos??
+            frame_num: '',
+            token: '',
+            images: []
         }
       }
 
     //LifeCycles Methods
     componentWillMount() {
         this.getAsset()
-        //   this.getPhotos()
+        this.getImages()
     }
 
     getAsset() {
@@ -31,20 +33,17 @@ class ProjectPhotoCollaborating extends Component {
         .then(response => this.setState({...response}))
     }
 
-//post for photos??
-    //     getPhotos(){
-    //     fetch('/api/projects/' + this.props.params.projectId + this.props.params.assetId + '/photos?token=' + sessionStorage.getItem('token'))
-    //         .then(response => response.json())
-    //         .then(response => {
-    //             this.setState({photos: response})
-    //         })
-    // }
+    getImages() {
+        fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/photos?token=' + sessionStorage.getItem('token'))
+        .then(response => response.json())
+        .then(response => {
+            this.setState({response})
+        })
+    }
   
   render() {
     //   console.log(this.state.assets)
-    //   let assets = this.state.assets.map((asset, key) => <ProjectShootFullCard key={Date.now() + key} index={key} {...asset} getAssets={this.getAssets} projectId={this.props.params.projectId}/>)
-
-    //   let photos = this.state.photos.map((photo, key) => <ProjectPhotoCollaboratingPhotoCard key={Date.now() + key} index={key} {...photos} getPhotos={this.getPhotos} projectId={this.props.params.projectId}/>)
+      let images = this.state.images.map((image, key) => <ProjectPhotoCollaboratingPhotoCard key={Date.now() + key} index={key} {...image} getImages={this.getImages} projectId={this.props.params.projectId}/>)
 
     return (
         <div className="projectPhotoCollaborating">
@@ -73,11 +72,12 @@ class ProjectPhotoCollaborating extends Component {
                         </div>
 
                         <div className="row">
-                            {/* {photos} */}
+                            {images}
                         </div>
                     </div>
                 </div>
             </div>
+            
             <FooterArea />
         </div>
     );

@@ -156,19 +156,11 @@ class ProjectShootFullCard extends Component {
           <div className="row">
             <div className="col-xs-12">
               <p><strong>Samples</strong></p>
-                <div className="col-xs-3">
+                <div className="col-xs-6">
                   <img className="shootSampleImage" src="/img/baseballsamplejpg.jpg" alt="sample" />
                 </div>
 
-                <div className="col-xs-3">
-                  <img className="shootSampleImage"src="/img/baseballsamplejpg.jpg" alt="sample" />
-                </div>
-
-                <div className="col-xs-3">
-                  <img className="shootSampleImage"src="/img/baseballsamplejpg.jpg" alt="sample" />
-                </div>
-
-                <div className="col-xs-3">
+                <div className="col-xs-6">
                   <img className="shootSampleImage"src="/img/baseballsamplejpg.jpg" alt="sample" />
                 </div>
               </div>
