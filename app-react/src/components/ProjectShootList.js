@@ -5,15 +5,12 @@ import FooterArea from './FooterArea';
 
 import { browserHistory } from 'react-router';
 
-// where it says "assets" it used to say "projects"; where it says "asset" it used to say "project"
-//where it says "getFigures" it used to say "getProjects"
 
 class ProjectShootList extends Component {
 
  constructor(props){
    super(props) // super is required here
         this.getAssets = this.getAssets.bind(this)
-        
         this.state = { // state of the page
           title: '',
           author: '',
@@ -43,12 +40,12 @@ class ProjectShootList extends Component {
             }))
     }
 
-        getAssets(){
-        fetch('/api/projects/' + this.props.params.projectId + '/assets?token=' + sessionStorage.getItem('token'))
-            .then(response => response.json())
-            .then(response => {
-                this.setState({assets: response})
-            })
+    getAssets(){
+    fetch('/api/projects/' + this.props.params.projectId + '/assets?token=' + sessionStorage.getItem('token'))
+        .then(response => response.json())
+        .then(response => {
+            this.setState({assets: response})
+        })
     }
 
   render() {
