@@ -3,6 +3,7 @@ class PhotosController < ApplicationController
   before_action :find_project
   before_action :find_asset
   before_action :find_photo, except: [:index, :create, :selected]
+  # before_action :find_selected_photo, only: [:index]
   before_action :editor
 
   def index
@@ -95,6 +96,11 @@ class PhotosController < ApplicationController
   def find_photo
     @photo = Photo.find(params[:id])
   end
+
+  #TODO Does this need to go into the Assets Controller?
+  # def find_selected_photo
+  #   @selected_photo = @asset.selected_photo if @asset.selected_photo
+  # end
 
   def find_project
     @project = Project.find(params[:project_id])
