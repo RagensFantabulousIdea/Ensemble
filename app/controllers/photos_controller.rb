@@ -8,6 +8,7 @@ class PhotosController < ApplicationController
   def index
     if editor
       @photos = @asset.photos
+      render json: @photos
     else
       forbidden
     end
