@@ -12,7 +12,10 @@ class SignUp extends Component {
             firstname: '',
             lastname: '',
             email: '',
-            password: ''
+            password: '',
+            token: '',
+            modal: "none",
+            xmark: "none"
          
         }
     }
@@ -22,6 +25,7 @@ class SignUp extends Component {
         var lastname = this.state.lastname
         var email = this.state.email
         var password = this.state.password
+        var token = this .state.token
 
         console.log(firstname,lastname, email, password)
 
@@ -43,7 +47,8 @@ class SignUp extends Component {
             first_name: firstname,
             last_name: lastname,
             email: email,
-            password: password
+            password: password,
+            token: this.props.params.token
         })
     })
         .then(function(response) {
@@ -67,12 +72,16 @@ class SignUp extends Component {
 }
 
 render() {
-return <div>
-    <div className="container">
+return <div style= {{display: this.props.modalSu}}>
+    <div className="container modal-opac">
         <div className="panel panel-default">
             <div className="panel-heading">
                 <h5 className="panel-title text-center">Sign Up</h5>
+                <i className="fa fa-times-circle-o fa-2x signup-close" aria-hidden="true" onClick={() => this.setState({xmark: 'none'})} ></i>
+             
+                    
                 </div>
+                 
             <div className="panel-body">
                 <div className="form-group">
                     <label htmlFor="firstname">First Name</label>
@@ -102,3 +111,5 @@ return <div>
 }
 
 export default SignUp;
+
+    // <i className="fa fa-times-circle-o fa-2x" aria-hidden="true" onClick={() => this.setState({modal: 'none'})} ></i>

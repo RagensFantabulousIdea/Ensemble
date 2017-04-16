@@ -4,7 +4,6 @@ class ProjectsController < ApplicationController
   before_action :find_project, except: [:index, :create]
 
   def index
-
     if params[:complete]
       @projects = projects_complete
     elsif params[:inactive]
@@ -31,6 +30,7 @@ class ProjectsController < ApplicationController
   end
 
   def update
+    #Standard project update logic
     if @project.owner == current_user
       if @project.update!(project_params)
         render json: @project
@@ -40,6 +40,10 @@ class ProjectsController < ApplicationController
     else
       render json: ["You must be the project owner in order to update a project."], status: 401
     end
+  end
+
+  def leave_project
+
   end
 
   def show
@@ -63,8 +67,16 @@ class ProjectsController < ApplicationController
 
   private
 
+  def editor
+    @project.owner == @current_user || @project.members.include?(@current_user)
+  end
+
   def find_project
       @project = Project.find(params[:id])
+  end
+
+  def forbidden
+    render json: ["You are not authorized to edit this project."], status: 401
   end
 
   def projects_complete

@@ -27,7 +27,7 @@ class createproject extends Component {
         ) {
             var token = sessionStorage.getItem('token');
             fetch('/api/projects', {
-                method: 'Post',
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -36,7 +36,7 @@ class createproject extends Component {
                     author: this.state.author,
                     project_num: this.state.projectNumber,
                     description: this.state.description,
-                    token: token,
+                    token: token
                 })
             })
                 .then(response => response.json())
@@ -46,7 +46,7 @@ class createproject extends Component {
                         title: '',
                         author: '',
                         projectNumber: '',
-                        description: '',
+                        description: ''
                     })
                     
              
@@ -90,8 +90,6 @@ class createproject extends Component {
                     </div>
                 </div>
             </div>
-
-
 
         );
     }

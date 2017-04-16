@@ -10,7 +10,6 @@ class Project extends React.Component{
             complete: props.complete
         }
     }
-
     toggleCompleted() {
         if (this.state.complete === false) {
             var token = sessionStorage.getItem('token');
@@ -55,12 +54,12 @@ class Project extends React.Component{
                 <div className="panel panel-info">
                     <div className="panel-heading">
                           <div className="form-check">
-                                {this.props.owner.id == sessionStorage.getItem('userId') ?
+                                {this.props.owner.id === sessionStorage.getItem('userId') ?
                                 <label className="form-check-label">
                                     <input type="checkbox" className="form-check-input" checked={this.state.complete} onChange={this.toggleCompleted}/>
                                         &nbsp; Check if project is done
                                 </label> : ''}
-                                {this.props.owner.id == sessionStorage.getItem('userId') ? <span className="pull-right label label-warning">You Are The Owner</span> : <span className="pull-right label label-danger">Collaboration</span>}
+                                {this.props.owner.id === sessionStorage.getItem('userId') ? <span className="pull-right label label-warning">You Are The Owner</span> : <span className="pull-right label label-danger">Collaboration</span>}
                             </div>
                             <h3 className="title">{this.props.title}</h3>
                         </div>
@@ -72,6 +71,20 @@ class Project extends React.Component{
                         <p>{this.props.description}</p>
                     </div>
                 <div className="panel-footer">
+               
+                <div className="btn-group">
+                    <button type="button" className="btn btn-default dropdown-toggle"           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Action <span className="caret"></span>
+                        </button>
+        
+                    <ul className="dropdown-menu" aria-labelledby="dropdownMenu4">
+                        <li><a href="#">Regular link</a></li>
+                        <li className="disabled"><a href="#">Disabled link</a></li>
+                        <li><a href="#">Another link</a></li>
+                        </ul>
+                </div>
+
+
                     <button type="button" className="btn btn-primary col-sm-offset-1" onClick={() => browserHistory.push('/edit/' + this.props.id)}>Edit </button>
                     <button type="button" className="btn btn-danger col-sm-offset-1" onClick={() => this.props.deleteProject(this.props.id)}>Delete </button>
                     <button type="button" className="btn btn-success col-sm-offset-1" onClick={() => browserHistory.push('/invite/' + this.props.id)}>Invite</button>

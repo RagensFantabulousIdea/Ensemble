@@ -10,6 +10,18 @@ class AssetsController < ApplicationController
     render json: @assets
   end
 
+  def show
+    if editor
+      if @asset
+        render json: @asset
+      else
+        render json: @asset.errors.full_messages
+      end
+    else
+      forbidden
+    end
+  end
+
   def create
     if editor
       @asset = @project.assets.new(asset_params)
@@ -51,7 +63,7 @@ class AssetsController < ApplicationController
   private
 
   def asset_params
-    params.permit(:figure_num, :description, :order_num, :landscape, :portrait, :demonstrative, :decorative, :frame_num, :instructions, :photographer, :frame_range, :parts, :equipment, :model, :location_of_shoot, :date_of_shoot, :time_of_shoot, :image)
+    params.permit(:figure_num, :asset_description, :order_num, :landscape, :portrait, :demonstrative, :decorative, :frame_num, :instructions, :photographer, :frame_range, :parts, :equipment, :model, :location_of_shoot, :date_of_shoot, :time_of_shoot, :image)
   end
 
   def forbidden
@@ -67,7 +79,7 @@ class AssetsController < ApplicationController
   end
 
   def find_asset
-    @asset = Asset.find(params[:id])
+    @asset = @project.assets.find(params[:id])
   end
 
 end
