@@ -25,7 +25,7 @@ class SignUp extends Component {
         var lastname = this.state.lastname
         var email = this.state.email
         var password = this.state.password
-        var project_token = this.state.project_token
+        // var project_token = this.state.project_token
 
         // console.log(firstname,lastname, email, password)
 
