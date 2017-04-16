@@ -1,20 +1,21 @@
 class InvitationsMailer < ApplicationMailer
 
-  def current_user(email,token)
+  def current_user(email,project_token)
     @email = email
     @user = User.find_by(email: @email)
-    @token = token
-    @project = Project.find_by(token: @token)
+    @project_token = project_token
+    @project = Project.find_by(token: @project_token)
     mail(to: @email, subject: "You've been invited to a project!")
   end
 
-  def new_user(first_name, last_name, email, token, project)
+  def new_user(first_name, last_name, email, project_token)
     @first_name = first_name
     @last_name = last_name
     @email = email
-    @token = token
-    @project = project
-    mail(to: @email, subject: "You've been invited to a LensFlare project, #{@first_name}!")
+    @project_token = project_token
+    binding.pry
+    @project = Project.find_by(project_token: @project_token)
+    mail(to: @email, subject: "You've been invited to Project #{@project.project_num} on LensFlare, #{@first_name}!")
   end
 
 end

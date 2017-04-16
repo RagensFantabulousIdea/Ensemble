@@ -5,7 +5,7 @@
 </p>
 <p>
   <!-- #TODO change URL listed below in production environment -->
-  You have been invited to participate in Project <%= @project.project_num %> at LensFlare! After <%= link_to "sign-up", "https://localhost:3001/SignUp" %> you'll be able to view and contribute to this project!
+  You have been invited to participate in Project <%= @project.project_num %> at LensFlare! After <%= link_to "sign-up", "https://lensflare.herokuapp.com/SignUp/#{@project_token}" %> you'll be able to view and contribute to this project!
 </p>
 
 <p>We wish you the utmost in productivity!</p>
