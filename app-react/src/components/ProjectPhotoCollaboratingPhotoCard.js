@@ -14,13 +14,13 @@ class ProjectPhotoCollaboratingPhotoCard extends Component {
                 <div className="panel">
                 
                     <div className="panel-body imagePanel">
-                        {<img src={this.props.image.url} alt="uploaded" />}
+                        {<img src={this.props.photos.image.url} alt="uploaded" />}
                     </div>
 
                     <div className="panel-footer">
                         <div className="row">
                             <div className="col-xs-12 text-centered">
-                                <p>{this.props.figure_num}</p>
+                                <p>{this.props.frame_num}</p>
                             </div>
                         </div>
                     </div>

@@ -12,10 +12,12 @@ class ProjectShootList extends Component {
    super(props) // super is required here
         this.getAssets = this.getAssets.bind(this)
         this.state = { // state of the page
+          //these first four from project
           title: '',
           author: '',
           projectNumber: '',
           description: '',
+          //the rest from creating an asset
           selectionFrame: '',
           figureNumber: '',
           orderNumber: '',
@@ -28,27 +30,28 @@ class ProjectShootList extends Component {
       }
 
     //LifeCycles Methods
-    componentWillMount() {
+    componentWillMount(){
       this.getAssets()
       fetch('/api/projects/' + this.props.params.projectId + '?token=' + sessionStorage.getItem('token'))
-            .then (response => response.json())
-            .then(response => this.setState({
-                author: response.author,
-                title: response.title,
-                projectNumber: response.project_num,
-                description: response.description
-            }))
+        .then (response => response.json())
+        .then(response => this.setState({
+            author: response.author,
+            title: response.title,
+            projectNumber: response.project_num,
+            description: response.description,
+            token: sessionStorage.getItem('token')
+        }))
     }
 
     getAssets(){
     fetch('/api/projects/' + this.props.params.projectId + '/assets?token=' + sessionStorage.getItem('token'))
-        .then(response => response.json())
-        .then(response => {
-            this.setState({assets: response})
-        })
+      .then(response => response.json())
+      .then(response => {
+          this.setState({assets: response})
+      })
     }
 
-  render() {
+  render(){
     let assets = this.state.assets.map((asset, key) => <ProjectShootMiniCard key={Date.now() + key} index={key} {...asset} getAssets={this.getAssets} projectId={this.props.params.projectId}/>)
       if (assets.length === 0) {
         assets = <h4 className="text-center cardAddInstruction">Please click the "Add Photo Shoot Planning Card to get started.</h4>

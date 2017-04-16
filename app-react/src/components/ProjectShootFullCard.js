@@ -35,7 +35,7 @@ class ProjectShootFullCard extends Component {
     }
 
     updateFrameSelected() {
-      fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/photos/' + this.state.frame_selected + '/selected', {
+      fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/photos/' + this.state.frame_num + '/selected', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -46,33 +46,32 @@ class ProjectShootFullCard extends Component {
       })
     }
 
-    addFrameNumbers(frame_range, selectionFrame) {
-      //Post to /api/projects
-      var token = sessionStorage.getItem('token');
-      fetch('/api/projects', {
-        method: 'Post',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          frame_range: frame_range,
-          frame_num: this.state.selectionFrame,
-          token: token
-        })
-      })
+    // addFrameNumbers(frame_range, selectionFrame) {
+    //   //Post to /api/projects
+    //   var token = sessionStorage.getItem('token');
+    //   fetch('/api/projects', {
+    //     method: 'Post',
+    //     headers: {
+    //       'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify({
+    //       frame_range: frame_range,
+    //       frame_num: this.state.selectionFrame,
+    //       token: token
+    //     })
+    //   })
 
-      .then(response => response.json())
-      .then(response => {
-      //  clear the form fields
-        this.setState({
-          frame_range: '',
-          selectionFrame: ''
-        })
-      })
-    }
+    //   .then(response => response.json())
+    //   .then(response => {
+    //   //  clear the form fields
+    //     this.setState({
+    //       frame_range: '',
+    //       selectionFrame: ''
+    //     })
+    //   })
+    // }
 
   render() {
-//need to add quotes to user input for selected frame number??
     return (
       <div className="panel">
         <div className="panel-heading">
@@ -89,7 +88,7 @@ class ProjectShootFullCard extends Component {
           
           <div className="row">
             <div className="col-xs-8">
-              <p>Figure has {this.props.parts} photo(s) associated with it.</p>
+              <p>Asset has {this.props.parts} photo(s) associated with it.</p>
             </div>
 
             <div className="col-xs-4">
@@ -184,7 +183,7 @@ class ProjectShootFullCard extends Component {
             <div className="row">
               <div className="col-xs-12">
                 <h4 className="figureFrame">Selection Number</h4>
-                  <p className="help-block">Note the frame number for the photo that is selected for this figure, exactly as it appears with the thumbnail image.</p>
+                  <p className="help-block">Note the frame number for the photo that is selected for this asset, exactly as it appears with the thumbnail image (do not include file extension).</p>
                 <div className="input-group">
                   <input type="text" className="form-control figureSelectedBox" placeholder="DSC05700" value={this.state.frame_selected} onChange={(e) => this.setState({frame_selected: e.target.value})}/>
                     <span className="input-group-btn">

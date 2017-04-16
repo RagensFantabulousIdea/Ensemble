@@ -3,15 +3,15 @@ import NavBar from './NavBar';
 import NavAdditionalPager from './NavAdditionalPager';
 import FooterArea from './FooterArea';
 import ProjectShootFullCard from './ProjectShootFullCard';
+import PhotoUploader from './PhotoUploader';
 import ProjectPhotoCollaboratingPhotoCard from './ProjectPhotoCollaboratingPhotoCard';
 import CommentsBox from './CommentsBox';
-import PhotoUploader from './PhotoUploader';
 
 class ProjectPhotoCollaborating extends Component {
 
      constructor(props){
         super(props)
-            this.getAsset = this.getAsset.bind(this)
+            this.getAssetFullCard = this.getAssetFullCard.bind(this)
             this.getImages = this.getImages.bind(this)
    
         this.state = { // state of the page
@@ -22,27 +22,31 @@ class ProjectPhotoCollaborating extends Component {
       }
 
     //LifeCycles Methods
-    componentWillMount() {
-        this.getAsset()
+    componentWillMount(){
+        this.getAssetFullCard()
+    }
+
+    componentDidMount(){
         this.getImages()
     }
 
-    getAsset() {
-        fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '?token=' + sessionStorage.getItem('token'))
+    getAssetFullCard(){
+        fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '?token=' + this.props.params.token)
         .then(response => response.json())
         .then(response => this.setState({...response}))
     }
 
-    getImages() {
-        fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/photos?token=' + sessionStorage.getItem('token'))
+    getImages(){
+        fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/photos?token=' + this.props.params.token)
+        // console.log(token)
         .then(response => response.json())
         .then(response => {
             this.setState({response})
         })
     }
   
-  render() {
-    //   console.log(this.state.assets)
+  render(){
+      console.log(this.state.images)
       let images = this.state.images.map((image, key) => <ProjectPhotoCollaboratingPhotoCard key={Date.now() + key} index={key} {...image} getImages={this.getImages} projectId={this.props.params.projectId}/>)
 
     return (

@@ -27,17 +27,17 @@ class PhotoUploader extends React.Component {
   render() {
     return <div>
       <div className="form-group">
-        <label htmlFor="image">Photo</label>
-        <input type="file" name="image" className="form-control image photoFrameInstructions" required onChange={(e) => this.setState({image:e.target.files[0]})} />
+        <label htmlFor="image" className="photoFrameInstructions">Photo</label>
+        <input type="file" name="image" className="form-control image" required onChange={(e) => this.setState({image:e.target.files[0]})} />
       </div>
 
       <div className="form-group">
-        <label htmlFor="frame_num">Enter the Frame Number for Each Photo Uploaded</label>
-        <input type="text" name="frame_num" className="form-control photoFrameInstructions" required maxLength="255" value={this.state.frame_num} onChange={(e) => this.setState({frame_num:e.target.value})} />
+        <label htmlFor="frame_num" className="photoFrameInstructions">Enter the Frame Number for Each Photo Uploaded</label>
+        <input type="text" name="frame_num" className="form-control" required maxLength="255" value={this.state.frame_num} onChange={(e) => this.setState({frame_num:e.target.value})} />
       </div>
 
       <div className="form-group">
-        <button onClick={this.upload} type="button" id="upload" className="btn btn-success btn-block">Upload</button>
+        <button onClick={this.upload} type="button" className="btn btn-success btn-block upload">Upload</button>
       </div>
     </div>
   }
