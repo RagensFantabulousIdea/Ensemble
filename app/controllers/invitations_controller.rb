@@ -20,7 +20,6 @@ class InvitationsController < ApplicationController
 
     #User does not exist and will need to be created
     else
-      binding.pry
       InvitationsMailer.new_user(@first_name, @last_name, @email, @project_token).deliver
       render json: ["#{@email} does not exist and user will need to sign-up."]
     end
