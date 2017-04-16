@@ -13,7 +13,6 @@ class InvitationsMailer < ApplicationMailer
     @last_name = last_name
     @email = email
     @project_token = project_token
-    binding.pry
     @project = Project.find_by(project_token: @project_token)
     mail(to: @email, subject: "You've been invited to Project #{@project.project_num} on LensFlare, #{@first_name}!")
   end

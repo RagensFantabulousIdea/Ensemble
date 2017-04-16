@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 import NavBar from './NavBar';
-import NavAdditionalPager from './NavAdditionalPager';
 import FooterArea from './FooterArea';
 
 import { browserHistory } from 'react-router';
 
-//users fill out figure information in ProjectCreateCard, it goes to ProjectShootFullCard AND ProjectShootMiniCard. Then ProjectShootMiniCards get placed in a list on ProjectShootList. Each ProjectShootFullCard has its own page, ProjectIndividualFigureList where all of the information can be seen, comments added, and photos uploaded.
+//Need to add quotes around user input for photo selected box?
 
 // where it says "addPhoto", it used to say "addProject".
+//where it says "deletePhoto", it used to say "deleteProject".
+//where it says "getDecorative", "getDemonstrative", "getOrientationPortrait", or "getOrientationLandscape" it used to say "getProjects"
 
 class ProjectCreateCard extends Component {
     constructor(props) {
         super(props)
-        this.addPhoto = this.addPhoto.bind(this)
+        this.saveAsset = this.saveAsset.bind(this)
+
         this.state = {
             figureNumber: '',
             figureParts: '',
@@ -29,90 +31,47 @@ class ProjectCreateCard extends Component {
             photoDecorative: '',
             photoDemonstrative: '',
             orientationPortrait: '',
-            orientationLandscape: '',
-            token: '',
-            getProjects: props.getProjects
+            orientationLandscape: ''
         }
     }
 
-    addPhoto(figureNumber, figureParts, selectionFrame, orderNumber, figureDescription, figureInstructions, figureEquipment, figureModel, photographer, shootLocation, shootDate, shootTime, photoDecorative, photoDemonstrative, orientationPortrait, orientationLandscape) {
-        console.log(this.props.params.projectId)
+    saveAsset() {
 
         //Post to /api/projects
-        if (
-            this.state.figureNumber !== '' &&
-            this.state.figureParts !== '' &&
-            this.state.selectionFrame !== '' &&
-            this.state.orderNumber !== '' &&
-            this.state.figureDescription !== '' &&
-            this.state.figureInstructions !== '' &&
-            this.state.figureEquipment !== '' &&
-            this.state.figureModel !== '' &&
-            this.state.photographer !== '' &&
-            this.state.shootLocation !== '' &&
-            this.state.shootDate !== '' &&
-            this.state.shootTime !== '' &&
-            this.state.photoDecorative !== '' &&
-            this.state.photoDemonstrative !== '' &&
-            this.state.orientationPortrait !== '' &&
-            this.state.orientationLandscape !== ''
-        ) {
-            var token = sessionStorage.getItem('token');
-            fetch('/api/projects', {
-                method: 'Post',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-// need to get the backend stuff from QQKalea. Example: title: this.state.title
-                    needtoget: this.state.figureNumber,
-                    needtoget: this.state.figureParts,
-                    needtoget: this.state.selectionFrame,
-                    needtoget: this.state.orderNumber,
-                    needtoget: this.state.figureDescription,
-                    needtoget: this.state.figureInstructions,
-                    needtoget: this.state.figureEquipment,
-                    needtoget: this.state.figureModel,
-                    needtoget: this.state.photographer,
-                    needtoget: this.state.shootLocation,
-                    needtoget: this.state.shootDate,
-                    needtoget: this.state.shootTime,
-                    needtoget: this.state.photoDecorative,
-                    needtoget: this.state.photoDemonstrative,
-                    needtoget: this.state.orientationPortrait,
-                    needtoget: this.state.orientationLandscape,
-                    token: token,
-                })
+        var token = sessionStorage.getItem('token');
+        fetch('/api/projects/' + this.props.params.projectId + '/assets', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                figure_num: this.state.figureNumber,
+                parts: this.state.figureParts,
+                frame_num: this.state.selectionFrame,
+                order_num: this.state.orderNumber,
+                asset_description: this.state.figureDescription,
+                instructions: this.state.figureInstructions,
+                equipment: this.state.figureEquipment,
+                model: this.state.figureModel,
+                photographer: this.state.photographer,
+                location_of_shoot: this.state.shootLocation,
+                date_of_shoot: this.state.shootDate,
+                time_of_shoot: this.state.shootTime,
+                decorative: this.state.photoDecorative,
+                demonstrative: this.state.photoDemonstrative,
+                portrait: this.state.orientationPortrait,
+                landscape: this.state.orientationLandscape,
+                token: token
             })
-                .then(response => response.json())
-                .then(response => {
-                    //  clear the form fields
-                    this.setState({
-                        figureNumber: '',
-                        figureParts: '',
-                        selectionFrame: '',
-                        orderNumber: '',
-                        figureDescription: '',
-                        figureInstructions: '',
-                        figureEquipment: '',
-                        figureModel: '',
-                        photographer: '',
-                        shootLocation: '',
-                        shootDate: '',
-                        shootTime: '',
-                        photoDecorative: '',
-                        photoDemonstrative: '',
-                        orientationPortrait: '',
-                        orientationLandscape: '',
-                    })
-
-                    browserHistory.push('/projects')
-                })
-        }
+        })
+        
+        .then(response => response.json())
+        .then(asset => {
+            browserHistory.push('/shoot/' + this.props.params.projectId)
+        })
     }
 
     render() {
-
 
     return (
         <div className="projectCreateCard">
@@ -126,26 +85,26 @@ class ProjectCreateCard extends Component {
                         <div className="row">
                             <div className="col-xs-6">
                                 <div className="form-group">
-                                    <label for="figureNumber">Figure Number</label>
-                                    <input type="text" className="form-control figureNumber" placeholder="Figure 1.1"/>
+                                    <label htmlFor="figureNumber">Figure Number</label>
+                                    <input type="text" className="form-control figureNumber" placeholder="Figure 1.1" onChange={(e) => this.setState({figureNumber: e.target.value})}/>
                                 </div>
 
                                 <div className="form-group">
-                                    <label for="figureParts">How many parts in this figure, total, including this one?</label>
-                                    <input type="text" className="form-control figureParts" placeholder="1"/>
+                                    <label htmlFor="figureParts">How many parts in this figure, total, including this one?</label>
+                                    <input type="text" className="form-control figureParts" placeholder="1" onChange={(e) => this.setState({figureParts: e.target.value})}/>
                                 </div>
 
                             </div>
 
                             <div className="col-xs-6">
                                 <div className="form-group">
-                                    <label for="figureSelection">Selection Frame Number</label>
-                                    <input type="text" className="form-control figureSelection" placeholder="DSC05697"/>
+                                    <label htmlFor="figureSelection">Selection Frame Number</label>
+                                    <input type="text" className="form-control figureSelection" placeholder="DSC05697" onChange={(e) => this.setState({selectionFrame: e.target.value})}/>
                                 </div>
 
                                 <div className="form-group">
-                                    <label for="figureOrder">Order Number (within the shoot)</label>
-                                    <input type="text" className="form-control figureSelection" placeholder="1"/>
+                                    <label htmlFor="figureOrder">Order Number (within the shoot)</label>
+                                    <input type="text" className="form-control figureOrder" placeholder="1" onChange={(e) => this.setState({orderNumber: e.target.value})}/>
                                 </div>
                             </div>
                         </div>
@@ -156,8 +115,8 @@ class ProjectCreateCard extends Component {
                             <div className="row">
                                 <div className="col-xs-12">
                                     <div className="form-group">
-                                        <label for="figureDescription">Figure Description</label>
-                                        <textarea type="text" className="form-control figureDescription"  placeholder="child swinging baseball bat"></textarea>
+                                        <label htmlFor="figureDescription">Figure Description</label>
+                                        <textarea type="text" className="form-control figureDescription"  placeholder="child swinging baseball bat" onChange={(e) => this.setState({figureDescription: e.target.value})}></textarea>
                                     </div>
                                 </div> 
                             </div>
@@ -165,8 +124,8 @@ class ProjectCreateCard extends Component {
                             <div className="row">
                                 <div className="col-xs-12">
                                     <div className="form-group">
-                                        <label for="figureInstructions">Instructions for how to pose the model(s).</label>
-                                        <textarea type="text" className="form-control figureInstructions"  placeholder="Stand with feet hip-width apart, facing home base, body angled towards the pitchers mound . . ."></textarea>
+                                        <label htmlFor="figureInstructions">Instructions for how to pose the model(s).</label>
+                                        <textarea type="text" className="form-control figureInstructions"  placeholder="Stand with feet hip-width apart, facing home base, body angled towards the pitchers mound . . ." onChange={(e) => this.setState({figureInstructions: e.target.value})}></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -174,15 +133,15 @@ class ProjectCreateCard extends Component {
                             <div className="row">
                                 <div className="col-sm-6">
                                     <div className="form-group">
-                                        <label for="figureEquipment">Equipment</label>
-                                        <textarea type="text" className="form-control figureEquipment"  placeholder="baseball bat, batting helmet, batting gloves . . ."></textarea>
+                                        <label htmlFor="figureEquipment">Equipment</label>
+                                        <textarea type="text" className="form-control figureEquipment"  placeholder="baseball bat, batting helmet, batting gloves . . ."onChange={(e) => this.setState({figureEquipment: e.target.value})}></textarea>
                                     </div>
                                 </div>
 
                                 <div className="col-sm-6">
                                     <div className="form-group">
-                                        <label for="figureModel">Model Information</label>
-                                        <textarea type="text" className="form-control figureModel"  placeholder="boy, 10 years old"></textarea>
+                                        <label htmlFor="figureModel">Model Information</label>
+                                        <textarea type="text" className="form-control figureModel"  placeholder="boy, 10 years old" onChange={(e) => this.setState({figureModel: e.target.value})}></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -190,8 +149,8 @@ class ProjectCreateCard extends Component {
                             <div className="row">
                                 <div className="col-sm-12">
                                     <div className="form-group">
-                                        <label for="figureModel">Photographer</label>
-                                        <input type="text" className="form-control figurePhotographer" />
+                                        <label htmlFor="figurePhotographer">Photographer</label>
+                                        <input type="text" className="form-control figurePhotographer" onChange={(e) => this.setState({photographer: e.target.value})}/>
                                     </div>
                                 </div>
                             </div>
@@ -199,22 +158,22 @@ class ProjectCreateCard extends Component {
                             <div className="row">
                                 <div className="col-sm-4">
                                     <div className="form-group">
-                                        <label for="figureLocation">Location of Shoot</label>
-                                        <textarea type="text" className="form-control figureLocation" placeholder="Champaign, IL, Kirby Park baseball field, batting box"></textarea>
+                                        <label htmlFor="figureLocation">Location of Shoot</label>
+                                        <textarea type="text" className="form-control figureLocation" placeholder="Champaign, IL, Kirby Park baseball field, batting box" onChange={(e) => this.setState({shootLocation: e.target.value})}></textarea>
                                     </div>
                                 </div>
 
                                 <div className="col-sm-4">
                                     <div className="form-group">
-                                        <label for="figureDate">Date of Shoot for This Image</label>
-                                        <input type="text" className="form-control figureDate" placeholder="March 15"/>
+                                        <label htmlFor="figureDate">Date of Shoot for This Image</label>
+                                        <input type="text" className="form-control figureDate" placeholder="March 15" onChange={(e) => this.setState({shootDate: e.target.value})}/>
                                     </div>
                                 </div>
 
                                 <div className="col-sm-4">
                                     <div className="form-group">
-                                        <label for="figureTime">Time of Shoot for This Image</label>
-                                        <input type="text" className="form-control figureTime" placeholder="1-5 PM"/>
+                                        <label htmlFor="figureTime">Time of Shoot for This Image</label>
+                                        <input type="text" className="form-control figureTime" placeholder="1-5 PM" onChange={(e) => this.setState({shootTime: e.target.value})}/>
                                     </div>
                                 </div>
                             </div>
@@ -223,7 +182,7 @@ class ProjectCreateCard extends Component {
                                 <div className="col-sm-3">
                                     <div className="checkbox figureDeco">
                                         <label>
-                                            <input type="checkbox"/> Decorative photo?
+                                            <input type="checkbox" onChange={(e) => this.setState({photoDecorative: e.target.checked})} /> Decorative photo?
                                         </label>
                                     </div>
                                 </div>
@@ -231,7 +190,7 @@ class ProjectCreateCard extends Component {
                                 <div className="col-sm-3">
                                     <div className="checkbox figureDemo">
                                         <label>
-                                            <input type="checkbox"/> Demonstrative photo?
+                                            <input type="checkbox" onChange={(e) => this.setState({photoDemonstrative: e.target.checked})} /> Demonstrative photo?
                                         </label>
                                     </div>
                                 </div>
@@ -239,7 +198,7 @@ class ProjectCreateCard extends Component {
                                 <div className="col-sm-3">
                                     <div className="checkbox figurePortrait">
                                         <label>
-                                            <input type="checkbox"/> Portrait orientation?
+                                            <input type="checkbox" onChange={(e) => this.setState({orientationPortrait: e.target.checked})} /> Portrait orientation?
                                         </label>
                                     </div>
                                 </div>
@@ -247,7 +206,7 @@ class ProjectCreateCard extends Component {
                                 <div className="col-sm-3">
                                     <div className="checkbox figureLandscape">
                                         <label>
-                                            <input type="checkbox"/> Landscape orientation?
+                                            <input type="checkbox" onChange={(e) => this.setState({orientationLandscape: e.target.checked})} /> Landscape orientation?
                                         </label>
                                     </div>
                                 </div>
@@ -258,7 +217,7 @@ class ProjectCreateCard extends Component {
                             <div className="row">
                                 <div className="col-xs-12">
                                     <div className="form-group">
-                                        <label for="figureSample">Upload Sample</label>
+                                        <label htmlFor="figureSample">Upload Sample</label>
                                         <p className="help-block">You can upload sample images to guide the models and photographer.</p>
                                         <input type="file" className="figureSample"/>
                                     </div>
@@ -268,18 +227,17 @@ class ProjectCreateCard extends Component {
                     </div>
                     <div className="panel-footer">
                         <div className="row">
-                            <div className="col-xs-6">
-                                <button type="submit" className="btn btn-danger deleteFigure">Delete Figure</button>
-                            </div>
+                            {/*<div className="col-xs-6">
+                                <button type="button" className="btn btn-danger deleteFigure" onClick={() => this.deletePhoto(this.props.id)}>Delete Figure</button>
+                            </div>*/}
 
-                            <div className="col-xs-6">
-                                <button type="submit" className="btn btn-success pull-right saveFigure">Save Figure</button>
+                            <div className="col-xs-12">
+                                <button type="button" className="btn btn-success pull-right saveFigure" onClick={this.saveAsset}>Save Figure</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <NavAdditionalPager />
             <FooterArea />
         </div>
     );

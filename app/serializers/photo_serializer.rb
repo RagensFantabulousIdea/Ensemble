@@ -1,5 +1,6 @@
 class PhotoSerializer < ActiveModel::Serializer
 
-  belongs_to :asset, :project
-  attributes :id, :image, :frame_num, :liked, :disliked, :selected
+  attributes :id, :frame_num, :liked, :disliked, :selected
+
+  has_one :image
 end

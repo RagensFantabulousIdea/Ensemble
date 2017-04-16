@@ -1,5 +1,5 @@
 class Project < ApplicationRecord
-  has_secure_token
+  has_secure_token :project_token
 
   belongs_to :owner, class_name: "User", foreign_key: :user_id
 
