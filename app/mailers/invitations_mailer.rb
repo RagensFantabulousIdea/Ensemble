@@ -3,8 +3,8 @@ class InvitationsMailer < ApplicationMailer
   def current_user(email,project_token)
     @email = email
     @user = User.find_by(email: @email)
-    @token = project_token
-    @project = Project.find_by(project_token: @token)
+    @project_token = project_token
+    @project = Project.find_by(token: @project_token)
     mail(to: @email, subject: "You've been invited to a project!")
   end
 
@@ -14,7 +14,7 @@ class InvitationsMailer < ApplicationMailer
     @email = email
     @project_token = project_token
     @project = Project.find_by(project_token: @project_token)
-    mail(to: @email, subject: "You've been invited to a LensFlare project, #{@first_name}!")
+    mail(to: @email, subject: "You've been invited to Project #{@project.project_num} on LensFlare, #{@first_name}!")
   end
 
 end
