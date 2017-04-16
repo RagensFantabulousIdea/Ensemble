@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import NavBar from './NavBar';
+import NavAdditionalPager from './NavAdditionalPager';
 import FooterArea from './FooterArea';
 
 import { browserHistory } from 'react-router';
 
-//Need to add quotes around user input for photo selected box?
+// QQManpreet: This should be exactly like the ProjectCreateCard.js. I copied the code in how it was there (including the method) into this file. What you need to do is make each asset's information load into the form fields instead of the placeholders so that it can be edited.
 
-// where it says "addPhoto", it used to say "addProject".
-//where it says "deletePhoto", it used to say "deleteProject".
-//where it says "getDecorative", "getDemonstrative", "getOrientationPortrait", or "getOrientationLandscape" it used to say "getProjects"
+// QQManpreet: NOTE: we may not be able to do the "next" and "previous" pager that is set up in te NavAdditionalPager component that I call for here, because that takes a bunch of backend magic to work, and we might not have time. So we might have to take that out.
 
-class ProjectCreateCard extends Component {
+class ProjectAssetEditCard extends Component {
     constructor(props) {
         super(props)
         this.saveAsset = this.saveAsset.bind(this)
@@ -227,11 +226,11 @@ class ProjectCreateCard extends Component {
                     </div>
                     <div className="panel-footer">
                         <div className="row">
-                            {/*<div className="col-xs-6">
+                            <div className="col-xs-6">
                                 <button type="button" className="btn btn-danger deleteFigure" onClick={() => this.deletePhoto(this.props.id)}>Delete Asset</button>
-                            </div>*/}
+                            </div>
 
-                            <div className="col-xs-12">
+                            <div className="col-xs-6">
                                 <button type="button" className="btn btn-success pull-right saveFigure" onClick={this.saveAsset}>Save Asset</button>
                             </div>
                         </div>
@@ -244,4 +243,4 @@ class ProjectCreateCard extends Component {
   }
 }
 
-export default ProjectCreateCard;
+export default ProjectAssetEditCard;

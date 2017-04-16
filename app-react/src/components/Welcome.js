@@ -36,15 +36,15 @@ class Welcome extends Component {
           
           <div className="row body">
             <div className="col-sm-6 col-md-4">
-              <p className="centralData">Enter all of your photo shoot data into one location, including: photo descriptions, sample images, date and time of shoot, and more!</p>
+              <p className="centralData">Enter your photo shoot data in one location, including: asset descriptions, sample images, date and time of shoot, and more!</p>
             </div>
             
             <div className="col-sm-6 col-md-4">
-              <p className="collaborating">Invite partners into your project to collaborate with them during all stages of the shoot process through the easy-to-use forms and in-app messaging system.</p>
+              <p className="collaborating">Invite partners into your project to collaborate with them during all stages of the shoot process through the easy-to-use forms and in-app messaging system that can be accessed on mobile, tablet, or desktop devices.</p>
             </div>
             
             <div className="col-sm-6 col-md-4">
-              <p className="makingSelections">Upload jpeg images, note accepted photos, and record the final selections in one location.</p>
+              <p className="makingSelections">Upload jpeg images, discuss results, and record the final selection in one location.</p>
             </div>
           </div>
 

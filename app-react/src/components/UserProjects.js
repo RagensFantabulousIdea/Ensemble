@@ -36,7 +36,7 @@ class UserProjects extends Component {
     returnToSignin() {
         if (sessionStorage.length > 0) {
             sessionStorage.clear()
-            browserHistory.push('/signin')
+            browserHistory.push('/')
         }
     }
 
