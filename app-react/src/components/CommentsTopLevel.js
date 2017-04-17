@@ -18,7 +18,7 @@ class CommentsTopLevel extends Component {
                             <h4 className="media-heading messageUserName">Whitney Havice</h4>
                                 <div className="row">
                                     <div className="col-xs-12 messageText">
-                                        <span className="messageContent">I think we need to make sure that the right shoulder is higher. The sample is good except for this one problem. If this guy tried to swing, he'd break his arm!</span>
+                                        <span className="messageContent">{this.props.body}</span>
                                         <br/>
                                         <a className="messageTopEditLink">Edit</a> | <a className="messageTopDeleteLink">Delete</a> | <a className="messageTopReplyLink">Reply</a><br/>
                                     </div>
