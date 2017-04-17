@@ -75,6 +75,7 @@ class UserProjects extends Component {
                         </div>
                     </div>   
                 </div>
+                 <span id="logout" className="glyphicon glyphicon-off" onClick={this.returnToSignin}></span>
                 <FooterArea />
             </div>
         );
