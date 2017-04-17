@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-class NavAdditionalPager
- extends Component {
+class NavAdditionalPager extends Component {
   render() {
 
     return (
