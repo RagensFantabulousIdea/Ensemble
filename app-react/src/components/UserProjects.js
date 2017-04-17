@@ -38,7 +38,7 @@ class UserProjects extends Component {
     returnToSignin() {
         if (sessionStorage.length > 0) {
             sessionStorage.clear()
-            browserHistory.push('/')
+            browserHistory.push('/signin')
         }
     }
 
@@ -50,7 +50,7 @@ class UserProjects extends Component {
     }
 
     render() {
-        let projects = this.state.projects.map((project, key) => <Project key={Date.now() + key} index={key} {...project} getProjects={this.getProjects} deleteProject={this.deleteProject}/>)
+        let projects = this.state.projects.map((project, key) => <Project key={Date.now() + key} index={key} {...project} getProjects={this.getProjects} deleteProject={this.deleteProject} returnToSignin={this.returnToSignin}/>)
 
         if (projects.length === 0) {
             projects = <div><br/><br/><h4 className="text-center cardAddInstruction">Please click the "Add New Project" button to get started.</h4></div>
