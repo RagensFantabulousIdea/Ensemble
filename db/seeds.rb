@@ -35,7 +35,7 @@
       landscape: Faker::Boolean.boolean(0.5),
       portrait: Faker::Boolean.boolean(0.5),
       demonstrative: Faker::Boolean.boolean(0.5),
-      decorative: Faker::Boolean.(0.5),
+      decorative: Faker::Boolean.boolean(0.5),
       frame_num: "DSC#{rand(99999)}",
       instructions: Faker::Hacker.say_something_smart,
       photographer: Faker::Name.name,
