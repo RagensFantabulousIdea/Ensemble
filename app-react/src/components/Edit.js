@@ -29,6 +29,10 @@ class Edit extends Component {
             .then (whatever => console.log(this.state.projects))
     }
 
+    componentWillReceiveProps(){
+        this.getAssets()
+    }
+
     editProject(title, author, projectNumber, description,id) {
         // console.log(this.props.params.projectId)
         //Post to /api/projects
