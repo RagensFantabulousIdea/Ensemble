@@ -25,35 +25,46 @@
       created_at: rand(1..365).days.ago
     )
 
-    #TODO Fix this to make it actually pull in relevant data
     5.times do
       #Create Assets
-      Asset.create!(
-      figure_num: "string",
-      description: "string",
-      order_num: "integer",
-      landscape: "boolean",
-      portrait: "boolean",
-      demonstrative: "boolean",
-      decorative: "boolean",
-      frame_num: "string",
-      instructions: "string",
-      photographer: "string",
-      created_at: "date-time",
-      updatead_at: "date-time",
-      frame_range: "string",
-      parts: "integer",
-      equipment: "string",
-      photo_model: "string",
-      location_of_shoot: "string",
-      date_of_shoot: "date_time",
-      time_of_shoot: "date_time",
-      image: "string"
+      @asset = project.assets.create!(
+        figure_num: rand(300.99) ,
+        asset_description: Faker::Hacker.say_something_smart,
+        order_num: rand(1..1000),
+        landscape: Faker::Boolean.boolean(0.5),
+        portrait: Faker::Boolean.boolean(0.5),
+        demonstrative: Faker::Boolean.boolean(0.5),
+        decorative: Faker::Boolean.boolean(0.5),
+        frame_num: "DSC#{rand(99999)}",
+        instructions: Faker::Hacker.say_something_smart,
+        photographer: Faker::Name.name,
+        created_at: "#{project.created_at + rand(1..5).days}",
+        updated_at: "#{project.created_at + rand(1..5).days}",
+        frame_range: "string",
+        parts: "integer",
+        equipment: "string",
+        photo_model: "string",
+        location_of_shoot: "string",
+        date_of_shoot: "date_time",
+        time_of_shoot: "date_time",
+        image: "string"
       )
     end
 
+      3.times do
+        @asset.photos.create!(
+          image: "https://unsplash.it/800/#{rand(1..1084)}",
+          frame_num: "DSC#{rand(99999)}",
+          liked: Faker::Boolean.boolean(0.5),
+          disliked: Faker::Boolean.boolean(0.5),
+          selected: Faker::Boolean.boolean(0.1),
+          created_at: rand(1..20).days.ago,
+          updated_at: rand(1..20).days.ago,
+          asset_id: @asset
+        )
+      end
+    end
   end
-end
 
   #Fill Projects with members
   Project.all.each do |add_member|
