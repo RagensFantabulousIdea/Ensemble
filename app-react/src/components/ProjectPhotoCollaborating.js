@@ -24,12 +24,12 @@ class ProjectPhotoCollaborating extends Component {
     //LifeCycles Methods
     componentWillMount(){
         this.getAssetFullCard()
-        this.getImages()
+        // this.getImages()
     }
 
-    // componentDidMount(){
-    //     this.getImages()
-    // }
+    componentDidMount(){
+        this.getImages()
+    }
 
     getAssetFullCard(){
         fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '?token=' + sessionStorage.getItem('token'))
@@ -38,17 +38,18 @@ class ProjectPhotoCollaborating extends Component {
     }
 
     getImages(){
-        fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/photos?token=' + sessionStorage.getItem('token'))
+        fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '?token=' + sessionStorage.getItem('token'))
         // console.log(token)
         .then(response => response.json())
         .then(response => {
+            // this.setState({images: images})
             this.setState({response})
         })
     }
   
   render(){
       console.log(this.state.images)
-      let images = this.state.images.map((image, key) => <ProjectPhotoCollaboratingPhotoCard key={Date.now() + key} index={key} {...image} getImages={this.getImages} projectId={this.props.params.projectId} {...this.props}/>)
+      let images = this.state.images.map((image, key) => <ProjectPhotoCollaboratingPhotoCard key={Date.now() + key} index={key} {...image} getImages={this.getImages} projectId={this.props.params.projectId} {...this.props} {...this.state}/>)
 
     return (
         <div className="projectPhotoCollaborating">

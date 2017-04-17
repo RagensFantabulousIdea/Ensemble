@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-class CommentsTopLevel
- extends Component {
+class CommentsTopLevel extends Component {
   render() {
 
 //the top level component would only have to pull the message from the backend and then it would need to get to the page somehow. The text box for entering the message for the top level is a permanent fixture at the top of a messaging section.
@@ -19,7 +18,7 @@ class CommentsTopLevel
                             <h4 className="media-heading messageUserName">Whitney Havice</h4>
                                 <div className="row">
                                     <div className="col-xs-12 messageText">
-                                        <span className="messageContent">I think we need to make sure that the right shoulder is higher. The sample is good except for this one problem. If this guy tried to swing, he'd break his arm!</span>
+                                        <span className="messageContent">{this.props.body}</span>
                                         <br/>
                                         <a className="messageTopEditLink">Edit</a> | <a className="messageTopDeleteLink">Delete</a> | <a className="messageTopReplyLink">Reply</a><br/>
                                     </div>

@@ -16,7 +16,7 @@
 
   3.times do
     #Create Projects
-    Project.create!(
+    project = Project.create!(
       title: Faker::HowIMetYourMother.quote,
       description: Faker::Lorem.sentences(3),
       author: Faker::Book.author,
@@ -26,28 +26,30 @@
     )
 
     5.times do
+      meridian = ["AM", "PM"]
       #Create Assets
       @asset = project.assets.create!(
-        figure_num: rand(300.99) ,
-        asset_description: Faker::Hacker.say_something_smart,
-        order_num: rand(1..1000),
-        landscape: Faker::Boolean.boolean(0.5),
-        portrait: Faker::Boolean.boolean(0.5),
-        demonstrative: Faker::Boolean.boolean(0.5),
-        decorative: Faker::Boolean.boolean(0.5),
-        frame_num: "DSC#{rand(99999)}",
-        instructions: Faker::Hacker.say_something_smart,
-        photographer: Faker::Name.name,
-        created_at: "#{project.created_at + rand(1..5).days}",
-        updated_at: "#{project.created_at + rand(1..5).days}",
-        frame_range: "string",
-        parts: "integer",
-        equipment: "string",
-        photo_model: "string",
-        location_of_shoot: "string",
-        date_of_shoot: "date_time",
-        time_of_shoot: "date_time",
-        image: "string"
+      figure_num: rand(300.99),
+      asset_description: Faker::Hacker.say_something_smart,
+      order_num: rand(1..1000),
+      landscape: Faker::Boolean.boolean(0.5),
+      portrait: Faker::Boolean.boolean(0.5),
+      demonstrative: Faker::Boolean.boolean(0.5),
+      decorative: Faker::Boolean.boolean(0.5),
+      frame_num: "DSC#{rand(99999)}",
+      instructions: Faker::Hacker.say_something_smart,
+      photographer: Faker::Name.name,
+      created_at: "#{project.created_at + rand(1..5).days}",
+      updated_at: "#{project.created_at + rand(1..5).days}",
+      frame_range: "string",
+      parts: rand(1..10),
+      equipment: "string",
+      photo_model: Faker::Name.name,
+      location_of_shoot: "#{Faker::Address.street_address} \n
+      #{Faker::Address.city}, #{Faker::Address.state_abbr} #{Faker::Address.zip_code} \n
+      #{Faker::Friends.location}",
+      date_of_shoot: Faker::Date.forward(42),
+      time_of_shoot: "#{rand(0..12)}-#{rand(0..12)}#{meridian.sample}"
       )
     end
 
@@ -105,4 +107,4 @@
         body: Faker::LeagueOfLegends.quote
       )
     end
-  end
+end

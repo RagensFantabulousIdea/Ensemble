@@ -21,8 +21,10 @@ class PhotoUploader extends React.Component {
       method: 'POST',
       body: data
     })
-    .then(response => response.json())
-    // .then(renderView)
+    // .then(response => response.json())
+    .then(response => {
+      this.props.getImages()
+    })
   }
 
   render() {

@@ -71,21 +71,7 @@ class Project extends React.Component{
                         <p>{this.props.description}</p>
                     </div>
                 <div className="panel-footer">
-               
-                <div className="btn-group">
-                    <button type="button" className="btn btn-default dropdown-toggle"           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Action <span className="caret"></span>
-                        </button>
-        
-                    <ul className="dropdown-menu" aria-labelledby="dropdownMenu4">
-                        <li><a href="#">Regular link</a></li>
-                        <li className="disabled"><a href="#">Disabled link</a></li>
-                        <li><a href="#">Another link</a></li>
-                        </ul>
-                </div>
-
-
-                    <button type="button" className="btn btn-primary col-sm-offset-1" onClick={() => browserHistory.push('/edit/' + this.props.id)}>Edit </button>
+                 <button type="button" className="btn btn-primary col-sm-offset-1" onClick={() => browserHistory.push('/edit/' + this.props.id)}>Edit </button>
                     <button type="button" className="btn btn-danger col-sm-offset-1" onClick={() => this.props.deleteProject(this.props.id)}>Delete </button>
                     <button type="button" className="btn btn-success col-sm-offset-1" onClick={() => browserHistory.push('/invite/' + this.props.id)}>Invite</button>
                     <button type="button" className="btn btn-success col-sm-offset-1" onClick={() => browserHistory.push('/shoot/' + this.props.id)}>Project Shoot List</button>
