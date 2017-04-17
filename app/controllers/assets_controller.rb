@@ -50,7 +50,7 @@ class AssetsController < ApplicationController
   def destroy
     if editor
       @asset.destroy
-        render json: ["Asset deleted successfully."]
+      render json: ["Asset deleted successfully."]
     else
       render json: ["You are not authorized to delete this resource."], status: 401
     end
