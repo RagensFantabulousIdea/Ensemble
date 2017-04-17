@@ -4,8 +4,6 @@ import { Link } from 'react-router';
 class ProjectPhotoCollaboratingPhotoCard extends Component {
   
   render() {
-
-// remember to fix link path
     return (
         <div>
             <Link to={'/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/photos/' + this.props.params.id + '?token=' + sessionStorage.getItem('token')}>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import { browserHistory } from 'react-router';
 
 class ProjectShootFullCard extends Component {
@@ -41,7 +40,11 @@ class ProjectShootFullCard extends Component {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          token: sessionStorage.getItem('token')
+          token: sessionStorage.getItem('token'),
+          // QQCollin: Kalea thinks that we need to include frame_num here, but adding it didn't help make it work, so we left our attempts here so you could see what we tried.
+          // frame_num: this.props.params.frame_num,
+          // frame_num: this.state.frame_num,
+          selected: true
         })
       })
     }
