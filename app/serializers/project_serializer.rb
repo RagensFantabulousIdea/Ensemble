@@ -7,4 +7,5 @@ class ProjectSerializer < ActiveModel::Serializer
 
   attributes :id, :project_token, :title, :description, :author, :project_num, :complete,
   :delayed, :inactive
+
 end
