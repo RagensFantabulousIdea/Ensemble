@@ -1,23 +1,19 @@
 import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
 
-class NavBar
+class UserNavBar
  extends Component {
   render() {
 
     //   Need to add route for editing/deleting profile.
 
     return (
-        <div className="headerArea">
+        <div className="userHeaderArea">
             <header>
                 <nav>
                     <div className="nav navbar-nav navbar-right">
-                        <a className="nav-item projectNav" onClick={() => browserHistory.push('/shoot/' + this.props.params.projectId)}>
-                            Project Shoot List
-                        </a>
-
-                        <a className="nav-item homeNav" onClick={() => browserHistory.push('/projects')}>
-                            Home
+                        <a className="nav-item projectNav" onClick={() => browserHistory.push('/projects/complete')}>
+                            Completed Projects
                         </a>
                         <a className="nav-item signOutNav" onClick={this.returnToSignin}>
                             Sign Out
@@ -33,7 +29,7 @@ class NavBar
   }
 }
 
-export default NavBar;
+export default UserNavBar;
 
 
 // <div className="nav navbar-nav navbar-left">

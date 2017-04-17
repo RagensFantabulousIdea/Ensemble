@@ -86,6 +86,22 @@ img {
     /*background-position: 0% 25%;*/
 }
 
+    .userHeaderArea {
+        background-size: cover;
+        /*background-image: url("../img/flower-1451676_1920.jpg");
+        background-position: 0% 50%;*/
+        /*padding-top: 30px;
+        padding-bottom: 30px;*/
+        /*background-image: url("../img/hiking-922985_1920.jpg");
+        background-position: 0% 50%;
+        padding-top: 20px;
+        padding-bottom: 40px;*/
+        background-image: url("../img/marigold1731186_1920.jpg");
+        background-position: 0% 95%;
+        padding-top: 20px;
+        padding-bottom: 40px;
+    }
+
 nav  {
     background: none !important;
     padding-top: 30px; 
@@ -141,6 +157,11 @@ a.nav-item {
     font-family: 'Raleway', sans-serif;
 }
 
+/*User Projects*/
+.userProjectsPage {
+    background-color: #2D2D2D;
+}
+
 
 /*Start styles Manpreet had made*/
 /*#actionButton {
@@ -168,9 +189,9 @@ a.nav-item {
     margin-top: 20px;
 }
 
-.leftcolumn{
+/*.leftcolumn{
     background-color: lightyellow;
-}
+}*/
 
 .rightcolumn{
     background-color: pink;
@@ -224,7 +245,8 @@ h1 {
 
 /*QQRAGEN: come back to this and add padding! */
 .cardAddInstruction {
-    padding-bottom: 50px;
+    padding-bottom: 45vh;
+    color: #D9D9D9;
 }
 
 /*project shoot mini cards*/
@@ -398,6 +420,7 @@ h3 {
     .welcome {
         padding-bottom: 12vw;
     }
+
     .appName {
         /*font-size: 120px;*/
         font-size: 160px;
