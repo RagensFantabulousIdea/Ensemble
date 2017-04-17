@@ -5,68 +5,127 @@ import FooterArea from './FooterArea';
 
 import { browserHistory } from 'react-router';
 
-// QQManpreet: This should be exactly like the ProjectCreateCard.js. I copied the code in how it was there (including the method) into this file. What you need to do is make each asset's information load into the form fields instead of the placeholders so that it can be edited.
-
 // QQManpreet: NOTE: we may not be able to do the "next" and "previous" pager that is set up in te NavAdditionalPager component that I call for here, because that takes a bunch of backend magic to work, and we might not have time. So we might have to take that out.
 
 class ProjectAssetEditCard extends Component {
     constructor(props) {
         super(props)
-        this.saveAsset = this.saveAsset.bind(this)
+        this.editAsset = this.editAsset.bind(this)
+        this.getAssets = this.getAssets.bind(this)
 
         this.state = {
-            figureNumber: '',
-            figureParts: '',
-            selectionFrame: '',
-            orderNumber: '',
-            figureDescription: '',
-            figureInstructions: '',
-            figureEquipment: '',
+            figure_num: '',
+            parts: '',
+            frame_num: '',
+            order_num: '',
+            asset_description: '',
+            instructions: '',
+            equipment: '',
             photo_model: '',
             photographer: '',
-            shootLocation: '',
-            shootDate: '',
-            shootTime: '',
-            photoDecorative: '',
-            photoDemonstrative: '',
-            orientationPortrait: '',
-            orientationLandscape: ''
+            location_of_shoot: '',
+            date_of_shoot: '',
+            time_of_shoot: '',
+            decorative: '',
+            demonstrative: '',
+            portrait: '',
+            landscape: '',
+            token: '',
+            asset: null
         }
     }
+    
+    componentWillMount(){
+        fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '?token=' + sessionStorage.getItem('token'))
+            .then (response => response.json())
+            .then(asset => this.setState({
+                asset: asset,
+                figure_num: asset.figure_num|| "",
+                parts: asset.parts || "",
+                frame_num: asset.frame_num || "",
+                order_num: asset.order_num || "",
+                asset_description: asset.asset_description || "",
+                instructions: asset.instructions || "",
+                equipment: asset.equipment || "",
+                photo_model: asset.photo_model || "",
+                photographer: asset.photographer || "",
+                location_of_shoot: asset.location_of_shoot || "",
+                date_of_shoot: asset.date_of_shoot || "",
+                time_of_shoot: asset.time_of_shoot || "",
+                decorative: asset.decorative || '0',
+                demonstrative: asset.demonstrative || '0',
+                portrait: asset.portrait || '0',
+                landscape: asset.landscape || '0'
+            }))
+    }
+    
+    editAsset(figure_num, parts, frame_num,  order_num, asset_description, instructions, equipment, photo_model, photographer, location_of_shoot, date_of_shoot, time_of_shoot, decorative, demonstrative, portrait, landscape) {
 
-    saveAsset() {
-
-        //Post to /api/projects
         var token = sessionStorage.getItem('token');
-        fetch('/api/projects/' + this.props.params.projectId + '/assets', {
-            method: 'POST',
+        fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '?token=' + sessionStorage.getItem('token'), {
+            method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                figure_num: this.state.figureNumber,
-                parts: this.state.figureParts,
-                frame_num: this.state.selectionFrame,
-                order_num: this.state.orderNumber,
-                asset_description: this.state.figureDescription,
-                instructions: this.state.figureInstructions,
-                equipment: this.state.figureEquipment,
+                figure_num: this.state.figure_num,
+                parts: this.state.parts,
+                frame_num: this.state.frame_num,
+                order_num: this.state.order_num,
+                asset_description: this.state.asset_description,
+                instructions: this.state.instructions,
+                equipment: this.state.equipment,
                 photo_model: this.state.photo_model,
                 photographer: this.state.photographer,
-                location_of_shoot: this.state.shootLocation,
-                date_of_shoot: this.state.shootDate,
-                time_of_shoot: this.state.shootTime,
-                decorative: this.state.photoDecorative,
-                demonstrative: this.state.photoDemonstrative,
-                portrait: this.state.orientationPortrait,
-                landscape: this.state.orientationLandscape,
+                location_of_shoot: this.state.location_of_shoot,
+                date_of_shoot: this.state.date_of_shoot,
+                time_of_shoot: this.state.time_of_shoot,
+                decorative: this.state.decorative,
+                demonstrative: this.state.demonstrative,
+                portrait: this.state.portrait,
+                landscape: this.state.landscape,
                 token: token
             })
         })
         
         .then(response => response.json())
-        .then(asset => {
-            browserHistory.push('/shoot/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/editcard')
+        .then(response => {
+            this.setState({
+                figure_num: '',
+                parts: '',
+                frame_num: '',
+                order_num: '',
+                asset_description: '',
+                instructions: '',
+                equipment: '',
+                photo_model: '',
+                photographer: '',
+                location_of_shoot: '',
+                date_of_shoot: '',
+                time_of_shoot: '',
+                decorative: '',
+                demonstrative: '',
+                portrait: '',
+                landscape: ''
+            })
+            // browserHistory.push('/shoot/' + this.props.projectId + '/assets/' + this.props.id + '/collaborate')
+            browserHistory.push('/shoot/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/collaborate')
+        })
+    }
+
+    deleteAsset(id) {
+        fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '?token=' + sessionStorage.getItem('token'), {method: 'DELETE'})
+            .then(response => {
+                this.getAssets()
+            })
+            browserHistory.push('/shoot/' + this.props.params.projectId)
+    }
+
+    getAssets(){
+        fetch('/api/projects/' + this.props.params.projectId + '/assets?token=' + sessionStorage.getItem('token'))
+            .then(response => response.json())
+            .then(response => {
+                this.setState({assets: response})
         })
     }
 
@@ -86,12 +145,12 @@ class ProjectAssetEditCard extends Component {
                             <div className="col-xs-6">
                                 <div className="form-group">
                                     <label htmlFor="figureNumber">Asset Number</label>
-                                    <input type="text" className="form-control figureNumber" placeholder="Asset 1.1" onChange={(e) => this.setState({figureNumber: e.target.value})}/>
+                                    <input type="text" className="form-control figureNumber" value={this.state.figure_num} onChange={(e) => this.setState({figure_num: e.target.value})}/>
                                 </div>
 
                                 <div className="form-group">
                                     <label htmlFor="figureParts">If this asset is part of a multi-part figure, how many parts are in the figure including the one for this asset?</label>
-                                    <input type="text" className="form-control figureParts" placeholder="1" onChange={(e) => this.setState({figureParts: e.target.value})}/>
+                                    <input type="text" className="form-control figureParts" value={this.state.parts} onChange={(e) => this.setState({parts: e.target.value})}/>
                                 </div>
 
                             </div>
@@ -99,12 +158,12 @@ class ProjectAssetEditCard extends Component {
                             <div className="col-xs-6">
                                 <div className="form-group">
                                     <label htmlFor="figureSelection">Asset Selection Frame Number</label>
-                                    <input type="text" className="form-control figureSelection" placeholder="DSC05697" onChange={(e) => this.setState({selectionFrame: e.target.value})}/>
+                                    <input type="text" className="form-control figureSelection" value={this.state.frame_num} onChange={(e) => this.setState({frame_num: e.target.value})}/>
                                 </div>
 
                                 <div className="form-group">
                                     <label htmlFor="figureOrder">Order Number (within the photo shoot)</label>
-                                    <input type="text" className="form-control figureOrder" placeholder="1" onChange={(e) => this.setState({orderNumber: e.target.value})}/>
+                                    <input type="text" className="form-control figureOrder" value={this.state.order_num} onChange={(e) => this.setState({order_num: e.target.value})}/>
                                 </div>
                             </div>
                         </div>
@@ -116,7 +175,7 @@ class ProjectAssetEditCard extends Component {
                                 <div className="col-xs-12">
                                     <div className="form-group">
                                         <label htmlFor="figureDescription">Asset Description</label>
-                                        <textarea type="text" className="form-control figureDescription"  placeholder="child swinging baseball bat" onChange={(e) => this.setState({figureDescription: e.target.value})}></textarea>
+                                        <textarea type="text" className="form-control figureDescription" value={this.state.asset_description} onChange={(e) => this.setState({asset_description: e.target.value})}></textarea>
                                     </div>
                                 </div> 
                             </div>
@@ -125,7 +184,7 @@ class ProjectAssetEditCard extends Component {
                                 <div className="col-xs-12">
                                     <div className="form-group">
                                         <label htmlFor="figureInstructions">Instructions (for posing the models)</label>
-                                        <textarea type="text" className="form-control figureInstructions"  placeholder="Stand with feet hip-width apart, facing home base, body angled towards the pitchers mound . . ." onChange={(e) => this.setState({figureInstructions: e.target.value})}></textarea>
+                                        <textarea type="text" className="form-control figureInstructions" value={this.state.instructions} onChange={(e) => this.setState({instructions: e.target.value})}></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -134,14 +193,14 @@ class ProjectAssetEditCard extends Component {
                                 <div className="col-sm-6">
                                     <div className="form-group">
                                         <label htmlFor="figureEquipment">Equipment</label>
-                                        <textarea type="text" className="form-control figureEquipment"  placeholder="baseball bat, batting helmet, batting gloves . . ."onChange={(e) => this.setState({figureEquipment: e.target.value})}></textarea>
+                                        <textarea type="text" className="form-control figureEquipment" value={this.state.equipment} onChange={(e) => this.setState({equipment: e.target.value})}></textarea>
                                     </div>
                                 </div>
 
                                 <div className="col-sm-6">
                                     <div className="form-group">
                                         <label htmlFor="photo_model">Model Information</label>
-                                        <textarea type="text" className="form-control figureModel"  placeholder="boy, 10 years old" onChange={(e) => this.setState({photo_model: e.target.value})}></textarea>
+                                        <textarea type="text" className="form-control figureModel" value={this.state.photo_model} onChange={(e) => this.setState({photo_model: e.target.value})}></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -150,7 +209,7 @@ class ProjectAssetEditCard extends Component {
                                 <div className="col-sm-12">
                                     <div className="form-group">
                                         <label htmlFor="figurePhotographer">Photographer</label>
-                                        <input type="text" className="form-control figurePhotographer" onChange={(e) => this.setState({photographer: e.target.value})}/>
+                                        <input type="text" className="form-control figurePhotographer" value={this.state.photographer} onChange={(e) => this.setState({photographer: e.target.value})}/>
                                     </div>
                                 </div>
                             </div>
@@ -159,21 +218,21 @@ class ProjectAssetEditCard extends Component {
                                 <div className="col-sm-4">
                                     <div className="form-group">
                                         <label htmlFor="figureLocation">Location of Shoot</label>
-                                        <textarea type="text" className="form-control figureLocation" placeholder="Champaign, IL, Kirby Park baseball field, batting box" onChange={(e) => this.setState({shootLocation: e.target.value})}></textarea>
+                                        <textarea type="text" className="form-control figureLocation" value={this.state.location_of_shoot} onChange={(e) => this.setState({location_of_shoot: e.target.value})}></textarea>
                                     </div>
                                 </div>
 
                                 <div className="col-sm-4">
                                     <div className="form-group">
                                         <label htmlFor="figureDate">Date of Shoot</label>
-                                        <input type="text" className="form-control figureDate" placeholder="March 15" onChange={(e) => this.setState({shootDate: e.target.value})}/>
+                                        <input type="text" className="form-control figureDate" value={this.state.date_of_shoot} onChange={(e) => this.setState({date_of_shoot: e.target.value})}/>
                                     </div>
                                 </div>
 
                                 <div className="col-sm-4">
                                     <div className="form-group">
                                         <label htmlFor="figureTime">Time of Shoot</label>
-                                        <input type="text" className="form-control figureTime" placeholder="1-5 PM" onChange={(e) => this.setState({shootTime: e.target.value})}/>
+                                        <input type="text" className="form-control figureTime" value={this.state.time_of_shoot} onChange={(e) => this.setState({time_of_shoot: e.target.value})}/>
                                     </div>
                                 </div>
                             </div>
@@ -182,7 +241,7 @@ class ProjectAssetEditCard extends Component {
                                 <div className="col-sm-3">
                                     <div className="checkbox figureDeco">
                                         <label>
-                                            <input type="checkbox" onChange={(e) => this.setState({photoDecorative: e.target.checked})} /> Decorative photo?
+                                            <input type="checkbox" value={this.state.decorative} onChange={(e) => this.setState({decorative: e.target.checked})} /> Decorative photo?
                                         </label>
                                     </div>
                                 </div>
@@ -190,7 +249,7 @@ class ProjectAssetEditCard extends Component {
                                 <div className="col-sm-3">
                                     <div className="checkbox figureDemo">
                                         <label>
-                                            <input type="checkbox" onChange={(e) => this.setState({photoDemonstrative: e.target.checked})} /> Demonstrative photo?
+                                            <input type="checkbox" value={this.state.demonstrative} onChange={(e) => this.setState({demonstrative: e.target.checked})} /> Demonstrative photo?
                                         </label>
                                     </div>
                                 </div>
@@ -198,7 +257,7 @@ class ProjectAssetEditCard extends Component {
                                 <div className="col-sm-3">
                                     <div className="checkbox figurePortrait">
                                         <label>
-                                            <input type="checkbox" onChange={(e) => this.setState({orientationPortrait: e.target.checked})} /> Portrait orientation?
+                                            <input type="checkbox" value={this.state.portrait} onChange={(e) => this.setState({portrait: e.target.checked})} /> Portrait orientation?
                                         </label>
                                     </div>
                                 </div>
@@ -206,7 +265,7 @@ class ProjectAssetEditCard extends Component {
                                 <div className="col-sm-3">
                                     <div className="checkbox figureLandscape">
                                         <label>
-                                            <input type="checkbox" onChange={(e) => this.setState({orientationLandscape: e.target.checked})} /> Landscape orientation?
+                                            <input type="checkbox" value={this.state.landscape} onChange={(e) => this.setState({landscape: e.target.checked})} /> Landscape orientation?
                                         </label>
                                     </div>
                                 </div>
@@ -228,11 +287,11 @@ class ProjectAssetEditCard extends Component {
                     <div className="panel-footer">
                         <div className="row">
                             <div className="col-xs-6">
-                                <button type="button" className="btn btn-danger deleteFigure" onClick={() => this.deletePhoto(this.props.id)}>Delete Asset</button>
+                                <button type="button" className="btn btn-danger deleteFigure" onClick={() => this.deleteAsset(this.props.id)}>Delete Asset</button>
                             </div>
 
                             <div className="col-xs-6">
-                                <button type="button" className="btn btn-success pull-right saveFigure" onClick={this.saveAsset}>Save Asset</button>
+                                <button type="button" className="btn btn-success pull-right saveFigure" onClick={this.editAsset}>Save Asset</button>
                             </div>
                         </div>
                     </div>

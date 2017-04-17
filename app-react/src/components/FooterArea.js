@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-class FooterArea
- extends Component {
+class FooterArea extends Component {
   render() {
 
     return (
