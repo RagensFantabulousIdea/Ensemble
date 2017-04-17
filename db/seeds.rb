@@ -28,8 +28,8 @@
     5.times do
       meridian = ["AM", "PM"]
       #Create Assets
-      @asset = project.find(id: project).assets.create!(
-      figure_num: rand(300.99) ,
+      @asset = project.assets.create!(
+      figure_num: rand(300.99),
       asset_description: Faker::Hacker.say_something_smart,
       order_num: rand(1..1000),
       landscape: Faker::Boolean.boolean(0.5),
@@ -55,14 +55,14 @@
 
       3.times do
         @asset.photos.create!(
-          image: Faker::LoremPixel.image,
+          image: "https://unsplash.it/800/#{rand(1..1084)}",
           frame_num: "DSC#{rand(99999)}",
           liked: Faker::Boolean.boolean(0.5),
           disliked: Faker::Boolean.boolean(0.5),
           selected: Faker::Boolean.boolean(0.1),
           created_at: rand(1..20).days.ago,
           updated_at: rand(1..20).days.ago,
-          asset_id: asset
+          asset_id: @asset
         )
       end
     end
