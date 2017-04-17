@@ -3,61 +3,68 @@ import CommentsTopLevel from './CommentsTopLevel';
 
 class CommentsBox extends Component {
 
-  // constructor(props){
-  //       super(props)
-  //       this.getMessage=this.getMessage.bind(this)   
-  //       this.addMessage=this.addMessage.bind(this)
+  constructor(props){
+        super(props)
+        this.getMessages = this.getMessages.bind(this)   
+        this.addMessage = this.addMessage.bind(this)
 
-  //       this.state = {
-  //           message: '',
-  //           firstname: '',
-  //           lastname: '',
-  //           id: '',
-  //           body: '',
-  //           messages: []
-  //           // getProjects: props.getProjects
-  //       }
-  // }
+        this.state = {
+            message: '',
+            firstname: '',
+            lastname: '',
+            id: '',
+            body: '',
+            messages: []
+            // getProjects: props.getProjects
+        }
+  }
 
-  //       //LifeCycles Methods                                             
-  //       componentWillMount(){ 
-  //       this.getMessage()                  // put the data into it and change the state
-  //   }
+        //LifeCycles Methods                                             
+        componentWillMount(){ 
+        this.getMessages()                  // put the data into it and change the state
+    }
 
-  //   //API Methods
-  //       getMessages(){
-  //           fetch('/api/v1/?')
-  //               .then (response => response.json())
-  //               .then(messages => this.setState({messages:messages}))
-  //           }
-  //   }
-  //   // addMessage(message){
-  //   //             this.getMessage()
-  //   //         }
-  //   addMessage(getMessages){                    
-  //       if (this.state.messages !== ''){
-  //       fetch('/api/?, {
-  //           method: 'Post',
-  //           headers:{
-  //               'Content-Type': 'application/json'
-  //           },
-  //           body: JSON.stringify({
-  //             //left hand side is handled by back-end
-  //               message: this.state.messages,
-  //             })
-  //       })
-  //       .then(response => response.json())
-  //       .then(response => {
-  //            //clear the form fields
-  //           this.setState({
-  //               message: '',
-  //           })
-  //       //Reload Lists
-  //       this.state.getMessages(response)
-  //       })
-  //       }
-  //   }
+    //API Methods
+        getMessages(){
+            fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '?token=' + sessionStorage.getItem('token'))
+                .then (response => response.json())
+                .then(messages => this.setState({messages:messages}))
+            }
+    // addMessage(message){
+    //             this.getMessage()
+    //         }
+    addMessage(getMessages){                    
+        if (this.state.messages !== ''){
+        fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/comments?token=' + sessionStorage.getItem('token'), {
+            method: 'POST',
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              //left hand side is handled by back-end
+                message: this.state.message,
+                // firstname: this.state.firstname,
+                // lastname: this.state.lastname,
+                body: this.state.body
+              })
+        })
+        .then(response => response.json())
+        .then(response => {
+             //clear the form fields
+            this.setState({
+                message: '',
+                firstname: '',
+                lastname: '',
+                body: ''
+            })
+        //Reload Lists
+        this.state.getMessages(response)
+        })
+        }
+    }
   render() {
+
+    let messages = this.state.messages.map((message, key) => <CommentsTopLevel body={message.body} key={key}/>)
 
     return (
       <div>
@@ -65,9 +72,9 @@ class CommentsBox extends Component {
           <div className="col-xs-12 commentsTopLevelCol">
           <h4>Messages</h4>
             <div className="input-group">
-              <input type="text" className="form-control"/>
+              <input type="text" className="form-control" value ={this.state.message} onChange={(e) => this.setState({message: e.target.value})}/>
                 <span className="input-group-btn">
-                  <button className="btn messagePost" type="button">Post</button>
+                  <button className="btn messagePost" type="button" onClick={() => this.addMessage(this.getMessages)}>Post</button>
                 </span>
             </div>
             <br/>
