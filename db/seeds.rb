@@ -30,7 +30,7 @@
       #Create Assets
       asset = project.assets.create!(
       figure_num: rand(300.99) ,
-      description: Faker::Hacker.say_something_smart,
+      asset_description: Faker::Hacker.say_something_smart,
       order_num: rand(1..1000),
       landscape: Faker::Boolean.boolean(0.5),
       portrait: Faker::Boolean.boolean(0.5),
