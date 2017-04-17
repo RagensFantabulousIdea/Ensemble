@@ -129,7 +129,7 @@ class ProjectShootFullCard extends Component {
 
           <div className="row">
             <div className="col-xs-6">
-              <p><strong>Models: </strong>{this.props.model}</p>
+              <p><strong>Models: </strong>{this.props.photo_model}</p>
             </div>
 
             <div className="col-xs-6">
