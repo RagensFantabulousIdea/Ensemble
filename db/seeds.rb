@@ -24,6 +24,34 @@
       owner: user,
       created_at: rand(1..365).days.ago
     )
+
+    #TODO Fix this to make it actually pull in relevant data
+    5.times do
+      #Create Assets
+      Asset.create!(
+      figure_num: "string",
+      description: "string",
+      order_num: "integer",
+      landscape: "boolean",
+      portrait: "boolean",
+      demonstrative: "boolean",
+      decorative: "boolean",
+      frame_num: "string",
+      instructions: "string",
+      photographer: "string",
+      created_at: "date-time",
+      updatead_at: "date-time",
+      frame_range: "string",
+      parts: "integer",
+      equipment: "string",
+      photo_model: "string",
+      location_of_shoot: "string",
+      date_of_shoot: "date_time",
+      time_of_shoot: "date_time",
+      image: "string"
+      )
+    end
+
   end
 end
 
