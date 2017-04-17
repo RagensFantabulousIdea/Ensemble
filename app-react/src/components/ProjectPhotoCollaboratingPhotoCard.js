@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 
 class ProjectPhotoCollaboratingPhotoCard extends Component {
   
+//    {<img src={this.props.photos.image.url} alt="uploaded" />}
   render() {
     return (
         <div>
@@ -12,7 +13,7 @@ class ProjectPhotoCollaboratingPhotoCard extends Component {
                 <div className="panel">
                 
                     <div className="panel-body imagePanel">
-                        {<img src={this.props.photos.image.url} alt="uploaded" />}
+                        {<img src={this.getImages} alt="uploaded" />}
                     </div>
 
                     <div className="panel-footer">
