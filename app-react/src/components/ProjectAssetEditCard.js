@@ -22,7 +22,7 @@ class ProjectAssetEditCard extends Component {
             figureDescription: '',
             figureInstructions: '',
             figureEquipment: '',
-            figureModel: '',
+            photo_model: '',
             photographer: '',
             shootLocation: '',
             shootDate: '',
@@ -51,7 +51,7 @@ class ProjectAssetEditCard extends Component {
                 asset_description: this.state.figureDescription,
                 instructions: this.state.figureInstructions,
                 equipment: this.state.figureEquipment,
-                model: this.state.figureModel,
+                photo_model: this.state.photo_model,
                 photographer: this.state.photographer,
                 location_of_shoot: this.state.shootLocation,
                 date_of_shoot: this.state.shootDate,
@@ -139,8 +139,8 @@ class ProjectAssetEditCard extends Component {
 
                                 <div className="col-sm-6">
                                     <div className="form-group">
-                                        <label htmlFor="figureModel">Model Information</label>
-                                        <textarea type="text" className="form-control figureModel"  placeholder="boy, 10 years old" onChange={(e) => this.setState({figureModel: e.target.value})}></textarea>
+                                        <label htmlFor="photo_model">Model Information</label>
+                                        <textarea type="text" className="form-control figureModel"  placeholder="boy, 10 years old" onChange={(e) => this.setState({photo_model: e.target.value})}></textarea>
                                     </div>
                                 </div>
                             </div>
