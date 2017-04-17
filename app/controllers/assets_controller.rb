@@ -50,7 +50,6 @@ class AssetsController < ApplicationController
   def destroy
     if editor
       @asset.destroy
-      if @asset.save
         render json: ["Asset deleted successfully."]
       else
         render json: @asset.errors.full_messages, status: 400
