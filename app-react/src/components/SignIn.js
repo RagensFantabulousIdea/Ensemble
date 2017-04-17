@@ -57,7 +57,7 @@ class Signin extends Component {
             <div className="container modal-opac">
                 <div className="panel panel-default">
                     <div className="panel-body">
-                        <i className="fa fa-times-circle-o fa-2x signup-close" aria-hidden="true" onClick={() => this.setState({modalSi: 'none'})} ></i>
+                       <button type="button" className="close" data-dismiss="modalSi" aria-label="Close" onClick={this.props.closeSi}><span aria-hidden="true">&times;</span></button>
                         <div className="form-group">
                             <label htmlFor="email">email</label>
                             <input type="text" id="email" className="form-control" placeholder="johnsmith@gmail.com" value={this.state.email} onChange={(e) => this.setState({ email: e.target.value })} required />
@@ -78,3 +78,5 @@ class Signin extends Component {
 }
 
 export default Signin;
+
+//  <i className="fa fa-times-circle-o fa-2x signup-close" aria-hidden="true" onClick={() => this.setState({modalSi: 'none'})} ></i>
