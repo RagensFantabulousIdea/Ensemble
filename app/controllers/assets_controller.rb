@@ -51,9 +51,6 @@ class AssetsController < ApplicationController
     if editor
       @asset.destroy
         render json: ["Asset deleted successfully."]
-      else
-        render json: @asset.errors.full_messages, status: 400
-      end
     else
       render json: ["You are not authorized to delete this resource."], status: 401
     end
