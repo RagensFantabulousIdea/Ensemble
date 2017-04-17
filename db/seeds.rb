@@ -28,7 +28,7 @@
     5.times do
       meridian = ["AM", "PM"]
       #Create Assets
-      asset = project.assets.create!(
+      @asset = project.find(id: project).assets.create!(
       figure_num: rand(300.99) ,
       asset_description: Faker::Hacker.say_something_smart,
       order_num: rand(1..1000),
@@ -54,7 +54,7 @@
     end
 
       3.times do
-        asset.photos.create!(
+        @asset.photos.create!(
           image: Faker::LoremPixel.image,
           frame_num: "DSC#{rand(99999)}",
           liked: Faker::Boolean.boolean(0.5),
