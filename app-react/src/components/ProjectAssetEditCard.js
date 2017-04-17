@@ -66,7 +66,7 @@ class ProjectAssetEditCard extends Component {
         
         .then(response => response.json())
         .then(asset => {
-            browserHistory.push('/shoot/' + this.props.params.projectId)
+            browserHistory.push('/shoot/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/editcard')
         })
     }
 
@@ -75,6 +75,7 @@ class ProjectAssetEditCard extends Component {
     return (
         <div className="projectCreateCard">
             <NavBar />
+            <NavAdditionalPager />
 
             <h1>Photo Shoot Planning Card</h1>
 
