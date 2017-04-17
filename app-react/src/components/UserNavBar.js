@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
 
-class UserNavBar
- extends Component {
+class UserNavBar extends Component {
+constructor(props){
+        super(props)                                // super is required here
+        this.state = {                                // state of the page                     
+            returnToSignin: props.returnToSignin
+        }
+    }
+
+
+
+
   render() {
 
     //   Need to add route for editing/deleting profile.
@@ -14,6 +23,9 @@ class UserNavBar
                     <div className="nav navbar-nav navbar-right">
                         <a className="nav-item projectNav" onClick={() => browserHistory.push('/projects/complete')}>
                             Completed Projects
+                        </a>
+                        <a className="nav-item signOutNav" onClick={() => browserHistory.push('/projects/complete')}>
+                            Home
                         </a>
                         <a className="nav-item signOutNav" onClick={this.returnToSignin}>
                             Sign Out
