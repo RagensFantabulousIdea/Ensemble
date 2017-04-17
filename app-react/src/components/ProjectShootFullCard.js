@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import { browserHistory } from 'react-router';
 
 class ProjectShootFullCard extends Component {
@@ -35,44 +34,47 @@ class ProjectShootFullCard extends Component {
     }
 
     updateFrameSelected() {
-      fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/photos/' + this.state.frame_selected + '/selected', {
+      fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/photos/' + this.state.frame_num + '/selected', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          token: sessionStorage.getItem('token')
+          token: sessionStorage.getItem('token'),
+          // QQCollin: Kalea thinks that we need to include frame_num here, but adding it didn't help make it work, so we left our attempts here so you could see what we tried.
+          // frame_num: this.props.params.frame_num,
+          // frame_num: this.state.frame_num,
+          selected: true
         })
       })
     }
 
-    addFrameNumbers(frame_range, selectionFrame) {
-      //Post to /api/projects
-      var token = sessionStorage.getItem('token');
-      fetch('/api/projects', {
-        method: 'Post',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          frame_range: frame_range,
-          frame_num: this.state.selectionFrame,
-          token: token
-        })
-      })
+    // addFrameNumbers(frame_range, selectionFrame) {
+    //   //Post to /api/projects
+    //   var token = sessionStorage.getItem('token');
+    //   fetch('/api/projects', {
+    //     method: 'Post',
+    //     headers: {
+    //       'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify({
+    //       frame_range: frame_range,
+    //       frame_num: this.state.selectionFrame,
+    //       token: token
+    //     })
+    //   })
 
-      .then(response => response.json())
-      .then(response => {
-      //  clear the form fields
-        this.setState({
-          frame_range: '',
-          selectionFrame: ''
-        })
-      })
-    }
+    //   .then(response => response.json())
+    //   .then(response => {
+    //   //  clear the form fields
+    //     this.setState({
+    //       frame_range: '',
+    //       selectionFrame: ''
+    //     })
+    //   })
+    // }
 
   render() {
-//need to add quotes to user input for selected frame number??
     return (
       <div className="panel">
         <div className="panel-heading">
@@ -89,7 +91,7 @@ class ProjectShootFullCard extends Component {
           
           <div className="row">
             <div className="col-xs-8">
-              <p>Figure has {this.props.parts} photo(s) associated with it.</p>
+              <p>Asset has {this.props.parts} photo(s) associated with it.</p>
             </div>
 
             <div className="col-xs-4">
@@ -127,7 +129,7 @@ class ProjectShootFullCard extends Component {
 
           <div className="row">
             <div className="col-xs-6">
-              <p><strong>Models: </strong>{this.props.model}</p>
+              <p><strong>Models: </strong>{this.props.photo_model}</p>
             </div>
 
             <div className="col-xs-6">
@@ -156,19 +158,11 @@ class ProjectShootFullCard extends Component {
           <div className="row">
             <div className="col-xs-12">
               <p><strong>Samples</strong></p>
-                <div className="col-xs-3">
+                <div className="col-xs-6">
                   <img className="shootSampleImage" src="/img/baseballsamplejpg.jpg" alt="sample" />
                 </div>
 
-                <div className="col-xs-3">
-                  <img className="shootSampleImage"src="/img/baseballsamplejpg.jpg" alt="sample" />
-                </div>
-
-                <div className="col-xs-3">
-                  <img className="shootSampleImage"src="/img/baseballsamplejpg.jpg" alt="sample" />
-                </div>
-
-                <div className="col-xs-3">
+                <div className="col-xs-6">
                   <img className="shootSampleImage"src="/img/baseballsamplejpg.jpg" alt="sample" />
                 </div>
               </div>
@@ -192,7 +186,7 @@ class ProjectShootFullCard extends Component {
             <div className="row">
               <div className="col-xs-12">
                 <h4 className="figureFrame">Selection Number</h4>
-                  <p className="help-block">Note the frame number for the photo that is selected for this figure, exactly as it appears with the thumbnail image.</p>
+                  <p className="help-block">Note the frame number for the photo that is selected for this asset, exactly as it appears with the thumbnail image (do not include file extension).</p>
                 <div className="input-group">
                   <input type="text" className="form-control figureSelectedBox" placeholder="DSC05700" value={this.state.frame_selected} onChange={(e) => this.setState({frame_selected: e.target.value})}/>
                     <span className="input-group-btn">

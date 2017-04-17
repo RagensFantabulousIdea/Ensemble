@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170413220109) do
+ActiveRecord::Schema.define(version: 20170417003840) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20170413220109) do
     t.string   "frame_range"
     t.integer  "parts"
     t.text     "equipment"
-    t.text     "model"
+    t.text     "photo_model"
     t.text     "location_of_shoot"
     t.string   "date_of_shoot"
     t.string   "time_of_shoot"
@@ -89,13 +89,13 @@ ActiveRecord::Schema.define(version: 20170413220109) do
     t.string   "title"
     t.string   "description"
     t.string   "author"
-    t.string   "token"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.string   "project_token"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.integer  "user_id"
-    t.boolean  "complete",    default: false
-    t.boolean  "delayed",     default: false
-    t.boolean  "inactive",    default: false
+    t.boolean  "complete",      default: false
+    t.boolean  "delayed",       default: false
+    t.boolean  "inactive",      default: false
   end
 
   create_table "shoot_and_assets", force: :cascade do |t|

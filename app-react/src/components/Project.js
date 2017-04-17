@@ -11,9 +11,10 @@ class Project extends React.Component{
         }
     }
     toggleCompleted() {
+        // moved variable out of if and else so that it is available to both of them without being repeated
+        var token = sessionStorage.getItem('token');
         if (this.state.complete === false) {
-            var token = sessionStorage.getItem('token');
-
+            // var token = sessionStorage.getItem('token');
             // tell back-end that it's completed
             fetch('/api/projects/' + this.props.id + '?token=' + token, {
                 method: 'PATCH',
@@ -30,8 +31,7 @@ class Project extends React.Component{
             })
         }
         else {
-            var token = sessionStorage.getItem('token');
-
+            // var token = sessionStorage.getItem('token');
             // tell back-end that it's completed
             fetch('/api/projects/' + this.props.id + '?token=' + token, {
                 method: 'PATCH',

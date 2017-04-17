@@ -13,7 +13,7 @@ class SignUp extends Component {
             lastname: '',
             email: '',
             password: '',
-            token: '',
+            project_token: '',
             modal: "none",
             xmark: "none"
          
@@ -25,9 +25,9 @@ class SignUp extends Component {
         var lastname = this.state.lastname
         var email = this.state.email
         var password = this.state.password
-        var token = this .state.token
+        // var project_token = this.state.project_token
 
-        console.log(firstname,lastname, email, password)
+        // console.log(firstname,lastname, email, password)
 
         if (firstname === '' || lastname === '' || email === '' || password === '') {
             alert('You must fill in all fields')
@@ -48,19 +48,19 @@ class SignUp extends Component {
             last_name: lastname,
             email: email,
             password: password,
-            token: this.props.params.token
+            project_token: this.props.params.project_token
         })
     })
         .then(function(response) {
-                console.log('response.json ' + response.json)
+                // console.log('response.json ' + response.json)
                 return response.json();
             })
         .then(function(response) {
-            console.log('response.token ' + response.token)
+            // console.log('response.project_token ' + response.project_token)
 
-            if (response.token) {
-                (console.log('response token true ' + response.token))
-                sessionStorage.setItem('token', response.token)
+            if (response.project_token) {
+                // (console.log('response project_token true ' + response.project_token))
+                sessionStorage.setItem('project_token', response.project_token)
                 sessionStorage.setItem('userId', response.id)
                 // browserHistory.push('/')
                 browserHistory.push('/projects')
@@ -72,7 +72,7 @@ class SignUp extends Component {
 }
 
 render() {
-return <div style= {{display: this.props.modalSu}}>
+return <div style={{display: this.props.modalSu}}>
     <div className="container modal-opac">
         <div className="panel panel-default">
             <div className="panel-heading">

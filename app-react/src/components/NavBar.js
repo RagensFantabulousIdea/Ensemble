@@ -1,8 +1,20 @@
 import React, { Component } from 'react';
-import { browserHistory } from 'react-router';
+import { browserHistory, Link } from 'react-router';
 
-class NavBar
- extends Component {
+class NavBar extends Component {
+
+    constructor(props){
+        super(props)
+        this.returnToSignin = this.returnToSignin.bind(this)
+    }
+
+    returnToSignin() {
+        if (sessionStorage.length > 0) {
+            sessionStorage.clear()
+            browserHistory.push('/')
+        }
+    }
+
   render() {
 
     //   Need to add route for editing/deleting profile.
@@ -12,19 +24,15 @@ class NavBar
             <header>
                 <nav>
                     <div className="nav navbar-nav navbar-right">
-                        <a className="nav-item projectNav" onClick={() => browserHistory.push('/shoot/' + this.props.params.projectId)}>
+                        <Link className="nav-item projectNav" onClick={() => browserHistory.push('/shoot/' + this.props.params.projectId)}>
                             Project Shoot List
-                        </a>
-
-                        <a className="nav-item homeNav" onClick={() => browserHistory.push('/projects')}>
+                        </Link>
+                        <Link className="nav-item homeNav" onClick={() => browserHistory.push('/projects')}>
                             Home
-                        </a>
-                        <a className="nav-item signOutNav" onClick={() => browserHistory.push('/')}>
+                        </Link>
+                        <Link className="nav-item signOutNav" onClick={this.returnToSignin}>
                             Sign Out
-                        </a>
-                        <a className="nav-item editProfileNav" onClick={() => browserHistory.push('/signin')}>
-                            Edit Profile
-                        </a>
+                        </Link>
                     </div>
                 </nav>
             </header>
@@ -47,3 +55,7 @@ export default NavBar;
 //                             All Photos
 //                         </a>
 //                     </div>
+
+                        // <a className="nav-item editProfileNav" onClick={() => browserHistory.push('/signin')}>
+                        //     Edit Profile
+                        // </a>

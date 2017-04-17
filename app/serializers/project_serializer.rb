@@ -5,7 +5,7 @@ class ProjectSerializer < ActiveModel::Serializer
   has_many :left_comments
   has_many :assets
 
-  attributes :id, :token, :title, :description, :author, :project_num, :complete,
-  :delayed, :inactive, :memberships
+  attributes :id, :project_token, :title, :description, :author, :project_num, :complete,
+  :delayed, :inactive
 
 end
