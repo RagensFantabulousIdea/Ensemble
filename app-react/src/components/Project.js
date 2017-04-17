@@ -11,9 +11,10 @@ class Project extends React.Component{
         }
     }
     toggleCompleted() {
+        // moved variable out of if and else so that it is available to both of them without being repeated
+        var token = sessionStorage.getItem('token');
         if (this.state.complete === false) {
-            var token = sessionStorage.getItem('token');
-
+            // var token = sessionStorage.getItem('token');
             // tell back-end that it's completed
             fetch('/api/projects/' + this.props.id + '?token=' + token, {
                 method: 'PATCH',
@@ -30,8 +31,7 @@ class Project extends React.Component{
             })
         }
         else {
-            var token = sessionStorage.getItem('token');
-
+            // var token = sessionStorage.getItem('token');
             // tell back-end that it's completed
             fetch('/api/projects/' + this.props.id + '?token=' + token, {
                 method: 'PATCH',
@@ -54,12 +54,12 @@ class Project extends React.Component{
                 <div className="panel panel-info">
                     <div className="panel-heading">
                           <div className="form-check">
-                                {this.props.owner.id === sessionStorage.getItem('userId') ?
+                                {this.props.owner.id == sessionStorage.getItem('userId') ?
                                 <label className="form-check-label">
                                     <input type="checkbox" className="form-check-input" checked={this.state.complete} onChange={this.toggleCompleted}/>
                                         &nbsp; Check if project is done
                                 </label> : ''}
-                                {this.props.owner.id === sessionStorage.getItem('userId') ? <span className="pull-right label label-warning">You Are The Owner</span> : <span className="pull-right label label-danger">Collaboration</span>}
+                                {this.props.owner.id == sessionStorage.getItem('userId') ? <span className="pull-right label label-warning">You Are The Owner</span> : <span className="pull-right label label-danger">Collaboration</span>}
                             </div>
                             <h3 className="title">{this.props.title}</h3>
                         </div>

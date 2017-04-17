@@ -19,10 +19,10 @@ import ProjectCreateCard from './components/ProjectCreateCard'
 // import ProjectShootMiniCard from './components/ProjectShootMiniCard'
 // import ProjectPhotoCollaboratingPhotoCard from './components/ProjectPhotoCollaboratingPhotoCard'
 import ProjectPhotoCollaborating from './components/ProjectPhotoCollaborating'
-import ProjectAllPhotosList from './components/ProjectAllPhotosList'
+// import ProjectAllPhotosList from './components/ProjectAllPhotosList' 
 // import ProjectExtraPhotosList from './components/ProjectExtraPhotosList'
 // import ProjectExtraPhotosCard from './components/ProjectExtraPhotosCard'
-// import FullSizedImageView from './components/FullSizedImageView'
+import FullSizedImageView from './components/FullSizedImageView'
 //Manpreet added a new component edit.js
 import Edit from './components/Edit'
 // import completedProjects from './components/completedProjects'
@@ -34,8 +34,8 @@ class Routes extends React.Component {
     render() {
         return <Router history={browserHistory}>
             <Route path="/" component={Welcome} />
-            <Route path="/sandbox" component={ProjectAllPhotosList} />
-            <Route path="/signup(/:token)" component={SignUp} />
+            <Route path="/sandbox" component={UserProjects} />
+            <Route path="/signup(/:project_token)" component={SignUp} />
             <Route path="/signin" component={SignIn} />
             <Route path="/projects" component={UserProjects} />
             <Route path="/projects/complete" component={UserProjects} />
@@ -48,6 +48,7 @@ class Routes extends React.Component {
             <Route path="/shoot/:projectId/createcard" component={ProjectCreateCard} />
             <Route path="/shoot/:projectId/assets/:assetId/editcard" component={ProjectCreateCard} />
             <Route path="/shoot/:projectId/assets/:assetId/collaborate" component={ProjectPhotoCollaborating} />
+            <Route path="/shoot/:projectId/assets/:assetId/photos/:id" component={FullSizedImageView} />
 
         </Router>
     }

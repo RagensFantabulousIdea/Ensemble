@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
-import ProjectShootList from './ProjectShootList';
 
-import { browserHistory, Link } from 'react-router';
+import { Link } from 'react-router';
 
 class ProjectShootMiniCard extends Component {
 
-    constructor(props) {
-        super(props)
-    }
 
   render() {
 
-//only show the commentIndicator span if there are new messages on that figure.
+    //only show the commentIndicator span if there are new messages on that figure.
 
     return (
         <div>
@@ -60,5 +56,4 @@ class ProjectShootMiniCard extends Component {
     );
   }
 }
-
 export default ProjectShootMiniCard;

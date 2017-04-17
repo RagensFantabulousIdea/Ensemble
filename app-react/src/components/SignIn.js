@@ -53,7 +53,7 @@ class Signin extends Component {
     }
 
     render() {
-        return <div style= {{display: this.props.modalSi}}>
+        return <div style={{display: this.props.modalSi}}>
             <div className="container modal-opac">
                 <div className="panel panel-default">
                     <div className="panel-body">

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
-import Project from './Project'
+import Project from './Project';
+import UserNavBar from './UserNavBar';
+import FooterArea from './FooterArea';
 
 class UserProjects extends Component {
 
@@ -36,7 +38,7 @@ class UserProjects extends Component {
     returnToSignin() {
         if (sessionStorage.length > 0) {
             sessionStorage.clear()
-            browserHistory.push('/signin')
+            browserHistory.push('/')
         }
     }
 
@@ -51,28 +53,30 @@ class UserProjects extends Component {
         let projects = this.state.projects.map((project, key) => <Project key={Date.now() + key} index={key} {...project} getProjects={this.getProjects} deleteProject={this.deleteProject}/>)
 
         if (projects.length === 0) {
-            projects = <h4 className="text-center">No Active Projects Currently.</h4>
+            projects = <div><br/><br/><h4 className="text-center cardAddInstruction">Please click the "Add New Project" button to get started.</h4></div>
         }
        
         return (
-            <div className="container-fluid">
-                <div className="text-center">
-                    <br />
-                    <button type="button" className="btn btn-success" onClick={() => browserHistory.push('/projects/new')}>Create New Project</button> &nbsp;
-                     <button type="button" className="btn btn-warning" onClick={() => browserHistory.push('/projects')}>Incompleted Projects</button> &nbsp;
-                     <button type="button" className="btn btn-primary" onClick={() => browserHistory.push('/projects/complete')}>Completed Projects</button>
-                    <span id="logout" className="glyphicon glyphicon-off" onClick={this.returnToSignin}></span>
-                    <hr/>
-                </div>
-               
-                <div className="row">
-                    <div className="col-sm-12 leftcolumn">
-                        <h3><center>My Active Projects</center></h3>
-                        <div className="row">
-                            {projects}
+            <div className="userProjectsPage">
+            <UserNavBar />
+            <h1>Projects</h1>
+                <div className="container-fluid">
+                    <div className="text-center">
+                        <div className="col-sm-12">
+                            <button type="button" className="btn addButton pull-right" onClick={() => browserHistory.push('/projects/new')}>Add New Project</button>
                         </div>
                     </div>
+                
+                    <div className="row">
+                        <div className="col-sm-12 leftcolumn">
+                            <div className="row">
+                                {projects}
+                            </div>
+                        </div>
+                    </div>   
                 </div>
+                 <span id="logout" className="glyphicon glyphicon-off" onClick={this.returnToSignin}></span>
+                <FooterArea />
             </div>
         );
     }
@@ -85,3 +89,9 @@ export default UserProjects;
 //                             <Project id={2} title="Test Project 2" author="Collin" projectNumber="39439jds" description="This is just a test project, so ignore it." />
 
  // let projects = this.state.projects.map((project, key) => <Project key={key} index={key} {...project} deleteProject={this.deleteProject} toggleProjectComplete={this.toggleProjectComplete}/>)
+
+
+                        //  <button type="button" className="btn btn-warning" onClick={() => browserHistory.push('/projects')}>Incompleted Projects</button> &nbsp;
+                        // <button type="button" className="btn btn-primary" onClick={() => browserHistory.push('/projects/complete')}>Completed Projects</button>
+                        // <span id="logout" className="glyphicon glyphicon-off" onClick={this.returnToSignin}></span>
+                        // <hr/>
