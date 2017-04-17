@@ -24,20 +24,21 @@ class ProjectPhotoCollaborating extends Component {
     //LifeCycles Methods
     componentWillMount(){
         this.getAssetFullCard()
-    }
-
-    componentDidMount(){
         this.getImages()
     }
 
+    // componentDidMount(){
+    //     this.getImages()
+    // }
+
     getAssetFullCard(){
-        fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '?token=' + this.props.params.token)
+        fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '?token=' + sessionStorage.getItem('token'))
         .then(response => response.json())
         .then(response => this.setState({...response}))
     }
 
     getImages(){
-        fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/photos?token=' + this.props.params.token)
+        fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/photos?token=' + sessionStorage.getItem('token'))
         // console.log(token)
         .then(response => response.json())
         .then(response => {
@@ -47,19 +48,19 @@ class ProjectPhotoCollaborating extends Component {
   
   render(){
       console.log(this.state.images)
-      let images = this.state.images.map((image, key) => <ProjectPhotoCollaboratingPhotoCard key={Date.now() + key} index={key} {...image} getImages={this.getImages} projectId={this.props.params.projectId}/>)
+      let images = this.state.images.map((image, key) => <ProjectPhotoCollaboratingPhotoCard key={Date.now() + key} index={key} {...image} getImages={this.getImages} projectId={this.props.params.projectId} {...this.props}/>)
 
     return (
         <div className="projectPhotoCollaborating">
             <NavBar {...this.props} />
             <NavAdditionalPager  {...this.props} />
 
-            <h1>Photo Collaborating</h1>
+            <h1>Asset Collaborating</h1>
         
             <div className="container">
                 <div className="row">
                     <div className="col-sm-7">
-                        <h3>Photo Details and Messages</h3>
+                        <h3>Asset Details and Messages</h3>
                             <ProjectShootFullCard {...this.props} {...this.state} />
 
                             <div className="panel panel-default">

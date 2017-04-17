@@ -6,7 +6,8 @@ class PhotoUploader extends React.Component {
     this.upload = this.upload.bind(this)
     this.state = {
       image: null,
-      frame_num: ''
+      frame_num: '', 
+      token: ''
     }
   }
 
@@ -27,7 +28,6 @@ class PhotoUploader extends React.Component {
   render() {
     return <div>
       <div className="form-group">
-        <label htmlFor="image" className="photoFrameInstructions">Photo</label>
         <input type="file" name="image" className="form-control image" required onChange={(e) => this.setState({image:e.target.files[0]})} />
       </div>
 
