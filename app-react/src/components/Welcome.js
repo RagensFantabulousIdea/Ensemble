@@ -11,12 +11,22 @@ import SignIn from './SignIn'
 class Welcome extends Component {
   constructor(props) {
     super(props)
+    this.closeSignup = this.closeSignup.bind(this)
+    this.closeSignin = this.closeSignin.bind(this)
     this.state = {
       modalSi: "none",
       modalSu: "none",
    
     }
   }
+
+  closeSignup() {
+    this.setState({modalSu: "none"})
+  } 
+
+  closeSignin() {
+    this.setState({modalSi: "none"})
+  } 
 
   render() {
     // let SignUp = this.state.SignUp.map((SignUp, key) => <SignUp {...SignUp} key={key} showModal={this.showModal}/>)
@@ -56,8 +66,8 @@ class Welcome extends Component {
 
         <FooterArea />
 
-        <Signup modalSu={this.state.modalSu}  className="modal"/>
-        <SignIn modalSi={this.state.modalSi}  className="modal"/>
+        <Signup modalSu={this.state.modalSu} closeSu={() => this.closeSignup()} className="modal"/>
+        <SignIn modalSi={this.state.modalSi} closeSi={() => this.closeSignin()}  className="modal"/>
 
       </div>
     );

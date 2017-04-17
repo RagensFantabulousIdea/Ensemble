@@ -77,7 +77,7 @@ return <div style={{display: this.props.modalSu}}>
         <div className="panel panel-default">
             <div className="panel-heading">
                 <h5 className="panel-title text-center">Sign Up</h5>
-                <i className="fa fa-times-circle-o fa-2x signup-close" aria-hidden="true" onClick={() => this.setState({xmark: 'none'})} ></i>
+                <i className="fa fa-times-circle-o fa-2x signup-close" aria-hidden="true" onClick={this.props.closeSu} ></i>
              
                     
                 </div>

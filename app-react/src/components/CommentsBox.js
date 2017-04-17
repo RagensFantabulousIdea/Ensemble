@@ -3,79 +3,80 @@ import CommentsTopLevel from './CommentsTopLevel';
 
 class CommentsBox extends Component {
 
-  // constructor(props){
-  //       super(props)
-  //       this.getMessages = this.getMessages.bind(this)   
-  //       this.addMessage = this.addMessage.bind(this)
+  constructor(props){
+        super(props)
+        this.onClick = this.onClick.bind(this)
+        this.getMessages = this.getMessages.bind(this)   
+        this.addMessage = this.addMessage.bind(this)
 
-  //       this.state = {
-  //           message: '',
-  //           firstname: '',
-  //           lastname: '',
-  //           id: '',
-  //           body: '',
-  //           messages: []
-  //           // getProjects: props.getProjects
-  //       }
-  // }
+        this.state = {          
+            body: '',
+            messages: [],
+            comments: [],
+            first_name: '',
+            last_name: ''
 
-    //     //LifeCycles Methods                                             
-    //     componentWillMount(){ 
-    //     this.getMessages()                  // put the data into it and change the state
-    // }
+           
+        }
+  }
 
-    //API Methods
-        // getMessages(){
-        //     fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '?token=' + sessionStorage.getItem('token'))
-        //         .then (response => response.json())
-        //         .then(messages => this.setState({messages:messages}))
-        //     }
-    // addMessage(message){
-    //             this.getMessage()
-    //         }
-    // addMessage(getMessages){                    
-    //     if (this.state.messages !== ''){
-    //     fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/comments?token=' + sessionStorage.getItem('token'), {
-    //         method: 'POST',
-    //         headers:{
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify({
-    //           //left hand side is handled by back-end
-    //             message: this.state.message,
-    //             // firstname: this.state.firstname,
-    //             // lastname: this.state.lastname,
-    //             body: this.state.body
-    //           })
-    //     })
-    //     .then(response => response.json())
-    //     .then(response => {
-    //          //clear the form fields
-    //         this.setState({
-    //             message: '',
-    //             firstname: '',
-    //             lastname: '',
-    //             body: ''
-    //         })
-    //     //Reload Lists
-    //     this.state.getMessages(response)
-    //     })
-    //     }
-    // }
+    onClick(){  
+                    
+        if (this.state.messages !== ''){
+       fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/comments?token=' + sessionStorage.getItem('token'), { 
+           method: 'POST',
+              headers:{
+                'Content-Type': 'application/json'
+            },
+            
+            body: JSON.stringify({
+              //left hand side is handled by back-end
+                body: this.state.body
+              })
+        })
+        .then(response => response.json())
+        .then(message => {
+             //clear the form fields
+            this.setState({
+                body: '',
+                first_name: '',
+                last_name: '',
+                messages: '',
+                comments: ''
+            })
+        //Reload Lists
+          //  console.log("yeee")
+        this.state.addMessage()
+        })
+        }
+    }
+
+        getMessages(){
+            fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '?token=' + sessionStorage.getItem('token'))
+                .then (response => response.json())
+                .then(messages => this.setState({messages:messages}))
+            }
+
+          addMessage(message){  //figure out what to pass ?
+            this.getMessages()
+          }
+
+  
+    
   render() {
 
-    // let messages = this.state.messages.map((message, key) => <CommentsTopLevel body={message.body} key={key}/>)
+    let messages = this.state.messages.map((message, key) => <CommentsTopLevel body={message.message} key={key}/>)
 
     return (
       <div>
         <div className="row">
           <div className="col-xs-12 commentsTopLevelCol">
           <h4>Messages</h4>
-            <div className="input-group">
-              <input type="text" className="form-control" />
-                <span className="input-group-btn">
-                  <button className="btn messagePost" type="button" >Post</button>
-                </span>
+            <div className="input-group">            
+                  <input type="text" className="form-control" value ={this.state.body} onChange={(e) => this.setState({body: e.target.value})} />
+                                <span className="input-group-btn">
+                                  <button className="btn messagePost" type="button" onClick={() => this.onClick()}>Post</button>
+                                </span>
             </div>
             <br/>
           </div>
@@ -88,6 +89,12 @@ class CommentsBox extends Component {
 }
 
 export default CommentsBox;
+
+
+  // <input type="text" className="form-control" value ={this.state.body} onChange={(e) => this.setState({body: e.target.value})}/>
+  //               <span className="input-group-btn">
+  //                 <button className="btn messagePost" type="button" onClick={() => this.onClick()}>Post</button>
+  //               </span>
 
 
 
