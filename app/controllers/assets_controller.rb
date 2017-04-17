@@ -50,11 +50,7 @@ class AssetsController < ApplicationController
   def destroy
     if editor
       @asset.destroy
-      if @asset.save
-        render json: ["Asset deleted successfully."]
-      else
-        render json: @asset.errors.full_messages, status: 400
-      end
+      render json: ["Asset deleted successfully."]
     else
       render json: ["You are not authorized to delete this resource."], status: 401
     end
@@ -63,7 +59,7 @@ class AssetsController < ApplicationController
   private
 
   def asset_params
-    params.permit(:figure_num, :asset_description, :order_num, :landscape, :portrait, :demonstrative, :decorative, :frame_num, :instructions, :photographer, :frame_range, :parts, :equipment, :model, :location_of_shoot, :date_of_shoot, :time_of_shoot, :image)
+    params.permit(:figure_num, :asset_description, :order_num, :landscape, :portrait, :demonstrative, :decorative, :frame_num, :instructions, :photographer, :frame_range, :parts, :equipment, :photo_model, :location_of_shoot, :date_of_shoot, :time_of_shoot, :image)
   end
 
   def forbidden

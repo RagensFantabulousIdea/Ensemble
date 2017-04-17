@@ -31,11 +31,7 @@ class PhotosController < ApplicationController
   def destroy
     if editor
       @photo.destroy
-      if @photo.save
-        render json: ["Photo deleted successfully."]
-      else
-        render json: @photo.errors.full_messages, status: 400
-      end
+      render json: ["Photo deleted successfully."]
     else
       forbidden
     end
