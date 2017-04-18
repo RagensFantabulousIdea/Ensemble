@@ -17,7 +17,7 @@ class Signin extends Component {
     signin() {
         var email = this.state.email
         var password = this.state.password
-        console.log(email, password)
+        //console.log(email, password)
 
         fetch('/api/login', {
             method: 'POST',
@@ -32,12 +32,12 @@ class Signin extends Component {
         })
 
             .then(function (response) {
-                console.log(response)
+                //console.log(response)
                 return response.json();
             })
 
             .then(function (response) {
-                console.log(response);
+                //console.log(response);
 
                 if (response.token) {
                     sessionStorage.setItem('token', response.token);
@@ -46,7 +46,7 @@ class Signin extends Component {
                 }
                 else {
                     alert('There was an error signing in');
-                    console.log('Signin : ' + response);
+                    //console.log('Signin : ' + response);
                 }
             })
 

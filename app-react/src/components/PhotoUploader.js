@@ -24,13 +24,16 @@ class PhotoUploader extends React.Component {
     // .then(response => response.json())
     .then(response => {
       this.props.getImages()
+      this.setState({
+        image: ''
+      })
     })
   }
 
   render() {
     return <div>
       <div className="form-group">
-        <input type="file" name="image" className="form-control imageUploader" required onChange={(e) => this.setState({image:e.target.files[0]})} />
+        <input type="file" name="image" className="form-control imageUploader" value={this.state.image} required onChange={(e) => this.setState({image:e.target.files[0]})} />
       </div>
 
       <div className="form-group">

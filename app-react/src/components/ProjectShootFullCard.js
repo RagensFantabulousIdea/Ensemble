@@ -13,7 +13,7 @@ class ProjectShootFullCard extends Component {
         this.state = {
             frame_range: '',
             selected_photo: '',
-            images: []
+            sample_photos: []
         }
     }
 
@@ -24,7 +24,7 @@ class ProjectShootFullCard extends Component {
     componentWillReceiveProps(props) {
         this.setState({
             frame_range: props.frame_range || '',
-            selected_photo: props.selected_photo || ''
+            selected_photo: props.selected_photo ? props.selected_photo.frame_num : ''
         })
     }
 
@@ -42,33 +42,31 @@ class ProjectShootFullCard extends Component {
     }
 
     updateFrameSelected() {
-        fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/photos/' + this.state.frame_num + '/selected', {
+        fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/photos/' + this.state.selected_photo + '/selected', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
                 token: sessionStorage.getItem('token'),
-                // QQCollin: Kalea thinks that we need to include frame_num here, but adding it didn't help make it work, so we left our attempts here so you could see what we tried.
-                // frame_num: this.props.params.frame_num,
-                // frame_num: this.state.frame_num,
                 selected: true
             })
         })
     }
 
-        getImages(){
-        fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '?token=' + sessionStorage.getItem('token'))
+    getImages(){
+        fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/photos/samples?token=' + sessionStorage.getItem('token'))
         // console.log(token)
         .then(response => response.json())
         .then(response => {
-            this.setState({images: response.photos})
+            //console.log(response)
+            this.setState({images: response})
         })
     }
   
   render(){
-      console.log(this.state.images)
-      let images = this.state.images.map((photo, key) => <SamplePhotoCard key={Date.now() + key} index={key}  image={photo.image} projectId={this.props.params.projectId} assetId={this.props.params.assetId} photoId={photo.id} frame_num={photo.frame_num} />)
+      //console.log(this.state.images)
+      let sample_photos = this.state.sample_photos.map((photo, key) => <SamplePhotoCard key={Date.now() + key} index={key}  image={photo.image} projectId={this.props.params.projectId} assetId={this.props.params.assetId} photoId={photo.id} frame_num={photo.frame_num} />)
 
         return (
             <div className="panel">
@@ -159,7 +157,7 @@ class ProjectShootFullCard extends Component {
                             </div>
 
                             <div className="row">
-                                {images}
+                                {sample_photos}
                             </div>
                         </div>
                     </div>

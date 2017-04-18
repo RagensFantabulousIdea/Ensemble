@@ -41,7 +41,7 @@ class ProjectAssetEditCard extends Component {
             .then(asset => this.setState({
                 asset: asset,
                 figure_num: asset.figure_num|| "",
-                selected_photo: asset.selected_photo || "",
+                selected_photo: asset.selected_photo.frame_num || "",
                 parts: asset.parts || "",
                 frame_num: asset.frame_num || "",
                 order_num: asset.order_num || "",
@@ -271,18 +271,6 @@ class ProjectAssetEditCard extends Component {
                                         <label>
                                             <input type="checkbox" value={this.state.landscape} onChange={(e) => this.setState({landscape: e.target.checked})} /> Landscape orientation?
                                         </label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <br/>
-
-                            <div className="row">
-                                <div className="col-xs-12">
-                                    <div className="form-group">
-                                        <label htmlFor="figureSample">Upload Sample</label>
-                                        <p className="help-block">You can upload sample images to guide the models and photographer.</p>
-                                        <input type="file" className="figureSample"/>
                                     </div>
                                 </div>
                             </div>

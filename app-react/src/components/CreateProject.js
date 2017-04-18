@@ -18,7 +18,7 @@ class createproject extends Component {
     }
 
     addProject(title, author, projectNumber, description) {
-        console.log(this.props.params.projectId)
+        //console.log(this.props.params.projectId)
 
         //Post to /api/projects
         if (
@@ -57,7 +57,7 @@ class createproject extends Component {
     }
 
     render() {
-        console.log(this.props.params.projectId)
+        //console.log(this.props.params.projectId)
         return (
             <div className="createProject">
             <UserNavBar />

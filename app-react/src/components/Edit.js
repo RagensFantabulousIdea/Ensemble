@@ -65,7 +65,7 @@ class Edit extends Component {
           
     }
     render() {
-        console.log(this.props.params.projectId)
+        //console.log(this.props.params.projectId)
         return (
             <div id="createproject">
                 <div className="col-sm-4 col-sm-offset-4">
