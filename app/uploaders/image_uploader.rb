@@ -1,6 +1,11 @@
 class ImageUploader < CarrierWave::Uploader::Base
 
   include Cloudinary::CarrierWave
+  before :cache, :save_original_filename
+
+  def save_original_filename(file)
+    model.frame_num ||= file.original_filename.gsub(/\..+\z/i, "") if file.respond_to?(:original_filename)
+  end
 
   process :convert => 'jpg'
   process :tags => ['Ensemble']
@@ -43,7 +48,6 @@ class ImageUploader < CarrierWave::Uploader::Base
   # version :thumb do
   #   process resize_to_fit: [50, 50]
   # end
-
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
