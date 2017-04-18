@@ -14,7 +14,7 @@ class ProjectShootMiniCard extends Component {
             <Link to={'/shoot/' + this.props.projectId + '/assets/' + this.props.id + '/collaborate'}><div className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                 <div className="panel">
                     <div className="panel-heading imagePanel">
-                        {this.props.message ? <span className="commentIndicator glyphicon glyphicon-comment pull-right" aria-hidden="true"></span> : ''} <br/> 
+                        {this.props.message_new ? <span className="commentIndicator glyphicon glyphicon-comment pull-right" aria-hidden="true"></span> : ''} <br/> 
                             {this.props.selected_photo && this.props.selected_photo.image.url ? <img src={this.props.selected_photo.image.url} alt="selection" /> : ''}
                     </div>
     

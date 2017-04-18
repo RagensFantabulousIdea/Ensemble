@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SampleUploader from './SampleUploader';
+import SamplePhotoCard from './SamplePhotoCard';
 import NavBar from './NavBar';
 import FooterArea from './FooterArea';
 
@@ -15,6 +16,7 @@ class ProjectCreateCard extends Component {
     constructor(props) {
         super(props)
         this.saveAsset = this.saveAsset.bind(this)
+        this.getSample = this.getSample.bind(this)
 
         this.state = {
             figureNumber: '',
@@ -32,8 +34,13 @@ class ProjectCreateCard extends Component {
             photoDecorative: '',
             photoDemonstrative: '',
             orientationPortrait: '',
-            orientationLandscape: ''
+            orientationLandscape: '', 
+            images: []
         }
+    }
+
+        componentDidMount(){
+        this.getSample()
     }
 
     saveAsset() {
@@ -72,7 +79,19 @@ class ProjectCreateCard extends Component {
         })
     }
 
-    render() {
+        getSample(){
+        fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '?token=' + sessionStorage.getItem('token'))
+        // console.log(token)
+        .then(response => response.json())
+        .then(response => {
+            // this.setState({images: images})
+            this.setState({images: response.photos})
+        })
+    }
+  
+  render(){
+      console.log(this.state.images)
+      let images = this.state.images.map((photo, key) => <SamplePhotoCard key={Date.now() + key} index={key}  image={photo.image} projectId={this.props.params.projectId} assetId={this.props.params.assetId} frame_num={photo.frame_num} />)
 
     return (
         <div className="projectCreateCard">
@@ -225,13 +244,14 @@ class ProjectCreateCard extends Component {
                                     </div>
                                 </div>
                             </div>
+
+                            <div className="row">
+                                {images}
+                            </div>
                         </form>
                     </div>
                     <div className="panel-footer">
                         <div className="row">
-                            {/*<div className="col-xs-6">
-                                <button type="button" className="btn btn-danger deleteFigure" onClick={() => this.deletePhoto(this.props.id)}>Delete Asset</button>
-                            </div>*/}
 
                             <div className="col-xs-12">
                                 <button type="button" className="btn btn-success pull-right saveFigure" onClick={this.saveAsset}>Save Asset</button>
