@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+// import { Link } from 'react-router';
 
 class ProjectPhotoCollaboratingPhotoCard extends Component {
   
-//    {<img src={this.props.photos.image.url} alt="uploaded" />}
+// Used to have link around the card to send us to the full view, but when it was there, the card wouldn't render. It said:
+        //    <Link to={'/api/projects/' + this.props.projectId + '/assets/' + this.props.assetId + '/photos/' + this.props.params.id + '?token=' + sessionStorage.getItem('token')}>
+
   render() {
+      console.log(this.props.image)
     return (
         <div>
-            <Link to={'/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/photos/' + this.props.params.id + '?token=' + sessionStorage.getItem('token')}>
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
 
                 <div className="panel">
                 
                     <div className="panel-body imagePanel">
-                        {<img src={this.getImages} alt="uploaded" />}
+                        <img src={this.props.image.url} alt="uploaded" />
                     </div>
 
                     <div className="panel-footer">
@@ -26,7 +28,6 @@ class ProjectPhotoCollaboratingPhotoCard extends Component {
 
                 </div>
             </div>
-            </Link>
         </div>
     );
   }

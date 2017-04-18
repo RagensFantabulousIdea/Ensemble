@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SampleUploader from './SampleUploader';
 import NavBar from './NavBar';
 import FooterArea from './FooterArea';
 
@@ -219,6 +220,7 @@ class ProjectCreateCard extends Component {
                                     <div className="form-group">
                                         <label htmlFor="figureSample">Upload Sample</label>
                                         <p className="help-block">You can upload sample images to guide the models and photographer.</p>
+                                        <SampleUploader />
                                         <input type="file" className="figureSample"/>
                                     </div>
                                 </div>

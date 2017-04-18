@@ -1,6 +1,6 @@
 import React from 'react'
 
-class PhotoUploader extends React.Component {
+class SampleUploader extends React.Component {
   constructor(props) {
     super(props)
     this.upload = this.upload.bind(this)
@@ -45,4 +45,4 @@ class PhotoUploader extends React.Component {
   }
 }
 
-export default PhotoUploader;
+export default SampleUploader;
