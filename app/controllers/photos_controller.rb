@@ -16,7 +16,7 @@ class PhotosController < ApplicationController
   end
 
   def samples
-    @photos = @asset.photos.sample_photo.all
+    @sample_photos = @asset.sample_photos
     if editor
       if @photos
         render json: @photos
@@ -120,7 +120,7 @@ class PhotosController < ApplicationController
   end
 
   def photo_params
-    params.permit(:image, :frame_num, :liked, :disliked, :selected, :asset_id, :selected_photo, {sample_photos: []})
+    params.permit(:frame_num, :liked, :disliked, :selected, :asset_id, :selected_photo, {sample_photos: []})
   end
 
 end
