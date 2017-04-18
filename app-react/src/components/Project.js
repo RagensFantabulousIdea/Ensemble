@@ -71,6 +71,16 @@ class Project extends React.Component{
                         <p>{this.props.description}</p>
                     </div>
                 <div className="panel-footer">
+
+                <div className="form-group">
+                    <select className="form-control">
+                        <option value="">Select category...</option>
+                        <option value="edit" onSelect={() => browserHistory.push('/edit/' + this.props.id)}>Edit</option>
+                        <option value="home">Delete</option>
+                        <option value="school">Invite</option>
+                        <option value="work">Project Shoot List</option>
+                    </select>
+            </div>
                  <button type="button" className="btn btn-primary col-sm-offset-1" onClick={() => browserHistory.push('/edit/' + this.props.id)}>Edit </button>
                     <button type="button" className="btn btn-danger col-sm-offset-1" onClick={() => this.props.deleteProject(this.props.id)}>Delete </button>
                     <button type="button" className="btn btn-success col-sm-offset-1" onClick={() => browserHistory.push('/invite/' + this.props.id)}>Invite</button>
