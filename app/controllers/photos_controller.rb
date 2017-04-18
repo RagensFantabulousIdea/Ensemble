@@ -16,17 +16,12 @@ class PhotosController < ApplicationController
   end
 
   def samples
-    @photo = Photo.find_by(frame_num: params[:id])
+    @sample_photos = @asset.sample_photos
     if editor
-      if @photo
-        @photo.selected = params[:sample_photo]
-        if @photo.save
-          render json: ["Photo #{@photo.frame_num} uploaded as a sample image for Project #{@project.project_num}, figure #{@asset.figure_num} successfully!"]
-        else
-          render json: @photo.errors.full_messages, status: 400
-        end
+      if @photos
+        render json: @photos
       else
-        render json: ["Frame number not found."], status: 404
+        render json: @photos.errors.full_messages, status: 400
       end
     else
       forbidden
@@ -125,7 +120,7 @@ class PhotosController < ApplicationController
   end
 
   def photo_params
-    params.permit(:image, :frame_num, :liked, :disliked, :selected, :asset_id, :selected_photo)
+    params.permit(:frame_num, :liked, :disliked, :selected, :asset_id, :selected_photo, {sample_photos: []})
   end
 
 end

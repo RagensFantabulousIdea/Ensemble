@@ -1,6 +1,6 @@
 class PhotoSerializer < ActiveModel::Serializer
 
-  attributes :id, :frame_num, :liked, :disliked, :selected, :sample_photo
+  attributes :id, :frame_num, :liked, :disliked, :selected
 
   has_one :image
 end
