@@ -10,7 +10,8 @@ class CommentsBox extends Component {
 
         this.state = {          
             body: '',
-            messages: []
+            messages: [],
+            comments: []
           }
   }
 
@@ -50,17 +51,10 @@ class CommentsBox extends Component {
                 .then(response => this.setState({messages:response.comments}))
                 .then(blah => console.log(this.state.messages))
 
-            }  
-
-        deleteMessages(id) {
-        fetch('/api/projects/' + this.props.projectId + '/assets/' + this.props.assets + '?token=' + sessionStorage.getItem('token'), {method: 'DELETE'})
-            .then(response => {
-                this.getMessages()
-            })
-           
-    }
+            }
   render() {
-let Comments = this.state.messages.map((message, key) => <CommentsTopLevel body={message.body} firstName={message.user.first_name} lastName={message.user.last_name} deleteMessages={this.deleteMessages} key={key}/>)
+    console.log(this.props)
+    let comments = this.state.messages.map((message, key) => <CommentsTopLevel projectId={this.props.projectId} assetId={this.props.assets} commentId={message.id} body={message.body} firstName={message.user.first_name} lastName={message.user.last_name} key={key}/>)
 
     return (
       <div>
@@ -75,7 +69,7 @@ let Comments = this.state.messages.map((message, key) => <CommentsTopLevel body=
             </div>
             <br/>
           </div>
-          {Comments}
+          {comments}
         </div>
       </div>
       

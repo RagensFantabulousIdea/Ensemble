@@ -16,12 +16,12 @@ class ProjectPhotoCollaboratingPhotoCard extends Component {
   render() {
       //console.log(this.props.image)
     return (
-        <div onClick={() => browserHistory.push('/shoot/' + this.props.projectId + '/assets/' + this.props.assetId + '/photos/' + this.props.photoId + '?src=' + encodeURIComponent(this.props.image.url))}>
+        <div>
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
 
                 <div className="panel">
                 
-                    <div className="panel-body imagePanel" >
+                    <div className="panel-body imagePanel" onClick={() => browserHistory.push('/shoot/' + this.props.projectId + '/assets/' + this.props.assetId + '/photos/' + this.props.photoId + '?src=' + encodeURIComponent(this.props.image.url))}>
                         <img src={this.props.image.url} alt="uploaded" />
                     </div>
 
