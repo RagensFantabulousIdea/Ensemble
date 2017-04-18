@@ -80,6 +80,12 @@ class ProjectShootList extends Component {
           </div>
             
             <div className="container">
+
+              <div className="row">
+                <div className="col-xs-12">
+                  <p></p>
+                </div>
+              </div>
               <div className="row">
                   {assets}
               </div>

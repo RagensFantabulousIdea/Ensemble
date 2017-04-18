@@ -26,10 +26,10 @@ class ProjectAssetEditCard extends Component {
             location_of_shoot: '',
             date_of_shoot: '',
             time_of_shoot: '',
-            decorative: '',
-            demonstrative: '',
-            portrait: '',
-            landscape: '',
+            decorative: '0',
+            demonstrative: '0',
+            portrait: '0',
+            landscape: '0',
             token: '',
             asset: null
         }
@@ -102,10 +102,10 @@ class ProjectAssetEditCard extends Component {
                 location_of_shoot: '',
                 date_of_shoot: '',
                 time_of_shoot: '',
-                decorative: '',
-                demonstrative: '',
-                portrait: '',
-                landscape: ''
+                decorative: '0',
+                demonstrative: '0',
+                portrait: '0',
+                landscape: '0'
             })
             // browserHistory.push('/shoot/' + this.props.projectId + '/assets/' + this.props.id + '/collaborate')
             browserHistory.push('/shoot/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/collaborate')

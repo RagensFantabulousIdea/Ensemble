@@ -72,8 +72,7 @@ class CommentsBox extends Component {
         <div className="row">
           <div className="col-xs-12 commentsTopLevelCol">
           <h4>Messages</h4>
-            <div className="input-group">
-            
+            <div className="input-group">            
                   <input type="text" className="form-control" value ={this.state.body} onChange={(e) => this.setState({body: e.target.value})} />
                                 <span className="input-group-btn">
                                   <button className="btn messagePost" type="button" onClick={() => this.onClick()}>Post</button>
