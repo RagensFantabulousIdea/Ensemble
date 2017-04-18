@@ -40,7 +40,7 @@ class Welcome extends Component {
 
           <div className="welcomeButtons text-center">
             <button type="button" className="btn signInButtonWelcome" onClick={() => this.setState({modalSi: 'block'})} >Sign In</button> <br/>
-            <button type="button" className="btn signUpButtonWelcome" onClick={() => this.setState({modalSu: 'block'})}>Sign Up</button>
+            <button type="button" className="btn signInButtonWelcome" onClick={() => this.setState({modalSu: 'block'})}>Sign Up</button>
           </div>
         </div>
           
@@ -58,16 +58,10 @@ class Welcome extends Component {
             </div>
           </div>
 
-
-      
-
-
-
-
-        <FooterArea />
-
         <Signup modalSu={this.state.modalSu} closeSu={() => this.closeSignup()} className="modal"/>
         <SignIn modalSi={this.state.modalSi} closeSi={() => this.closeSignin()}  className="modal"/>
+
+        <FooterArea />
 
       </div>
     );

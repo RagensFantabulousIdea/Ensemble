@@ -30,9 +30,9 @@ class SignUp extends Component {
         // console.log(firstname,lastname, email, password)
 
         if (firstname === '' || lastname === '' || email === '' || password === '') {
-            alert('You must fill in all fields')
+            alert('You must fill in all fields.')
         }  else if (!email.includes('@') || (email.slice(email.length - 4, email.length - 3) !== '.')) {
-            alert('You must enter a valid email address')
+            alert('You must enter a valid email address.')
         } 
          else {
 
@@ -71,40 +71,36 @@ class SignUp extends Component {
         }
 }
 
+                // <i className="fa fa-times-circle-o fa-2x signup-close" aria-hidden="true" onClick={this.props.closeSu} ></i>
+
 render() {
 return <div style={{display: this.props.modalSu}}>
     <div className="container modal-opac">
-        <div className="panel panel-default">
-            <div className="panel-heading">
-                <h5 className="panel-title text-center">Sign Up</h5>
-                <i className="fa fa-times-circle-o fa-2x signup-close" aria-hidden="true" onClick={this.props.closeSu} ></i>
-             
-                    
-                </div>
-                 
+        <div className="panel modalSu">
             <div className="panel-body">
+                <button type="button" className="close signup-close" data-dismiss="modalSu" aria-label="Close" onClick={this.props.closeSu}><span aria-hidden="true">&times;</span></button>
                 <div className="form-group">
                     <label htmlFor="firstname">First Name</label>
-                    <input type="text" id="name" className="form-control" placeholder="John" value={this.state.firstname} onChange={(e) => this.setState({firstname: e.target.value})} required/>
+                    <input type="text" className="form-control name" placeholder="John" value={this.state.firstname} onChange={(e) => this.setState({firstname: e.target.value})} required/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="lastname">Last Name</label>
-                    <input type="text" id="name" className="form-control" placeholder="Smith" value={this.state.lastname} onChange={(e) => this.setState({lastname: e.target.value})}required/>
+                    <input type="text" className="form-control name" placeholder="Smith" value={this.state.lastname} onChange={(e) => this.setState({lastname: e.target.value})} required/>
                 </div>
                 <div className="form-group">
-                        <label htmlFor="email">Email</label>
-                        <input type="text" id="email" className="form-control" placeholder="johnsmith@gmail.com" value={this.state.email} onChange={(e) => this.setState({email: e.target.value})} required />
+                    <label htmlFor="email">Email</label>
+                    <input type="text" className="form-control email" placeholder="johnsmith@gmail.com" value={this.state.email} onChange={(e) => this.setState({email: e.target.value})} required />
                 </div>
                 <div className="form-group">
-                        <label htmlFor="password">Password</label>
-                        <input type="password" id="password" className="form-control" maxLength="72" value={this.state.password} onChange={(e) => this.setState({password: e.target.value})}  required />
+                    <label htmlFor="password">Password</label>
+                    <input type="password" className="form-control password" maxLength="72" value={this.state.password} onChange={(e) => this.setState({password: e.target.value})}  required />
                 </div>
-                 </div>
-                <div className="panel-footer text-center">
-                <button id="actionButton" type="button" className="btn btn-lg btn-success" onClick={this.signup}>Sign Up</button>
-                    </div>
+            </div>
+            <div className="panel-footer text-center">
+                <button type="button" className="btn btn-lg actionButton" onClick={this.signup}>Sign Up</button>
             </div>
         </div>
+    </div>
     </div>
 
     }
