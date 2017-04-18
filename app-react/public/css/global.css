@@ -17,8 +17,7 @@ img {
 }
 
 .appName {
-    /*font-family: 'Bree Serif', serif;*/
-    font-family: 'Rancho', cursive;
+    font-family: 'Signika', sans-serif;
     font-size: 60px;
     /*color: black;*/
     color: white;
@@ -78,6 +77,34 @@ img {
     padding-bottom: 30px;
 }
 
+/*sign in and up panels*/
+.modalSi, .modalSu {
+    width: 50vw;
+    margin: 0 auto;
+}
+
+.actionButton {
+    background-color: #5EABE2;
+    font-family: 'Raleway', sans-serif;
+}
+
+/*modal*/
+
+.modal-opac {
+    background-color: rgba(0,0,0,0.3);   
+    position: fixed;
+    bottom: 50px;
+    width: 100vw;
+    min-width: 300px;
+    height: 50vh;
+    margin-top: 5vh; 
+}
+
+ .signup-close {
+     cursor: pointer;
+     cursor: hand;
+ }
+
 /*Nav*/
 .headerArea {
     background-image: url("../img/fruit-1302126_1920.jpg");
@@ -96,8 +123,13 @@ img {
         background-position: 0% 50%;
         padding-top: 20px;
         padding-bottom: 40px;*/
-        background-image: url("../img/marigold1731186_1920.jpg");
+        /*background-image: url("../img/marigold1731186_1920.jpg");
         background-position: 0% 95%;
+        padding-top: 20px;
+        padding-bottom: 40px;*/
+
+        background-image: url("../img/sun-493118_1920.jpg");
+        background-position: 0% 60%;
         padding-top: 20px;
         padding-bottom: 40px;
     }
@@ -108,6 +140,7 @@ nav  {
     padding-bottom: 30px;
     text-align: right;
 }
+
 a.nav-item {
     /*color: #545454;*/
     color: white;
@@ -160,44 +193,74 @@ a.nav-item {
 /*User Projects*/
 .userProjectsPage {
     background-color: #2D2D2D;
+    /*background-color: #3B424A;*/
+    /*background-color: #0D0E0E;*/
+}
+
+.userHomeTitle {
+    font-family: 'Signika', sans-serif;
+    font-size: 75px;
+    padding-bottom: 20px;
+    color: #D9D9D9;
+    padding-left: 20px;
+}
+
+/*create project card*/
+    .createProject {
+        background-color: #2D2D2D;
+    }
+
+
+/*Project*/
+.projectCard {
+    min-height: 420px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.ownerCheck {
+    text-align: right;
+}
+
+.ownerLabel {
+    display: inline-block;
+    background-color: #5EABE2;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    border: 2px solid white;
+    text-align: center;
+    padding-bottom: 30px;
+    padding-top: 20px;
+    font-style: normal;
+    margin-bottom: 80px; 
+}
+
+.projectTitle {
+    color: black;
+    margin-bottom: 20px;
 }
 
 
 /*Start styles Manpreet had made*/
-/*#actionButton {
+
+
+/*.createproject{
     margin-top: 20px;
 }*/
 
-.createproject{
-    margin-top: 20px;
-}
-
-#createproject{
-    margin-top: 20px;
-}
-
-#carditems{
+/*.carditems{
     padding-top: 10px;
     padding-left: 20px;
-}
-
-.projectCard {
-    min-height: 500px;
-}
-
-.invitetopmargin{
-    margin-top: 20px;
-}
-
-/*.leftcolumn{
-    background-color: lightyellow;
 }*/
 
-.rightcolumn{
-    background-color: pink;
-}
+/*.invitetopmargin{
+    margin-top: 20px;
+}*/
 
-#logout {
+.logout {
     float: right;
     font-size: 30px;
     cursor: pointer;
@@ -207,13 +270,18 @@ a.nav-item {
 
 /*end Manpreet's styles*/
 
+/*invite card invitation form*/
+.inviteCard {
+    background-color: #2D2D2D;
+}
+
 /*Photo Shoot List*/
 .projectShootListPage {
     background-color: #2D2D2D;
 }
 
 h1 {
-    font-family: 'Rancho', cursive;
+    font-family: 'Signika', sans-serif;
     font-size: 75px;
     padding-bottom: 20px;
     color: #D9D9D9;
@@ -241,6 +309,7 @@ h1 {
     /*background-color: #E6E6E6;*/
     background-color: #5EABE2;
     font-family: 'Raleway', sans-serif;
+    margin-bottom: 30px;
 }
 
 /*QQRAGEN: come back to this and add padding! */
@@ -422,8 +491,8 @@ h3 {
     }
 
     .appName {
-        /*font-size: 120px;*/
-        font-size: 160px;
+        font-size: 120px;
+        /*font-size: 160px;*/
         color: white;
         text-shadow: 1px 2px 2px black;
     }
@@ -487,8 +556,8 @@ h3 {
     }
 
     .appName {
-        /*font-size: 120px;*/
-        font-size: 160px;
+        font-size: 140px;
+        /*font-size: 160px;*/
         color: white;
         text-shadow: 1px 2px 2px black;
     }
@@ -570,15 +639,3 @@ h3 {
 /*end modal stuff from w8 d2 notes*/
 
 
-/*signup*/
-
-.modal-opac {
-    background-color: rgba(0,0,0,0.3);   
-    position: fixed;
-    bottom: 50px;
-}
-
- .signup-close {
-     cursor: pointer;
-     cursor: hand;
- }

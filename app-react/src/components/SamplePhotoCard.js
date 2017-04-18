@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router';
+import { Link } from 'react-router';
 
 class ProjectPhotoCollaboratingPhotoCard extends Component {
   
@@ -20,8 +20,8 @@ class ProjectPhotoCollaboratingPhotoCard extends Component {
 
                     <div className="panel-footer">
                         <div className="row">
-                            <div className="col-xs-12 text-centered">
-                                <p>{this.props.frame_num}</p>
+                            <div className="col-xs-12">
+                                <Link className="couldSelect"><span className="glyphicon glyphicon-trash" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Delete sample image"></span></Link>
                             </div>
                         </div>
                     </div>
@@ -36,9 +36,7 @@ class ProjectPhotoCollaboratingPhotoCard extends Component {
 export default ProjectPhotoCollaboratingPhotoCard;
 
 // <div className="row">
-//                             <div className="col-xs-4">
-//                                 <a className="couldSelect"><span className="glyphicon glyphicon-trash" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Delete photo"></span></a>
-//                             </div>
+//                             
                             
 //                             <div className="col-xs-4">
 //                                 <a className="doNotSelect"><span className="glyphicon glyphicon-remove-circle" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Don't select"></span></a>

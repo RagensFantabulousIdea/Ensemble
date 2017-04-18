@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
 // import SignUp from './SignUp'
-class createproject extends Component {
+class Edit extends Component {
     constructor(props) {
         super(props)
         this.editProject = this.editProject.bind(this)
@@ -27,6 +27,10 @@ class createproject extends Component {
                 description: projects.description
             }))
             .then (whatever => console.log(this.state.projects))
+    }
+
+    componentWillReceiveProps(){
+        this.getAssets()
     }
 
     editProject(title, author, projectNumber, description,id) {
@@ -86,7 +90,7 @@ class createproject extends Component {
                                     <label htmlFor="description">Description of project</label>
                                     <textarea className="form-control" placeholder="body" rows="10" value={this.state.description} onChange={(e) => this.setState({description: e.target.value})}/>
                                 </div>
-                                <button type="button" className="btn btn-success " onClick={this.editProject}>Edit</button>
+                                <button type="button" className="btn btn-success " onClick={this.editProject}>Save</button>
                             </form>
                         </div>
                     </div>
@@ -98,5 +102,5 @@ class createproject extends Component {
         );
     }
 }
-export default createproject;
+export default Edit;
 

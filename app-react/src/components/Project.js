@@ -50,51 +50,56 @@ class Project extends React.Component{
     }
 
     render(){
-        return <div className="col-sm-6 projectCard">
-                <div className="panel panel-info">
+        return (
+            <div className="col-sm-6 projectCard">
+                <div className="panel">
                     <div className="panel-heading">
-                          <div className="form-check">
-                                {this.props.owner.id == sessionStorage.getItem('userId') ?
-                                <label className="form-check-label">
-                                    <input type="checkbox" className="form-check-input" checked={this.state.complete} onChange={this.toggleCompleted}/>
-                                        &nbsp; Check if project is done
-                                </label> : ''}
-                                {this.props.owner.id == sessionStorage.getItem('userId') ? <span className="pull-right label label-warning">You Are The Owner</span> : <span className="pull-right label label-danger">Collaboration</span>}
-                            </div>
-                            <h3 className="title">{this.props.title}</h3>
+                    {this.props.message_new ? <span className="commentIndicator glyphicon glyphicon-comment pull-right" aria-hidden="true"></span> : ''}
+                        <div className="form-check ownerCheck">
+                            {this.props.owner.id == sessionStorage.getItem('userId') ?
+                            <label className="form-check-label">
+                                <input type="checkbox" className="form-check-input" checked={this.state.complete} onChange={this.toggleCompleted}/>
+                                &nbsp; Check if project is done
+                            </label> : ''}
+                            <br/>
+                            <br/>
+                            {this.props.owner.id == sessionStorage.getItem('userId') ? <span className="pull-right label ownerLabel">Owner</span> : <span className="pull-right label collaborationLabel">Collaboration</span>}
                         </div>
-                            <p id="carditems">{this.props.author}</p><hr/>
-                            <div>
-                            <p id="carditems">{this.props.project_num}</p><hr/>
-                            </div>
-                    <div className="panel-body">
-                        <p>{this.props.description}</p>
+
+                        <h3 className="projectTitle">{this.props.title}</h3>
                     </div>
-                <div className="panel-footer">
-               
-                <div className="btn-group">
-                    <button type="button" className="btn btn-default dropdown-toggle"           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Action <span className="caret"></span>
-                        </button>
-        
-                    <ul className="dropdown-menu" aria-labelledby="dropdownMenu4">
-                        <li><a href="#">Regular link</a></li>
-                        <li className="disabled"><a href="#">Disabled link</a></li>
-                        <li><a href="#">Another link</a></li>
-                        </ul>
-                </div>
 
+                    <div className="panel-body">
+                        <div className="row">
+                            <div className="col-xs-6">
+                                <h4 className="carditems">{this.props.author}</h4>
+                            </div>
 
-                    <button type="button" className="btn btn-primary col-sm-offset-1" onClick={() => browserHistory.push('/edit/' + this.props.id)}>Edit </button>
-                    <button type="button" className="btn btn-danger col-sm-offset-1" onClick={() => this.props.deleteProject(this.props.id)}>Delete </button>
-                    <button type="button" className="btn btn-success col-sm-offset-1" onClick={() => browserHistory.push('/invite/' + this.props.id)}>Invite</button>
-                    <button type="button" className="btn btn-success col-sm-offset-1" onClick={() => browserHistory.push('/shoot/' + this.props.id)}>Project Shoot List</button>
+                            <div className="col-xs-6">
+                                <h4 className="carditems">{this.props.project_num}</h4>
+                            </div>
+                        </div>
+
+                        <div className="row">
+                            <div className="col-sm-12">
+                                <p>{this.props.description}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="panel-footer">
+                        <button type="button" className="btn btn-danger col-sm-offset-1" onClick={() => this.props.deleteProject(this.props.id)}>Delete </button>
+
+                        <button type="button" className="btn btn-primary col-sm-offset-1" onClick={() => browserHistory.push('/edit/' + this.props.id)}>Edit </button>
                     
+                        <button type="button" className="btn btn-success col-sm-offset-1" onClick={() => browserHistory.push('/invite/' + this.props.id)}>Invite</button>
+                    
+                        <button type="button" className="btn btn-success col-sm-offset-1" onClick={() => browserHistory.push('/shoot/' + this.props.id)}>Project Shoot List</button>
+
+                    </div>
                 </div>
             </div>
-        </div>
+        )}
     }
-}
 
 export default Project;
 

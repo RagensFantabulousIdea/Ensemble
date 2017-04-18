@@ -16,7 +16,7 @@
 
   3.times do
     #Create Projects
-    Project.create!(
+    project = Project.create!(
       title: Faker::HowIMetYourMother.quote,
       description: Faker::Lorem.sentences(3),
       author: Faker::Book.author,
@@ -26,6 +26,7 @@
     )
 
     5.times do
+      meridian = ["AM", "PM"]
       #Create Assets
       asset = project.assets.create!(
       figure_num: rand(300.99),
