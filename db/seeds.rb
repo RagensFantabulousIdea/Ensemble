@@ -28,7 +28,7 @@
     5.times do
       meridian = ["AM", "PM"]
       #Create Assets
-      @asset = project.assets.create!(
+      asset = project.assets.create!(
       figure_num: rand(300.99),
       asset_description: Faker::Hacker.say_something_smart,
       order_num: rand(1..1000),
@@ -53,19 +53,19 @@
       )
     end
 
-      3.times do
-        @asset.photos.create!(
-          image: "https://unsplash.it/800/#{rand(1..1084)}",
-          frame_num: "DSC#{rand(99999)}",
-          liked: Faker::Boolean.boolean(0.5),
-          disliked: Faker::Boolean.boolean(0.5),
-          selected: Faker::Boolean.boolean(0.1),
-          created_at: rand(1..20).days.ago,
-          updated_at: rand(1..20).days.ago,
-          asset_id: @asset
-        )
-      end
+    3.times do
+      asset.photos.create!(
+      remote_image_url: "https://unsplash.it/800?#{rand(1..1084)}",
+      frame_num: "DSC#{rand(99999)}",
+      liked: Faker::Boolean.boolean(0.5),
+      disliked: Faker::Boolean.boolean(0.5),
+      selected: Faker::Boolean.boolean(0.1),
+      created_at: rand(1..20).days.ago,
+      updated_at: rand(1..20).days.ago,
+      asset_id: asset
+      )
     end
+
   end
 
   #Fill Projects with members
@@ -89,6 +89,7 @@
         body: Faker::StarWars.quote
       )
 
+
       #Create nested comments
       user = [project_comments.owner, project_comments.members.sample].sample
       left_comment = comment.comments.create!(
@@ -98,7 +99,7 @@
         body: Faker::HarryPotter.quote
       )
 
-    #Create a deeply nested comment
+      #Create a deeply nested comment
       user = [project_comments.owner, project_comments.members.sample].sample
       left_comment.comments.create!(
         commentable: comment,
@@ -107,4 +108,5 @@
         body: Faker::LeagueOfLegends.quote
       )
     end
+  end
 end
