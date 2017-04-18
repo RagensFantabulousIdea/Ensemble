@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170417003840) do
+ActiveRecord::Schema.define(version: 20170418195449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,12 +75,13 @@ ActiveRecord::Schema.define(version: 20170417003840) do
   create_table "photos", force: :cascade do |t|
     t.string   "image"
     t.string   "frame_num"
-    t.boolean  "liked",      default: false
-    t.boolean  "disliked",   default: false
-    t.boolean  "selected",   default: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.boolean  "liked",        default: false
+    t.boolean  "disliked",     default: false
+    t.boolean  "selected",     default: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.integer  "asset_id"
+    t.boolean  "sample_photo", default: false
     t.index ["asset_id"], name: "index_photos_on_asset_id", using: :btree
   end
 
