@@ -14,6 +14,7 @@ class ProjectAssetEditCard extends Component {
         this.getAssets = this.getAssets.bind(this)
 
         this.state = {
+            
             figure_num: '',
             parts: '',
             frame_num: '',
@@ -31,6 +32,7 @@ class ProjectAssetEditCard extends Component {
             portrait: '0',
             landscape: '0',
             token: '',
+            complete: false,
             asset: null
         }
     }
@@ -54,7 +56,8 @@ class ProjectAssetEditCard extends Component {
                 decorative: asset.decorative || '0',
                 demonstrative: asset.demonstrative || '0',
                 portrait: asset.portrait || '0',
-                landscape: asset.landscape || '0'
+                landscape: asset.landscape || '0',
+                // {checkbox.complete === 'yes' ? 'checked' : ''}
             }))
     }
     
@@ -83,6 +86,7 @@ class ProjectAssetEditCard extends Component {
                 demonstrative: this.state.demonstrative,
                 portrait: this.state.portrait,
                 landscape: this.state.landscape,
+                // {checkbox.complete === 'yes' ? 'checked' : ''}
                 token: token
             })
         })
@@ -304,3 +308,6 @@ class ProjectAssetEditCard extends Component {
 }
 
 export default ProjectAssetEditCard;
+
+
+// {todo.completed === 'yes' ? 'checked' : ''}
