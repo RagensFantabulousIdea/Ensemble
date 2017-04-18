@@ -5,9 +5,19 @@ import { browserHistory } from 'react-router';
 class CommentsTopLevel extends Component {
     constructor(props) {
         super(props)
+        this.deleteMessages = this.deleteMessages.bind(this)
+    }
+    componentDidMount(){
+        console.log(this.props)
+    }
+
+    deleteMessages(id) {
+          // console.log(this.props);
+        fetch('/api/projects/' + this.props.projectId + '/assets/' + this.props.assetId + '/comments/' + this.props.commentId + '?token=' + sessionStorage.getItem('token'), {method: 'DELETE'})
+            .then(response => {window.location.reload();})
     }
   render() {
-      console.log(this.props)
+    //   console.log(this.props)
 
 //the top level component would only have to pull the message from the backend and then it would need to get to the page somehow. The text box for entering the message for the top level is a permanent fixture at the top of a messaging section.
 
@@ -26,7 +36,7 @@ class CommentsTopLevel extends Component {
                                     <div className="col-xs-12 messageText">
                                         <span className="messageContent">{this.props.body}</span>
                                         <br/>
-                                        <a className="messageTopEditLink" onClick={() => browserHistory.push('/editMessage/')}>Edit</a> | <a className="messageTopDeleteLink" onClick={() => this.props.deleteMessages(this.props.id)}>Delete</a> 
+                                        <a className="messageTopEditLink" onClick={() => browserHistory.push('/editMessage/')}>Edit</a> | <a className="messageTopDeleteLink" onClick={() => this.deleteMessages(this.props.projectId)}>Delete</a> 
                                         
                                     </div>
 
