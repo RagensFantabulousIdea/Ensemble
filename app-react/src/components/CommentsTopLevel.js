@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 
+import { browserHistory } from 'react-router';
+
 class CommentsTopLevel extends Component {
+    constructor(props) {
+        super(props)
+    }
   render() {
+      console.log(this.props)
 
 //the top level component would only have to pull the message from the backend and then it would need to get to the page somehow. The text box for entering the message for the top level is a permanent fixture at the top of a messaging section.
 
@@ -15,12 +21,13 @@ class CommentsTopLevel extends Component {
                                 <span className="glyphicon glyphicon-user" aria-hidden="true"></span>
                             </div>
                             <div className="media-body">
-                            <h4 className="media-heading messageUserName">Whitney Havice</h4>
+                            <h4 className="media-heading messageUserName">{this.props.firstName}        {this.props.lastName}</h4>
                                 <div className="row">
                                     <div className="col-xs-12 messageText">
                                         <span className="messageContent">{this.props.body}</span>
                                         <br/>
-                                        <a className="messageTopEditLink">Edit</a> | <a className="messageTopDeleteLink">Delete</a> | <a className="messageTopReplyLink">Reply</a><br/>
+                                        <a className="messageTopEditLink" onClick={() => browserHistory.push('/editMessage/')}>Edit</a> | <a className="messageTopDeleteLink" onClick={() => this.props.deleteMessages(this.props.id)}>Delete</a> 
+                                        
                                     </div>
 
                                 </div>

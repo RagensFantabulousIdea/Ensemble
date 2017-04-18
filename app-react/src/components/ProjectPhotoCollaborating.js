@@ -22,7 +22,8 @@ class ProjectPhotoCollaborating extends Component {
       }
 
     //LifeCycles Methods
-    componentWillMount(){
+    componentWillMount(){ 
+        console.log(this.props)
         this.getAssetFullCard()
         // this.getImages()
     }
@@ -66,7 +67,7 @@ class ProjectPhotoCollaborating extends Component {
 
                             <div className="panel panel-default">
                                 <div className="panel-body messageArea">
-                                    <CommentsBox />
+                                    <CommentsBox projectId={this.props.params.projectId} assets={this.props.params.assetId}/>
                                 </div>
                             </div>
                     </div>

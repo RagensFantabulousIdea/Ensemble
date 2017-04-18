@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
 // import SignUp from './SignUp'
-class Edit extends Component {
+class EditMessage extends Component {
     constructor(props) {
         super(props)
         this.editProject = this.editProject.bind(this)
@@ -102,5 +102,5 @@ class Edit extends Component {
         );
     }
 }
-export default Edit;
+export default EditMessage;
 
