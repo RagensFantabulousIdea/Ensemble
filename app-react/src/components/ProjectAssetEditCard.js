@@ -34,8 +34,7 @@ class ProjectAssetEditCard extends Component {
             asset: null
         }
     }
-    
-    componentWillMount(){
+     componentWillMount(){
         fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '?token=' + sessionStorage.getItem('token'))
             .then (response => response.json())
             .then(asset => this.setState({
@@ -112,22 +111,23 @@ class ProjectAssetEditCard extends Component {
             browserHistory.push('/shoot/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/collaborate')
         })
     }
+    getAssets(){
+        fetch('/api/projects/' + this.props.params.projectId + '/assets?token=' + sessionStorage.getItem('token'))
+            .then(response => response.json())
+            .then(assets => {
+                this.setState({assets: assets})
+        })
+         browserHistory.push('/shoot/' + this.props.params.projectId)
+    }
 
     deleteAsset(id) {
         fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '?token=' + sessionStorage.getItem('token'), {method: 'DELETE'})
             .then(response => {
                 this.getAssets()
             })
-            browserHistory.push('/shoot/' + this.props.params.projectId)
+           
     }
 
-    getAssets(){
-        fetch('/api/projects/' + this.props.params.projectId + '/assets?token=' + sessionStorage.getItem('token'))
-            .then(response => response.json())
-            .then(response => {
-                this.setState({assets: response})
-        })
-    }
 
     render() {
 

@@ -86,7 +86,6 @@ class Project extends React.Component{
                             </div>
                         </div>
                     </div>
-
                     <div className="panel-footer">
                         <button type="button" className="btn btn-danger col-sm-offset-1" onClick={() => this.props.deleteProject(this.props.id)}>Delete </button>
 
