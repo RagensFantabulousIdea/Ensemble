@@ -15,6 +15,24 @@ class PhotosController < ApplicationController
     end
   end
 
+  def samples
+    @photo = Photo.find_by(frame_num: params[:id])
+    if editor
+      if @photo
+        @photo.selected = params[:sample_photo]
+        if @photo.save
+          render json: ["Photo #{@photo.frame_num} uploaded as a sample image for Project #{@project.project_num}, figure #{@asset.figure_num} successfully!"]
+        else
+          render json: @photo.errors.full_messages, status: 400
+        end
+      else
+        render json: ["Frame number not found."], status: 404
+      end
+    else
+      forbidden
+    end
+  end
+
   def create
     if editor
       @photo = @asset.photos.new(photo_params)
@@ -107,7 +125,7 @@ class PhotosController < ApplicationController
   end
 
   def photo_params
-    params.permit(:image, :frame_num, :liked, :disliked, :selected, :asset_id)
+    params.permit(:image, :frame_num, :liked, :disliked, :selected, :asset_id, :selected_photo)
   end
 
 end

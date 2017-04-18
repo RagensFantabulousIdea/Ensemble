@@ -14,6 +14,7 @@ Rails.application.routes.draw do
         resources :comments, only: [:create]
         resources :photos, except: [:new, :edit]
         post '/photos/:id/selected' => 'photos#selected'
+        get '/photos/:id/samples' => 'photos#samples'
       end
       resources :invitations, only: [:create]
     end
