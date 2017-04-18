@@ -6,7 +6,6 @@ class SampleUploader extends React.Component {
     this.upload = this.upload.bind(this)
     this.state = {
       image: null,
-      frame_num: '', 
       token: ''
     }
   }

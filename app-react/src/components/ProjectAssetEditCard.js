@@ -15,6 +15,7 @@ class ProjectAssetEditCard extends Component {
 
         this.state = {
             figure_num: '',
+            selected_photo: '',
             parts: '',
             frame_num: '',
             order_num: '',
@@ -40,6 +41,7 @@ class ProjectAssetEditCard extends Component {
             .then(asset => this.setState({
                 asset: asset,
                 figure_num: asset.figure_num|| "",
+                selected_photo: asset.selected_photo || "",
                 parts: asset.parts || "",
                 frame_num: asset.frame_num || "",
                 order_num: asset.order_num || "",
@@ -58,7 +60,7 @@ class ProjectAssetEditCard extends Component {
             }))
     }
     
-    editAsset(figure_num, parts, frame_num,  order_num, asset_description, instructions, equipment, photo_model, photographer, location_of_shoot, date_of_shoot, time_of_shoot, decorative, demonstrative, portrait, landscape) {
+    editAsset(figure_num, selected_photo, parts, frame_num,  order_num, asset_description, instructions, equipment, photo_model, photographer, location_of_shoot, date_of_shoot, time_of_shoot, decorative, demonstrative, portrait, landscape) {
 
         var token = sessionStorage.getItem('token');
         fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '?token=' + sessionStorage.getItem('token'), {
@@ -68,6 +70,7 @@ class ProjectAssetEditCard extends Component {
             },
             body: JSON.stringify({
                 figure_num: this.state.figure_num,
+                selected_photo: this.state.selected_photo,
                 parts: this.state.parts,
                 frame_num: this.state.frame_num,
                 order_num: this.state.order_num,
@@ -91,6 +94,7 @@ class ProjectAssetEditCard extends Component {
         .then(response => {
             this.setState({
                 figure_num: '',
+                selected_photo: '',
                 parts: '',
                 frame_num: '',
                 order_num: '',
@@ -158,7 +162,7 @@ class ProjectAssetEditCard extends Component {
                             <div className="col-xs-6">
                                 <div className="form-group">
                                     <label htmlFor="figureSelection">Asset Selection Frame Number</label>
-                                    <input type="text" className="form-control figureSelection" value={this.state.frame_num} onChange={(e) => this.setState({frame_num: e.target.value})}/>
+                                    <input type="text" className="form-control figureSelection" value={this.state.selected_photo} onChange={(e) => this.setState({selected_photo: e.target.value})}/>
                                 </div>
 
                                 <div className="form-group">

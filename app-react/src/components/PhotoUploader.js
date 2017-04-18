@@ -6,7 +6,7 @@ class PhotoUploader extends React.Component {
     this.upload = this.upload.bind(this)
     this.state = {
       image: null,
-      frame_num: '', 
+      // frame_num: '', 
       token: ''
     }
   }
@@ -14,7 +14,7 @@ class PhotoUploader extends React.Component {
   upload() {
     var data = new FormData()
     data.append('image', this.state.image)
-    data.append('frame_num', this.state.frame_num)
+    // data.append('frame_num', this.state.frame_num)
     // data.append('api_token', sessionStorage.getItem('phetchly'))
 
     fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/photos?token=' + sessionStorage.getItem('token'), {
@@ -30,12 +30,7 @@ class PhotoUploader extends React.Component {
   render() {
     return <div>
       <div className="form-group">
-        <input type="file" name="image" className="form-control image" required onChange={(e) => this.setState({image:e.target.files[0]})} />
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="frame_num" className="photoFrameInstructions">Enter the Frame Number for Each Photo Uploaded</label>
-        <input type="text" name="frame_num" className="form-control" required maxLength="255" value={this.state.frame_num} onChange={(e) => this.setState({frame_num:e.target.value})} />
+        <input type="file" name="image" className="form-control imageUploader" required onChange={(e) => this.setState({image:e.target.files[0]})} />
       </div>
 
       <div className="form-group">
@@ -46,3 +41,8 @@ class PhotoUploader extends React.Component {
 }
 
 export default PhotoUploader;
+
+      // <div className="form-group">
+      //   <label htmlFor="frame_num" className="photoFrameInstructions">Enter the Frame Number for Each Photo Uploaded</label>
+      //   <input type="text" name="frame_num" className="form-control" required maxLength="255" value={this.state.frame_num} onChange={(e) => this.setState({frame_num:e.target.value})} />
+      // </div>

@@ -49,7 +49,7 @@ class ProjectPhotoCollaborating extends Component {
   
   render(){
       console.log(this.state.images)
-      let images = this.state.images.map((photo, key) => <ProjectPhotoCollaboratingPhotoCard key={Date.now() + key} index={key}  image={photo.image} projectId={this.props.params.projectId} assetId={this.props.params.assetId} frame_num={photo.frame_num} />)
+      let images = this.state.images.map((photo, key) => <ProjectPhotoCollaboratingPhotoCard key={Date.now() + key} index={key}  image={photo.image} projectId={this.props.params.projectId} assetId={this.props.params.assetId} photoId={photo.id} frame_num={photo.frame_num} />)
 
     return (
         <div className="projectPhotoCollaborating">
