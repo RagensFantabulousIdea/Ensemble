@@ -1,27 +1,19 @@
 import React, { Component } from 'react';
-import SampleUploader from './SampleUploader';
-import SamplePhotoCard from './SamplePhotoCard';
 import NavBar from './NavBar';
 import FooterArea from './FooterArea';
 
 import { browserHistory } from 'react-router';
 
-//Need to add quotes around user input for photo selected box?
-
-// where it says "addPhoto", it used to say "addProject".
-//where it says "deletePhoto", it used to say "deleteProject".
-//where it says "getDecorative", "getDemonstrative", "getOrientationPortrait", or "getOrientationLandscape" it used to say "getProjects"
-
 class ProjectCreateCard extends Component {
     constructor(props) {
         super(props)
         this.saveAsset = this.saveAsset.bind(this)
-        this.getSample = this.getSample.bind(this)
 
         this.state = {
             figureNumber: '',
             figureParts: '',
-            selectionFrame: '',
+            selected_photo: '', 
+            frame_num: '',
             orderNumber: '',
             figureDescription: '',
             figureInstructions: '',
@@ -35,12 +27,7 @@ class ProjectCreateCard extends Component {
             photoDemonstrative: '',
             orientationPortrait: '',
             orientationLandscape: '', 
-            images: []
         }
-    }
-
-        componentDidMount(){
-        this.getSample()
     }
 
     saveAsset() {
@@ -55,7 +42,8 @@ class ProjectCreateCard extends Component {
             body: JSON.stringify({
                 figure_num: this.state.figureNumber,
                 parts: this.state.figureParts,
-                frame_num: this.state.selectionFrame,
+                selected_photo: this.state.selected_photo,
+                frame_num: this.state.frame_num,
                 order_num: this.state.orderNumber,
                 asset_description: this.state.figureDescription,
                 instructions: this.state.figureInstructions,
@@ -79,23 +67,12 @@ class ProjectCreateCard extends Component {
         })
     }
 
-        getSample(){
-        fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '?token=' + sessionStorage.getItem('token'))
-        // console.log(token)
-        .then(response => response.json())
-        .then(response => {
-            // this.setState({images: images})
-            this.setState({images: response.photos})
-        })
-    }
   
   render(){
-      console.log(this.state.images)
-      let images = this.state.images.map((photo, key) => <SamplePhotoCard key={Date.now() + key} index={key}  image={photo.image} projectId={this.props.params.projectId} assetId={this.props.params.assetId} frame_num={photo.frame_num} />)
 
     return (
         <div className="projectCreateCard">
-            <NavBar />
+            <NavBar {...this.props}/>
 
             <h1>Photo Shoot Planning Card</h1>
 
@@ -119,7 +96,7 @@ class ProjectCreateCard extends Component {
                             <div className="col-xs-6">
                                 <div className="form-group">
                                     <label htmlFor="figureSelection">Asset Selection Frame Number</label>
-                                    <input type="text" className="form-control figureSelection" placeholder="DSC05697" onChange={(e) => this.setState({selectionFrame: e.target.value})}/>
+                                    <input type="text" className="form-control figureSelection" placeholder="DSC05697" onChange={(e) => this.setState({selected_photo: e.target.value})}/>
                                 </div>
 
                                 <div className="form-group">
@@ -232,22 +209,7 @@ class ProjectCreateCard extends Component {
                                 </div>
                             </div>
 
-                            <br/>
-
-                            <div className="row">
-                                <div className="col-xs-12">
-                                    <div className="form-group">
-                                        <label htmlFor="figureSample">Upload Sample</label>
-                                        <p className="help-block">You can upload sample images to guide the models and photographer.</p>
-                                        <SampleUploader />
-                                        <input type="file" className="figureSample"/>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="row">
-                                {images}
-                            </div>
+                            
                         </form>
                     </div>
                     <div className="panel-footer">
@@ -267,3 +229,17 @@ class ProjectCreateCard extends Component {
 }
 
 export default ProjectCreateCard;
+
+// <div className="row">
+//                                 <div className="col-xs-12">
+//                                     <div className="form-group">
+//                                         <label htmlFor="figureSample">Upload Sample</label>
+//                                         <p className="help-block">You can upload sample images to guide the models and photographer.</p>
+//                                         <SampleUploader getImages={this.getImages} {...this.props}/>
+//                                     </div>
+//                                 </div>
+//                             </div>
+
+//                             <div className="row">
+//                                 {images}
+//                             </div>

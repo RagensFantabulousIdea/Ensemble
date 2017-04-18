@@ -18,7 +18,7 @@ class ProjectShootList extends Component {
           projectNumber: '',
           description: '',
           //the rest from creating an asset
-          selectionFrame: '',
+          selected_photo: '',
           figureNumber: '',
           orderNumber: '',
           figureDescription: '',

@@ -27,7 +27,7 @@ class Invite extends Component {
     }
 
          sentinvite(){
-             console.log('boo')
+             //console.log('boo')
         alert("Invitation sent")
         browserHistory.push('/projects')
     }
