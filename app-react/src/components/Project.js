@@ -54,7 +54,7 @@ class Project extends React.Component{
             <div className="col-sm-6 projectCard">
                 <div className="panel">
                     <div className="panel-heading">
-                    {this.props.message ? <span className="commentIndicator glyphicon glyphicon-comment pull-right" aria-hidden="true"></span> : ''}
+                    {this.props.message_new ? <span className="commentIndicator glyphicon glyphicon-comment pull-right" aria-hidden="true"></span> : ''}
                         <div className="form-check ownerCheck">
                             {this.props.owner.id == sessionStorage.getItem('userId') ?
                             <label className="form-check-label">

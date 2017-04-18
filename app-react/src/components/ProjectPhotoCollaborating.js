@@ -39,18 +39,18 @@ class ProjectPhotoCollaborating extends Component {
     }
 
     getImages(){
-        fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '?token=' + sessionStorage.getItem('token'))
+        fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/photos?token=' + sessionStorage.getItem('token'))
         // console.log(token)
         .then(response => response.json())
         .then(response => {
             // this.setState({images: images})
-            this.setState({images: response.photos})
+            this.setState({images: response})
         })
     }
   
   render(){
-      console.log(this.state.images)
-      let images = this.state.images.map((photo, key) => <ProjectPhotoCollaboratingPhotoCard key={Date.now() + key} index={key}  image={photo.image} projectId={this.props.params.projectId} assetId={this.props.params.assetId} frame_num={photo.frame_num} />)
+      //console.log(this.state.images)
+      let images = this.state.images.map((photo, key) => <ProjectPhotoCollaboratingPhotoCard key={Date.now() + key} index={key}  image={photo.image} projectId={this.props.params.projectId} assetId={this.props.params.assetId} photoId={photo.id} frame_num={photo.frame_num} />)
 
     return (
         <div className="projectPhotoCollaborating">
