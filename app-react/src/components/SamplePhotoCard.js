@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
-class ProjectPhotoCollaboratingPhotoCard extends Component {
+class SamplePhotoCard extends Component {
   
 // Used to have link around the card to send us to the full view, but when it was there, the card wouldn't render. It said:
         //    <Link to={'/api/projects/' + this.props.projectId + '/assets/' + this.props.assetId + '/photos/' + this.props.params.id + '?token=' + sessionStorage.getItem('token')}>
@@ -33,7 +33,7 @@ class ProjectPhotoCollaboratingPhotoCard extends Component {
   }
 }
 
-export default ProjectPhotoCollaboratingPhotoCard;
+export default SamplePhotoCard;
 
 // <div className="row">
 //                             
