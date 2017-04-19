@@ -23,6 +23,9 @@ constructor(props){
         <div className="userHeaderArea">
             <header>
                 <nav>
+                    <div className="nav navbar-nav navbar-left">
+                    
+                    </div>
                     <div className="nav navbar-nav navbar-right">
                         <Link className="nav-item projectNav" onClick={() => browserHistory.push('/projects/complete')}>
                             Completed Projects

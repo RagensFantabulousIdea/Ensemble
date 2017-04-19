@@ -60,7 +60,7 @@ class ProjectShootFullCard extends Component {
         .then(response => response.json())
         .then(response => {
             //console.log(response)
-            this.setState({images: response})
+            this.setState(response)
         })
     }
   
