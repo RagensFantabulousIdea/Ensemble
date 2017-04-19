@@ -14,7 +14,7 @@
     password: Faker::Internet.password
   )
 
-  3.times do
+  2.times do
     #Create Projects
     Project.create!(
       title: Faker::HowIMetYourMother.quote,
@@ -28,7 +28,7 @@
 end
 
   Project.all.each do |project|
-    5.times do
+    2.times do
     meridian = ["AM", "PM"]
     #Create Assets
     project.assets.create!(
@@ -58,9 +58,9 @@ end
   end
 
   Asset.all.each do |asset|
-    3.times do
+    1.times do
       asset.photos.create!(
-      remote_image_url: "https://unsplash.it/800?#{rand(1..1084)}",
+      remote_image_url: "https://unsplash.it/800/?random",
       frame_num: "DSC#{rand(99999)}",
       liked: Faker::Boolean.boolean(0.5),
       disliked: Faker::Boolean.boolean(0.5),
