@@ -55,10 +55,10 @@ class ProjectAssetEditCard extends Component {
                 location_of_shoot: asset.location_of_shoot || "",
                 date_of_shoot: asset.date_of_shoot || "",
                 time_of_shoot: asset.time_of_shoot || "",
-                decorative: asset.decorative || '0',
-                demonstrative: asset.demonstrative || '0',
-                portrait: asset.portrait || '0',
-                landscape: asset.landscape || '0',
+                decorative: asset.decorative || false,
+                demonstrative: asset.demonstrative || false,
+                portrait: asset.portrait || false,
+                landscape: asset.landscape || false,
                 // {checkbox.complete === 'yes' ? 'checked' : ''}
             }))
     }
@@ -96,25 +96,6 @@ class ProjectAssetEditCard extends Component {
         
         .then(response => response.json())
         .then(response => {
-            this.setState({
-                figure_num: '',
-                selected_photo: '',
-                parts: '',
-                frame_num: '',
-                order_num: '',
-                asset_description: '',
-                instructions: '',
-                equipment: '',
-                photo_model: '',
-                photographer: '',
-                location_of_shoot: '',
-                date_of_shoot: '',
-                time_of_shoot: '',
-                decorative: '0',
-                demonstrative: '0',
-                portrait: '0',
-                landscape: '0'
-            })
             // browserHistory.push('/shoot/' + this.props.projectId + '/assets/' + this.props.id + '/collaborate')
             browserHistory.push('/shoot/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/collaborate')
         })
@@ -249,7 +230,7 @@ class ProjectAssetEditCard extends Component {
                                 <div className="col-sm-3">
                                     <div className="checkbox figureDeco">
                                         <label>
-                                            <input type="checkbox" value={this.state.decorative} onChange={(e) => this.setState({decorative: e.target.checked})} /> Decorative photo?
+                                            <input type="checkbox" checked={this.state.decorative} onChange={(e) => this.setState({decorative: e.target.checked})} /> Decorative photo?
                                         </label>
                                     </div>
                                 </div>
@@ -257,7 +238,7 @@ class ProjectAssetEditCard extends Component {
                                 <div className="col-sm-3">
                                     <div className="checkbox figureDemo">
                                         <label>
-                                            <input type="checkbox" value={this.state.demonstrative} onChange={(e) => this.setState({demonstrative: e.target.checked})} /> Demonstrative photo?
+                                            <input type="checkbox" checked={this.state.demonstrative} onChange={(e) => this.setState({demonstrative: e.target.checked})} /> Demonstrative photo?
                                         </label>
                                     </div>
                                 </div>
@@ -265,7 +246,7 @@ class ProjectAssetEditCard extends Component {
                                 <div className="col-sm-3">
                                     <div className="checkbox figurePortrait">
                                         <label>
-                                            <input type="checkbox" value={this.state.portrait} onChange={(e) => this.setState({portrait: e.target.checked})} /> Portrait orientation?
+                                            <input type="checkbox" checked={this.state.portrait} onChange={(e) => this.setState({portrait: e.target.checked})} /> Portrait orientation?
                                         </label>
                                     </div>
                                 </div>
@@ -273,7 +254,7 @@ class ProjectAssetEditCard extends Component {
                                 <div className="col-sm-3">
                                     <div className="checkbox figureLandscape">
                                         <label>
-                                            <input type="checkbox" value={this.state.landscape} onChange={(e) => this.setState({landscape: e.target.checked})} /> Landscape orientation?
+                                            <input type="checkbox" checked={this.state.landscape} onChange={(e) => this.setState({landscape: e.target.checked})} /> Landscape orientation?
                                         </label>
                                     </div>
                                 </div>

@@ -191,9 +191,18 @@ a.nav-item {
 }
 
 /*User Projects*/
+.panel-body-scroll {
+    overflow: hidden;
+    height: 130px;
+    overflow-y: auto;
+}
+
 .projectPanelHeader{
     background-image: url("../img/background-1594712_1920.jpg");
     background-size: cover;
+    height: 150px;
+    overflow: hidden;
+    /*overflow-y: auto;*/
 }
 
 .userProjectsPage {
