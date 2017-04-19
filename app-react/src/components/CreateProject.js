@@ -3,6 +3,7 @@ import UserNavBar from './UserNavBar';
 import FooterArea from './FooterArea';
 import { browserHistory } from 'react-router';
 // import SignUp from './SignUp'
+
 class createproject extends Component {
     constructor(props) {
         super(props)
@@ -60,43 +61,44 @@ class createproject extends Component {
         //console.log(this.props.params.projectId)
         return (
             <div className="createProject">
-            <UserNavBar />
-            <h1>Create a Project</h1>
-            
-            <div className="container">
-                <div className="row">
-                    <div className="col-sm-4 col-sm-offset-4">
-                    <div className="panel">
-                    <div className="panel-heading"></div>
-                        <div className="panel-body">
-                            <form>
-                                <div className="form-group">
-                                    <label htmlFor="title">Title</label>
-                                    <input type="text" className="form-control" required onChange={(e) => this.setState({title: e.target.value})} />
+                <UserNavBar />
+                    <h1>Create a Project</h1>
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-sm-4 col-sm-offset-4">
+                                    <div className="panel">
+                                        <div className="panel-body">
+                                            <form>
+                                                <div className="form-group">
+                                                    <label htmlFor="title">Title</label>
+                                                    <input type="text" className="form-control" required onChange={(e) => this.setState({title: e.target.value})} />
+                                                </div>
+
+                                                <div className="form-group">
+                                                    <label htmlFor="author">Author</label>
+                                                    <input type="text" className="form-control" required 
+                                                    onChange={(e) => this.setState({author: e.target.value})}/>
+                                                </div>
+
+                                                <div className="form-group">
+                                                    <label htmlFor="projectnumber">Project Number</label>
+                                                    <input type="text" className="form-control" 
+                                                    onChange={(e) => this.setState({projectNumber: e.target.value})}/>
+                                                </div>
+                                                
+                                                <div className="form-group">
+                                                    <label htmlFor="description">Description of project</label>
+                                                    <textarea className="form-control" placeholder="body" rows="10" required 
+                                                    onChange={(e) => this.setState({description: e.target.value})}/>
+                                                </div>
+                                                <button type="button" className="btn btn-success " onClick={this.addProject}>Save</button>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="form-group">
-                                    <label htmlFor="author">Author</label>
-                                    <input type="text" className="form-control" required 
-                                    onChange={(e) => this.setState({author: e.target.value})}/>
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="projectnumber">Project Number</label>
-                                    <input type="text" className="form-control" 
-                                    onChange={(e) => this.setState({projectNumber: e.target.value})}/>
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="description">Description of project</label>
-                                    <textarea className="form-control" placeholder="body" rows="10" required 
-                                    onChange={(e) => this.setState({description: e.target.value})}/>
-                                </div>
-                                <button type="button" className="btn btn-success " onClick={this.addProject}>Save</button>
-                            </form>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                </div>
-            </div>
-            <FooterArea />
+                <FooterArea />
             </div>
         );
     }

@@ -10,16 +10,15 @@ class ProjectShootMiniCard extends Component {
     //only show the commentIndicator span if there are new messages on that figure.
 
     return (
-        <div>
-            <Link to={'/shoot/' + this.props.projectId + '/assets/' + this.props.id + '/collaborate'}><div className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <div className="projectShootMiniCardSetup">
+            <Link to={'/shoot/' + this.props.projectId + '/assets/' + this.props.id + '/collaborate'}><div className="col-xs-12 col-sm-6 col-md-4 col-lg-5 col-lg-offset-1">
                 <div className="panel">
-                    <div className="panel-heading imagePanel">
+                    
+                    <div className="panel-heading imagePanel miniImagePanel">
                         {this.props.message_new ? <span className="commentIndicator glyphicon glyphicon-comment pull-right" aria-hidden="true"></span> : ''} <br/> 
                             {this.props.selected_photo && this.props.selected_photo.image.url ? <img src={this.props.selected_photo.image.url} alt="selection" /> : ''}
-                    </div>
-    
-                    <div className="panel-heading miniCardHeading">
-                        <div className="row">
+
+                            <div className="row miniCardHeading">
                             <div className="col-xs-6">
                                 <h3 className="panel-title">{this.props.figure_num}</h3>
                             </div>

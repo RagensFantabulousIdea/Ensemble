@@ -65,15 +65,16 @@ class ProjectShootList extends Component {
           <div className="container">
             <div className="row">
               <div className="col-sm-12">
-                <h2 className="projectInfoShootListPage"><span className="projectNumber">{this.state.projectNumber} </span><span className="projectName">{this.state.author}</span><br/><span className="projectTitle">{this.state.title}</span></h2>
+                <h2 className="projectTitleShootList">{this.state.title}</h2>
+                <h2 className="projectInfoShootListPage"><span className="projectName">{this.state.author}</span> &nbsp; <span className="projectNumber">{this.state.projectNumber} </span> </h2>
               </div>
             </div>
             <div className="row descriptionAddButtonRow">
-              <div className="col-sm-6">
+              <div className="col-sm-8">
                 <p className="projectDescription">{this.state.description}</p>
               </div>
               
-              <div className="col-sm-6">
+              <div className="col-sm-4">
                 <button type="button" className="btn addButton pull-right" onClick={() => browserHistory.push('/shoot/' + this.props.params.projectId + '/createcard')}>Add Photo Shoot Planning Card</button>
               </div>
             </div>
@@ -83,7 +84,7 @@ class ProjectShootList extends Component {
 
               <div className="row">
                 <div className="col-xs-12">
-                  <p></p>
+                  <p className="pageInstructions">Click on a card to go to an Asset Collaborating page.</p>
                 </div>
               </div>
               <div className="row">

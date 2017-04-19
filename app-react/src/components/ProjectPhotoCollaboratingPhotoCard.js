@@ -17,7 +17,7 @@ class ProjectPhotoCollaboratingPhotoCard extends Component {
       //console.log(this.props.image)
     return (
         <div>
-            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
                 <div className="panel">
                 
