@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
 
 class EditUser extends Component {
-
     constructor(props) {
         super(props)
         this.signup = this.signup.bind(this)
@@ -12,9 +11,7 @@ class EditUser extends Component {
             email: '',
             password: '',
             project_token: '',
-            modal: "none",
-            xmark: "none",
-            signup: null
+            form: null
         }
     }
     componentWillMount(){
@@ -22,36 +19,26 @@ class EditUser extends Component {
         fetch('/api/users/' + userId + '?token=' + sessionStorage.getItem('token'))
             .then (response => response.json())
             // .then(response => console.log(response))
-            .then(signup => this.setState({
-                signup: signup,
-                first_name: signup.firstname,
-                last_name: signup.lastname,
-                email: signup.email,
-                password: signup.password
+            .then(form => this.setState({
+                form: form,
+                firstname: form.first_name,
+                lastname: form.last_name,
+                email: form.email,
+                password: form.password
             }))
             .then (whatever => console.log(this.state))
 
     }
 
-            signup() {
+        signup() {
         var firstname = this.state.firstname
         var lastname = this.state.lastname
         var email = this.state.email
         var password = this.state.password
         // var project_token = this.state.project_token
-
-        // console.log(firstname,lastname, email, password)
-
-        if (firstname === '' || lastname === '' || email === '' || password === '') {
-            alert('You must fill in all fields.')
-        }  else if (!email.includes('@') || (email.slice(email.length - 4, email.length - 3) !== '.')) {
-            alert('You must enter a valid email address.')
-        } 
-         else {
-
-
-        fetch('/api/users', {
-            method: 'POST',
+        let userId = sessionStorage.getItem('userId')
+             fetch('/api/users/' + userId + '?token=' + sessionStorage.getItem('token'), {
+            method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
         },
@@ -65,23 +52,12 @@ class EditUser extends Component {
         })
     })
         .then(function(response) {
-                // console.log('response.json ' + response.json)
                 return response.json();
             })
         .then(function(response) {
-            // console.log('response.project_token ' + response.project_token)
-
-            if (response.project_token) {
-                // (console.log('response project_token true ' + response.project_token))
-                sessionStorage.setItem('project_token', response.project_token)
-                sessionStorage.setItem('userId', response.id)
-                // browserHistory.push('/')
                 browserHistory.push('/projects')
-           } else {
-                alert('Signup error: ' + response)
-            }
         })
-        }
+        
     }
 
     
@@ -92,7 +68,7 @@ return <div style={{display: this.props.modalSu}}>
     <div className="container modal-opac">
         <div className="panel modalSu">
             <div className="panel-body">
-                <button type="button" className="close signup-close" data-dismiss="modalSu" aria-label="Close" onClick={this.props.closeSu}><span aria-hidden="true">&times;</span></button>
+              
                 <div className="form-group">
                     <label htmlFor="firstname">First Name</label>
                     <input type="text" className="form-control name" placeholder="John" value={this.state.firstname} onChange={(e) => this.setState({firstname: e.target.value})} required/>
@@ -111,7 +87,7 @@ return <div style={{display: this.props.modalSu}}>
                 </div>
             </div>
             <div className="panel-footer text-center">
-                <button type="button" className="btn btn-lg actionButton" onClick={this.signup}>Sign Up</button>
+                <button type="button" className="btn btn-lg actionButton" onClick={this.signup}>Click here to update your profile</button>
             </div>
         </div>
     </div>

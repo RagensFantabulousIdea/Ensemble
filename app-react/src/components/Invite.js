@@ -10,10 +10,11 @@ class Invite extends Component {
     constructor(props){
         super(props)
             this.state = {
-            // firstname: '',
-            // lastname: '',
+            firstname: '',
+            lastname: '',
             email: '',
-            projects: ''
+            projects: '',
+            project_token: ''
           }
         }
 
@@ -37,26 +38,29 @@ class Invite extends Component {
         if (this.state.firstname !== '' && this.state.lastname !== ''&& this.state.email !== '')
         {
            
-        fetch('/api/projects/' + this.state.projects.token + '/invitations', {
+        fetch('/api/projects/' + this.state.projects.project_token + '/invitations', {
             method: 'Post',
             headers:{
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                // firstname: this.state.firstname,
-                // lastname: this.state.lastname,
+                firstname: this.state.firstname,
+                lastname: this.state.lastname,
                 email: this.state.email
             })
         })
-        .then(function(response) {
+        .then(function(response) {    
                 return response.json();
             })
+            
         .then(() =>this.sentinvite())
+        // .then (response => console.log(this.state))
 
     }
 }    
 
 render() {
+    
     // alert('Invite someone to project ' + this.props.params.projectId)
     return (
      <div className="inviteCard">
@@ -82,7 +86,7 @@ render() {
                 <input type="text" className="form-control email" value={this.state.email} onChange={(e) => this.setState({email: e.target.value})} required />
             </div>
             <div className="inviteSendButton">
-                <button type="button" className="btn projectButton" onClick={() =>this.invitePeople()}>Invite</button>
+                <button type="button" className="btn projectButton" onClick={() =>      this.invitePeople()}> Invite </button>
             </div>
             
                     </div>
