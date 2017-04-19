@@ -27,6 +27,7 @@ class SampleUploader extends React.Component {
       })
     })
   }
+  
 
   render() {
     return <div>
@@ -38,6 +39,8 @@ class SampleUploader extends React.Component {
         <button onClick={this.upload} type="button" className="btn btn-success btn-block upload">Upload</button>
       </div>
     </div>
+
+    
   }
 }
 
