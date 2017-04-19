@@ -53,7 +53,7 @@ class CommentsBox extends Component {
 
             }
   render() {
-    console.log(this.props)
+    // console.log(this.props)
     let comments = this.state.messages.map((message, key) => <CommentsTopLevel projectId={this.props.projectId} assetId={this.props.assets} commentId={message.id} body={message.body} firstName={message.user.first_name} lastName={message.user.last_name} key={key}/>)
 
     return (
@@ -62,7 +62,7 @@ class CommentsBox extends Component {
           <div className="col-xs-12 commentsTopLevelCol">
           <h4>Messages</h4>
             <div className="input-group">            
-                  <input type="text" className="form-control" value ={this.state.body} onChange={(e) => this.setState({body: e.target.value})} />
+                  <input type="text" className="form-control" value={this.state.body} onChange={(e) => this.setState({body: e.target.value})} />
                     <span className="input-group-btn">
                       <button className="btn messagePost" type="button" onClick={() => this.onClick()}>Post</button>
                     </span>
