@@ -27,10 +27,14 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @current_user.update(user_params)
-      render json: @current_user
+    if @current_user.id == params[:id].to_i
+      if @current_user.update!(user_params)
+        render json: @current_user
+      else
+        render json: @current_user.errors.full_messages
+      end
     else
-      render json: @current_user.errors.full_messages
+      forbidden
     end
   end
 
@@ -56,6 +60,10 @@ class UsersController < ApplicationController
     unless @project
     render json: ["Project not found."], status: 404 and return
     end
+  end
+
+  def forbidden
+    render json: ["You are not allowed to edit this user!"], status: 401
   end
 
   def find_user
