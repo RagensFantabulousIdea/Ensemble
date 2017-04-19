@@ -71,7 +71,7 @@ class SamplePhotosController < ApplicationController
   end
 
   def find_photo
-    @photo = Sample_Photo.find(params[:id])
+    @photo = SamplePhoto.find(params[:id])
   end
 
   def find_project
