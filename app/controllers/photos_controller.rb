@@ -120,7 +120,7 @@ class PhotosController < ApplicationController
   end
 
   def photo_params
-    params.permit(:frame_num, :liked, :disliked, :selected, :asset_id, :selected_photo, {sample_photos: []})
+    params.permit(:frame_num, :liked, :disliked, :selected, :asset_id, :selected_photo, :image)
   end
 
 end
