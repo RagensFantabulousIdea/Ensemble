@@ -1,5 +1,5 @@
 class Asset < ApplicationRecord
-
+  
   mount_uploaders :sample_photos, ImageUploader
 
   belongs_to :project

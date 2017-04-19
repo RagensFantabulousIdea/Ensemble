@@ -58,7 +58,7 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project.destroy if @current_user == @project.owner
-    render json: ["Project deleted successfully."]
+      render json: ["Project deleted successfully."]
   end
 
   private
