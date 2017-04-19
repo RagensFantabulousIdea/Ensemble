@@ -3,6 +3,15 @@ class UsersController < ApplicationController
   before_action :current_user, only: [:update, :destroy]
   before_action :require_user, only: [:update, :destroy]
 
+  def show
+    find_user
+    if @user
+      render json: @user
+    else
+      render json: @user.errors.full_messages
+    end
+  end
+
   def create
     if params[:token]
       find_project
@@ -47,6 +56,10 @@ class UsersController < ApplicationController
     unless @project
     render json: ["Project not found."], status: 404 and return
     end
+  end
+
+  def find_user
+    @user = User.find(params[:id])
   end
 
   def create_user
