@@ -16,7 +16,7 @@ class NavBar extends Component {
     }
 
   render() {
-
+console.log
     //   Need to add route for editing/deleting profile.
 
     return (
@@ -33,7 +33,7 @@ class NavBar extends Component {
                         <Link className="nav-item signOutNav" onClick={this.returnToSignin}>
                             Sign Out
                         </Link>
-                        <Link className="nav-item signOutNav" onClick={() => browserHistory.push('/edituser/:userId')}>
+                        <Link className="nav-item signOutNav" onClick={() => browserHistory.push('/edituser/'+ this.props.id)}>
                             Edit User Information
                         </Link>
                     </div>

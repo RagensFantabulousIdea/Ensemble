@@ -58,7 +58,7 @@ class UserProjects extends Component {
        
         return (
             <div className="userProjectsPage">
-                <UserNavBar />
+                <UserNavBar id={sessionStorage.getItem('userId')} />
             
                  <h1 className="userHomeTitle">{location.href.includes('/complete') ? 'Completed Projects' : 'Projects'}</h1>
                 <div className="container">
