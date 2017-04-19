@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 
 class SamplePhotoCard extends Component {
-  
-// Used to have link around the card to send us to the full view, but when it was there, the card wouldn't render. It said:
-        //    <Link to={'/api/projects/' + this.props.projectId + '/assets/' + this.props.assetId + '/photos/' + this.props.params.id + '?token=' + sessionStorage.getItem('token')}>
 
-  render() {
+  constructor(props){
+        super(props)
+        this.deletePhoto = this.deletePhoto.bind(this)
+    }
+
+    deletePhoto() {
+        fetch('/api/projects/' + this.props.projectId + '/assets/' + this.props.assetId + '/sample_photos/' + this.props.photoId + '?token='+ sessionStorage.getItem('token'), {method: 'DELETE'})
+        .then(response => {window.location.reload();})
+    }
+
+render() {
       console.log(this.props.image)
     return (
         <div>
@@ -14,14 +21,14 @@ class SamplePhotoCard extends Component {
 
                 <div className="panel">
                 
-                    <div className="panel-body imagePanel">
+                    <div className="panel-body imagePanel" onClick={() => browserHistory.push('/shoot/' + this.props.projectId + '/assets/' + this.props.assetId + '/photos/' + this.props.photoId + '?src=' + encodeURIComponent(this.props.image.url))}>
                         <img src={this.props.image.url} alt="uploaded" />
                     </div>
 
                     <div className="panel-footer">
                         <div className="row">
                             <div className="col-xs-12">
-                                <Link className="couldSelect"><span className="glyphicon glyphicon-trash" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Delete sample image"></span></Link>
+                                <Link className="couldSelect"><span className="glyphicon glyphicon-trash" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Delete sample image" onClick={() => this.deletePhoto()}></span></Link>
                             </div>
                         </div>
                     </div>

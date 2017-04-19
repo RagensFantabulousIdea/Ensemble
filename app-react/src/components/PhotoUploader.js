@@ -15,7 +15,6 @@ class PhotoUploader extends React.Component {
     var data = new FormData()
     data.append('image', this.state.image)
     // data.append('frame_num', this.state.frame_num)
-    // data.append('api_token', sessionStorage.getItem('phetchly'))
 
     fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/photos?token=' + sessionStorage.getItem('token'), {
       method: 'POST',

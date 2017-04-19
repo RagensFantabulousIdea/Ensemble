@@ -67,6 +67,7 @@ class Project extends React.Component{
                             <br/>
                             {this.props.owner.id == sessionStorage.getItem('userId') ? <span className="pull-right label ownerLabel">Owner</span> : <span className="pull-right label collaborationLabel">Member</span>}
                         </div>
+
                     <h3 className="projectTitle">{this.props.title.slice(0,60)}...</h3>
                     </div>
 
@@ -75,6 +76,7 @@ class Project extends React.Component{
                         <h4 className="carditems">{this.props.project_num}</h4>
                         <p>{this.props.description}...</p>
                     </div>
+                    
                     <div className="panel-footer projectCardNavButtons">
                         <button type="button" className="btn projectButton projectDeleteButton" onClick={() => this.props.deleteProject(this.props.id)}>Delete </button>
 
