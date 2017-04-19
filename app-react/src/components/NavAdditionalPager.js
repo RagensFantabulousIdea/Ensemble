@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { browserHistory } from 'react-router';
 
 class NavAdditionalPager extends Component {
   render() {
@@ -7,7 +8,7 @@ class NavAdditionalPager extends Component {
         <div>
             <nav className="navAdditional" aria-label="...">
                 <ul className="pager">
-                    <li className="previous"><a href="#"><span aria-hidden="true">&larr;</span> Previous</a></li>
+                    <li className="previous"><a onClick={() => browserHistory.push('/shoot/' + this.props.params.projectId)}><span aria-hidden="true">&larr;</span> Previous</a></li>
                     <li className="next"><a href="#">Next <span aria-hidden="true">&rarr;</span></a></li>
                 </ul>
             </nav>
@@ -17,3 +18,4 @@ class NavAdditionalPager extends Component {
 }
 
 export default NavAdditionalPager;
+// <Link className="nav-item projectNav" onClick={() => browserHistory.push('/projects/complete')}>
