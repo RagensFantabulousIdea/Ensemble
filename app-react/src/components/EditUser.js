@@ -16,7 +16,6 @@ class EditUser extends Component {
             project_token: '',
             modal: "none",
             xmark: "none"
-         
         }
     }
     signup() {
@@ -98,4 +97,4 @@ return <div style={{display: this.props.modalSu}}>
 
 export default EditUser;
 
-    // <i className="fa fa-times-circle-o fa-2x" aria-hidden="true" onClick={() => this.setState({modal: 'none'})} ></i>
+   

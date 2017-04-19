@@ -36,5 +36,5 @@ Rails.application.routes.draw do
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
+  get '/:required1/(:optional1)/(:optional2)/(:optional3)/(:optional4)/(:optional5)' => 'application#static'
 end

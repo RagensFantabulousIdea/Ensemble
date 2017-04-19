@@ -2,6 +2,11 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
+  def static
+    render file: 'public/index.html', layout: false
+  end
+
+
   private
 
   def current_user

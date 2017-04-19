@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import NavBar from './NavBar';
-import NavAdditionalPager from './NavAdditionalPager';
 import FooterArea from './FooterArea';
 
 import { browserHistory } from 'react-router';
@@ -117,13 +116,12 @@ class ProjectAssetEditCard extends Component {
            
     }
 
-
+            
     render() {
 
     return (
         <div className="projectCreateCard">
             <NavBar />
-            <NavAdditionalPager />
 
             <h1>Photo Shoot Planning Card</h1>
 
