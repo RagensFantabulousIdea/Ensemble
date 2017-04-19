@@ -1,18 +1,21 @@
 Rails.application.routes.draw do
 
   # root 'application#static'
-  
+
   scope :api do
     # resources :equipment
     # resources :shoots
     resources :projects, except: [:new, :edit] do
+      resources :comments, only: [:create] do
+        resources :comments, only: [:create]
+      end
       resources :memberships, only: [:destroy]
       resources :assets, except: [:new, :edit] do
         resources :comments, only: [:create, :update, :destroy]
         resources :photos, except: [:new, :edit]
         post '/photos/:id/selected' => 'photos#selected'
+        get '/photos/samples' => 'photos#samples'
       end
-      resources :comments, only: [:create]
       resources :invitations, only: [:create]
     end
 

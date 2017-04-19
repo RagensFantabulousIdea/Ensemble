@@ -38,7 +38,7 @@ class UserProjects extends Component {
     returnToSignin() {
         if (sessionStorage.length > 0) {
             sessionStorage.clear()
-            browserHistory.push('/')
+            browserHistory.push('/signin')
         }
     }
 
@@ -50,7 +50,7 @@ class UserProjects extends Component {
     }
 
     render() {
-        let projects = this.state.projects.map((project, key) => <Project key={Date.now() + key} index={key} {...project} getProjects={this.getProjects} deleteProject={this.deleteProject}/>)
+        let projects = this.state.projects.map((project, key) => <Project key={Date.now() + key} index={key} {...project} getProjects={this.getProjects} deleteProject={this.deleteProject} returnToSignin={this.returnToSignin}/>)
 
         if (projects.length === 0) {
             projects = <div><br/><br/><h4 className="text-center cardAddInstruction">Please click the "Add New Project" button to get started.</h4></div>
@@ -59,8 +59,8 @@ class UserProjects extends Component {
         return (
             <div className="userProjectsPage">
             <UserNavBar />
-            <h1>Projects</h1>
-                <div className="container-fluid">
+            <h1 className="userHomeTitle">Projects</h1>
+                <div className="container">
                     <div className="text-center">
                         <div className="col-sm-12">
                             <button type="button" className="btn addButton pull-right" onClick={() => browserHistory.push('/projects/new')}>Add New Project</button>
@@ -68,13 +68,10 @@ class UserProjects extends Component {
                     </div>
                 
                     <div className="row">
-                        <div className="col-sm-12 leftcolumn">
-                            <div className="row">
-                                {projects}
-                            </div>
-                        </div>
+                        {projects}
                     </div>   
                 </div>
+
                 <FooterArea />
             </div>
         );
@@ -90,7 +87,12 @@ export default UserProjects;
  // let projects = this.state.projects.map((project, key) => <Project key={key} index={key} {...project} deleteProject={this.deleteProject} toggleProjectComplete={this.toggleProjectComplete}/>)
 
 
-                        //  <button type="button" className="btn btn-warning" onClick={() => browserHistory.push('/projects')}>Incompleted Projects</button> &nbsp;
-                        // <button type="button" className="btn btn-primary" onClick={() => browserHistory.push('/projects/complete')}>Completed Projects</button>
-                        // <span id="logout" className="glyphicon glyphicon-off" onClick={this.returnToSignin}></span>
-                        // <hr/>
+//  <button type="button" className="btn btn-warning" onClick={() => browserHistory.push('/projects')}>Incompleted Projects</button> &nbsp;
+
+// <button type="button" className="btn btn-primary" onClick={() => browserHistory.push('/projects/complete')}>Completed Projects</button>
+
+// <span id="logout" className="glyphicon glyphicon-off" onClick={this.returnToSignin}></span>
+
+// <hr/>
+
+//  <span className="glyphicon glyphicon-off logout" onClick={this.returnToSignin}></span>

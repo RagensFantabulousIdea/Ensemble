@@ -17,7 +17,7 @@ class Signin extends Component {
     signin() {
         var email = this.state.email
         var password = this.state.password
-        console.log(email, password)
+        //console.log(email, password)
 
         fetch('/api/login', {
             method: 'POST',
@@ -32,12 +32,12 @@ class Signin extends Component {
         })
 
             .then(function (response) {
-                console.log(response)
+                //console.log(response)
                 return response.json();
             })
 
             .then(function (response) {
-                console.log(response);
+                //console.log(response);
 
                 if (response.token) {
                     sessionStorage.setItem('token', response.token);
@@ -46,7 +46,7 @@ class Signin extends Component {
                 }
                 else {
                     alert('There was an error signing in');
-                    console.log('Signin : ' + response);
+                    //console.log('Signin : ' + response);
                 }
             })
 
@@ -55,20 +55,20 @@ class Signin extends Component {
     render() {
         return <div style={{display: this.props.modalSi}}>
             <div className="container modal-opac">
-                <div className="panel panel-default">
+                <div className="panel modalSi">
                     <div className="panel-body">
-                        <i className="fa fa-times-circle-o fa-2x signup-close" aria-hidden="true" onClick={() => this.setState({modalSi: 'none'})} ></i>
+                       <button type="button" className="close" data-dismiss="modalSi" aria-label="Close" onClick={this.props.closeSi}><span aria-hidden="true">&times;</span></button>
                         <div className="form-group">
                             <label htmlFor="email">email</label>
-                            <input type="text" id="email" className="form-control" placeholder="johnsmith@gmail.com" value={this.state.email} onChange={(e) => this.setState({ email: e.target.value })} required />
+                            <input type="text" className="form-control email" placeholder="johnsmith@gmail.com" value={this.state.email} onChange={(e) => this.setState({ email: e.target.value })} required />
                         </div>
                         <div className="form-group">
                             <label htmlFor="password">Password</label>
-                            <input type="password" id="password" className="form-control" maxLength="72" value={this.state.password} onChange={(e) => this.setState({ password: e.target.value })} required />
+                            <input type="password" className="form-control password" maxLength="72" value={this.state.password} onChange={(e) => this.setState({ password: e.target.value })} required />
                         </div>
                     </div>
                     <div className="panel-footer text-center">
-                        <button id="actionButton" type="button" className="btn btn-lg btn-success" onClick={this.signin}>Sign in</button>
+                        <button type="button" className="btn btn-lg actionButton" onClick={this.signin}>Sign in</button>
                     </div>
                 </div>
             </div>
@@ -78,3 +78,5 @@ class Signin extends Component {
 }
 
 export default Signin;
+
+//  <i className="fa fa-times-circle-o fa-2x signup-close" aria-hidden="true" onClick={() => this.setState({modalSi: 'none'})} ></i>

@@ -11,12 +11,22 @@ import SignIn from './SignIn'
 class Welcome extends Component {
   constructor(props) {
     super(props)
+    this.closeSignup = this.closeSignup.bind(this)
+    this.closeSignin = this.closeSignin.bind(this)
     this.state = {
       modalSi: "none",
       modalSu: "none",
    
     }
   }
+
+  closeSignup() {
+    this.setState({modalSu: "none"})
+  } 
+
+  closeSignin() {
+    this.setState({modalSi: "none"})
+  } 
 
   render() {
     // let SignUp = this.state.SignUp.map((SignUp, key) => <SignUp {...SignUp} key={key} showModal={this.showModal}/>)
@@ -30,7 +40,7 @@ class Welcome extends Component {
 
           <div className="welcomeButtons text-center">
             <button type="button" className="btn signInButtonWelcome" onClick={() => this.setState({modalSi: 'block'})} >Sign In</button> <br/>
-            <button type="button" className="btn signUpButtonWelcome" onClick={() => this.setState({modalSu: 'block'})}>Sign Up</button>
+            <button type="button" className="btn signInButtonWelcome" onClick={() => this.setState({modalSu: 'block'})}>Sign Up</button>
           </div>
         </div>
           
@@ -48,16 +58,10 @@ class Welcome extends Component {
             </div>
           </div>
 
-
-      
-
-
-
+        <Signup modalSu={this.state.modalSu} closeSu={() => this.closeSignup()} className="modal"/>
+        <SignIn modalSi={this.state.modalSi} closeSi={() => this.closeSignin()}  className="modal"/>
 
         <FooterArea />
-
-        <Signup modalSu={this.state.modalSu}  className="modal"/>
-        <SignIn modalSi={this.state.modalSi}  className="modal"/>
 
       </div>
     );

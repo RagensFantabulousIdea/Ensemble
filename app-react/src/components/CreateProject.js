@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import UserNavBar from './UserNavBar';
+import FooterArea from './FooterArea';
 import { browserHistory } from 'react-router';
 // import SignUp from './SignUp'
 class createproject extends Component {
@@ -16,7 +18,7 @@ class createproject extends Component {
     }
 
     addProject(title, author, projectNumber, description) {
-        console.log(this.props.params.projectId)
+        //console.log(this.props.params.projectId)
 
         //Post to /api/projects
         if (
@@ -48,21 +50,24 @@ class createproject extends Component {
                         projectNumber: '',
                         description: ''
                     })
-                    
-             
-                
+
                     browserHistory.push('/projects')
                 })
-                    
         }
     }
 
     render() {
-        console.log(this.props.params.projectId)
+        //console.log(this.props.params.projectId)
         return (
-            <div id="createproject">
-                <div className="col-sm-4 col-sm-offset-4">
-                    <div className="panel panel-default">
+            <div className="createProject">
+            <UserNavBar />
+            <h1>Create a Project</h1>
+            
+            <div className="container">
+                <div className="row">
+                    <div className="col-sm-4 col-sm-offset-4">
+                    <div className="panel">
+                    <div className="panel-heading"></div>
                         <div className="panel-body">
                             <form>
                                 <div className="form-group">
@@ -89,8 +94,10 @@ class createproject extends Component {
                         </div>
                     </div>
                 </div>
+                </div>
             </div>
-
+            <FooterArea />
+            </div>
         );
     }
 }

@@ -15,6 +15,19 @@ class PhotosController < ApplicationController
     end
   end
 
+  def samples
+    @sample_photos = @asset.sample_photos
+    if editor
+      if @photos
+        render json: @photos
+      else
+        render json: @photos.errors.full_messages, status: 400
+      end
+    else
+      forbidden
+    end
+  end
+
   def create
     if editor
       @photo = @asset.photos.new(photo_params)
@@ -31,11 +44,7 @@ class PhotosController < ApplicationController
   def destroy
     if editor
       @photo.destroy
-      if @photo.save
-        render json: ["Photo deleted successfully."]
-      else
-        render json: @photo.errors.full_messages, status: 400
-      end
+      render json: ["Photo deleted successfully."]
     else
       forbidden
     end
@@ -111,7 +120,7 @@ class PhotosController < ApplicationController
   end
 
   def photo_params
-    params.permit(:image, :frame_num, :liked, :disliked, :selected, :asset_id)
+    params.permit(:frame_num, :liked, :disliked, :selected, :asset_id, :selected_photo, {sample_photos: []})
   end
 
 end

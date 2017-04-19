@@ -16,7 +16,7 @@
 
   3.times do
     #Create Projects
-    Project.create!(
+    project = Project.create!(
       title: Faker::HowIMetYourMother.quote,
       description: Faker::Lorem.sentences(3),
       author: Faker::Book.author,
@@ -25,35 +25,48 @@
       created_at: rand(1..365).days.ago
     )
 
-    #TODO Fix this to make it actually pull in relevant data
     5.times do
+      meridian = ["AM", "PM"]
       #Create Assets
-      Asset.create!(
-      figure_num: "string",
-      description: "string",
-      order_num: "integer",
-      landscape: "boolean",
-      portrait: "boolean",
-      demonstrative: "boolean",
-      decorative: "boolean",
-      frame_num: "string",
-      instructions: "string",
-      photographer: "string",
-      created_at: "date-time",
-      updatead_at: "date-time",
+      asset = project.assets.create!(
+      figure_num: rand(300.99),
+      asset_description: Faker::Hacker.say_something_smart,
+      order_num: rand(1..1000),
+      landscape: Faker::Boolean.boolean(0.5),
+      portrait: Faker::Boolean.boolean(0.5),
+      demonstrative: Faker::Boolean.boolean(0.5),
+      decorative: Faker::Boolean.boolean(0.5),
+      frame_num: "DSC#{rand(99999)}",
+      instructions: Faker::Hacker.say_something_smart,
+      photographer: Faker::Name.name,
+      created_at: "#{project.created_at + rand(1..5).days}",
+      updated_at: "#{project.created_at + rand(1..5).days}",
       frame_range: "string",
-      parts: "integer",
+      parts: rand(1..10),
       equipment: "string",
-      photo_model: "string",
-      location_of_shoot: "string",
-      date_of_shoot: "date_time",
-      time_of_shoot: "date_time",
-      image: "string"
+      photo_model: Faker::Name.name,
+      location_of_shoot: "#{Faker::Address.street_address} \n
+      #{Faker::Address.city}, #{Faker::Address.state_abbr} #{Faker::Address.zip_code} \n
+      #{Faker::Friends.location}",
+      date_of_shoot: Faker::Date.forward(42),
+      time_of_shoot: "#{rand(0..12)}-#{rand(0..12)}#{meridian.sample}"
+      )
+    end
+
+    3.times do
+      asset.photos.create!(
+      remote_image_url: "https://unsplash.it/800?#{rand(1..1084)}",
+      frame_num: "DSC#{rand(99999)}",
+      liked: Faker::Boolean.boolean(0.5),
+      disliked: Faker::Boolean.boolean(0.5),
+      selected: Faker::Boolean.boolean(0.1),
+      created_at: rand(1..20).days.ago,
+      updated_at: rand(1..20).days.ago,
+      asset_id: asset
       )
     end
 
   end
-end
 
   #Fill Projects with members
   Project.all.each do |add_member|
@@ -76,6 +89,7 @@ end
         body: Faker::StarWars.quote
       )
 
+
       #Create nested comments
       user = [project_comments.owner, project_comments.members.sample].sample
       left_comment = comment.comments.create!(
@@ -85,7 +99,7 @@ end
         body: Faker::HarryPotter.quote
       )
 
-    #Create a deeply nested comment
+      #Create a deeply nested comment
       user = [project_comments.owner, project_comments.members.sample].sample
       left_comment.comments.create!(
         commentable: comment,
@@ -95,3 +109,4 @@ end
       )
     end
   end
+end

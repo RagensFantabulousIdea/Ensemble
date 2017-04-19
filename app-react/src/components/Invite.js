@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import UserNavBar from './UserNavBar';
+import FooterArea from './FooterArea';
 import { browserHistory } from 'react-router';
 // import SignUp from './SignUp'
 
@@ -25,7 +27,7 @@ class Invite extends Component {
     }
 
          sentinvite(){
-             console.log('boo')
+             //console.log('boo')
         alert("Invitation sent")
         browserHistory.push('/projects')
     }
@@ -57,10 +59,14 @@ class Invite extends Component {
 render() {
     // alert('Invite someone to project ' + this.props.params.projectId)
     return (
-     <div className="invitetopmargin">
-     <div className="col-sm-4 col-sm-offset-4">
-        <div className="panel panel-info">
-         <div className="panel-heading"><h3>Please fill this form to invite someone </h3></div>
+     <div className="inviteCard">
+        <UserNavBar />
+        <h1>Invitation Form</h1>
+            <div className="container">
+                <div className="row">
+                <div className="col-sm-4 col-sm-offset-4">
+        <div className="panel">
+         <div className="panel-heading"></div>
             <div className="panel-body">
                 <div className="form-group">
                     <label htmlFor="firstname">First Name(of the person being invited)</label>
@@ -72,15 +78,16 @@ render() {
                 </div>
             <div className="form-group">
                 <label htmlFor="email">Email</label>
-                <input type="text" id="email" className="form-control" value={this.state.email} onChange={(e) => this.setState({email: e.target.value})} required />
+                <input type="text" className="form-control email" value={this.state.email} onChange={(e) => this.setState({email: e.target.value})} required />
             </div>
             <button type="button" className="btn btn-success " onClick={() =>this.invitePeople()}>Invite</button>
                     </div>
                 </div>
             </div>
+                </div>
+            </div>
+            <FooterArea />
         </div>
-     
-    
     );
   }
 }
