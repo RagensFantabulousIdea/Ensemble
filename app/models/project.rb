@@ -1,6 +1,8 @@
 class Project < ApplicationRecord
   has_secure_token :project_token
 
+  default_scope { order(created_at: :desc) }
+
   belongs_to :owner, class_name: "User", foreign_key: :user_id
 
   has_many :memberships, dependent: :delete_all
