@@ -36,9 +36,8 @@ class CommentsTopLevel extends Component {
                                     <div className="col-xs-12 messageText">
                                         <span className="messageContent">{this.props.body}</span>
                                         <br/>
-                                        <a className="messageTopEditLink" onClick={() => browserHistory.push('/editMessage/')}>Edit</a> | <a className="messageTopDeleteLink" onClick={() => this.deleteMessages(this.props.projectId)}>Delete</a> 
-                                        
-                                    </div>
+                                        <a className="messageTopEditLink" onClick={() => browserHistory.push('/editMessage/')}>Edit</a> | <a className="messageTopDeleteLink" onClick={() => this.deleteMessages(this.props.projectId)}>Delete</a>                                         
+</div>
 
                                 </div>
                             </div>
@@ -56,3 +55,5 @@ export default CommentsTopLevel;
                                     // <div className="col-xs-2 messageEditIcon">
                                     //     <span className="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                                     // </div>
+
+                                        // <a className="messageTopEditLink" onClick={() => browserHistory.push('/editMessage/')}>Edit</a> | <a className="messageTopDeleteLink" onClick={() => this.props.deleteMessages(this.props.id)}>Delete</a> 
