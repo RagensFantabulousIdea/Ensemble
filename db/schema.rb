@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170418210137) do
+ActiveRecord::Schema.define(version: 20170419035448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(version: 20170418210137) do
     t.string   "date_of_shoot"
     t.string   "time_of_shoot"
     t.integer  "project_id"
-    t.json     "sample_photos"
     t.index ["project_id"], name: "index_assets_on_project_id", using: :btree
   end
 
@@ -99,6 +98,14 @@ ActiveRecord::Schema.define(version: 20170418210137) do
     t.boolean  "inactive",      default: false
   end
 
+  create_table "sample_photos", force: :cascade do |t|
+    t.string   "image"
+    t.integer  "asset_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["asset_id"], name: "index_sample_photos_on_asset_id", using: :btree
+  end
+
   create_table "shoot_and_assets", force: :cascade do |t|
     t.integer  "shoot_id"
     t.integer  "asset_id"
@@ -133,6 +140,7 @@ ActiveRecord::Schema.define(version: 20170418210137) do
   add_foreign_key "memberships", "users"
   add_foreign_key "photos", "assets"
   add_foreign_key "projects", "users"
+  add_foreign_key "sample_photos", "assets"
   add_foreign_key "shoot_and_assets", "assets"
   add_foreign_key "shoot_and_assets", "shoots"
 end
