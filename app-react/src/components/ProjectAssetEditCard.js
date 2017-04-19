@@ -43,7 +43,7 @@ class ProjectAssetEditCard extends Component {
             .then(asset => this.setState({
                 asset: asset,
                 figure_num: asset.figure_num|| "",
-                selected_photo: asset.selected_photo.frame_num || "",
+                selected_photo: asset.selected_photo ? asset.selected_photo.frame_num : '',
                 parts: asset.parts || "",
                 frame_num: asset.frame_num || "",
                 order_num: asset.order_num || "",
