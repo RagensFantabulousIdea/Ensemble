@@ -37,19 +37,11 @@ class AssetsController < ApplicationController
 
   def update
     if editor
-      original_names = []
-      original_names = params[:sample_photos].collect do |name|
-        name.original_filename
+      if @asset.update!(asset_params)
+        render json: @asset
+      else
+        render json: @asset.errors.full_messages
       end
-        if @asset.update!(asset_params)
-          asset_params.merge({sample_photos: original_names})
-          params[:sample_photos].each do |upload|
-            Cloudinary::Uploader.upload(upload)
-          end
-          render json: @asset
-        else
-          render json: @asset.errors.full_messages
-        end
     else
       forbidden
     end
