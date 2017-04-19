@@ -72,7 +72,7 @@ class Project extends React.Component{
                     <div className="panel-body">
                         <h4 className="carditems">{this.props.author}</h4>
                         <h4 className="carditems">{this.props.project_num}</h4>
-                        <p>{this.props.description}</p>
+                        <p>{this.props.description.slice(0,30)}...</p>
                         
                     </div>
                     <div className="panel-footer projectCardNavButtons">
