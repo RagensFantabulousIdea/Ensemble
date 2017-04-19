@@ -191,6 +191,11 @@ a.nav-item {
 }
 
 /*User Projects*/
+.projectPanelHeader{
+    background-image: url("../img/background-1594712_1920.jpg");
+    background-size: cover;
+}
+
 .userProjectsPage {
     background-color: #2D2D2D;
     /*background-color: #3B424A;*/
@@ -203,6 +208,36 @@ a.nav-item {
     padding-bottom: 20px;
     color: #D9D9D9;
     padding-left: 20px;
+}
+
+.projectButton {
+    /*margin-top: 40px; */
+    background-color: transparent;
+    /*height: 70px;*/
+    /*width: 70px;*/
+    border-radius: 0%;
+    border: 2px solid #437270;
+    color: #437270;
+    font-weight: bold;
+    padding: 2px 8px;
+    margin-left: 5%;
+    margin-top: 10px;
+}
+
+.projectDeleteButton {
+    border: 2px solid #992104;
+    color: #992104;
+    /*margin-left: 30px;*/
+}
+
+.projectShootButton {
+    border: 2px solid #5EABE2;
+    color: #5EABE2;
+}
+
+.projectCardNavButtons {
+    text-align: center;
+    background-color: #0D2139 !important;
 }
 
 /*create project card*/
@@ -225,55 +260,50 @@ a.nav-item {
 .ownerLabel {
     display: inline-block;
     background-color: #5EABE2;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway', sans-serif !important;
     font-size: 14px;
     height: 70px;
     width: 70px;
     border-radius: 50%;
-    border: 2px solid white;
+    /*border: 1px solid white;*/
+    /*box-shadow: 3px 3px 10px #204978;*/
+    box-shadow: 3px 3px 10px #4F95E7;
     text-align: center;
     padding-bottom: 30px;
-    padding-top: 20px;
-    font-style: normal;
+    padding-top: 25px;
+    font-style: normal !important;
     margin-bottom: 80px; 
+    font-weight: 300;
 }
 
 .projectTitle {
-    color: black;
-    margin-bottom: 20px;
-}
-
-
-/*Start styles Manpreet had made*/
-
-
-/*.createproject{
-    margin-top: 20px;
-}*/
-
-/*.carditems{
-    padding-top: 10px;
-    padding-left: 20px;
-}*/
-
-/*.invitetopmargin{
-    margin-top: 20px;
-}*/
-
-.logout {
-    float: right;
+    color: white;
     font-size: 30px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 20px;
+    margin-bottom: 30px;
 }
 
-/*end Manpreet's styles*/
+.projectCompleteCheck {
+    color: #ABADAD !important;
+}
 
 /*invite card invitation form*/
 .inviteCard {
     background-color: #2D2D2D;
+    color: white;
 }
+
+.invitePanel {
+    margin-bottom: 40vh;
+    background-image: url("../img/background-1594712_1920.jpg");
+    background-size: cover;
+}
+
+.inviteSendButton {
+    text-align: center;
+}
+
+/*edit project form*/
+
 
 /*Photo Shoot List*/
 .projectShootListPage {
@@ -282,7 +312,7 @@ a.nav-item {
 
 h1 {
     font-family: 'Signika', sans-serif;
-    font-size: 75px;
+    font-size: 65px;
     padding-bottom: 20px;
     color: #D9D9D9;
     padding-left: 20px;
@@ -292,6 +322,12 @@ h1 {
     font-family: 'Raleway', sans-serif;
     color: #D9D9D9;
     padding-left: 20px;
+}
+
+.projectTitleShootList {
+    color: #D9D9D9;
+    font-style: italic;
+    font-size: 45px;
 }
 
 .projectDescription {
@@ -312,6 +348,20 @@ h1 {
     margin-bottom: 30px;
 }
 
+.pageInstructions {
+    color: #D9D9D9;
+    font-style: italic;
+}
+
+/*.photoColumn {
+    background-image: url("../img/spotlight-1734718_1920.jpg");
+    background-size: cover;*/
+    /*background-position: 25% 20%;*/
+    /*padding-bottom: 73vw;
+    padding-top: 30px; 
+    text-align: center;
+}*/
+
 /*QQRAGEN: come back to this and add padding! */
 .cardAddInstruction {
     padding-bottom: 45vh;
@@ -320,12 +370,22 @@ h1 {
 
 /*project shoot mini cards*/
 
-.panel {
+/*.projectShootMiniCardSetup {
+    max-width: 700px;
+    min-width: 700px;
+}*/
+
+/*.panel {
     font-family: 'Raleway', sans-serif;
+}*/
+.miniImagePanel {
+    background-image: url("../img/background-1594712_1920.jpg");
+    background-size: cover;
 }
-.panel-heading {
+
+/*.panel-heading {
     background-color: #D9D9D9;
-}
+}*/
 
 .panel {
     border-radius: 0px;
@@ -338,6 +398,7 @@ h1 {
 .miniCardFooter {
     padding-bottom: 0px;
     padding-top: 5px;
+    background-color: #0D2139 !important;
 }
 
 .miniCard:hover {
@@ -639,3 +700,30 @@ h3 {
 /*end modal stuff from w8 d2 notes*/
 
 
+
+
+/*Start styles Manpreet had made*/
+
+
+/*.createproject{
+    margin-top: 20px;
+}*/
+
+/*.carditems{
+    padding-top: 10px;
+    padding-left: 20px;
+}*/
+
+/*.invitetopmargin{
+    margin-top: 20px;
+}*/
+
+/*.logout {
+    float: right;
+    font-size: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}*/
+
+/*end Manpreet's styles*/

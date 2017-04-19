@@ -53,47 +53,36 @@ class Project extends React.Component{
         return (
             <div className="col-sm-6 projectCard">
                 <div className="panel">
-                    <div className="panel-heading">
+                    <div className="panel-heading projectPanelHeader">
                     {this.props.message_new ? <span className="commentIndicator glyphicon glyphicon-comment" aria-hidden="true"></span> : ''}
                         <div className="form-check ownerCheck">
                             {this.props.owner.id == sessionStorage.getItem('userId') ?
-                            <label className="form-check-label">
-                                <input type="checkbox" className="form-check-input" checked={this.state.complete} onChange={this.toggleCompleted}/>
+                            <label className="form-check-label projectCompleteCheck">
+                                <input type="checkbox" className="form-check-input projectCompleteCheck" checked={this.state.complete} onChange={this.toggleCompleted}/>
                                 &nbsp; Check if project is done
                             </label> : ''}
                             <br/>
                             <br/>
-                            {this.props.owner.id == sessionStorage.getItem('userId') ? <span className="pull-right label ownerLabel">Owner</span> : <span className="pull-right label collaborationLabel">Collaboration</span>}
+                            {this.props.owner.id == sessionStorage.getItem('userId') ? <span className="pull-right label ownerLabel">Owner</span> : <span className="pull-right label collaborationLabel">Member</span>}
                         </div>
 
                         <h3 className="projectTitle">{this.props.title}</h3>
                     </div>
 
                     <div className="panel-body">
-                        <div className="row">
-                            <div className="col-xs-6">
-                                <h4 className="carditems">{this.props.author}</h4>
-                            </div>
-
-                            <div className="col-xs-6">
-                                <h4 className="carditems">{this.props.project_num}</h4>
-                            </div>
-                        </div>
-
-                        <div className="row">
-                            <div className="col-sm-12">
-                                <p>{this.props.description}</p>
-                            </div>
-                        </div>
+                        <h4 className="carditems">{this.props.author}</h4>
+                        <h4 className="carditems">{this.props.project_num}</h4>
+                        <p>{this.props.description}</p>
+                        
                     </div>
-                    <div className="panel-footer">
-                        <button type="button" className="btn btn-danger col-sm-offset-1" onClick={() => this.props.deleteProject(this.props.id)}>Delete </button>
+                    <div className="panel-footer projectCardNavButtons">
+                        <button type="button" className="btn projectButton projectDeleteButton" onClick={() => this.props.deleteProject(this.props.id)}>Delete </button>
 
-                        <button type="button" className="btn btn-primary col-sm-offset-1" onClick={() => browserHistory.push('/edit/' + this.props.id)}>Edit </button>
+                        <button type="button" className="btn projectButton" onClick={() => browserHistory.push('/edit/' + this.props.id)}>Edit </button>
                     
-                        <button type="button" className="btn btn-success col-sm-offset-1" onClick={() => browserHistory.push('/invite/' + this.props.id)}>Invite</button>
+                        <button type="button" className="btn projectButton" onClick={() => browserHistory.push('/invite/' + this.props.id)}>Invite</button>
                     
-                        <button type="button" className="btn btn-success col-sm-offset-1" onClick={() => browserHistory.push('/shoot/' + this.props.id)}>Project Shoot List</button>
+                        <button type="button" className="btn projectButton projectShootButton" onClick={() => browserHistory.push('/shoot/' + this.props.id)}>Project Shoot List</button>
 
                     </div>
                 </div>
