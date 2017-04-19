@@ -35,6 +35,30 @@ class AssetsController < ApplicationController
     end
   end
 
+  def next
+    if editor
+      if @asset.next
+        render json: @asset.next
+      else
+        render json: @asset
+      end
+    else
+      forbidden
+    end
+  end
+
+  def previous
+    if editor
+      if @asset.previous
+        render json: @asset.previous
+      else
+        render json: @asset
+      end
+    else
+      forbidden
+    end
+  end
+
   def update
     if editor
       if @asset.update!(asset_params)
@@ -75,7 +99,11 @@ class AssetsController < ApplicationController
   end
 
   def find_asset
-    @asset = @project.assets.find(params[:id])
+    if params[:asset_id]
+      @asset = @project.assets.find(params[:asset_id])
+    else 
+      @asset = @project.assets.find(params[:id])
+    end
   end
 
 end

@@ -9,4 +9,12 @@ class Asset < ApplicationRecord
 
   has_many :comments, as: :commentable, dependent: :destroy
 
+  def next
+    project.assets.where("created_at > ?", created_at).first
+  end
+
+  def previous
+    project.assets.where("created_at < ?", created_at).last
+  end
+
 end

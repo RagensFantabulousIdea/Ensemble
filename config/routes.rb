@@ -12,6 +12,8 @@ Rails.application.routes.draw do
       resources :memberships, only: [:destroy]
 
       resources :assets, except: [:new, :edit] do
+        get '/previous' => 'assets#previous'
+        get '/next' => 'assets#next'
         resources :comments, only: [:create, :update, :destroy]
         resources :photos, except: [:new, :edit]
         resources :sample_photos, except: [:new, :edit]
