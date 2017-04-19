@@ -4,7 +4,7 @@ import UserNavBar from './UserNavBar';
 import FooterArea from './FooterArea';
 
 // import SignUp from './SignUp'
-class EditMessage extends Component {
+class Edit extends Component {
     constructor(props) {
         super(props)
         this.editProject = this.editProject.bind(this)
@@ -112,5 +112,5 @@ class EditMessage extends Component {
         );
     }
 }
-export default EditMessage;
+export default Edit;
 

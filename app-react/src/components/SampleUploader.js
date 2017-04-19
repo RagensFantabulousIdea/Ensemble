@@ -28,7 +28,6 @@ class SampleUploader extends React.Component {
     })
   }
   
-
   render() {
     return <div>
       <div className="form-group">
@@ -37,6 +36,7 @@ class SampleUploader extends React.Component {
 
       <div className="form-group">
         <button onClick={this.upload} type="button" className="btn btn-success btn-block upload">Upload</button>
+        {this.state.upload ? <img src="./img/ajax-loader.gif" alt="loading" /> : ''}
       </div>
     </div>
 
