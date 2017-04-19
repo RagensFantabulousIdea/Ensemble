@@ -5,9 +5,7 @@ class EditUser extends Component {
 
     constructor(props) {
         super(props)
-
         this.signup = this.signup.bind(this)
-
         this.state= {
             firstname: '',
             lastname: '',
@@ -15,15 +13,41 @@ class EditUser extends Component {
             password: '',
             project_token: '',
             modal: "none",
-            xmark: "none"
+            xmark: "none",
+            signup: null
         }
     }
-    signup() {
+    componentWillMount(){
+        let userId = sessionStorage.getItem('userId')
+        fetch('/api/users/' + userId + '?token=' + sessionStorage.getItem('token'))
+            .then (response => response.json())
+            // .then(response => console.log(response))
+            .then(signup => this.setState({
+                signup: signup,
+                first_name: signup.firstname,
+                last_name: signup.lastname,
+                email: signup.email,
+                password: signup.password
+            }))
+            .then (whatever => console.log(this.state))
+
+    }
+
+            signup() {
         var firstname = this.state.firstname
         var lastname = this.state.lastname
         var email = this.state.email
         var password = this.state.password
-        
+        // var project_token = this.state.project_token
+
+        // console.log(firstname,lastname, email, password)
+
+        if (firstname === '' || lastname === '' || email === '' || password === '') {
+            alert('You must fill in all fields.')
+        }  else if (!email.includes('@') || (email.slice(email.length - 4, email.length - 3) !== '.')) {
+            alert('You must enter a valid email address.')
+        } 
+         else {
 
 
         fetch('/api/users', {
@@ -57,9 +81,10 @@ class EditUser extends Component {
                 alert('Signup error: ' + response)
             }
         })
-        
-}
+        }
+    }
 
+    
                 // <i className="fa fa-times-circle-o fa-2x signup-close" aria-hidden="true" onClick={this.props.closeSu} ></i>
 
 render() {
