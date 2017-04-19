@@ -58,14 +58,15 @@ class UserProjects extends Component {
        
         return (
             <div className="userProjectsPage">
-            <UserNavBar />
-            <h1 className="userHomeTitle">Projects</h1>
+                <UserNavBar />
+            
+                 <h1 className="userHomeTitle">{location.href.includes('/complete') ? 'Completed Projects' : 'Projects'}</h1>
                 <div className="container">
-                    <div className="text-center">
+                    {location.href.includes('/complete') ? '' : <div className="row">
                         <div className="col-sm-12">
                             <button type="button" className="btn addButton pull-right" onClick={() => browserHistory.push('/projects/new')}>Add New Project</button>
                         </div>
-                    </div>
+                    </div>}
                 
                     <div className="row">
                         {projects}
@@ -79,8 +80,13 @@ class UserProjects extends Component {
 }
 
 export default UserProjects;
-//{this.props.owner.id === }
+//    {this.owner.id == sessionStorage.getItem('userId') ?
+//             <h1 className="userHomeTitle">Projects</h1> :  <h1 className="userHomeTitle">Completed Projects</h1>}
 
+        // <h1 className="userHomeTitle">Projects</h1>
+//    {this.owner.id == sessionStorage.getItem('userId') ?
+//             <h1 className="userHomeTitle">Projects</h1> :  <h1 className="userHomeTitle">Completed Projects</h1>}
+ 
 // <Project id={1} title="Test Project 1" author="Manpreet" projectNumber="127837482378" description="This is just a test project, so ignore it." />
 //                             <Project id={2} title="Test Project 2" author="Collin" projectNumber="39439jds" description="This is just a test project, so ignore it." />
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { browserHistory } from 'react-router';
-import { Link } from 'react-router';
+// import { Link } from 'react-router';
 
 class Project extends React.Component{
     constructor(props) {
@@ -56,7 +56,7 @@ class Project extends React.Component{
             <div className="col-sm-6 projectCard">
                 <div className="panel">
                     <div className="panel-heading projectPanelHeader">
-                    {this.props.message_new ? <span className="commentIndicator glyphicon glyphicon-comment" aria-hidden="true"></span> : ''}
+                    {this.props.assets.reduce((prev, next) => prev + next.comments.length, 0) > 0 ? <span className="commentIndicator glyphicon glyphicon-comment" aria-hidden="true">{this.props.assets.reduce((prev, next) => prev + next.comments.length, 0)}</span> : ''}
                         <div className="form-check ownerCheck">
                             {this.props.owner.id == sessionStorage.getItem('userId') ?
                             <label className="form-check-label projectCompleteCheck">
@@ -68,13 +68,13 @@ class Project extends React.Component{
                             {this.props.owner.id == sessionStorage.getItem('userId') ? <span className="pull-right label ownerLabel">Owner</span> : <span className="pull-right label collaborationLabel">Member</span>}
                         </div>
 
-                    <h3 className="projectTitle">{this.props.title.slice(0,20)}...</h3>
+                    <h3 className="projectTitle">{this.props.title.slice(0,60)}...</h3>
                     </div>
 
-                    <div className="panel-body">
+                    <div className="panel-body panel-body-scroll">
                         <h4 className="carditems">{this.props.author}</h4>
                         <h4 className="carditems">{this.props.project_num}</h4>
-                        <p>{this.props.description.slice(0,30)}...</p>
+                        <p>{this.props.description}...</p>
                     </div>
                     
                     <div className="panel-footer projectCardNavButtons">
