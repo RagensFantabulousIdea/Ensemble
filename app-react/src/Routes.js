@@ -26,6 +26,7 @@ import ProjectPhotoCollaborating from './components/ProjectPhotoCollaborating'
 import FullSizedImageView from './components/FullSizedImageView'
 //Manpreet added a new component edit.js
 import Edit from './components/Edit'
+import EditUser from './components/EditUser'
 //  import EditMessage from './components/EditMessage'
 // import completedProjects from './components/completedProjects'
 
@@ -46,13 +47,12 @@ class Routes extends React.Component {
             <Route path="/projects/:projectId/view" component={Project} />
             <Route path="/projects/:projectId/edit" component={CreateProject} />
             <Route path="/edit/:projectId" component={Edit} />
-           
             <Route path="/shoot/:projectId" component={ProjectShootList} />
             <Route path="/shoot/:projectId/createcard" component={ProjectCreateCard} />
             <Route path="/shoot/:projectId/assets/:assetId/editcard" component={ProjectAssetEditCard} />
             <Route path="/shoot/:projectId/assets/:assetId/collaborate" component={ProjectPhotoCollaborating} />
             <Route path="/shoot/:projectId/assets/:assetId/photos/:id" component={FullSizedImageView} />
-
+            <Route path="/edituser/:userId" component={EditUser} />
         </Router>
     }
 }

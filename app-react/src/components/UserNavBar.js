@@ -36,6 +36,9 @@ constructor(props){
                         <Link className="nav-item signOutNav" onClick={this.returnToSignin}>
                             Sign Out
                         </Link>
+                        <Link className="nav-item signOutNav" onClick={() => browserHistory.push('/edituser/:userId')}>
+                            Edit User Information
+                        </Link>
                     </div>
                 </nav>
             </header>
