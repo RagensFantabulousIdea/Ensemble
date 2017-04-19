@@ -36,7 +36,7 @@ class CommentsTopLevel extends Component {
                                     <div className="col-xs-12 messageText">
                                         <span className="messageContent">{this.props.body}</span>
                                         <br/>
-                                        <a className="messageTopEditLink" onClick={() => browserHistory.push('/editMessage/')}>Edit</a> | <a className="messageTopDeleteLink" onClick={() => this.deleteMessages(this.props.projectId)}>Delete</a>                                         
+                                        <a className="messageTopDeleteLink" onClick={() => this.deleteMessages(this.props.projectId)}>Delete</a>                                         
 </div>
 
                                 </div>

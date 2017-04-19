@@ -59,6 +59,10 @@ class UserProjects extends Component {
         return (
             <div className="userProjectsPage">
             <UserNavBar />
+
+          
+
+
             <h1 className="userHomeTitle">Projects</h1>
                 <div className="container">
                     <div className="text-center">
@@ -79,6 +83,13 @@ class UserProjects extends Component {
 }
 
 export default UserProjects;
+
+
+  // {this.props.owner.id == sessionStorage.getItem('userId') ?
+            //                 <label className="form-check-label projectCompleteCheck">
+            //                     <input type="checkbox" className="form-check-input projectCompleteCheck" checked={this.state.complete} onChange={this.toggleCompleted}/>
+            //                     &nbsp; Check if project is done
+            //                 </label> : ''}
 //{this.props.owner.id === }
 
 // <Project id={1} title="Test Project 1" author="Manpreet" projectNumber="127837482378" description="This is just a test project, so ignore it." />
