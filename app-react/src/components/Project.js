@@ -1,5 +1,6 @@
 import React from 'react';
-import { browserHistory } from 'react-router'
+import { browserHistory } from 'react-router';
+import { Link } from 'react-router';
 
 class Project extends React.Component{
     constructor(props) {
@@ -51,6 +52,7 @@ class Project extends React.Component{
 
     render(){
         return (
+            <div>
             <div className="col-sm-6 projectCard">
                 <div className="panel">
                     <div className="panel-heading">
@@ -66,7 +68,7 @@ class Project extends React.Component{
                             {this.props.owner.id == sessionStorage.getItem('userId') ? <span className="pull-right label ownerLabel">Owner</span> : <span className="pull-right label collaborationLabel">Collaboration</span>}
                         </div>
 
-                        <h3 className="projectTitle">{this.props.title}</h3>
+                        <h3 className="projectTitle">{this.props.title.slice(0,20)}...</h3>
                     </div>
 
                     <div className="panel-body">
@@ -82,7 +84,7 @@ class Project extends React.Component{
 
                         <div className="row">
                             <div className="col-sm-12">
-                                <p>{this.props.description}</p>
+                                <p>{this.props.description.slice(0,30)}...</p>
                             </div>
                         </div>
                     </div>
@@ -98,6 +100,7 @@ class Project extends React.Component{
                     </div>
                 </div>
             </div>
+        </div>
         )}
     }
 

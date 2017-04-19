@@ -16,6 +16,7 @@ class ProjectShootMiniCard extends Component {
                     <div className="panel-heading imagePanel">
                         {this.props.message_new ? <span className="commentIndicator glyphicon glyphicon-comment pull-right" aria-hidden="true"></span> : ''} <br/> 
                             {this.props.selected_photo && this.props.selected_photo.image.url ? <img src={this.props.selected_photo.image.url} alt="selection" /> : ''}
+                         
                     </div>
     
                     <div className="panel-heading miniCardHeading">
@@ -33,7 +34,7 @@ class ProjectShootMiniCard extends Component {
                     <div className="panel-body">
                         <div className="row">
                             <div className="col-xs-12">
-                                <p><span>{this.props.asset_description}</span></p>
+                                <p><span>{this.props.asset_description.slice(0,20)}...</span></p>
                             </div>
                         </div>
                     </div>
@@ -57,3 +58,6 @@ class ProjectShootMiniCard extends Component {
   }
 }
 export default ProjectShootMiniCard;
+
+
+   //  picture={item.picture.large.url} 
