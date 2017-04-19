@@ -58,11 +58,7 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project.destroy if @current_user == @project.owner
-    if @project.save
       render json: ["Project deleted successfully."]
-    else
-      render json: @project.errors.full_messages, status: 400
-    end
   end
 
   private
