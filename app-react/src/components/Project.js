@@ -67,7 +67,7 @@ class Project extends React.Component{
                             <br/>
                             {this.props.owner.id == sessionStorage.getItem('userId') ? <span className="pull-right label ownerLabel">Owner</span> : <span className="pull-right label collaborationLabel">Member</span>}
                         </div>
-                    <h3 className="projectTitle">{this.props.title.slice(0,50)}...</h3>
+                    <h3 className="projectTitle">{this.props.title.slice(0,60)}...</h3>
                     </div>
 
                     <div className="panel-body panel-body-scroll">
