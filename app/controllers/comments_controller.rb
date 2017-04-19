@@ -54,6 +54,4 @@ class CommentsController < ApplicationController
   def forbidden
     render json: ["You are not authorized to delete this comment."], status: 401
   end
-
-
 end
