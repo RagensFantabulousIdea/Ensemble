@@ -13,21 +13,17 @@ class NavAdditionalPager extends Component {
         }
     }
 
-    componentWillMount(){
-      this.previousAsset(),
-      this.nextAsset()
-    }
 
     previousAsset() {
         fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/previous?token=' + sessionStorage.getItem('token'))
         .then(response => response.json())
-        .then(response => {browserHistory.push('/shoot/' + this.props.projectId + '/assets/' + this.props.id + '/collaborate')})
+        .then(response => {window.location=('/shoot/' + this.props.params.projectId + '/assets/' + response.id + '/collaborate')})
     }
 
     nextAsset() {
         fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/next?token=' + sessionStorage.getItem('token'))
         .then(response => response.json())
-        .then(response => {browserHistory.push('/shoot/' + this.props.projectId + '/assets/' + this.props.id + '/collaborate')})
+        .then(response => {window.location=('/shoot/' + this.props.params.projectId + '/assets/' + response.id + '/collaborate')})
     }
 
 render() {
