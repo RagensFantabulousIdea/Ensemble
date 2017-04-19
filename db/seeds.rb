@@ -14,9 +14,9 @@
     password: Faker::Internet.password
   )
 
-  3.times do
+  2.times do
     #Create Projects
-    project = Project.create!(
+    Project.create!(
       title: Faker::HowIMetYourMother.quote,
       description: Faker::Lorem.sentences(3),
       author: Faker::Book.author,
@@ -24,11 +24,14 @@
       owner: user,
       created_at: rand(1..365).days.ago
     )
+  end
+end
 
-    5.times do
-      meridian = ["AM", "PM"]
-      #Create Assets
-      asset = project.assets.create!(
+  Project.all.each do |project|
+    2.times do
+    meridian = ["AM", "PM"]
+    #Create Assets
+    project.assets.create!(
       figure_num: rand(300.99),
       asset_description: Faker::Hacker.say_something_smart,
       order_num: rand(1..1000),
@@ -50,12 +53,14 @@
       #{Faker::Friends.location}",
       date_of_shoot: Faker::Date.forward(42),
       time_of_shoot: "#{rand(0..12)}-#{rand(0..12)}#{meridian.sample}"
-      )
+    )
     end
+  end
 
-    3.times do
+  Asset.all.each do |asset|
+    1.times do
       asset.photos.create!(
-      remote_image_url: "https://unsplash.it/800?#{rand(1..1084)}",
+      remote_image_url: "https://unsplash.it/800/?random",
       frame_num: "DSC#{rand(99999)}",
       liked: Faker::Boolean.boolean(0.5),
       disliked: Faker::Boolean.boolean(0.5),
@@ -65,7 +70,6 @@
       asset_id: asset
       )
     end
-
   end
 
   #Fill Projects with members
@@ -109,4 +113,3 @@
       )
     end
   end
-end
