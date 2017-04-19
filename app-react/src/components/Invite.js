@@ -65,22 +65,26 @@ render() {
             <div className="container">
                 <div className="row">
                 <div className="col-sm-4 col-sm-offset-4">
-        <div className="panel">
+        <div className="panel invitePanel">
          <div className="panel-heading"></div>
             <div className="panel-body">
+            <p className="inviteInstructions">Fill out this form with the information for the person you are inviting to your project.</p>
                 <div className="form-group">
-                    <label htmlFor="firstname">First Name(of the person being invited)</label>
+                    <label htmlFor="firstname">First Name</label>
                     <input type="text"  className="form-control" value={this.state.firstname} onChange={(e) => this.setState({firstname: e.target.value})}/>
                 </div>
             <div className="form-group">
-                <label htmlFor="lastname">last Name(of the person being invited)</label>
+                <label htmlFor="lastname">Last Name</label>
                 <input type="text"  className="form-control" value={this.state.lastname} onChange={(e) => this.setState({lastname: e.target.value})}/>
                 </div>
             <div className="form-group">
                 <label htmlFor="email">Email</label>
                 <input type="text" className="form-control email" value={this.state.email} onChange={(e) => this.setState({email: e.target.value})} required />
             </div>
-            <button type="button" className="btn btn-success " onClick={() =>this.invitePeople()}>Invite</button>
+            <div className="inviteSendButton">
+                <button type="button" className="btn projectButton" onClick={() =>this.invitePeople()}>Invite</button>
+            </div>
+            
                     </div>
                 </div>
             </div>

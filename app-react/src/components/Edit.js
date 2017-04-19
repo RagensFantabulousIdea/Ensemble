@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
+import UserNavBar from './UserNavBar';
+import FooterArea from './FooterArea';
+
 // import SignUp from './SignUp'
 class EditMessage extends Component {
     constructor(props) {
@@ -67,9 +70,12 @@ class EditMessage extends Component {
     render() {
         //console.log(this.props.params.projectId)
         return (
-            <div id="createproject">
+            <div className="createProject">
+            <UserNavBar />
+            <h1>Create a Project</h1>
+            <div>
                 <div className="col-sm-4 col-sm-offset-4">
-                    <div className="panel panel-default">
+                    <div className="panel">
                         <div className="panel-body">
                             <form>
                                 <div className="form-group">
@@ -95,7 +101,11 @@ class EditMessage extends Component {
                         </div>
                     </div>
                 </div>
+                
+                </div>
+                <FooterArea/>
             </div>
+            
 
 
 

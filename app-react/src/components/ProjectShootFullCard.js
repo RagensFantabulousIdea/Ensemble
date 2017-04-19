@@ -55,7 +55,7 @@ class ProjectShootFullCard extends Component {
     }
 
     getImages(){
-        fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/photos/samples?token=' + sessionStorage.getItem('token'))
+        fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '?token=' + sessionStorage.getItem('token'))
         // console.log(token)
         .then(response => response.json())
         .then(response => {

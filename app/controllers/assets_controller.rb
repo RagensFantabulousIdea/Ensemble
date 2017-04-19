@@ -37,11 +37,19 @@ class AssetsController < ApplicationController
 
   def update
     if editor
-      if @asset.update!(asset_params)
-        render json: @asset
-      else
-        render json: @asset.errors.full_messages
+      original_names = []
+      original_names = params[:sample_photos].collect do |name|
+        name.original_filename
       end
+        if @asset.update!(asset_params)
+          asset_params.merge({sample_photos: original_names})
+          params[:sample_photos].each do |upload|
+            Cloudinary::Uploader.upload(upload)
+          end
+          render json: @asset
+        else
+          render json: @asset.errors.full_messages
+        end
     else
       forbidden
     end
@@ -59,7 +67,7 @@ class AssetsController < ApplicationController
   private
 
   def asset_params
-    params.permit(:figure_num, :asset_description, :order_num, :landscape, :portrait, :demonstrative, :decorative, :frame_num, :instructions, :photographer, :frame_range, :parts, :equipment, :model, :location_of_shoot, :date_of_shoot, :time_of_shoot, :sample_photos)
+    params.permit(:figure_num, :asset_description, :order_num, :landscape, :portrait, :demonstrative, :decorative, :frame_num, :instructions, :photographer, :frame_range, :parts, :equipment, :model, :location_of_shoot, :date_of_shoot, :time_of_shoot, :id ) # {sample_photos: []},
   end
 
   def forbidden
