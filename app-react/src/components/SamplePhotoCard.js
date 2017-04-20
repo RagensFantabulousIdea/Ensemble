@@ -21,8 +21,8 @@ render() {
 
                 <div className="panel">
                 
-                    <div className="panel-body imagePanel" onClick={() => browserHistory.push('/shoot/' + this.props.projectId + '/assets/' + this.props.assetId + '/photos/' + this.props.photoId + '?src=' + encodeURIComponent(this.props.image.url))}>
-                        <img src={this.props.image.url} alt="uploaded" />
+                    <div className="panel-body imagePanel" onClick={() => browserHistory.push('/shoot/' + this.props.projectId + '/assets/' + this.props.assetId + '/photos/' + this.props.photoId + '?src=' + encodeURIComponent(this.props.image.std.url))}>
+                        <img src={this.props.image.std.url} alt="uploaded" />
                     </div>
 
                     <div className="panel-footer">
