@@ -9,13 +9,13 @@ class InvitationsController < ApplicationController
     @project = Project.find_by(project_token: @project_token)
 
     #If a user exists, but is not a member of the project, add them
-    if @user && @project.members.find_by(email: @email) == nil
+    if @user && @project.members.find_by(email: @email) == nil && @user != @project.owner
       @user.invited_projects << @project
       render json: ["#{@user.email} has been added to project successfully!"]
       InvitationsMailer.current_user(@email, @project_token).deliver
 
     #The user already belongs to this project
-    elsif @user && @project.members.find_by(email: @email)
+    elsif (@user && @project.members.find_by(email: @email)) || (@user == @project.owner)
       render json: ["#{@user.email} already belongs to this project!"]
 
     #User does not exist and will need to be created
