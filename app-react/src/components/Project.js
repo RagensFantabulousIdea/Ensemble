@@ -56,25 +56,41 @@ class Project extends React.Component{
             <div className="col-sm-6 projectCard">
                 <div className="panel">
                     <div className="panel-heading projectPanelHeader">
-                    {this.props.assets.reduce((prev, next) => prev + next.comments.length, 0) > 0 ? <span className="commentIndicator glyphicon glyphicon-comment" aria-hidden="true">{this.props.assets.reduce((prev, next) => prev + next.comments.length, 0)}</span> : ''}
-                        <div className="form-check ownerCheck">
-                            {this.props.owner.id == sessionStorage.getItem('userId') ?
-                            <label className="form-check-label projectCompleteCheck">
-                                <input type="checkbox" className="form-check-input projectCompleteCheck" checked={this.state.complete} onChange={this.toggleCompleted}/>
-                                &nbsp; Check if project is done
-                            </label> : ''}
-                            <br/>
-                            <br/>
-                            {this.props.owner.id == sessionStorage.getItem('userId') ? <span className="pull-right label ownerLabel">Owner</span> : <span className="pull-right label collaborationLabel">Member</span>}
+                        <div className="row projectCardTitleBubble">
+                            <div className="col-sm-9 projectCardTitle">
+                                <h3 className="projectTitle">{this.props.title.slice(0,60)}...</h3>
+                            </div>
+                             <div className="col-sm-3 projectsOwnerMemberBubble">
+                                 {this.props.owner.id == sessionStorage.getItem('userId') ? <span className="pull-right label bubbleText">Owner</span> : <span className="pull-right label bubbleText">Member</span>}
+                            </div>
+
+                            
+                        </div>
+                        <div className="row">
+                            <div className="col-sm-3 commentsIndicatorProjectCard">
+                                {this.props.assets.reduce((prev, next) => prev + next.comments.length, 0) > 0 ? <span className="commentIndicator glyphicon glyphicon-comment" aria-hidden="true">{this.props.assets.reduce((prev, next) => prev + next.comments.length, 0)}</span> : ''}
+                            </div>
+
+                            <div className="col-sm-9 projectCardCompleteCheck">
+                                <div className="form-check ownerCheck">
+                                    {this.props.owner.id == sessionStorage.getItem('userId') ?
+                                    <label className="form-check-label projectCompleteCheck">
+                                        <input type="checkbox" className="form-check-input projectCompleteCheck" checked={this.state.complete} onChange={this.toggleCompleted}/>
+                                        &nbsp; Check if project is done
+                                    </label> : ''}                           
+                                </div>
+                            </div>
+                            
+                           
                         </div>
 
-                    <h3 className="projectTitle">{this.props.title.slice(0,60)}...</h3>
+                        
                     </div>
 
                     <div className="panel-body panel-body-scroll">
                         <h4 className="carditems">{this.props.author}</h4>
                         <h4 className="carditems">{this.props.project_num}</h4>
-                        <p>{this.props.description}...</p>
+                        <p>{this.props.description}</p>
                     </div>
                     
                     <div className="panel-footer projectCardNavButtons">
