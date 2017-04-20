@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    if params[:project_token]
+    if !params[:project_token].blank?
       find_project
       if @project
         create_user
