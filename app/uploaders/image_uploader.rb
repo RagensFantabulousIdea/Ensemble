@@ -11,7 +11,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   process :tags => ['Ensemble']
 
   version :std do
-    process :resize_to_fit => [1200, 1200, :north]
+    process :resize_to_fit => [1200, 1200]
   end
 
   version :med do
