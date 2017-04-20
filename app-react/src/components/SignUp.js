@@ -69,11 +69,13 @@ class SignUp extends Component {
                 // (console.log('response project_token true ' + response.project_token))
                 sessionStorage.setItem('project_token', response.project_token)
                 sessionStorage.setItem('userId', response.id)
-                // browserHistory.push('/')
+                sessionStorage.setItem('token', response.token);
+
                 browserHistory.push('/projects')
            } else {
                 sessionStorage.setItem('userId', response.id)
-                // browserHistory.push('/')
+                sessionStorage.setItem('token', response.token);
+
                 browserHistory.push('/projects')
                 // alert('Signup error: ' + response)
             }
