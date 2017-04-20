@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
+import UserNavBar from './UserNavBar';
+import FooterArea from './FooterArea';
 
 class EditUser extends Component {
     constructor(props) {
@@ -64,22 +66,26 @@ class EditUser extends Component {
                 // <i className="fa fa-times-circle-o fa-2x signup-close" aria-hidden="true" onClick={this.props.closeSu} ></i>
 
 render() {
-return <div style={{display: this.props.modalSu}}>
-    <div className="container modal-opac">
-        <div className="panel modalSu">
+return (
+    <div>
+    <UserNavBar />
+    <h1>Edit User Information</h1>
+  
+    <div className="container">
+        <div className="panel">
             <div className="panel-body">
               
                 <div className="form-group">
                     <label htmlFor="firstname">First Name</label>
-                    <input type="text" className="form-control name" placeholder="John" value={this.state.firstname} onChange={(e) => this.setState({firstname: e.target.value})} required/>
+                    <input type="text" className="form-control name" value={this.state.firstname} onChange={(e) => this.setState({firstname: e.target.value})} required/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="lastname">Last Name</label>
-                    <input type="text" className="form-control name" placeholder="Smith" value={this.state.lastname} onChange={(e) => this.setState({lastname: e.target.value})} required/>
+                    <input type="text" className="form-control name" value={this.state.lastname} onChange={(e) => this.setState({lastname: e.target.value})} required/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="email">Email</label>
-                    <input type="text" className="form-control email" placeholder="johnsmith@gmail.com" value={this.state.email} onChange={(e) => this.setState({email: e.target.value})} required />
+                    <input type="text" className="form-control email" value={this.state.email} onChange={(e) => this.setState({email: e.target.value})} required />
                 </div>
                 <div className="form-group">
                     <label htmlFor="password">Password</label>
@@ -91,9 +97,10 @@ return <div style={{display: this.props.modalSu}}>
             </div>
         </div>
     </div>
+    <FooterArea />
     </div>
 
-    }
+    )}
 }
 
 export default EditUser;
