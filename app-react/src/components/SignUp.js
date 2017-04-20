@@ -48,15 +48,15 @@ class SignUp extends Component {
             last_name: lastname,
             email: email,
             password: password,
-            project_token: this.props.params.project_token
+            // project_token: this.props.params.project_token
         })
     })
         .then(function(response) {
-                // console.log('response.json ' + response.json)
+                console.log('response.json ' + response.json)
                 return response.json();
             })
         .then(function(response) {
-            // console.log('response.project_token ' + response.project_token)
+            console.log('response.project_token ' + response.project_token)
 
             if (response.project_token) {
                 // (console.log('response project_token true ' + response.project_token))
