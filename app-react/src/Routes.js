@@ -53,11 +53,10 @@ class Routes extends React.Component {
             <Route path="/shoot/:projectId/assets/:assetId/collaborate" component={ProjectPhotoCollaborating} />
             <Route path="/shoot/:projectId/assets/:assetId/photos/:id" component={FullSizedImageView} />
             <Route path="/edituser/:userId" component={EditUser} />
-
         </Router>
     }
 }
 
 export default Routes
-            // <Route path="/edituser/:userId" component={EditUser} />
+            
 //  <Route path="/signup(?:token)" component={SignUp} />
