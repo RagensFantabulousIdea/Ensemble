@@ -4,7 +4,7 @@ import { browserHistory } from 'react-router';
 class EditUser extends Component {
     constructor(props) {
         super(props)
-        this.signup = this.signup.bind(this)
+        this.editsignup = this.editsignup.bind(this)
         this.state= {
             firstname: '',
             lastname: '',
@@ -30,7 +30,7 @@ class EditUser extends Component {
 
     }
 
-        signup() {
+        editsignup() {
         var firstname = this.state.firstname
         var lastname = this.state.lastname
         var email = this.state.email
@@ -87,7 +87,7 @@ return <div style={{display: this.props.modalSu}}>
                 </div>
             </div>
             <div className="panel-footer text-center">
-                <button type="button" className="btn btn-lg actionButton" onClick={this.signup}>Click here to update your profile</button>
+                <button type="button" className="btn btn-lg actionButton" onClick={this.editsignup}>Click here to update your profile</button>
             </div>
         </div>
     </div>
