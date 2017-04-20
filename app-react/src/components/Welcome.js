@@ -58,8 +58,8 @@ class Welcome extends Component {
             </div>
           </div>
 
-        <Signup modalSu={this.state.modalSu} closeSu={() => this.closeSignup()} className="modal"/>
-        <SignIn modalSi={this.state.modalSi} closeSi={() => this.closeSignin()}  className="modal"/>
+        <Signup modalSu={this.state.modalSu} closeSu={() => this.closeSignup()} className="modal fade"/>
+        <SignIn modalSi={this.state.modalSi} closeSi={() => this.closeSignin()}  className="modal fade"/>
 
         <FooterArea />
 
