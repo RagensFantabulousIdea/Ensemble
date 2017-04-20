@@ -83,7 +83,7 @@ class AssetsController < ApplicationController
   private
 
   def asset_params
-    params.permit(:figure_num, :asset_description, :order_num, :landscape, :portrait, :demonstrative, :decorative, :frame_num, :instructions, :photographer, :frame_range, :parts, :equipment, :model, :location_of_shoot, :date_of_shoot, :time_of_shoot, :id ) # {sample_photos: []},
+    params.permit(:figure_num, :asset_description, :order_num, :landscape, :portrait, :demonstrative, :decorative, :frame_num, :instructions, :photographer, :frame_range, :parts, :equipment, :photo_model, :location_of_shoot, :date_of_shoot, :time_of_shoot, :id)
   end
 
   def forbidden
@@ -101,7 +101,7 @@ class AssetsController < ApplicationController
   def find_asset
     if params[:asset_id]
       @asset = @project.assets.find(params[:asset_id])
-    else 
+    else
       @asset = @project.assets.find(params[:id])
     end
   end
