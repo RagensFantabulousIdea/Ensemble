@@ -298,12 +298,12 @@ a.nav-item {
 /*invite card invitation form*/
 .inviteCard {
     background-color: #2D2D2D;
-    color: white;
+    /*color: white;*/
 }
 
 .invitePanel {
     margin-bottom: 40vh;
-    background-image: url("../img/background-1594712_1920.jpg");
+    /*background-image: url("../img/background-1594712_1920.jpg");*/
     background-size: cover;
 }
 
