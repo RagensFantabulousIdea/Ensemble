@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    if params[:token]
+    if params[:project_token]
       find_project
       if @project
         create_user
@@ -56,7 +56,7 @@ class UsersController < ApplicationController
   end
 
   def find_project
-    @project = Project.find_by(token: params[:token])
+    @project = Project.find_by(project_token: params[:project_token])
     unless @project
     render json: ["Project not found."], status: 404 and return
     end
