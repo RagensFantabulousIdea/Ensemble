@@ -92,7 +92,7 @@ img {
 
 .modal-opac {
     background-color: rgba(0,0,0,0.3);   
-    position: fixed;
+    position: absolute;
     bottom: 50px;
     width: 100vw;
     min-width: 300px;
@@ -200,7 +200,7 @@ a.nav-item {
 .projectPanelHeader{
     background-image: url("../img/background-1594712_1920.jpg");
     background-size: cover;
-    height: 150px;
+    height: 225px;
     overflow: hidden;
     /*overflow-y: auto;*/
 }
@@ -266,7 +266,18 @@ a.nav-item {
     text-align: right;
 }
 
-.ownerLabel {
+
+.projectCardTitleBubble {
+    margin-bottom: 20px;
+}
+
+.projectTitle {
+    color: white;
+    font-size: 30px;
+    /*margin-bottom: 30px;*/
+}
+
+.bubbleText {
     display: inline-block;
     background-color: #5EABE2;
     font-family: 'Raleway', sans-serif !important;
@@ -278,22 +289,17 @@ a.nav-item {
     /*box-shadow: 3px 3px 10px #204978;*/
     box-shadow: 3px 3px 10px #4F95E7;
     text-align: center;
-    padding-bottom: 30px;
+    /*padding-bottom: 30px;*/
     padding-top: 25px;
     font-style: normal !important;
-    margin-bottom: 80px; 
+    /*margin-bottom: 80px; */
     font-weight: 300;
-}
-
-.projectTitle {
-    color: white;
-    font-size: 30px;
-    margin-bottom: 30px;
 }
 
 .projectCompleteCheck {
     color: #ABADAD !important;
 }
+
 
 /*invite card invitation form*/
 .inviteCard {
@@ -544,12 +550,17 @@ h3 {
 
 
 /*start media queries*/
+
 /*med cell*/
 @media all and (min-width: 375px) {
     /*welcome page laptop*/
     .welcome {
     background-position: 25% 20%;
     padding-bottom: 89vw;
+    }
+
+    .projectPanelHeader{
+    height: 200px;
     }
 }
 
@@ -613,6 +624,10 @@ h3 {
     /*welcome page laptop*/
     .welcome {
         padding-bottom: 14vw;
+    }
+
+    .projectPanelHeader{
+    height: 150px;
     }
 }
 
