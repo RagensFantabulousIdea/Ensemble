@@ -20,12 +20,19 @@ class SignUp extends Component {
         }
     }
 
+     componentWillMount(){
+       if(this.props.params !== undefined){
+           this.setState({project_token: this.props.params.project_token})
+       }
+
+    }
+
     signup() {
         var firstname = this.state.firstname
         var lastname = this.state.lastname
         var email = this.state.email
         var password = this.state.password
-        // var project_token = this.state.project_token
+        var project_token = this.state.project_token
 
         // console.log(firstname,lastname, email, password)
 
@@ -48,15 +55,15 @@ class SignUp extends Component {
             last_name: lastname,
             email: email,
             password: password,
-            project_token: this.props.params.project_token
+            project_token: project_token
         })
     })
         .then(function(response) {
-                // console.log('response.json ' + response.json)
+                console.log('response.json ' + response.json)
                 return response.json();
             })
         .then(function(response) {
-            // console.log('response.project_token ' + response.project_token)
+            console.log('response.project_token ' + response.project_token)
 
             if (response.project_token) {
                 // (console.log('response project_token true ' + response.project_token))
@@ -65,7 +72,10 @@ class SignUp extends Component {
                 // browserHistory.push('/')
                 browserHistory.push('/projects')
            } else {
-                alert('Signup error: ' + response)
+                sessionStorage.setItem('userId', response.id)
+                // browserHistory.push('/')
+                browserHistory.push('/projects')
+                // alert('Signup error: ' + response)
             }
         })
         }
