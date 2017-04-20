@@ -386,9 +386,17 @@ h1 {
 /*project shoot mini cards*/
 
 /*.projectShootMiniCardSetup {
-    max-width: 700px;
-    min-width: 700px;
+    max-width: 300px;
+    max-height: 300px;
 }*/
+
+.miniCardPhotoView {
+    max-width: 600px;
+    max-height: 300px;
+    width: auto;
+    display: inline-block;
+    text-align: center;
+}
 
 /*.panel {
     font-family: 'Raleway', sans-serif;
@@ -425,7 +433,10 @@ h1 {
 }
 
 .commentIndicator {
-    color: #5EABE2;
+    color: #0BE370;
+    /*color: #5EABE2;*/
+    /*color: white;*/
+    text-shadow: 2px 2px 2px black;
 }
 
 /*Project Create Card*/
