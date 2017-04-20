@@ -10,7 +10,7 @@ class Project < ApplicationRecord
 
   has_many :assets
 
-  has_many :photos, dependent: :delete_all
+  has_many :photos, through: :assets
 
   has_many :comments, dependent: :destroy
   has_many :left_comments, as: :commentable, class_name: 'Comment', dependent: :destroy
