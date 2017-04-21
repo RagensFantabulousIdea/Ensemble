@@ -100,7 +100,7 @@ class Edit extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className="jeffsGuess">
+                    <div className="editProjectCard">
                         <FooterArea/>
                     </div>
             </div>

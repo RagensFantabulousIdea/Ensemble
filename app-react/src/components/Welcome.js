@@ -50,15 +50,15 @@ class Welcome extends Component {
         <SignIn modalSi={this.state.modalSi} closeSi={() => this.closeSignin()}  className="modal"/>
           
           <div className="row welcomeBody">
-            <div className="col-sm-6 col-md-4">
+            <div className="col-sm-4">
               <p className="centralData">Enter your photo shoot data in one location, including: asset descriptions, sample images, date and time of shoot, and more!</p>
             </div>
             
-            <div className="col-sm-6 col-md-4">
+            <div className="col-sm-4">
               <p className="collaborating">Invite partners into your project to collaborate with them during all stages of the shoot process through the easy-to-use forms and in-app messaging system that can be accessed on mobile, tablet, or desktop devices.</p>
             </div>
             
-            <div className="col-sm-6 col-md-4">
+            <div className="col-sm-4">
               <p className="makingSelections">Upload jpeg images, discuss results, and record the final selection in one location.</p>
             </div>
           </div>
