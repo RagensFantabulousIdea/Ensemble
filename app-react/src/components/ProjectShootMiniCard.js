@@ -10,16 +10,16 @@ class ProjectShootMiniCard extends Component {
         return (
             <div>
                 <Link to={'/shoot/' + this.props.projectId + '/assets/' + this.props.id + '/collaborate'}>
-                    <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                        <div className="panel">
-                            <div className="panel-heading projectPanelHeader">
+                    <div className="col-xs-12 col-sm-12 col-md-6">
+                        <div className="panel miniCardPanel">
+                            <div className="panel-heading miniPanelHeader">
 
                                 <div className="row projectCardTitleBubble">
-                                    <div className="col-sm-10 projectCardTitle">
+                                    <div className="col-sm-8 projectCardTitle">
                                         <h3 className="projectTitle">{this.props.figure_num}</h3>
                                     </div>
 
-                                    <div className="col-sm-12 projectsOwnerMemberBubble">
+                                    <div className="col-sm-4 projectsOwnerMemberBubble">
                                         {this.props.comments.length > 0 ? <span className="commentIndicator glyphicon glyphicon-comment pull-right" aria-hidden="true">{this.props.comments.length}</span> : ''}
                                     </div>
                                 </div>
@@ -28,26 +28,10 @@ class ProjectShootMiniCard extends Component {
                             <div className="panel-body miniCardPanelBody">
                                 <div className="row">
                                     <div className="col-sm-6">
-                                        <div className="row">
-                                            <div className="col-sm-12">
                                                 <p><strong>Date: </strong>{this.props.date_of_shoot}</p>
-                                            </div>
-                                        </div>
-                                        <div className="row">
-                                            <div className="col-sm-12">
                                                 <p><strong>Time: </strong>{this.props.time_of_shoot}</p>
-                                            </div>
-                                        </div>
-                                        <div clasName="row">
-                                            <div className="col-sm-12">
                                                 <p><strong>Order: </strong>{this.props.order_num}</p>
-                                            </div>
-                                        </div>
-                                        <div clasName="row">
-                                            <div className="col-sm-12">
                                                 <p><strong>Description: </strong>{this.props.asset_description}</p>
-                                            </div>
-                                        </div>
                                     </div>
 
                                     <div className="col-sm-6">
@@ -57,7 +41,6 @@ class ProjectShootMiniCard extends Component {
                             </div>
 
                             <div className="panel-footer projectCardNavButtons">
-                                <br />
                             </div>
                         </div>
                     </div>
