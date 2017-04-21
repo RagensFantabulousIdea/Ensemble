@@ -54,7 +54,7 @@ class ProjectShootList extends Component {
     render() {
         let assets = this.state.assets.map((asset, key) => <ProjectShootMiniCard key={Date.now() + key} index={key} {...asset} getAssets={this.getAssets} projectId={this.props.params.projectId} />)
         if (assets.length === 0) {
-            assets = <h4 className="text-center cardAddInstruction">Please click the "Add Photo Shoot Planning Card" button to get started. Once a card appears, you can click on it to start collaborating.</h4>
+            assets = <h4 className="text-center cardAddInstruction">Please click the "Add Photo Shoot Planning Card" button to get started.<br/>Once a card appears, you can click on it to start collaborating.</h4>
         }
 
         return (
