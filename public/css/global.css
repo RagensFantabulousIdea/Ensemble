@@ -6,6 +6,10 @@ img {
     width: 100%;
 }
 
+body {
+    background-color: #2D2D2D;
+}
+
 /*start Welcome styles*/
 .welcome {
     background-image: url("../img/sunset-2218149_1920.jpg");
@@ -308,7 +312,7 @@ a.nav-item {
 }
 
 .invitePanel {
-    margin-bottom: 40vh;
+    /*margin-bottom: 40vh;*/
     /*background-image: url("../img/background-1594712_1920.jpg");*/
     background-size: cover;
 }
@@ -401,7 +405,7 @@ h1 {
 /*.panel {
     font-family: 'Raleway', sans-serif;
 }*/
-.miniImagePanel {
+.miniCardFigNMessage {
     background-image: url("../img/background-1594712_1920.jpg");
     background-size: cover;
 }
@@ -553,6 +557,9 @@ h3 {
     padding-top: 20px;
     padding-bottom: 20px;
     font-family: 'Raleway', sans-serif;
+    /*bottom: 0;
+    position: fixed;
+    width: 100%;*/
 }
 
 .footerArea a {
