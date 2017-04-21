@@ -401,7 +401,7 @@ h1 {
 }*/
 
 panel-body .projectShootMiniCardSetup {
-    max-height: 50px;
+    /*max-height: 50px;*/
     /*min-height: 50px;*/
 }
 
@@ -521,6 +521,10 @@ h3 {
 .doNotSelect {
     display: block;
     text-align: center;
+}
+.glyphicon-trash {
+    text-align: right;
+    color: red;
 }
 
 /*project all photos list */
