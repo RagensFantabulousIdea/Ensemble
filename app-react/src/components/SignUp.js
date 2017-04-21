@@ -21,6 +21,7 @@ class SignUp extends Component {
     }
 
      componentWillMount(){
+         console.log(this.props.params)
        if(this.props.params !== undefined){
            this.setState({project_token: this.props.params.project_token})
        }
