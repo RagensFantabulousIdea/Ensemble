@@ -27,7 +27,7 @@ render() {
 
                     <div className="panel-footer">
                         <div className="row">
-                            <div className="col-xs-12">
+                            <div className="col-xs-2 col-xs-offset-10">
                                 <Link className="couldSelect"><span className="glyphicon glyphicon-trash" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Delete sample image" onClick={() => this.deletePhoto()}></span></Link>
                             </div>
                         </div>
