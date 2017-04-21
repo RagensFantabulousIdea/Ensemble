@@ -116,28 +116,30 @@ body {
      cursor: pointer;
      cursor: hand;
  }
-/*nav{
+nav{
     display: flex;
     flex-direction: column;
-}*/
+}
 
 /* Tablet */
-/*@media screen and (min-width: 547px) {
-    .container{
+@media screen and (min-width: 547px) {
+    .nav{
         flex-direction: row;
     }
-}*/
+}
 
 /*Nav*/
 .headerArea {
     background-image: url("../img/fruit-1302126_1920.jpg");
     background-size: cover;
     background-position: 0% 0%;
+    height: 150px;
     /*background-position: 0% 25%;*/
 }
 
     .userHeaderArea {
         background-size: cover;
+        height: 150px;
         /*background-image: url("../img/flower-1451676_1920.jpg");
         background-position: 0% 50%;*/
         /*padding-top: 30px;
@@ -755,6 +757,20 @@ h3 {
         color: white;
         font-size: 20px; 
     }
+}
+
+.jeffsGuess {
+    margin-top: 50%;
+}
+
+/*a.nav-item {
+    background-color: #337ab7;
+}*/
+.homeNav{
+    margin-left: 40px;
+}
+.projectNav{
+    margin-left: 40px;
 }
 
 

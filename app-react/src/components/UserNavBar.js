@@ -20,28 +20,42 @@ constructor(props){
     //   Need to add route for editing/deleting profile.
 
     return (
+        <div>
         <div className="userHeaderArea">
-            <header>
+        </div>
+         
+             <ul className="nav nav-pills">
                 <nav>
-                    <div className="nav navbar-nav navbar-left">
-                    
-                    </div>
                     <div className="nav navbar-nav navbar-right">
+                        <li role="presentation">
                         <Link className="nav-item projectNav" onClick={() => browserHistory.push('/projects/complete')}>
                             Completed Projects
                         </Link>
-                        <Link className="nav-item signOutNav" onClick={() => browserHistory.push('/projects')}>
-                            Home
-                        </Link>
-                        <Link className="nav-item signOutNav" onClick={this.returnToSignin}>
-                            SignOut
-                        </Link>
+                        </li>
+
+                         <li role="presentation">
                         <Link className="nav-item signOutNav" onClick={() => browserHistory.push('/edituser/' +sessionStorage.getItem('userId'))}>
                             Edit User Information
                         </Link>
+                        </li>
+
+                        <li role="presentation">
+                        <Link className="nav-item signOutNav" onClick={() => browserHistory.push('/projects')}>
+                            Home
+                        </Link>
+                        </li>
+                        
+                        <li role="presentation" className="pull-right">
+                        <Link className="nav-item signOutNav" onClick={this.returnToSignin}>
+                            SignOut
+                        </Link>
+                        </li>
+
                     </div>
+                 
                 </nav>
-            </header>
+                 </ul>
+       
         </div>
     );
   }
@@ -50,6 +64,8 @@ constructor(props){
 export default UserNavBar;
 
 
-                        // <Link className="nav-item editProfileNav" onClick={() => browserHistory.push('/signin')}>
-                        //     Edit Profile
-                        // </Link>
+//                     <ul class="nav nav-pills">
+//   <li role="presentation" class="active"><a href="#">Home</a></li>
+//   <li role="presentation"><a href="#">Profile</a></li>
+//   <li role="presentation"><a href="#">Messages</a></li>
+// </ul>
