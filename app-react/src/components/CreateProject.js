@@ -25,10 +25,10 @@ class createproject extends Component {
         if (
             this.state.title !== '' &&
             this.state.author !== '' &&
-            this.state.projectNumber !== '' &&
             this.state.description !== ''
         ) {
             var token = sessionStorage.getItem('token');
+            
             fetch('/api/projects', {
                 method: 'POST',
                 headers: {
@@ -54,6 +54,9 @@ class createproject extends Component {
 
                     browserHistory.push('/projects')
                 })
+            }
+            else {
+                alert('You must fill in title, author, and description before saving.')
         }
     }
 
