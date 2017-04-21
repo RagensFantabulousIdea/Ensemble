@@ -13,7 +13,7 @@ class UserProjects extends Component {
         this.deleteProject = this.deleteProject.bind(this) 
         this.removeMember = this.removeMember.bind(this) 
         // this.toggleProjectComplete = this.toggleProjectComplete.bind(this)
-        this.state = {                                // state of the page                     
+        this.state = {                               // state of the page                     
             projects: []                              //start with empty state  
         }
     }
