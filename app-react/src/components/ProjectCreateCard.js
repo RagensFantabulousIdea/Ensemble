@@ -176,7 +176,8 @@ class ProjectCreateCard extends Component {
                                 </div>
                             </div>
 
-                            <div className="row">
+                            <div className="row panel-heading">
+                            <p className="help-block">You can check more than one checkbox.</p>
                                 <div className="col-sm-3">
                                     <div className="checkbox figureDeco">
                                         <label>

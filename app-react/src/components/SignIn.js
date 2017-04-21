@@ -37,7 +37,7 @@ class Signin extends Component {
             })
 
             .then(function (response) {
-                //console.log(response);
+                console.log(response);
 
                 if (response.token) {
                     sessionStorage.setItem('token', response.token);
@@ -46,7 +46,7 @@ class Signin extends Component {
                 }
                 else {
                     alert('There was an error signing in');
-                    //console.log('Signin : ' + response);
+                    console.log('Signin : ' + response);
                 }
             })
 
