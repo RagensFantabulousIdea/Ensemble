@@ -11,6 +11,7 @@ class UserProjects extends Component {
         this.getProjects = this.getProjects.bind(this)
         this.returnToSignin = this.returnToSignin.bind(this)
         this.deleteProject = this.deleteProject.bind(this) 
+        this.removeMember = this.removeMember.bind(this) 
         // this.toggleProjectComplete = this.toggleProjectComplete.bind(this)
         this.state = {                                // state of the page                     
             projects: []                              //start with empty state  
@@ -49,8 +50,15 @@ class UserProjects extends Component {
             })
     }
 
+    removeMember(id) {
+        fetch('/api/projects/' + id + '/memberships/remove?token='+ sessionStorage.getItem('token'), {method: 'DELETE'})
+            .then(response => {
+                this.getProjects()
+            })
+    }
+
     render() {
-        let projects = this.state.projects.map((project, key) => <Project key={Date.now() + key} index={key} {...project} getProjects={this.getProjects} deleteProject={this.deleteProject} returnToSignin={this.returnToSignin}/>)
+        let projects = this.state.projects.map((project, key) => <Project key={Date.now() + key} index={key} {...project} getProjects={this.getProjects} deleteProject={this.deleteProject} removeMember={this.removeMember} returnToSignin={this.returnToSignin}/>)
 
         if (projects.length === 0) {
             projects = <div><br/><br/><h4 className="text-center cardAddInstruction">Please click the "Add New Project" button to get started.</h4></div>
