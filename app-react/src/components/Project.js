@@ -63,9 +63,8 @@ class Project extends React.Component{
                                 <div className="col-sm-3 projectsOwnerMemberBubble">
                                     {this.props.owner.id == sessionStorage.getItem('userId') ? <span className="pull-right label bubbleText">Owner</span> : <span className="pull-right label bubbleText">Member</span>}
                                 </div>
-
-
                             </div>
+                            
                             <div className="row">
                                 <div className="col-sm-3 commentsIndicatorProjectCard">
                                     {this.props.assets.reduce((prev, next) => prev + next.comments.length, 0) > 0 ? <span className="commentIndicator glyphicon glyphicon-comment" aria-hidden="true">{this.props.assets.reduce((prev, next) => prev + next.comments.length, 0)}</span> : ''}
