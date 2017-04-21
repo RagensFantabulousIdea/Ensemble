@@ -4,7 +4,7 @@ class InvitationsMailer < ApplicationMailer
     @email = email
     @user = User.find_by(email: @email)
     @project_token = project_token
-    @project = Project.find_by(token: @project_token)
+    @project = Project.find_by(project_token: @project_token)
     mail(to: @email, subject: "You've been invited to a project!")
   end
 

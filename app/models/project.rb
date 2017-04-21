@@ -8,7 +8,7 @@ class Project < ApplicationRecord
   has_many :memberships, dependent: :delete_all
   has_many :members, through: :memberships, source: :user, dependent: :delete_all
 
-  has_many :assets
+  has_many :assets, dependent: :destroy
 
   has_many :photos, through: :assets
 
