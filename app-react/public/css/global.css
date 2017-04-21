@@ -149,6 +149,8 @@ a.nav-item {
     font-family: 'Raleway', sans-serif;
     font-size: 15px; 
     margin-right: 60px; 
+    cursor: pointer;
+    cursor: hand;
 }
 
 /*.homeNav {
@@ -247,6 +249,7 @@ a.nav-item {
 .projectCardNavButtons {
     text-align: center;
     background-color: #0D2139 !important;
+
 }
 
 /*create project card*/

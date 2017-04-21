@@ -69,6 +69,7 @@ class Project extends React.Component{
                         <div className="row">
                             <div className="col-sm-3 commentsIndicatorProjectCard">
                                 {this.props.assets.reduce((prev, next) => prev + next.comments.length, 0) > 0 ? <span className="commentIndicator glyphicon glyphicon-comment" aria-hidden="true">{this.props.assets.reduce((prev, next) => prev + next.comments.length, 0)}</span> : ''}
+
                             </div>
 
                             <div className="col-sm-9 projectCardCompleteCheck">
