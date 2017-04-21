@@ -28,7 +28,7 @@ class CommentsTopLevel extends Component {
                     <ul className="media-list">
                         <li className="media">
                             <div className="media-left">
-                                <span className="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                <span className="glyphicon glyphicon-user userCommentIcon" aria-hidden="true"></span>
                             </div>
                             <div className="media-body">
                             <h4 className="media-heading messageUserName">{this.props.firstName}        {this.props.lastName}</h4>
@@ -37,8 +37,7 @@ class CommentsTopLevel extends Component {
                                         <span className="messageContent">{this.props.body}</span>
                                         <br/>
                                         <a className="messageTopDeleteLink" onClick={() => this.deleteMessages(this.props.projectId)}>Delete</a>                                         
-</div>
-
+                                    </div>
                                 </div>
                             </div>
                         </li>

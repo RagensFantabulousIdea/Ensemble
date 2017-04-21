@@ -54,7 +54,7 @@ class ProjectShootList extends Component {
   render(){
     let assets = this.state.assets.map((asset, key) => <ProjectShootMiniCard key={Date.now() + key} index={key} {...asset} getAssets={this.getAssets} projectId={this.props.params.projectId} />)
       if (assets.length === 0) {
-        assets = <h4 className="text-center cardAddInstruction">Please click the "Add Photo Shoot Planning Card" button to get started.</h4>
+        assets = <h4 className="text-center cardAddInstruction">Please click the "Add Photo Shoot Planning Card" button to get started. Once a card appears, you can click on it to start collaborating.</h4>
       }
 
     return (
@@ -79,18 +79,14 @@ class ProjectShootList extends Component {
               </div>
             </div>
           </div>
-            
-            <div className="container">
 
-              <div className="row">
-                <div className="col-xs-12">
-                  <p className="pageInstructions">Click on a card to go to an Asset Collaborating page.</p>
-                </div>
-              </div>
+            <div className="container">
               <div className="row">
                   {assets}
               </div>
             </div>
+            
+            
 
           <FooterArea />
       </div>

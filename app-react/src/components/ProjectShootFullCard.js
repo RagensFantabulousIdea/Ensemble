@@ -96,15 +96,15 @@ class ProjectShootFullCard extends Component {
                 <div className="panel-body">
                     <div className="row">
                         <div className="col-xs-4">
-                            <p>{this.props.location_of_shoot}</p>
+                            <p><strong>Location: </strong>{this.props.location_of_shoot}</p>
                         </div>
 
                         <div className="col-xs-4">
-                            <p>{this.props.date_of_shoot}</p>
+                            <p><strong>Date: </strong>{this.props.date_of_shoot}</p>
                         </div>
 
                         <div className="col-xs-4">
-                            <p>{this.props.time_of_shoot}</p>
+                            <p><strong>Time: </strong>{this.props.time_of_shoot}</p>
                         </div>
                     </div>
 
