@@ -11,22 +11,30 @@ class SampleUploader extends React.Component {
   }
 
   upload() {
-    var data = new FormData()
-    data.append('image', this.state.image)
-    data.append('sample_photo', true)
+     var image = this.state.image
+    
+      if (image !== null) {
+        var data = new FormData()
+      data.append('image', this.state.image)
+      data.append('sample_photo', true)
 
-    fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/sample_photos?token=' + sessionStorage.getItem('token'), {
-      method: 'POST',
-      body: data
-    })
-    // .then(response => response.json())
-    .then(response => {
-      this.props.getImages()
-        this.setState({
-        image: ''
+      fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/sample_photos?token=' + sessionStorage.getItem('token'), {
+        method: 'POST',
+        body: data
       })
-    })
-  }
+      // .then(response => response.json())
+      .then(response => {
+        this.props.getImages()
+          this.setState({
+          image: ''
+        })
+      })
+    }
+      else {
+        alert('You must select an image file to upload.')
+      }
+    }
+    
   
   render() {
     return <div>
