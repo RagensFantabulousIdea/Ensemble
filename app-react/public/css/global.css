@@ -84,8 +84,9 @@ body {
 /*sign in and up panels*/
 .modalSi, .modalSu {
     width: 50vw;
-    margin: 0 auto;
+    margin: 200px auto;
 }
+
 
 .actionButton {
     background-color: #5EABE2;
@@ -612,6 +613,7 @@ h3 {
     padding-top: 20px;
     padding-bottom: 20px;
     font-family: 'Raleway', sans-serif;
+    margin-top: 15vw;
     /*bottom: 0;
     position: fixed;
     width: 100%;*/

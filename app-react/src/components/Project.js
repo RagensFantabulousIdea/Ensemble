@@ -50,8 +50,6 @@ class Project extends React.Component{
         }
     }
 
-    // "QQ Ragen look at the two pieces down here and I added another </div> at the end to make it happy""
-
     render(){
         return (
             <div>
@@ -65,12 +63,12 @@ class Project extends React.Component{
                                 <div className="col-sm-3 projectsOwnerMemberBubble">
                                     {this.props.owner.id == sessionStorage.getItem('userId') ? <span className="pull-right label bubbleText">Owner</span> : <span className="pull-right label bubbleText">Member</span>}
                                 </div>
-                        </div>
-
-                        <div className="row">
-                            <div className="col-sm-3 commentsIndicatorProjectCard">
-                                {this.props.assets.reduce((prev, next) => prev + next.comments.length, 0) > 0 ? <span className="commentIndicator glyphicon glyphicon-comment" aria-hidden="true">{this.props.assets.reduce((prev, next) => prev + next.comments.length, 0)}</span> : ''}
                             </div>
+                            
+                            <div className="row">
+                                <div className="col-sm-3 commentsIndicatorProjectCard">
+                                    {this.props.assets.reduce((prev, next) => prev + next.comments.length, 0) > 0 ? <span className="commentIndicator glyphicon glyphicon-comment" aria-hidden="true">{this.props.assets.reduce((prev, next) => prev + next.comments.length, 0)}</span> : ''}
+                                </div>
 
                                 <div className="col-sm-9 projectCardCompleteCheck">
                                     <div className="form-check ownerCheck">
@@ -91,7 +89,7 @@ class Project extends React.Component{
                         </div>
 
                         <div className="panel-footer projectCardNavButtons">
-                            {this.props.owner.id == sessionStorage.getItem('userId') ? <button type="button" className="btn projectButton projectDeleteButton" onClick={() => this.props.deleteProject(this.props.id)}>Remove</button> : <button type="button" className="btn projectButton projectDeleteButton" onClick={() => this.props.removeMember(this.props.id)}>Remove</button>}
+                            {this.props.owner.id == sessionStorage.getItem('userId') ? <button type="button" className="btn projectButton projectDeleteButton" onClick={() => {if(confirm('Delete this project?')) {this.props.deleteProject(this.props.id)};}}>Remove</button> : <button type="button" className="btn projectButton projectDeleteButton" onClick={() => {if(confirm('Remove your membership from this project?')) {this.props.removeMember(this.props.id)};}}>Remove</button>}
 
                             <button type="button" className="btn projectButton" onClick={() => browserHistory.push('/edit/' + this.props.id)}>Edit</button>
 

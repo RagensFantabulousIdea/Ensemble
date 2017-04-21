@@ -60,8 +60,10 @@ class UserProjects extends Component {
     render() {
         let projects = this.state.projects.map((project, key) => <Project key={Date.now() + key} index={key} {...project} getProjects={this.getProjects} deleteProject={this.deleteProject} removeMember={this.removeMember} returnToSignin={this.returnToSignin}/>)
 
-         if (projects.length === 0)
-            {projects = <div><br/><br/> {location.href.includes('/complete') ? '' : <h4 className="text-center cardAddInstruction">Please click the "Add New Project" button to get started. <br/>Once you have a project card, click on the "Project Shoot Button" to start planning your photo assets.</h4>}</div>}
+        if (projects.length === 0) {
+            projects = <div><br/><br/>{location.href.includes('/complete') ? <h4 className="text-center cardAddInstruction">You do not have any completed projects yet, please return to the Projects page.</h4> :<h4 className="text-center cardAddInstruction">Please click the "Add New Project" button to get started. <br/>Once you have a project card, click on the "Project Shoot Button" to start planning your photo assets.</h4>}</div>
+        }
+       
 
         return (
             <div className="userProjectsPage">

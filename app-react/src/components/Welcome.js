@@ -29,6 +29,8 @@ class Welcome extends Component {
   } 
 
   render() {
+            console.log(this.props.params)
+
     // let SignUp = this.state.SignUp.map((SignUp, key) => <SignUp {...SignUp} key={key} showModal={this.showModal}/>)
     return (
       <div>
@@ -44,7 +46,7 @@ class Welcome extends Component {
           </div>
         </div>
 
-        <Signup modalSu={this.state.modalSu} closeSu={() => this.closeSignup()} className="modal"/>
+        <Signup modalSu={this.state.modalSu} closeSu={() => this.closeSignup()} className="modal" params={this.props.params}/>
         <SignIn modalSi={this.state.modalSi} closeSi={() => this.closeSignin()}  className="modal"/>
           
           <div className="row welcomeBody">
@@ -60,10 +62,6 @@ class Welcome extends Component {
               <p className="makingSelections">Upload jpeg images, discuss results, and record the final selection in one location.</p>
             </div>
           </div>
-
-
-        <Signup modalSu={this.state.modalSu} closeSu={() => this.closeSignup()} className="modal"/>
-        <SignIn modalSi={this.state.modalSi} closeSi={() => this.closeSignin()} className="modal"/>
 
         <FooterArea />
 

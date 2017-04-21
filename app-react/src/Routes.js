@@ -37,9 +37,8 @@ import CommentsTopLevel from './components/CommentsTopLevel'
 class Routes extends React.Component {
     render() {
         return <Router history={browserHistory}>
-            <Route path="/" component={Welcome} />
             <Route path="/sandbox" component={UserProjects} />
-            <Route path="/signup(/:project_token)" component={SignUp} />
+            <Route path="/signup" component={SignUp} />
             <Route path="/signin" component={SignIn} />
             <Route path="/projects" component={UserProjects} />
             <Route path="/projects/complete" component={UserProjects} />
@@ -55,6 +54,7 @@ class Routes extends React.Component {
             <Route path="/shoot/:projectId/assets/:assetId/photos/:id" component={FullSizedImageView} />
             <Route path="/edituser/:userId" component={EditUser} />
             <Route path="/commentsbox" component={CommentsTopLevel} />
+            <Route path="/(:project_token)" component={Welcome} />
         </Router>
     }
 }
