@@ -95,13 +95,20 @@ body {
 /*modal*/
 
 .modal-opac {
+    top: 0px !important;
+    bottom: 0px !important;
+    width: 100vw !important;
+    height: 100vh !important; 
+    overflow: hidden !important;
+    overflow-y: auto !important;
     background-color: rgba(0,0,0,0.3);   
     position: absolute;
-    bottom: 50px;
-    width: 100vw;
-    min-width: 300px;
-    height: 50vh;
-    margin-top: 5vh; 
+    /*bottom: 20px;*/
+    /*top: 50px;*/
+    /*width: 100vw;*/
+    /*min-width: 300px;*/
+    /*height: 50vh;*/
+    /*margin-top: 5vh;*/
 }
 
  .signup-close {
@@ -548,6 +555,11 @@ h3 {
     color: black;
 }
 
+/*comment top-level*/
+.userCommentIcon {
+    padding-left: 10px;
+}
+
 /*footer*/
 .footerArea {
     background-color: black;
@@ -718,7 +730,7 @@ h3 {
     transition: opacity 0.3s ease;*/
     /*overflow hidden hides anything that flows right out of the box*/
     /*if you put overflow-y on the container, the whole page scrolls. if you put it on the overlay box itself, it will scroll within the overlay. */
-/*}*/
+/*}
 
 /*.overlay-background.hidden {
     opacity: 0;
