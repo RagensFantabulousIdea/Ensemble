@@ -3,26 +3,13 @@ class PhotosController < ApplicationController
   before_action :find_project
   before_action :find_asset
   before_action :find_photo, except: [:index, :create, :selected]
-  # before_action :find_selected_photo, only: [:index]
+  before_action :find_selected_photo, only: [:index, :selected]
   before_action :editor
 
   def index
     if editor
       @photos = @asset.photos
       render json: @photos
-    else
-      forbidden
-    end
-  end
-
-  def samples
-    @sample_photos = @asset.sample_photos
-    if editor
-      if @photos
-        render json: @photos
-      else
-        render json: @photos.errors.full_messages, status: 400
-      end
     else
       forbidden
     end
@@ -54,10 +41,10 @@ class PhotosController < ApplicationController
     @photo = Photo.find_by(frame_num: params[:id])
     if editor
       if @photo
-        @asset.selected_photo.update(selected: false) if @asset.selected_photo
+        @selected_photo.update(selected: false) if @selected_photo
         @photo.selected = true
         if @photo.save
-          render json: ["Photo #{@photo.frame_num} set as the selected photo for Project #{@project.project_num}, figure #{@asset.figure_num} successfully!"]
+           render json: @photo #["Photo #{@photo.frame_num} set as the selected photo for Project #{@project.project_num}, figure #{@asset.figure_num} successfully!"]
         else
           render json: @photo.errors.full_messages, status: 400
         end
@@ -68,15 +55,6 @@ class PhotosController < ApplicationController
       forbidden
     end
   end
-  # if you're an editor
-  #  Set currently selected_photo to false if selected_photo
-  #   end
-  #     photo.selected = params[:selected]
-  #
-  # else
-  #   forbidden
-  # end
-
 
   def show
     if editor
@@ -116,10 +94,9 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
   end
 
-  #TODO Does this need to go into the Assets Controller?
-  # def find_selected_photo
-  #   @selected_photo = @asset.selected_photo if @asset.selected_photo
-  # end
+  def find_selected_photo
+    @selected_photo = @asset.selected_photo if @asset.selected_photo
+  end
 
   def find_project
     @project = Project.find(params[:project_id])
