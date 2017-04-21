@@ -115,6 +115,17 @@ body {
      cursor: pointer;
      cursor: hand;
  }
+/*nav{
+    display: flex;
+    flex-direction: column;
+}*/
+
+/* Tablet */
+/*@media screen and (min-width: 547px) {
+    .container{
+        flex-direction: row;
+    }
+}*/
 
 /*Nav*/
 .headerArea {
@@ -160,6 +171,8 @@ a.nav-item {
     font-family: 'Raleway', sans-serif;
     font-size: 15px; 
     margin-right: 60px; 
+    cursor: pointer;
+    cursor: hand;
 }
 
 /*.homeNav {
@@ -265,6 +278,7 @@ a.nav-item {
 .projectCardNavButtons {
     text-align: center;
     background-color: #0D2139 !important;
+
 }
 
 /*create project card*/
