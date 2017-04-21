@@ -43,6 +43,9 @@ class Welcome extends Component {
             <button type="button" className="btn signInButtonWelcome" onClick={() => this.setState({modalSu: 'block'})}>Sign Up</button>
           </div>
         </div>
+
+        <Signup modalSu={this.state.modalSu} closeSu={() => this.closeSignup()} className="modal"/>
+        <SignIn modalSi={this.state.modalSi} closeSi={() => this.closeSignin()}  className="modal"/>
           
           <div className="row body">
             <div className="col-sm-6 col-md-4">
@@ -57,9 +60,6 @@ class Welcome extends Component {
               <p className="makingSelections">Upload jpeg images, discuss results, and record the final selection in one location.</p>
             </div>
           </div>
-
-        <Signup modalSu={this.state.modalSu} closeSu={() => this.closeSignup()} className="modal"/>
-        <SignIn modalSi={this.state.modalSi} closeSi={() => this.closeSignin()}  className="modal"/>
 
         <FooterArea />
 

@@ -86,8 +86,8 @@ class SignUp extends Component {
                 // <i className="fa fa-times-circle-o fa-2x signup-close" aria-hidden="true" onClick={this.props.closeSu} ></i>
 
 render() {
-return <div style={{display: this.props.modalSu}}>
-    <div className="container modal-opac">
+return <div className="modal-fade" style={{display: this.props.modalSu}}>
+    <div className="modal-opac">
         <div className="panel modalSu">
             <div className="panel-body">
                 <button type="button" className="close signup-close" data-dismiss="modalSu" aria-label="Close" onClick={this.props.closeSu}><span aria-hidden="true">&times;</span></button>

@@ -12,7 +12,6 @@ class EditUser extends Component {
             lastname: '',
             email: '',
             password: '',
-            // project_token: '',
             token: '',
             form: null
         }
@@ -38,7 +37,6 @@ class EditUser extends Component {
         var lastname = this.state.lastname
         var email = this.state.email
         var password = this.state.password
-        // var project_token = this.state.project_token
         let userId = sessionStorage.getItem('userId')
              fetch('/api/users/' + userId + '?token=' + sessionStorage.getItem('token'), {
             method: 'PATCH',
@@ -51,7 +49,6 @@ class EditUser extends Component {
             last_name: lastname,
             email: email,
             password: password,
-            // project_token: this.props.params.project_token
             token: this.props.params.token
         })
     })
@@ -61,7 +58,6 @@ class EditUser extends Component {
         .then(function(response) {
                 browserHistory.push('/projects')
         })
-        
     }
 
     
