@@ -65,20 +65,12 @@ class Project extends React.Component{
                                 <div className="col-sm-3 projectsOwnerMemberBubble">
                                     {this.props.owner.id == sessionStorage.getItem('userId') ? <span className="pull-right label bubbleText">Owner</span> : <span className="pull-right label bubbleText">Member</span>}
                                 </div>
-
-
-
-                            
                         </div>
+
                         <div className="row">
                             <div className="col-sm-3 commentsIndicatorProjectCard">
                                 {this.props.assets.reduce((prev, next) => prev + next.comments.length, 0) > 0 ? <span className="commentIndicator glyphicon glyphicon-comment" aria-hidden="true">{this.props.assets.reduce((prev, next) => prev + next.comments.length, 0)}</span> : ''}
-
                             </div>
-                            <div className="row">
-                                <div className="col-sm-3 commentsIndicatorProjectCard">
-                                    {this.props.assets.reduce((prev, next) => prev + next.comments.length, 0) > 0 ? <span className="commentIndicator glyphicon glyphicon-comment" aria-hidden="true">{this.props.assets.reduce((prev, next) => prev + next.comments.length, 0)}</span> : ''}
-                                </div>
 
                                 <div className="col-sm-9 projectCardCompleteCheck">
                                     <div className="form-check ownerCheck">
@@ -96,7 +88,6 @@ class Project extends React.Component{
                             <h4 className="carditems">{this.props.author}</h4>
                             <h4 className="carditems">{this.props.project_num}</h4>
                             <p>{this.props.description}</p>
-                            <p>{this.props.body}</p>
                         </div>
 
                         <div className="panel-footer projectCardNavButtons">
@@ -111,7 +102,6 @@ class Project extends React.Component{
                         </div>
                     </div>
                 </div>
-            </div>
             </div>
         )}
     }

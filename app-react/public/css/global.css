@@ -115,17 +115,17 @@ body {
      cursor: pointer;
      cursor: hand;
  }
-nav{
+/*nav{
     display: flex;
     flex-direction: column;
-}
+}*/
 
 /* Tablet */
-@media screen and (min-width: 547px) {
+/*@media screen and (min-width: 547px) {
     .container{
         flex-direction: row;
     }
-}
+}*/
 
 /*Nav*/
 .headerArea {
@@ -227,6 +227,13 @@ a.nav-item {
     height: 225px;
     overflow: hidden;
     /*overflow-y: auto;*/
+}
+
+.miniPanelHeader {
+    background-image: url("../img/background-1594712_1920.jpg");
+    background-size: cover;
+    height: 120px;
+    overflow: hidden;
 }
 
 .userProjectsPage {
@@ -415,21 +422,29 @@ h1 {
 }*/
 
 panel-body .projectShootMiniCardSetup {
-    max-height: 50px;
+    /*max-height: 50px;*/
     /*min-height: 50px;*/
 }
 
 .miniCardPanelBody {
-    padding: 5px; 
+    padding: 5px;
+    min-height: 180px;
 }
 
-/*.miniCardPhotoView {
-    max-width: 600px;
-    max-height: 300px;
-    width: auto;
-    display: inline-block;
-    text-align: center;
-}*/
+.miniCardPhotoView {
+    /*width: 31vw; */
+    /*min-width: 200px;*/
+    /*height: initial;*/
+    /*max-height: none !important;*/
+    /*width: 100%;*/
+    /*height: auto;*/
+    /*max-width: 600px;*/
+    max-height: 170px;
+    width: initial;
+    /*width: auto;*/
+    /*display: inline-block;*/
+    /*text-align: center;*/
+}
 
 /*.panel {
     font-family: 'Raleway', sans-serif;
@@ -535,6 +550,10 @@ h3 {
 .doNotSelect {
     display: block;
     text-align: center;
+}
+.glyphicon-trash {
+    text-align: right;
+    color: red;
 }
 
 /*project all photos list */

@@ -74,7 +74,7 @@ class ProjectPhotoCollaborating extends Component {
                     </div>
 
                     <div className="col-sm-5">
-                        <h3>Photo Shoot Uploads</h3>
+                        <h3>Photo Uploader</h3>
                         <div className="row">
                             <PhotoUploader getImages={this.getImages} {...this.props} />
                         </div>

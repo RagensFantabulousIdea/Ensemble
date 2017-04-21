@@ -100,6 +100,7 @@ class ProjectCreateCard extends Component {
                                 </div>
 
                                 <div className="form-group">
+                                <br/>
                                     <label htmlFor="figureOrder">Order Number (within the photo shoot)</label>
                                     <input type="text" className="form-control figureOrder" placeholder="1" onChange={(e) => this.setState({orderNumber: e.target.value})}/>
                                 </div>

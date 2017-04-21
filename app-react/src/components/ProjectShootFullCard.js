@@ -77,7 +77,7 @@ class ProjectShootFullCard extends Component {
                         </div>
 
                         <div className="col-xs-5">
-                            <button type="button" className="btn editCardButton pull-right" onClick={() => browserHistory.push('/shoot/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/editcard')}>Edit Card</button>
+                            <button type="button" className="btn editCardButton pull-right" data-toggle="tooltip" data-placement="top" title="Click to edit and save or delete asset" onClick={() => browserHistory.push('/shoot/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/editcard')}>Edit Card</button>
                         </div>
                     </div>
                     <br />
