@@ -27,6 +27,14 @@ constructor(props){
              <ul className="nav nav-pills">
                 <nav>
                     <div className="nav navbar-nav navbar-right">
+
+                     <li role="presentation">
+                        <Link className="nav-item homeNav" onClick={() => browserHistory.push('/projects')}>
+                            Projects Home
+                        </Link>
+                        </li>
+
+
                         <li role="presentation">
                         <Link className="nav-item projectNav" onClick={() => browserHistory.push('/projects/complete')}>
                             Completed Projects
@@ -34,19 +42,15 @@ constructor(props){
                         </li>
 
                          <li role="presentation">
-                        <Link className="nav-item signOutNav" onClick={() => browserHistory.push('/edituser/' +sessionStorage.getItem('userId'))}>
+                        <Link className="nav-item editNav" onClick={() => browserHistory.push('/edituser/' +sessionStorage.getItem('userId'))}>
                             Edit User Information
                         </Link>
                         </li>
 
-                        <li role="presentation">
-                        <Link className="nav-item signOutNav" onClick={() => browserHistory.push('/projects')}>
-                            Home
-                        </Link>
-                        </li>
+                       
                         
                         <li role="presentation" className="pull-right">
-                        <Link className="nav-item signOutNav" onClick={this.returnToSignin}>
+                        <Link className="nav-item signOut" onClick={this.returnToSignin}>
                             SignOut
                         </Link>
                         </li>

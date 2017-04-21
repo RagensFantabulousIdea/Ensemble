@@ -49,7 +49,7 @@ console.log
 
                     
                         <li role="presentation" className="pull-right">
-                            <Link className="nav-item signOutNav" onClick={this.returnToSignin}>
+                            <Link className="nav-item signOut" onClick={this.returnToSignin}>
                                          Sign Out
                         </Link>
                                  </li>
