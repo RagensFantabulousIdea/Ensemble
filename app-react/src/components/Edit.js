@@ -71,44 +71,39 @@ class Edit extends Component {
         //console.log(this.props.params.projectId)
         return (
             <div className="createProject">
-            <UserNavBar />
-            <h1>Edit a Project</h1>
-            <div>
-                <div className="col-sm-4 col-sm-offset-4">
-                    <div className="panel">
-                        <div className="panel-body">
-                            <form>
-                                <div className="form-group">
-                                    <label htmlFor="title">Title</label>
-                                    <input type="text" className="form-control" value={this.state.title} onChange={(e) => this.setState({title: e.target.value})} />
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="author">Author</label>
-                                    <input type="text" className="form-control" value={this.state.author}
-                                    onChange={(e) => this.setState({author: e.target.value})}/>
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="projectnumber">Project Number</label>
-                                    <input type="text" className="form-control" value={this.state.projectNumber}
-                                    onChange={(e) => this.setState({projectNumber: e.target.value})}/>
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="description">Description of project</label>
-                                    <textarea className="form-control" placeholder="body" rows="10" value={this.state.description} onChange={(e) => this.setState({description: e.target.value})}/>
-                                </div>
-                                <button type="button" className="btn btn-success " onClick={this.editProject}>Save</button>
-                            </form>
+                <UserNavBar />
+                <h1>Edit a Project</h1>
+                    <div className="col-sm-4 col-sm-offset-4">
+                        <div className="panel">
+                            <div className="panel-body">
+                                <form>
+                                    <div className="form-group">
+                                        <label htmlFor="title">Title</label>
+                                        <input type="text" className="form-control" value={this.state.title} onChange={(e) => this.setState({title: e.target.value})} />
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="author">Author</label>
+                                        <input type="text" className="form-control" value={this.state.author}
+                                        onChange={(e) => this.setState({author: e.target.value})}/>
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="projectnumber">Project Number</label>
+                                        <input type="text" className="form-control" value={this.state.projectNumber}
+                                        onChange={(e) => this.setState({projectNumber: e.target.value})}/>
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="description">Description of project</label>
+                                        <textarea className="form-control" placeholder="body" rows="10" value={this.state.description} onChange={(e) => this.setState({description: e.target.value})}/>
+                                    </div>
+                                    <button type="button" className="btn btn-success " onClick={this.editProject}>Save</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                </div>
-                
-                </div>
-                <FooterArea/>
+                    <div className="jeffsGuess">
+                        <FooterArea/>
+                    </div>
             </div>
-            
-
-
-
         );
     }
 }
