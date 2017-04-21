@@ -94,7 +94,7 @@ class Project extends React.Component{
                     </div>
                     
                     <div className="panel-footer projectCardNavButtons">
-                        <button type="button" className="btn projectButton projectDeleteButton" onClick={() => this.props.deleteProject(this.props.id)}>Remove</button>
+                        {this.props.owner.id == sessionStorage.getItem('userId') ? <button type="button" className="btn projectButton projectDeleteButton" onClick={() => this.props.deleteProject(this.props.id)}>Remove</button> : <button type="button" className="btn projectButton projectDeleteButton" onClick={() => this.props.removeMember(this.props.id)}>Remove</button>}
 
                         <button type="button" className="btn projectButton" onClick={() => browserHistory.push('/edit/' + this.props.id)}>Edit</button>
                     
