@@ -72,7 +72,7 @@ class Edit extends Component {
         return (
             <div className="createProject">
             <UserNavBar />
-            <h1>Create a Project</h1>
+            <h1>Edit a Project</h1>
             <div>
                 <div className="col-sm-4 col-sm-offset-4">
                     <div className="panel">

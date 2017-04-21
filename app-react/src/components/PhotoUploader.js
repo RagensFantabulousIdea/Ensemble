@@ -14,31 +14,35 @@ class PhotoUploader extends React.Component {
   }
 
   upload() {
-    // var btn = (this).button('loading')
-    // window.onload = function(){ document.getElementById("loading").style.display = "none" }  
-    // this.setState({upload: true})
-    var data = new FormData()
-    data.append('image', this.state.image)
-    // data.append('frame_num', this.state.frame_num)
+    var image = this.state.image
+    
+    if (image !== null) {
+      var data = new FormData()
+      data.append('image', this.state.image)
 
-    fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/photos?token=' + sessionStorage.getItem('token'), {
-      method: 'POST',
-      body: data
-    })
-    // .then(response => response.json())
-    .then(response => {
-      this.props.getImages()
-      this.setState({
-        image: ''
+      fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/photos?token=' + sessionStorage.getItem('token'), {
+        method: 'POST',
+        body: data
       })
-    })
-    // .then(uploadNotification => {
-    //   btn.button('reset')
-    // })
-    // .then(blah => {
-    //   this.setState({upload: false})
-    // })
-  }  
+      
+      .then(response => {
+        this.props.getImages()
+        this.setState({
+          image: ''
+        })
+      })
+      // .then(uploadNotification => {
+      //   btn.button('reset')
+      // })
+      // .then(blah => {
+      //   this.setState({upload: false})
+      // })
+    }
+  else {
+    alert('You must select an image file to upload.')
+  }
+    }
+      
 
 render() {
     return <div>

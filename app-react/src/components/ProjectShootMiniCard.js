@@ -13,9 +13,20 @@ class ProjectShootMiniCard extends Component {
         <div className="projectShootMiniCardSetup">
             <Link to={'/shoot/' + this.props.projectId + '/assets/' + this.props.id + '/collaborate'}><div className="col-xs-12 col-sm-6 col-md-4 col-lg-5 col-lg-offset-1">
                 <div className="panel">
+
+                <div className="panel-heading miniCardFigNMessage">
+                    <div className="row">
+                        <div className="col-xs-8">
+                            <h3 className="panel-title pull-right">Order: {this.props.order_num}</h3>
+                        </div>
+
+                        <div className="col-xs-4">
+                             {this.props.comments.length > 0 ? <span className="commentIndicator glyphicon glyphicon-comment pull-right" aria-hidden="true">{this.props.comments.length}</span> : ''}
+                        </div>
+                    </div>
+                </div>
                     
                     <div className="panel-heading imagePanel miniImagePanel">
-                        {this.props.comments.length > 0 ? <span className="commentIndicator glyphicon glyphicon-comment pull-right" aria-hidden="true">{this.props.comments.length}</span> : ''} <br/> 
                             {this.props.selected_photo && this.props.selected_photo.image.std.url ? <img className="miniCardPhotoView" src={this.props.selected_photo.image.std.url} alt="selection" /> : ''}
                         <div className="row miniCardHeading">
                             <div className="col-xs-6">
@@ -23,7 +34,7 @@ class ProjectShootMiniCard extends Component {
                             </div>
 
                             <div className="col-xs-6">
-                                <h3 className="panel-title pull-right">Order: {this.props.order_num}</h3>
+                                
                             </div>
                         </div>
                     </div>

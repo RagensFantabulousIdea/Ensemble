@@ -12,7 +12,8 @@ class EditUser extends Component {
             lastname: '',
             email: '',
             password: '',
-            project_token: '',
+            // project_token: '',
+            token: '',
             form: null
         }
     }
@@ -50,7 +51,8 @@ class EditUser extends Component {
             last_name: lastname,
             email: email,
             password: password,
-            project_token: this.props.params.project_token
+            // project_token: this.props.params.project_token
+            token: this.props.params.token
         })
     })
         .then(function(response) {
