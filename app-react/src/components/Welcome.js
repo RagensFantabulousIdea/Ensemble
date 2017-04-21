@@ -59,7 +59,7 @@ class Welcome extends Component {
             </div>
             
             <div className="col-sm-6 col-md-4">
-              <p className="makingSelections">Upload jpeg images, discuss results, and record the final selection in one location.</p>
+              <p className="makingSelections">Upload  images, discuss results, and record the final selection in one location. You can upload jpeg, gif, png and svg images.</p>
             </div>
           </div>
 
