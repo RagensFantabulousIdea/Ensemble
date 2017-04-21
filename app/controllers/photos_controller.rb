@@ -54,7 +54,8 @@ class PhotosController < ApplicationController
     @photo = Photo.find_by(frame_num: params[:id])
     if editor
       if @photo
-        @photo.selected = params[:selected]
+        @asset.selected_photo.update(selected: false) if @asset.selected_photo
+        @photo.selected = true
         if @photo.save
           render json: ["Photo #{@photo.frame_num} set as the selected photo for Project #{@project.project_num}, figure #{@asset.figure_num} successfully!"]
         else
@@ -67,6 +68,15 @@ class PhotosController < ApplicationController
       forbidden
     end
   end
+  # if you're an editor
+  #  Set currently selected_photo to false if selected_photo
+  #   end
+  #     photo.selected = params[:selected]
+  #
+  # else
+  #   forbidden
+  # end
+
 
   def show
     if editor
