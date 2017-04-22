@@ -93,10 +93,3 @@ class ProjectPhotoCollaborating extends Component {
 }
 
 export default ProjectPhotoCollaborating;
-
-// <div className="form-group">
-//     <label className="figureOptions" htmlFor="figureSample">Upload Images for This Figure</label>
-//     <label className="photoFrameInstructions" htmlFor="photoFrame">Enter the Frame Number for Each Photo Uploaded</label>
-//     <input type="text" className="form-control photoFrame" onChange={(e) => this.setState({NEEDNAMEHERE: e.target.value})}/> <br/>
-//     <input type="file" className="figureResults"/>
-// </div>

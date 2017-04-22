@@ -531,6 +531,7 @@ panel-body .projectShootMiniCardSetup {
 .editCardButton {
     background-color: #5EABE2;
     font-family: 'Raleway', sans-serif;
+    border-radius: 0px;
 }
 
 .shootSampleImage {
