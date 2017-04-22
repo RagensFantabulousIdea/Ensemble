@@ -14,8 +14,9 @@ body {
 .welcome {
     background-image: url("../img/sunset-2218149_1920.jpg");
     background-size: cover;
+    height: 100vh;
     background-position: 25% 20%;
-    padding-bottom: 73vw;
+    /*padding-bottom: 73vw;*/
     padding-top: 30px; 
     text-align: center;
 }
@@ -63,10 +64,12 @@ body {
     padding-top: 50px; 
     padding-left: 40px;
     padding-right: 40px;
+    margin-bottom: 50px;
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
     font-size: 20px;
     color: #B16503;
+    
 }
 
 .centralData {
@@ -91,6 +94,7 @@ body {
 .actionButton {
     background-color: #5EABE2;
     font-family: 'Raleway', sans-serif;
+    border-radius: 0%;
 }
 
 /*modal*/
@@ -116,28 +120,30 @@ body {
      cursor: pointer;
      cursor: hand;
  }
-/*nav{
+nav{
     display: flex;
     flex-direction: column;
-}*/
+}
 
 /* Tablet */
-/*@media screen and (min-width: 547px) {
-    .container{
+@media screen and (min-width: 547px) {
+    .nav{
         flex-direction: row;
     }
-}*/
+}
 
 /*Nav*/
 .headerArea {
     background-image: url("../img/fruit-1302126_1920.jpg");
     background-size: cover;
     background-position: 0% 0%;
+    height: 150px;
     /*background-position: 0% 25%;*/
 }
 
     .userHeaderArea {
         background-size: cover;
+        height: 150px;
         /*background-image: url("../img/flower-1451676_1920.jpg");
         background-position: 0% 50%;*/
         /*padding-top: 30px;
@@ -167,7 +173,7 @@ nav  {
 a.nav-item {
     /*color: #545454;*/
     color: white;
-    background-color: black;
+    /*background-color: white;*/
     /*text-shadow: 1px 2px 2px black;*/
     font-family: 'Raleway', sans-serif;
     font-size: 15px; 
@@ -175,9 +181,12 @@ a.nav-item {
     cursor: pointer;
     cursor: hand;
 }
+.navbar-nav>li>a:hover { 
+    background-color: black;
+}
 
 /*.homeNav {
-    padding-left: 10px;
+    background: red;
 }*/
 
 /*.projectNav {
@@ -351,7 +360,20 @@ a.nav-item {
 }
 
 /*edit project form*/
+.editPanelBody {
+    padding-left: 
+}
 
+.editProjectCard {
+    margin-top: 50%;
+}
+
+    .slimPanelHeader{
+    background-image: url("../img/background-1594712_1920.jpg");
+    background-size: cover;
+    overflow: hidden;
+    height: 50px;
+    }
 
 /*Photo Shoot List*/
 .projectShootListPage {
@@ -394,6 +416,7 @@ h1 {
     background-color: #5EABE2;
     font-family: 'Raleway', sans-serif;
     margin-bottom: 30px;
+    border-radius: 0%;
 }
 
 .pageInstructions {
@@ -439,9 +462,12 @@ panel-body .projectShootMiniCardSetup {
     /*max-height: none !important;*/
     /*width: 100%;*/
     /*height: auto;*/
-    /*max-width: 600px;*/
+    /*max-width: 18vw;*/
+    max-width: 100%;
     max-height: 170px;
     width: initial;
+    /*width: inherit;*/
+    overflow: hidden;
     /*width: auto;*/
     /*display: inline-block;*/
     /*text-align: center;*/
@@ -505,6 +531,7 @@ panel-body .projectShootMiniCardSetup {
 .editCardButton {
     background-color: #5EABE2;
     font-family: 'Raleway', sans-serif;
+    border-radius: 0px;
 }
 
 .shootSampleImage {
@@ -611,7 +638,7 @@ h3 {
     padding-top: 20px;
     padding-bottom: 20px;
     font-family: 'Raleway', sans-serif;
-    margin-top: 160px;
+    margin-top: 15vw;
     /*bottom: 0;
     position: fixed;
     width: 100%;*/
@@ -676,8 +703,8 @@ h3 {
     }
 
     nav {
-        padding-top: 50px;
-        padding-bottom: 50px;
+        padding-top: 18px;
+        padding-bottom: 40px;
     }
 
     .headerArea {
@@ -690,7 +717,18 @@ h3 {
     margin-top: 10px;
     margin-bottom: 20px; 
     }
+
+    /*.miniCardPhotoView {
+        max-width: 27vw;
+    }*/
 }
+
+/*device*/
+/*@media all and (min-width: 830px) {
+    .miniCardPhotoView {
+        max-width: 27vw;
+    }
+}*/
 
 /*laptop*/
 @media all and (min-width: 1024px) {
@@ -702,6 +740,10 @@ h3 {
     .projectPanelHeader{
     height: 150px;
     }
+
+    /*.miniCardPhotoView {
+    max-width: 17vw;
+    }*/
 }
 
 /*desktop*/
@@ -755,72 +797,32 @@ h3 {
         color: white;
         font-size: 20px; 
     }
+
+    /*.miniCardPhotoView {
+    max-width: 18vw;
+    }*/
 }
 
 
 
-/*modal info from class example*/
-/*.overlay-background {
-    background-color: rgba(0,0,0,0.5);
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    width: 100vw;
-    height: 100vh; 
-    overflow: hidden;
-    overflow-y: auto;
-    opacity: 1;
-    transition: opacity 0.3s ease;*/
-    /*overflow hidden hides anything that flows right out of the box*/
-    /*if you put overflow-y on the container, the whole page scrolls. if you put it on the overlay box itself, it will scroll within the overlay. */
-/*}
-
-/*.overlay-background.hidden {
-    opacity: 0;
+/*a.nav-item {
+    background-color: #337ab7;
 }*/
+.homeNav{
+    margin-left: 40px;
+}
 
-/*.overlay {
-    box-shadow: 5px 5px 10px rgba(0,0,0,0.25);
-    background-color: white;
-    width: 50vw;
-    min-width: 300px; */
-    /*height: 50vh;*/
-    /*margin: 0 auto;
-    margin-top: 5vh; 
-    margin-bottom: 5vh; 
-    border-radius: 5px; 
-    padding: 20px 30px;*/
-    /*overflow-y: auto;*/
-    /*in modal, have to define height, even though he doesn't usually like setting height.*/
-    /*overflow will allow scrolling within the modal*/
-/*}*/
-/*end modal stuff from w8 d2 notes*/
+.homeNav:active{
+    background-color: #111111;
+    border-color: #000000;
+}
 
+.projectNav{
+    margin-left: 40px;
+}
 
-
-
-/*Start styles Manpreet had made*/
-
-
-/*.createproject{
-    margin-top: 20px;
-}*/
-
-/*.carditems{
-    padding-top: 10px;
-    padding-left: 20px;
-}*/
-
-/*.invitetopmargin{
-    margin-top: 20px;
-}*/
-
-/*.logout {
-    float: right;
-    font-size: 30px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 20px;
-}*/
-
-/*end Manpreet's styles*/
+.signOut{
+        border: 3px solid white;
+        font-size: 20px; 
+        /*border-radius: 90%;*/
+}

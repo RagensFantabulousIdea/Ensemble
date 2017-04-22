@@ -20,31 +20,61 @@ console.log
     //   Need to add route for editing/deleting profile.
 
     return (
+        <div>
         <div className="headerArea">
-            <header>
+            </div>
+            <ul className="nav nav-pills">
                 <nav>
                     <div className="nav navbar-nav navbar-right">
+
+                    <li role="presentation">
+                        <Link className="nav-item homeNav" onClick={() => browserHistory.push('/projects')}>
+                            Projects Home
+                        </Link>
+                        </li>
+
+                    <li role="presentation" className="active">
                         <Link className="nav-item projectNav" onClick={() => browserHistory.push('/shoot/' + this.props.params.projectId)}>
                             Project Shoot List
                         </Link>
-                        <Link className="nav-item homeNav" onClick={() => browserHistory.push('/projects')}>
-                            Home
-                        </Link>
-                        <Link className="nav-item signOutNav" onClick={this.returnToSignin}>
-                            Sign Out
-                        </Link>
+                        </li>
+
+                        
+
+                         <li role="presentation">
                         <Link className="nav-item signOutNav" onClick={() => browserHistory.push('/edituser/'+ this.props.id)}>
                             Edit User Information
                         </Link>
+                        </li>
+
+                    
+                        <li role="presentation" className="pull-right">
+                            <Link className="nav-item signOut" onClick={this.returnToSignin}>
+                                         Sign Out
+                        </Link>
+                                 </li>
+                            
+                     
+                 
+
+                       
+                       
                     </div>
                 </nav>
-            </header>
+                 </ul>
+     
         </div>
     );
   }
 }
 
 export default NavBar;
+
+// <ul class="nav nav-pills">
+//   <li role="presentation" class="active"><a href="#">Home</a></li>
+//   <li role="presentation"><a href="#">Profile</a></li>
+//   <li role="presentation"><a href="#">Messages</a></li>
+// </ul>
 
 
 // <div className="nav navbar-nav navbar-left">

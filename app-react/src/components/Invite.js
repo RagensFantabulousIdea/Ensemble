@@ -68,9 +68,10 @@ render() {
             <h1>Invitation Form</h1>
             <div className="container">
                 <div className="row">
-                    <div className="col-sm-4 col-sm-offset-4">
+                    <div className="col-sm-8 col-sm-offset-2">
                         <div className="panel invitePanel">
-                            <div className="panel-heading"></div>
+                            <div className="panel-heading slimPanelHeader">
+                            </div>
                             <div className="panel-body">
                                 <p className="inviteInstructions">Fill out this form with the information for the person you are inviting to your project.</p>
                                 <div className="form-group">
@@ -85,10 +86,11 @@ render() {
                                     <label htmlFor="email">Email</label>
                                     <input type="text" className="form-control email" value={this.state.email} onChange={(e) => this.setState({ email: e.target.value })} required />
                                 </div>
+                            </div>
+                            <div className="panel-footer projectCardNavButtons">
                                 <div className="inviteSendButton">
                                     <button type="button" className="btn projectButton" onClick={() => this.invitePeople()}> Invite </button>
                                 </div>
-
                             </div>
                         </div>
                     </div>

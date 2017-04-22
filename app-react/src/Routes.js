@@ -37,7 +37,6 @@ import CommentsTopLevel from './components/CommentsTopLevel'
 class Routes extends React.Component {
     render() {
         return <Router history={browserHistory}>
-            <Route path="/sandbox" component={UserProjects} />
             <Route path="/signup" component={SignUp} />
             <Route path="/signin" component={SignIn} />
             <Route path="/projects" component={UserProjects} />

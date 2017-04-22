@@ -25,10 +25,10 @@ class createproject extends Component {
         if (
             this.state.title !== '' &&
             this.state.author !== '' &&
-            this.state.projectNumber !== '' &&
             this.state.description !== ''
         ) {
             var token = sessionStorage.getItem('token');
+            
             fetch('/api/projects', {
                 method: 'POST',
                 headers: {
@@ -54,6 +54,9 @@ class createproject extends Component {
 
                     browserHistory.push('/projects')
                 })
+            }
+            else {
+                alert('You must fill in title, author, and description before saving.')
         }
     }
 
@@ -65,8 +68,10 @@ class createproject extends Component {
                     <h1>Create a Project</h1>
                         <div className="container">
                             <div className="row">
-                                <div className="col-sm-4 col-sm-offset-4">
+                                <div className="col-sm-8 col-sm-offset-2">
                                     <div className="panel">
+                                    <div className="panel-heading slimPanelHeader">
+                                    </div>
                                         <div className="panel-body">
                                             <form>
                                                 <div className="form-group">
@@ -88,11 +93,14 @@ class createproject extends Component {
                                                 
                                                 <div className="form-group">
                                                     <label htmlFor="description">Description of project</label>
-                                                    <textarea className="form-control" placeholder="body" rows="10" required 
+                                                    <textarea className="form-control" placeholder="body" rows="5" required 
                                                     onChange={(e) => this.setState({description: e.target.value})}/>
                                                 </div>
-                                                <button type="button" className="btn btn-success " onClick={this.addProject}>Save</button>
+                                                
                                             </form>
+                                        </div>
+                                        <div className="panel-footer projectCardNavButtons">
+                                            <button type="button" className="btn projectButton" onClick={this.addProject}>Save</button>
                                         </div>
                                     </div>
                                 </div>

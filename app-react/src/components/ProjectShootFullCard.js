@@ -182,7 +182,7 @@ class ProjectShootFullCard extends Component {
                             <h4 className="form-group figureFrame">Asset Selection Frame Number</h4>
                             <p className="help-block">Note the frame number for the photo that is selected for this asset, exactly as it appears with the thumbnail image (do not include file extension).</p>
                             <div className="input-group">
-                                <input type="text" className="form-control figureSelectedBox" value={this.state.selected_photo} onChange={(e) => this.setState({ selected_photo: e.target.value })} />
+                                <input type="text" className="form-control figureSelectedBox" value={this.state.selected_photo.frame_num} onChange={(e) => this.setState({ selected_photo: e.target.value })} />
                                 <span className="input-group-btn">
                                     <button className="btn btn-success" type="button" onClick={this.updateFrameSelected}>Save</button>
                                 </span>

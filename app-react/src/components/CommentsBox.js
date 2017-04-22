@@ -60,6 +60,7 @@ class CommentsBox extends Component {
       <div>
         <div className="row">
           <div className="col-xs-12 commentsTopLevelCol">
+          <a name="comments"></a>
           <h4>Messages</h4>
             <div className="input-group">            
                   <input type="text" className="form-control" value={this.state.body} onChange={(e) => this.setState({body: e.target.value})} />

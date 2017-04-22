@@ -5,7 +5,7 @@ class SampleUploader extends React.Component {
     super(props)
     this.upload = this.upload.bind(this)
     this.state = {
-      image: null,
+      image: '',
       token: ''
     }
   }
@@ -13,7 +13,7 @@ class SampleUploader extends React.Component {
   upload() {
      var image = this.state.image
     
-      if (image !== null) {
+      if (image !== '') {
         var data = new FormData()
       data.append('image', this.state.image)
       data.append('sample_photo', true)
@@ -22,7 +22,7 @@ class SampleUploader extends React.Component {
         method: 'POST',
         body: data
       })
-      // .then(response => response.json())
+
       .then(response => {
         this.props.getImages()
           this.setState({
@@ -44,11 +44,8 @@ class SampleUploader extends React.Component {
 
       <div className="form-group">
         <button onClick={this.upload} type="button" className="btn btn-success btn-block upload">Upload</button>
-        {this.state.upload ? <img src="./img/ajax-loader.gif" alt="loading" /> : ''}
       </div>
     </div>
-
-    
   }
 }
 
