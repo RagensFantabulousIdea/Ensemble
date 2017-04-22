@@ -181,9 +181,12 @@ a.nav-item {
     cursor: pointer;
     cursor: hand;
 }
+.navbar-nav>li>a:hover { 
+    background-color: black;
+}
 
 /*.homeNav {
-    padding-left: 10px;
+    background: red;
 }*/
 
 /*.projectNav {
@@ -700,7 +703,7 @@ h3 {
 
     nav {
         padding-top: 18px;
-        padding-bottom: 50px;
+        padding-bottom: 40px;
     }
 
     .headerArea {
@@ -806,6 +809,11 @@ h3 {
 }*/
 .homeNav{
     margin-left: 40px;
+}
+
+.homeNav:active{
+    background-color: #111111;
+    border-color: #000000;
 }
 
 .projectNav{
