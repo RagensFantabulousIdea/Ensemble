@@ -16,7 +16,7 @@ class SampleUploader extends React.Component {
       if (image !== '') {
         var data = new FormData()
       data.append('image', this.state.image)
-      data.append('sample_photo', true)
+      // data.append('sample_photo', true)
 
       fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/sample_photos?token=' + sessionStorage.getItem('token'), {
         method: 'POST',

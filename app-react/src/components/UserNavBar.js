@@ -51,7 +51,7 @@ constructor(props){
                         
                         <li role="presentation" className="pull-right">
                         <Link className="nav-item signOut" onClick={this.returnToSignin}>
-                            SignOut
+                            Sign Out
                         </Link>
                         </li>
 
