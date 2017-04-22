@@ -16,7 +16,7 @@ body {
     background-size: cover;
     height: 100vh;
     background-position: 25% 20%;
-    padding-bottom: 73vw;
+    /*padding-bottom: 73vw;*/
     padding-top: 30px; 
     text-align: center;
 }
@@ -64,10 +64,12 @@ body {
     padding-top: 50px; 
     padding-left: 40px;
     padding-right: 40px;
+    margin-bottom: 50px;
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
     font-size: 20px;
     color: #B16503;
+    
 }
 
 .centralData {
@@ -92,6 +94,7 @@ body {
 .actionButton {
     background-color: #5EABE2;
     font-family: 'Raleway', sans-serif;
+    border-radius: 0%;
 }
 
 /*modal*/
@@ -357,9 +360,20 @@ a.nav-item {
 }
 
 /*edit project form*/
+.editPanelBody {
+    padding-left: 
+}
+
 .editProjectCard {
     margin-top: 50%;
 }
+
+    .slimPanelHeader{
+    background-image: url("../img/background-1594712_1920.jpg");
+    background-size: cover;
+    overflow: hidden;
+    height: 50px;
+    }
 
 /*Photo Shoot List*/
 .projectShootListPage {
@@ -402,6 +416,7 @@ h1 {
     background-color: #5EABE2;
     font-family: 'Raleway', sans-serif;
     margin-bottom: 30px;
+    border-radius: 0%;
 }
 
 .pageInstructions {

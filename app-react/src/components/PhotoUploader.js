@@ -6,7 +6,7 @@ class PhotoUploader extends React.Component {
     super(props)
     this.upload = this.upload.bind(this)
     this.state = {
-      image: null,
+      image: '',
       // frame_num: '', 
       upload: false,
       token: ''
@@ -15,12 +15,8 @@ class PhotoUploader extends React.Component {
 
   upload() {
     var image = this.state.image
-
-    let uploadButton = this.refs.upload
-    uploadButton.disabled = true
-    uploadButton.innerHTML = 'Uploading...'
     
-    if (image !== null) {
+    if (image !== '') {
       var data = new FormData()
       data.append('image', this.state.image)
 
@@ -30,20 +26,12 @@ class PhotoUploader extends React.Component {
       })
       
       .then(response => {
-        uploadButton.disabled = false
-        uploadButton.innerHTML = 'Upload'
-
         this.props.getImages()
         this.setState({
           image: ''
         })
       })
-      // .then(uploadNotification => {
-      //   btn.button('reset')
-      // })
-      // .then(blah => {
-      //   this.setState({upload: false})
-      // })
+
     }
   else {
     alert('You must select an image file to upload.')
@@ -59,42 +47,12 @@ render() {
         <input type="file" name="image" className="form-control imageUploader" value={this.state.image} required onChange={(e) => this.setState({image:e.target.files[0]})} />
       </div>
 
-      <div className="loading">
-        {this.state.upload ? <img className="loading-image" src="./img/ajax-loader.gif" alt="loading..." /> : ''}
-      </div>
-
       <div className="form-group" >
-        <button ref="upload" onClick={this.upload} type="button" className="btn btn-success btn-block upload">Upload</button>
+        <button onClick={this.upload} type="button" className="btn btn-success btn-block upload">Upload</button>
       </div>
 
     </div>
   }
 }
 
-      // <div>
-      //    {this.state.upload ? <img src="./img/ajax-loader.gif" alt="loading" /> : ''}
-      // </div>
-
 export default PhotoUploader;
-
-      // <button type="button" data-loading-text="Loading..." className="btn btn-success btn-block upload myButton" autocomplete="off" onClick={this.upload}>Upload</button>
-
-
-// <div className='progress'>
-//   <div className='progress-bar'
-//        role='progressbar'
-//        aria-valuenow='70'
-//        aria-valuemin='0'
-//        aria-valuemax='100'
-//        style={{width: '70%'}}>
-//     <span className='sr-only'>70% Complete</span>
-//   </div>
-// </div>
-
-
-      // <div className="form-group">
-      //   <label htmlFor="frame_num" className="photoFrameInstructions">Enter the Frame Number for Each Photo Uploaded</label>
-      //   <input type="text" name="frame_num" className="form-control" required maxLength="255" value={this.state.frame_num} onChange={(e) => this.setState({frame_num:e.target.value})} />
-      // </div>
-
-      //       

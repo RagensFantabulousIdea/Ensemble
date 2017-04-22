@@ -5,39 +5,31 @@ class SampleUploader extends React.Component {
     super(props)
     this.upload = this.upload.bind(this)
     this.state = {
-      image: null,
+      image: '',
       token: ''
     }
   }
 
   upload() {
      var image = this.state.image
-
-     let uploadButton = this.refs.upload
-      uploadButton.disabled = true
-      uploadButton.innerHTML = 'Uploading...'
     
-      if (image !== null) {
+      if (image !== '') {
         var data = new FormData()
-        data.append('image', this.state.image)
-        data.append('sample_photo', true)
+      data.append('image', this.state.image)
+      data.append('sample_photo', true)
 
-        fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/sample_photos?token=' + sessionStorage.getItem('token'), {
-          method: 'POST',
-          body: data
-        })
-        // .then(response => response.json())
-        .then(response => {
-
-          uploadButton.disabled = false
-          uploadButton.innerHTML = 'Upload'
-
-          this.props.getImages()
+      fetch('/api/projects/' + this.props.params.projectId + '/assets/' + this.props.params.assetId + '/sample_photos?token=' + sessionStorage.getItem('token'), {
+        method: 'POST',
+        body: data
+      })
+      // .then(response => response.json())
+      .then(response => {
+        this.props.getImages()
           this.setState({
-            image: ''
-          })
+          image: ''
         })
-      }
+      })
+    }
       else {
         alert('You must select an image file to upload.')
       }
@@ -51,8 +43,7 @@ class SampleUploader extends React.Component {
       </div>
 
       <div className="form-group">
-        <button ref="upload" onClick={this.upload} type="button" className="btn btn-success btn-block upload">Upload</button>
-        {this.state.upload ? <img src="./img/ajax-loader.gif" alt="loading" /> : ''}
+        <button onClick={this.upload} type="button" className="btn btn-success btn-block upload">Upload</button>
       </div>
     </div>
 
