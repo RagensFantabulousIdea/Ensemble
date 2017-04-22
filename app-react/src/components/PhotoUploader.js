@@ -15,6 +15,10 @@ class PhotoUploader extends React.Component {
 
   upload() {
     var image = this.state.image
+
+    let uploadButton = this.refs.upload
+    uploadButton.disabled = true
+    uploadButton.innerHTML = 'Uploading...'
     
     if (image !== null) {
       var data = new FormData()
@@ -26,6 +30,9 @@ class PhotoUploader extends React.Component {
       })
       
       .then(response => {
+        uploadButton.disabled = false
+        uploadButton.innerHTML = 'Upload'
+
         this.props.getImages()
         this.setState({
           image: ''
@@ -57,7 +64,7 @@ render() {
       </div>
 
       <div className="form-group" >
-        <button onClick={this.upload} type="button" className="btn btn-success btn-block upload">Upload</button>
+        <button ref="upload" onClick={this.upload} type="button" className="btn btn-success btn-block upload">Upload</button>
       </div>
 
     </div>

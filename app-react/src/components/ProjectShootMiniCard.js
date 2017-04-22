@@ -35,7 +35,7 @@ class ProjectShootMiniCard extends Component {
                                     </div>
 
                                     <div className="col-sm-6">
-                                        {this.props.selected_photo && this.props.selected_photo.image.std.url ? <img className="miniCardPhotoView" src={this.props.selected_photo.image.std.url} alt="selection" /> : ''}
+                                        {this.props.selected_photo && this.props.selected_photo.image.std.url ? <img className="miniCardPhotoView img-responsive" src={this.props.selected_photo.image.std.url} alt="selection" /> : ''}
                                     </div>
                                 </div>
                             </div>

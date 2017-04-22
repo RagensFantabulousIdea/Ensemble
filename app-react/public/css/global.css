@@ -14,6 +14,7 @@ body {
 .welcome {
     background-image: url("../img/sunset-2218149_1920.jpg");
     background-size: cover;
+    height: 100vh;
     background-position: 25% 20%;
     padding-bottom: 73vw;
     padding-top: 30px; 
@@ -177,9 +178,12 @@ a.nav-item {
     cursor: pointer;
     cursor: hand;
 }
+.navbar-nav>li>a:hover { 
+    background-color: black;
+}
 
 /*.homeNav {
-    padding-left: 10px;
+    background: red;
 }*/
 
 /*.projectNav {
@@ -353,7 +357,9 @@ a.nav-item {
 }
 
 /*edit project form*/
-
+.editProjectCard {
+    margin-top: 50%;
+}
 
 /*Photo Shoot List*/
 .projectShootListPage {
@@ -441,9 +447,12 @@ panel-body .projectShootMiniCardSetup {
     /*max-height: none !important;*/
     /*width: 100%;*/
     /*height: auto;*/
-    /*max-width: 600px;*/
+    /*max-width: 18vw;*/
+    max-width: 100%;
     max-height: 170px;
     width: initial;
+    /*width: inherit;*/
+    overflow: hidden;
     /*width: auto;*/
     /*display: inline-block;*/
     /*text-align: center;*/
@@ -692,7 +701,18 @@ h3 {
     margin-top: 10px;
     margin-bottom: 20px; 
     }
+
+    /*.miniCardPhotoView {
+        max-width: 27vw;
+    }*/
 }
+
+/*device*/
+/*@media all and (min-width: 830px) {
+    .miniCardPhotoView {
+        max-width: 27vw;
+    }
+}*/
 
 /*laptop*/
 @media all and (min-width: 1024px) {
@@ -704,6 +724,10 @@ h3 {
     .projectPanelHeader{
     height: 150px;
     }
+
+    /*.miniCardPhotoView {
+    max-width: 17vw;
+    }*/
 }
 
 /*desktop*/
@@ -757,11 +781,13 @@ h3 {
         color: white;
         font-size: 20px; 
     }
+
+    /*.miniCardPhotoView {
+    max-width: 18vw;
+    }*/
 }
 
-.jeffsGuess {
-    margin-top: 50%;
-}
+
 
 /*a.nav-item {
     background-color: #337ab7;
@@ -769,76 +795,18 @@ h3 {
 .homeNav{
     margin-left: 40px;
 }
+
+.homeNav:active{
+    background-color: #111111;
+    border-color: #000000;
+}
+
+.projectNav{
+    margin-left: 40px;
+}
+
 .signOut{
         border: 3px solid white;
         font-size: 20px; 
         /*border-radius: 90%;*/
 }
-
-
-
-/*modal info from class example*/
-/*.overlay-background {
-    background-color: rgba(0,0,0,0.5);
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    width: 100vw;
-    height: 100vh; 
-    overflow: hidden;
-    overflow-y: auto;
-    opacity: 1;
-    transition: opacity 0.3s ease;*/
-    /*overflow hidden hides anything that flows right out of the box*/
-    /*if you put overflow-y on the container, the whole page scrolls. if you put it on the overlay box itself, it will scroll within the overlay. */
-/*}
-
-/*.overlay-background.hidden {
-    opacity: 0;
-}*/
-
-/*.overlay {
-    box-shadow: 5px 5px 10px rgba(0,0,0,0.25);
-    background-color: white;
-    width: 50vw;
-    min-width: 300px; */
-    /*height: 50vh;*/
-    /*margin: 0 auto;
-    margin-top: 5vh; 
-    margin-bottom: 5vh; 
-    border-radius: 5px; 
-    padding: 20px 30px;*/
-    /*overflow-y: auto;*/
-    /*in modal, have to define height, even though he doesn't usually like setting height.*/
-    /*overflow will allow scrolling within the modal*/
-/*}*/
-/*end modal stuff from w8 d2 notes*/
-
-
-
-
-/*Start styles Manpreet had made*/
-
-
-/*.createproject{
-    margin-top: 20px;
-}*/
-
-/*.carditems{
-    padding-top: 10px;
-    padding-left: 20px;
-}*/
-
-/*.invitetopmargin{
-    margin-top: 20px;
-}*/
-
-/*.logout {
-    float: right;
-    font-size: 30px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 20px;
-}*/
-
-/*end Manpreet's styles*/
