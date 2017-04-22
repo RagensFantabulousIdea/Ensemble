@@ -12,7 +12,7 @@ class ProjectCreateCard extends Component {
         this.state = {
             figureNumber: '',
             figureParts: '',
-            selected_photo: '', 
+            selected_photo: '',
             frame_num: '',
             orderNumber: '',
             figureDescription: '',
@@ -26,7 +26,7 @@ class ProjectCreateCard extends Component {
             photoDecorative: '',
             photoDemonstrative: '',
             orientationPortrait: '',
-            orientationLandscape: '', 
+            orientationLandscape: '',
         }
     }
 
@@ -60,188 +60,172 @@ class ProjectCreateCard extends Component {
                 token: token
             })
         })
-        
-        .then(response => response.json())
-        .then(asset => {
-            browserHistory.push('/shoot/' + this.props.params.projectId)
-        })
+
+            .then(response => response.json())
+            .then(asset => {
+                browserHistory.push('/shoot/' + this.props.params.projectId)
+            })
     }
 
-  
-  render(){
 
-    return (
-        <div className="projectCreateCard">
-            <NavBar {...this.props}/>
+    render() {
 
-            <h1>Photo Shoot Planning Card</h1>
+        return (
+            <div className="projectCreateCard">
+                <NavBar {...this.props} />
+                <h1>Photo Shoot Planning Card</h1>
+                <div className="container">
+                    <div className="panel">
+                        <div className="panel-heading">
+                            <div className="row">
+                                <div className="col-xs-6">
+                                    <div className="form-group">
+                                        <label htmlFor="figureNumber">Asset Number</label>
+                                        <input type="text" className="form-control figureNumber" placeholder="Asset 1.1" onChange={(e) => this.setState({ figureNumber: e.target.value })} />
+                                    </div>
 
-            <div className="container">
-                <div className="panel">
-                    <div className="panel-heading">
-                        <div className="row">
-                            <div className="col-xs-6">
-                                <div className="form-group">
-                                    <label htmlFor="figureNumber">Asset Number</label>
-                                    <input type="text" className="form-control figureNumber" placeholder="Asset 1.1" onChange={(e) => this.setState({figureNumber: e.target.value})}/>
+                                    <div className="form-group">
+                                        <label htmlFor="figureParts">If this asset is part of a multi-part figure, how many parts are in the figure including the one for this asset?</label>
+                                        <input type="text" className="form-control figureParts" placeholder="1" onChange={(e) => this.setState({ figureParts: e.target.value })} />
+                                    </div>
+
                                 </div>
 
-                                <div className="form-group">
-                                    <label htmlFor="figureParts">If this asset is part of a multi-part figure, how many parts are in the figure including the one for this asset?</label>
-                                    <input type="text" className="form-control figureParts" placeholder="1" onChange={(e) => this.setState({figureParts: e.target.value})}/>
-                                </div>
+                                <div className="col-xs-6">
+                                    <div className="form-group">
+                                        <label htmlFor="figureSelection">Asset Selection Frame Number</label>
+                                        <input type="text" className="form-control figureSelection" placeholder="DSC05697" onChange={(e) => this.setState({ selected_photo: e.target.value })} />
+                                    </div>
 
-                            </div>
-
-                            <div className="col-xs-6">
-                                <div className="form-group">
-                                    <label htmlFor="figureSelection">Asset Selection Frame Number</label>
-                                    <input type="text" className="form-control figureSelection" placeholder="DSC05697" onChange={(e) => this.setState({selected_photo: e.target.value})}/>
-                                </div>
-
-                                <div className="form-group">
-                                <br/>
-                                    <label htmlFor="figureOrder">Order Number (within the photo shoot)</label>
-                                    <input type="text" className="form-control figureOrder" placeholder="1" onChange={(e) => this.setState({orderNumber: e.target.value})}/>
+                                    <div className="form-group">
+                                        <br />
+                                        <label htmlFor="figureOrder">Order Number (within the photo shoot)</label>
+                                        <input type="text" className="form-control figureOrder" placeholder="1" onChange={(e) => this.setState({ orderNumber: e.target.value })} />
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div className="panel-body">
-                        <form>              
+                        <div className="panel-body">
+                            <form>
+                                <div className="row">
+                                    <div className="col-xs-12">
+                                        <div className="form-group">
+                                            <label htmlFor="figureDescription">Asset Description</label>
+                                            <textarea type="text" className="form-control figureDescription" placeholder="child swinging baseball bat" onChange={(e) => this.setState({ figureDescription: e.target.value })}></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="row">
+                                    <div className="col-xs-12">
+                                        <div className="form-group">
+                                            <label htmlFor="figureInstructions">Instructions (for posing the models)</label>
+                                            <textarea type="text" className="form-control figureInstructions" placeholder="Stand with feet hip-width apart, facing home base, body angled towards the pitcher's mound . . ." onChange={(e) => this.setState({ figureInstructions: e.target.value })}></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="row">
+                                    <div className="col-sm-6">
+                                        <div className="form-group">
+                                            <label htmlFor="figureEquipment">Equipment</label>
+                                            <textarea type="text" className="form-control figureEquipment" placeholder="baseball bat, batting helmet, batting gloves . . ." onChange={(e) => this.setState({ figureEquipment: e.target.value })}></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div className="col-sm-6">
+                                        <div className="form-group">
+                                            <label htmlFor="photo_model">Model Information</label>
+                                            <textarea type="text" className="form-control figureModel" placeholder="boy, 10 years old" onChange={(e) => this.setState({ photo_model: e.target.value })}></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="row">
+                                    <div className="col-sm-12">
+                                        <div className="form-group">
+                                            <label htmlFor="figurePhotographer">Photographer</label>
+                                            <input type="text" className="form-control figurePhotographer" onChange={(e) => this.setState({ photographer: e.target.value })} />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="row">
+                                    <div className="col-sm-4">
+                                        <div className="form-group">
+                                            <label htmlFor="figureLocation">Location of Shoot</label>
+                                            <textarea type="text" className="form-control figureLocation" placeholder="Champaign, IL, Kirby Park baseball field, batting box" onChange={(e) => this.setState({ shootLocation: e.target.value })}></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div className="col-sm-4">
+                                        <div className="form-group">
+                                            <label htmlFor="figureDate">Date of Shoot</label>
+                                            <input type="text" className="form-control figureDate" placeholder="March 15" onChange={(e) => this.setState({ shootDate: e.target.value })} />
+                                        </div>
+                                    </div>
+
+                                    <div className="col-sm-4">
+                                        <div className="form-group">
+                                            <label htmlFor="figureTime">Time of Shoot</label>
+                                            <input type="text" className="form-control figureTime" placeholder="1-5 PM" onChange={(e) => this.setState({ shootTime: e.target.value })} />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="row panel-heading">
+                                    <p className="help-block">You can check more than one checkbox.</p>
+                                    <div className="col-sm-3">
+                                        <div className="checkbox figureDeco">
+                                            <label>
+                                                <input type="checkbox" onChange={(e) => this.setState({ photoDecorative: e.target.checked })} /> Decorative photo?
+                                        </label>
+                                        </div>
+                                    </div>
+
+                                    <div className="col-sm-3">
+                                        <div className="checkbox figureDemo">
+                                            <label>
+                                                <input type="checkbox" onChange={(e) => this.setState({ photoDemonstrative: e.target.checked })} /> Demonstrative photo?
+                                        </label>
+                                        </div>
+                                    </div>
+
+                                    <div className="col-sm-3">
+                                        <div className="checkbox figurePortrait">
+                                            <label>
+                                                <input type="checkbox" onChange={(e) => this.setState({ orientationPortrait: e.target.checked })} /> Portrait orientation?
+                                        </label>
+                                        </div>
+                                    </div>
+
+                                    <div className="col-sm-3">
+                                        <div className="checkbox figureLandscape">
+                                            <label>
+                                                <input type="checkbox" onChange={(e) => this.setState({ orientationLandscape: e.target.checked })} /> Landscape orientation?
+                                        </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </form>
+                        </div>
+                        <div className="panel-footer">
                             <div className="row">
+
                                 <div className="col-xs-12">
-                                    <div className="form-group">
-                                        <label htmlFor="figureDescription">Asset Description</label>
-                                        <textarea type="text" className="form-control figureDescription"  placeholder="child swinging baseball bat" onChange={(e) => this.setState({figureDescription: e.target.value})}></textarea>
-                                    </div>
-                                </div> 
-                            </div>
-
-                            <div className="row">
-                                <div className="col-xs-12">
-                                    <div className="form-group">
-                                        <label htmlFor="figureInstructions">Instructions (for posing the models)</label>
-                                        <textarea type="text" className="form-control figureInstructions"  placeholder="Stand with feet hip-width apart, facing home base, body angled towards the pitchers mound . . ." onChange={(e) => this.setState({figureInstructions: e.target.value})}></textarea>
-                                    </div>
+                                    <button type="button" className="btn btn-success pull-right saveFigure" onClick={this.saveAsset}>Save Asset</button>
                                 </div>
-                            </div>
-
-                            <div className="row">
-                                <div className="col-sm-6">
-                                    <div className="form-group">
-                                        <label htmlFor="figureEquipment">Equipment</label>
-                                        <textarea type="text" className="form-control figureEquipment"  placeholder="baseball bat, batting helmet, batting gloves . . ."onChange={(e) => this.setState({figureEquipment: e.target.value})}></textarea>
-                                    </div>
-                                </div>
-
-                                <div className="col-sm-6">
-                                    <div className="form-group">
-                                        <label htmlFor="photo_model">Model Information</label>
-                                        <textarea type="text" className="form-control figureModel"  placeholder="boy, 10 years old" onChange={(e) => this.setState({photo_model: e.target.value})}></textarea>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="row">
-                                <div className="col-sm-12">
-                                    <div className="form-group">
-                                        <label htmlFor="figurePhotographer">Photographer</label>
-                                        <input type="text" className="form-control figurePhotographer" onChange={(e) => this.setState({photographer: e.target.value})}/>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="row">
-                                <div className="col-sm-4">
-                                    <div className="form-group">
-                                        <label htmlFor="figureLocation">Location of Shoot</label>
-                                        <textarea type="text" className="form-control figureLocation" placeholder="Champaign, IL, Kirby Park baseball field, batting box" onChange={(e) => this.setState({shootLocation: e.target.value})}></textarea>
-                                    </div>
-                                </div>
-
-                                <div className="col-sm-4">
-                                    <div className="form-group">
-                                        <label htmlFor="figureDate">Date of Shoot</label>
-                                        <input type="text" className="form-control figureDate" placeholder="March 15" onChange={(e) => this.setState({shootDate: e.target.value})}/>
-                                    </div>
-                                </div>
-
-                                <div className="col-sm-4">
-                                    <div className="form-group">
-                                        <label htmlFor="figureTime">Time of Shoot</label>
-                                        <input type="text" className="form-control figureTime" placeholder="1-5 PM" onChange={(e) => this.setState({shootTime: e.target.value})}/>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="row panel-heading">
-                            <p className="help-block">You can check more than one checkbox.</p>
-                                <div className="col-sm-3">
-                                    <div className="checkbox figureDeco">
-                                        <label>
-                                            <input type="checkbox" onChange={(e) => this.setState({photoDecorative: e.target.checked})} /> Decorative photo?
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div className="col-sm-3">
-                                    <div className="checkbox figureDemo">
-                                        <label>
-                                            <input type="checkbox" onChange={(e) => this.setState({photoDemonstrative: e.target.checked})} /> Demonstrative photo?
-                                        </label>
-                                    </div>
-                                </div>
-                                
-                                <div className="col-sm-3">
-                                    <div className="checkbox figurePortrait">
-                                        <label>
-                                            <input type="checkbox" onChange={(e) => this.setState({orientationPortrait: e.target.checked})} /> Portrait orientation?
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div className="col-sm-3">
-                                    <div className="checkbox figureLandscape">
-                                        <label>
-                                            <input type="checkbox" onChange={(e) => this.setState({orientationLandscape: e.target.checked})} /> Landscape orientation?
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            
-                        </form>
-                    </div>
-                    <div className="panel-footer">
-                        <div className="row">
-
-                            <div className="col-xs-12">
-                                <button type="button" className="btn btn-success pull-right saveFigure" onClick={this.saveAsset}>Save Asset</button>
                             </div>
                         </div>
                     </div>
                 </div>
+                <FooterArea />
             </div>
-            <FooterArea />
-        </div>
-    );
-  }
+        );
+    }
 }
 
 export default ProjectCreateCard;
-
-// <div className="row">
-//                                 <div className="col-xs-12">
-//                                     <div className="form-group">
-//                                         <label htmlFor="figureSample">Upload Sample</label>
-//                                         <p className="help-block">You can upload sample images to guide the models and photographer.</p>
-//                                         <SampleUploader getImages={this.getImages} {...this.props}/>
-//                                     </div>
-//                                 </div>
-//                             </div>
-
-//                             <div className="row">
-//                                 {images}
-//                             </div>
