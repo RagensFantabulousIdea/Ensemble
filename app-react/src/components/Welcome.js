@@ -58,9 +58,11 @@ class Welcome extends Component {
               <p className="collaborating">Invite partners into your project to collaborate with them during all stages of the shoot process through the easy-to-use forms and in-app messaging system that can be accessed on mobile, tablet, or desktop devices.</p>
             </div>
             
-            <div className="col-sm-4">
-              <p className="makingSelections">Upload jpeg images, discuss results, and record the final selection in one location.</p>
-            </div>
+
+            <div className="col-sm-6 col-md-4">
+              <p className="makingSelections">Upload  images, discuss results, and record the final selection in one location. You can upload jpeg, gif, png and svg images.</p>
+              </div>
+
           </div>
 
         <FooterArea />
@@ -74,4 +76,3 @@ class Welcome extends Component {
 export default Welcome;
 
 
-// onClick={() => browserHistory.push('/Signin')}
