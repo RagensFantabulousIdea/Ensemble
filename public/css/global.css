@@ -542,6 +542,11 @@ panel-body .projectShootMiniCardSetup {
     font-family: 'Raleway', sans-serif;
 }
 
+/*photo upload and sample upload*/
+/*.upload {
+    border-radius: 0px;
+}*/
+
 /*project photo collaborating*/
 .projectPhotoCollaborating {
     background-color: #2D2D2D;
