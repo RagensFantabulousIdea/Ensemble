@@ -7,8 +7,6 @@ class PhotoUploader extends React.Component {
     this.upload = this.upload.bind(this)
     this.state = {
       image: '',
-      // frame_num: '', 
-      upload: false,
       token: ''
     }
   }
@@ -31,7 +29,6 @@ class PhotoUploader extends React.Component {
           image: ''
         })
       })
-
     }
   else {
     alert('You must select an image file to upload.')
@@ -41,8 +38,6 @@ class PhotoUploader extends React.Component {
 
 render() {
     return <div>
-
-
       <div className="form-group" >
         <input type="file" name="image" className="form-control imageUploader" value={this.state.image} required onChange={(e) => this.setState({image:e.target.files[0]})} />
       </div>
@@ -50,7 +45,6 @@ render() {
       <div className="form-group" >
         <button onClick={this.upload} type="button" className="btn btn-success btn-block upload">Upload</button>
       </div>
-
     </div>
   }
 }

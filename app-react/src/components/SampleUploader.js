@@ -22,7 +22,7 @@ class SampleUploader extends React.Component {
         method: 'POST',
         body: data
       })
-      // .then(response => response.json())
+
       .then(response => {
         this.props.getImages()
           this.setState({
@@ -46,8 +46,6 @@ class SampleUploader extends React.Component {
         <button onClick={this.upload} type="button" className="btn btn-success btn-block upload">Upload</button>
       </div>
     </div>
-
-    
   }
 }
 
