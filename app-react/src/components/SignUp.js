@@ -94,19 +94,19 @@ return <div className="modal-fade" style={{display: this.props.modalSu}}>
                 <button type="button" className="close signup-close" data-dismiss="modalSu" aria-label="Close" onClick={this.props.closeSu}><span aria-hidden="true">&times;</span></button>
                 <div className="form-group">
                     <label htmlFor="firstname">First Name</label>
-                    <input type="text" className="form-control name" placeholder="John" value={this.state.firstname} onChange={(e) => this.setState({firstname: e.target.value})} required/>
+                    <input type="text" className="form-control name" placeholder="First" value={this.state.firstname} onChange={(e) => this.setState({firstname: e.target.value})} required/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="lastname">Last Name</label>
-                    <input type="text" className="form-control name" placeholder="Smith" value={this.state.lastname} onChange={(e) => this.setState({lastname: e.target.value})} required/>
+                    <input type="text" className="form-control name" placeholder="Last" value={this.state.lastname} onChange={(e) => this.setState({lastname: e.target.value})} required/>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="email">Email</label>
-                    <input type="text" className="form-control email" placeholder="johnsmith@gmail.com" value={this.state.email} onChange={(e) => this.setState({email: e.target.value})} required />
+                    <label htmlFor="email">E-Mail</label>
+                    <input type="text" className="form-control email" placeholder="username@example.com" value={this.state.email} onChange={(e) => this.setState({email: e.target.value})} required />
                 </div>
                 <div className="form-group">
                     <label htmlFor="password">Password</label>
-                    <input type="password" className="form-control password" maxLength="72" value={this.state.password} onChange={(e) => this.setState({password: e.target.value})}  required />
+                    <input type="password" className="form-control password" placeholder="password" maxLength="72" value={this.state.password} onChange={(e) => this.setState({password: e.target.value})}  required />
                 </div>
             </div>
             <div className="panel-footer text-center">
