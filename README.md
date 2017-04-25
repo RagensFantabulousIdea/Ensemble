@@ -6,12 +6,12 @@
 * Rails version: 
   5.0.2  
 
-* System dependencies
-  PostgreSQL
-  Bootstrap
-  Carrierwave
-  Sendgrid - Account/API Keys
-  Cloudinary - Account/API Keys
+* System dependencies:
+  *PostgreSQL
+  *Bootstrap
+  *Carrierwave
+  *Sendgrid - Account/API Keys
+  *Cloudinary - Account/API Keys
 
 * Database creation
   From your cloned directory:
