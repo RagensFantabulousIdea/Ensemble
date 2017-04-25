@@ -14,11 +14,13 @@
   * Cloudinary - Account/API Keys 
 
 * Database creation:
+
   From your cloned directory:
   
   * run `bundle` 
   * run `rails db:create`
  
  * Database initialization:
+ 
     *Run: `rails db:migrate`
     *Finally, run: `rails db:seed`
