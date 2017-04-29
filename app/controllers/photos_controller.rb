@@ -42,9 +42,9 @@ class PhotosController < ApplicationController
     if editor
       if @photo
         @selected_photo.update(selected: false) if @selected_photo
-        @selected_photo.save
         @photo.selected = true
         if @photo.save
+          @project.reload
            render json: @photo #["Photo #{@photo.frame_num} set as the selected photo for Project #{@project.project_num}, figure #{@asset.figure_num} successfully!"]
         else
           render json: @photo.errors.full_messages, status: 400
